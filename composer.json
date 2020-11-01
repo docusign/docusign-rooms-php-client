@@ -1,0 +1,38 @@
+{
+    "name": "docusign/rooms-client",
+    "description": "The DocuSign PHP library makes integrating DocuSign into your websites a super fast and painless process. The library is open sourced on GitHub, look for the docusign-rooms-php-client repository.",
+    "keywords": [
+        "DocuSign",
+        "Rooms",
+        "php",
+        "sdk",
+        "api"
+    ],
+    "homepage": "https://developers.docusign.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "DocuSign",
+            "homepage": "https://developers.docusign.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "firebase/php-jwt": "^5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8",
+        "satooshi/php-coveralls": "~1.0",
+        "squizlabs/php_codesniffer": "~2.6",
+        "friendsofphp/php-cs-fixer": "*"
+    },
+    "autoload": {
+        "psr-4": { "DocuSign\\Rooms\\" : "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "DocuSign\\Rooms\\" : "test/" }
+    }
+}
