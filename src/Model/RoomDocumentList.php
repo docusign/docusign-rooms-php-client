@@ -62,6 +62,7 @@ class RoomDocumentList implements ModelInterface, ArrayAccess
         'end_position' => 'int',
         'next_uri' => 'string',
         'prior_uri' => 'string',
+        'total_row_count' => 'int',
         'documents' => '\DocuSign\Rooms\Model\RoomDocument[]'
     ];
 
@@ -76,6 +77,7 @@ class RoomDocumentList implements ModelInterface, ArrayAccess
         'end_position' => 'int32',
         'next_uri' => null,
         'prior_uri' => null,
+        'total_row_count' => 'int32',
         'documents' => null
     ];
 
@@ -111,6 +113,7 @@ class RoomDocumentList implements ModelInterface, ArrayAccess
         'end_position' => 'endPosition',
         'next_uri' => 'nextUri',
         'prior_uri' => 'priorUri',
+        'total_row_count' => 'totalRowCount',
         'documents' => 'documents'
     ];
 
@@ -125,6 +128,7 @@ class RoomDocumentList implements ModelInterface, ArrayAccess
         'end_position' => 'setEndPosition',
         'next_uri' => 'setNextUri',
         'prior_uri' => 'setPriorUri',
+        'total_row_count' => 'setTotalRowCount',
         'documents' => 'setDocuments'
     ];
 
@@ -139,6 +143,7 @@ class RoomDocumentList implements ModelInterface, ArrayAccess
         'end_position' => 'getEndPosition',
         'next_uri' => 'getNextUri',
         'prior_uri' => 'getPriorUri',
+        'total_row_count' => 'getTotalRowCount',
         'documents' => 'getDocuments'
     ];
 
@@ -207,6 +212,7 @@ class RoomDocumentList implements ModelInterface, ArrayAccess
         $this->container['end_position'] = isset($data['end_position']) ? $data['end_position'] : null;
         $this->container['next_uri'] = isset($data['next_uri']) ? $data['next_uri'] : null;
         $this->container['prior_uri'] = isset($data['prior_uri']) ? $data['prior_uri'] : null;
+        $this->container['total_row_count'] = isset($data['total_row_count']) ? $data['total_row_count'] : null;
         $this->container['documents'] = isset($data['documents']) ? $data['documents'] : null;
     }
 
@@ -350,6 +356,30 @@ class RoomDocumentList implements ModelInterface, ArrayAccess
     public function setPriorUri($prior_uri)
     {
         $this->container['prior_uri'] = $prior_uri;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_row_count
+     *
+     * @return int
+     */
+    public function getTotalRowCount()
+    {
+        return $this->container['total_row_count'];
+    }
+
+    /**
+     * Sets total_row_count
+     *
+     * @param int $total_row_count total_row_count
+     *
+     * @return $this
+     */
+    public function setTotalRowCount($total_row_count)
+    {
+        $this->container['total_row_count'] = $total_row_count;
 
         return $this;
     }

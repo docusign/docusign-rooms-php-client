@@ -126,13 +126,13 @@ class DocumentsApi
      *
     * @param int $document_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\DocumentUserForCreate $document_user_for_create  (required)
+     * @param \DocuSign\Rooms\Model\DocumentUserForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\DocumentUser
      */
-    public function createDocumentUser($document_id, $account_id, $document_user_for_create)
+    public function createDocumentUser($document_id, $account_id, $body = null)
     {
-        list($response) = $this->createDocumentUserWithHttpInfo($document_id, $account_id, $document_user_for_create);
+        list($response) = $this->createDocumentUserWithHttpInfo($document_id, $account_id, $body);
         return $response;
     }
 
@@ -143,19 +143,15 @@ class DocumentsApi
      *
     * @param int $document_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\DocumentUserForCreate $document_user_for_create  (required)
+     * @param \DocuSign\Rooms\Model\DocumentUserForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\DocumentUser, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDocumentUserWithHttpInfo($document_id, $account_id, $document_user_for_create)
+    public function createDocumentUserWithHttpInfo($document_id, $account_id, $body = null)
     {
         // verify the required parameter 'document_id' is set
         if ($document_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $document_id when calling createDocumentUser');
-        }
-        // verify the required parameter 'document_user_for_create' is set
-        if ($document_user_for_create === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $document_user_for_create when calling createDocumentUser');
         }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -167,11 +163,11 @@ class DocumentsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -195,8 +191,8 @@ class DocumentsApi
 
         // body params
         $_tempBody = null;
-        if (isset($document_user_for_create)) {
-            $_tempBody = $document_user_for_create;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -284,7 +280,7 @@ class DocumentsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -394,7 +390,7 @@ class DocumentsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }

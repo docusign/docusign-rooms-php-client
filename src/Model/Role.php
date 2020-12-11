@@ -64,7 +64,7 @@ class Role implements ModelInterface, ArrayAccess
         'is_external' => 'bool',
         'created_date' => '\DateTime',
         'is_assigned' => 'bool',
-        'permissions' => '\DocuSign\Rooms\Model\NullablePermissions'
+        'permissions' => '\DocuSign\Rooms\Model\Permissions'
     ];
 
     /**
@@ -417,7 +417,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Gets permissions
      *
-     * @return \DocuSign\Rooms\Model\NullablePermissions
+     * @return \DocuSign\Rooms\Model\Permissions
      */
     public function getPermissions()
     {
@@ -427,7 +427,7 @@ class Role implements ModelInterface, ArrayAccess
     /**
      * Sets permissions
      *
-     * @param \DocuSign\Rooms\Model\NullablePermissions $permissions permissions
+     * @param \DocuSign\Rooms\Model\Permissions $permissions permissions
      *
      * @return $this
      */

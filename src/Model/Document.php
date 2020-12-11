@@ -65,6 +65,7 @@ class Document implements ModelInterface, ArrayAccess
         'folder_id' => 'int',
         'created_date' => '\DateTime',
         'is_signed' => 'bool',
+        'content_type' => 'string',
         'base64_contents' => 'string'
     ];
 
@@ -82,6 +83,7 @@ class Document implements ModelInterface, ArrayAccess
         'folder_id' => 'int32',
         'created_date' => 'date-time',
         'is_signed' => null,
+        'content_type' => null,
         'base64_contents' => null
     ];
 
@@ -120,6 +122,7 @@ class Document implements ModelInterface, ArrayAccess
         'folder_id' => 'folderId',
         'created_date' => 'createdDate',
         'is_signed' => 'isSigned',
+        'content_type' => 'contentType',
         'base64_contents' => 'base64Contents'
     ];
 
@@ -137,6 +140,7 @@ class Document implements ModelInterface, ArrayAccess
         'folder_id' => 'setFolderId',
         'created_date' => 'setCreatedDate',
         'is_signed' => 'setIsSigned',
+        'content_type' => 'setContentType',
         'base64_contents' => 'setBase64Contents'
     ];
 
@@ -154,6 +158,7 @@ class Document implements ModelInterface, ArrayAccess
         'folder_id' => 'getFolderId',
         'created_date' => 'getCreatedDate',
         'is_signed' => 'getIsSigned',
+        'content_type' => 'getContentType',
         'base64_contents' => 'getBase64Contents'
     ];
 
@@ -225,6 +230,7 @@ class Document implements ModelInterface, ArrayAccess
         $this->container['folder_id'] = isset($data['folder_id']) ? $data['folder_id'] : null;
         $this->container['created_date'] = isset($data['created_date']) ? $data['created_date'] : null;
         $this->container['is_signed'] = isset($data['is_signed']) ? $data['is_signed'] : null;
+        $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
         $this->container['base64_contents'] = isset($data['base64_contents']) ? $data['base64_contents'] : null;
     }
 
@@ -446,6 +452,30 @@ class Document implements ModelInterface, ArrayAccess
     public function setIsSigned($is_signed)
     {
         $this->container['is_signed'] = $is_signed;
+
+        return $this;
+    }
+
+    /**
+     * Gets content_type
+     *
+     * @return string
+     */
+    public function getContentType()
+    {
+        return $this->container['content_type'];
+    }
+
+    /**
+     * Sets content_type
+     *
+     * @param string $content_type content_type
+     *
+     * @return $this
+     */
+    public function setContentType($content_type)
+    {
+        $this->container['content_type'] = $content_type;
 
         return $this;
     }

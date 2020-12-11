@@ -98,13 +98,13 @@ class TaskListsApi
      *
     * @param int $room_id Room ID.
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\TaskListForCreate $task_list Details for task list creation. (required)
+     * @param \DocuSign\Rooms\Model\TaskListForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\TaskList
      */
-    public function createTaskList($room_id, $account_id, $task_list)
+    public function createTaskList($room_id, $account_id, $body = null)
     {
-        list($response) = $this->createTaskListWithHttpInfo($room_id, $account_id, $task_list);
+        list($response) = $this->createTaskListWithHttpInfo($room_id, $account_id, $body);
         return $response;
     }
 
@@ -115,19 +115,15 @@ class TaskListsApi
      *
     * @param int $room_id Room ID.
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\TaskListForCreate $task_list Details for task list creation. (required)
+     * @param \DocuSign\Rooms\Model\TaskListForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\TaskList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTaskListWithHttpInfo($room_id, $account_id, $task_list)
+    public function createTaskListWithHttpInfo($room_id, $account_id, $body = null)
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $room_id when calling createTaskList');
-        }
-        // verify the required parameter 'task_list' is set
-        if ($task_list === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $task_list when calling createTaskList');
         }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -139,11 +135,11 @@ class TaskListsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -167,8 +163,8 @@ class TaskListsApi
 
         // body params
         $_tempBody = null;
-        if (isset($task_list)) {
-            $_tempBody = $task_list;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -217,7 +213,7 @@ class TaskListsApi
     /**
      * Operation deleteTaskList
      *
-     * Deletes a task list. If there are attached documents they will remain in the associated room.
+     * Deletes a task list. If there are attached documents they will remain in the associated
      *
     * @param int $task_list_id Task List ID
     * @param string $account_id 
@@ -233,7 +229,7 @@ class TaskListsApi
     /**
      * Operation deleteTaskListWithHttpInfo
      *
-     * Deletes a task list. If there are attached documents they will remain in the associated room.
+     * Deletes a task list. If there are attached documents they will remain in the associated
      *
     * @param int $task_list_id Task List ID
     * @param string $account_id 
@@ -256,7 +252,7 @@ class TaskListsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -325,7 +321,7 @@ class TaskListsApi
     /**
      * Operation getTaskLists
      *
-     * Returns the summary for all viewable task lists in a room.
+     * Returns the summary for all viewable task lists in a
      *
     * @param int $room_id Room ID
     * @param string $account_id 
@@ -341,7 +337,7 @@ class TaskListsApi
     /**
      * Operation getTaskListsWithHttpInfo
      *
-     * Returns the summary for all viewable task lists in a room.
+     * Returns the summary for all viewable task lists in a
      *
     * @param int $room_id Room ID
     * @param string $account_id 
@@ -364,7 +360,7 @@ class TaskListsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }

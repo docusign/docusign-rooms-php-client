@@ -68,7 +68,7 @@ class Room implements ModelInterface, ArrayAccess
         'created_by_user_id' => 'int',
         'rejected_by_user_id' => 'int',
         'closed_status_id' => 'string',
-        'field_data' => '\DocuSign\Rooms\Model\NullableFieldData'
+        'field_data' => '\DocuSign\Rooms\Model\FieldData'
     ];
 
     /**
@@ -537,7 +537,7 @@ class Room implements ModelInterface, ArrayAccess
     /**
      * Gets field_data
      *
-     * @return \DocuSign\Rooms\Model\NullableFieldData
+     * @return \DocuSign\Rooms\Model\FieldData
      */
     public function getFieldData()
     {
@@ -547,7 +547,7 @@ class Room implements ModelInterface, ArrayAccess
     /**
      * Sets field_data
      *
-     * @param \DocuSign\Rooms\Model\NullableFieldData $field_data field_data
+     * @param \DocuSign\Rooms\Model\FieldData $field_data field_data
      *
      * @return $this
      */

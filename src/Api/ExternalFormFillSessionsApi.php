@@ -97,13 +97,13 @@ class ExternalFormFillSessionsApi
      * Creates an external form fill session.
      *
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\ExternalFormFillSessionForCreate $form_fill_session_for_create  (required)
+     * @param \DocuSign\Rooms\Model\ExternalFormFillSessionForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\ExternalFormFillSession
      */
-    public function createExternalFormFillSession($account_id, $form_fill_session_for_create)
+    public function createExternalFormFillSession($account_id, $body = null)
     {
-        list($response) = $this->createExternalFormFillSessionWithHttpInfo($account_id, $form_fill_session_for_create);
+        list($response) = $this->createExternalFormFillSessionWithHttpInfo($account_id, $body);
         return $response;
     }
 
@@ -113,16 +113,12 @@ class ExternalFormFillSessionsApi
      * Creates an external form fill session.
      *
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\ExternalFormFillSessionForCreate $form_fill_session_for_create  (required)
+     * @param \DocuSign\Rooms\Model\ExternalFormFillSessionForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\ExternalFormFillSession, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createExternalFormFillSessionWithHttpInfo($account_id, $form_fill_session_for_create)
+    public function createExternalFormFillSessionWithHttpInfo($account_id, $body = null)
     {
-        // verify the required parameter 'form_fill_session_for_create' is set
-        if ($form_fill_session_for_create === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $form_fill_session_for_create when calling createExternalFormFillSession');
-        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling createExternalFormFillSession');
@@ -133,11 +129,11 @@ class ExternalFormFillSessionsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -153,8 +149,8 @@ class ExternalFormFillSessionsApi
 
         // body params
         $_tempBody = null;
-        if (isset($form_fill_session_for_create)) {
-            $_tempBody = $form_fill_session_for_create;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)

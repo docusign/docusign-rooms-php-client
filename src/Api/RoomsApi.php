@@ -584,40 +584,36 @@ class RoomsApi
     /**
      * Operation addDocumentToRoom
      *
-     * Add a document to a room.
+     * Add a document to a
      *
     * @param int $room_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\Document $document  (required)
+     * @param \DocuSign\Rooms\Model\Document $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomDocument
      */
-    public function addDocumentToRoom($room_id, $account_id, $document)
+    public function addDocumentToRoom($room_id, $account_id, $body = null)
     {
-        list($response) = $this->addDocumentToRoomWithHttpInfo($room_id, $account_id, $document);
+        list($response) = $this->addDocumentToRoomWithHttpInfo($room_id, $account_id, $body);
         return $response;
     }
 
     /**
      * Operation addDocumentToRoomWithHttpInfo
      *
-     * Add a document to a room.
+     * Add a document to a
      *
     * @param int $room_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\Document $document  (required)
+     * @param \DocuSign\Rooms\Model\Document $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomDocument, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addDocumentToRoomWithHttpInfo($room_id, $account_id, $document)
+    public function addDocumentToRoomWithHttpInfo($room_id, $account_id, $body = null)
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $room_id when calling addDocumentToRoom');
-        }
-        // verify the required parameter 'document' is set
-        if ($document === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $document when calling addDocumentToRoom');
         }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -629,11 +625,11 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -657,8 +653,8 @@ class RoomsApi
 
         // body params
         $_tempBody = null;
-        if (isset($document)) {
-            $_tempBody = $document;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -711,12 +707,13 @@ class RoomsApi
      *
     * @param int $room_id 
     * @param string $account_id 
+    * @param \SplFileObject $file  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomDocument
      */
-    public function addDocumentToRoomViaFileUpload($room_id, $account_id)
+    public function addDocumentToRoomViaFileUpload($room_id, $account_id, $file)
     {
-        list($response) = $this->addDocumentToRoomViaFileUploadWithHttpInfo($room_id, $account_id);
+        list($response) = $this->addDocumentToRoomViaFileUploadWithHttpInfo($room_id, $account_id, $file);
         return $response;
     }
 
@@ -727,10 +724,11 @@ class RoomsApi
      *
     * @param int $room_id 
     * @param string $account_id 
+    * @param \SplFileObject $file  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomDocument, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addDocumentToRoomViaFileUploadWithHttpInfo($room_id, $account_id)
+    public function addDocumentToRoomViaFileUploadWithHttpInfo($room_id, $account_id, $file)
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
@@ -740,21 +738,17 @@ class RoomsApi
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling addDocumentToRoomViaFileUpload');
         }
-        // verify the required parameter 'file' is set
-        if ($file === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $file when calling addDocumentToRoomViaFileUpload');
-        }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/rooms/{roomId}/documents/contents";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/form-data']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['multipart/form-data']);
 
 
         // path params
@@ -837,13 +831,13 @@ class RoomsApi
      *
     * @param int $room_id Id of the room to which the DocuSign Form is being added
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\FormForAdd $form_for_add Contains information about the form being added (required)
+     * @param \DocuSign\Rooms\Model\FormForAdd $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomDocument
      */
-    public function addFormToRoom($room_id, $account_id, $form_for_add)
+    public function addFormToRoom($room_id, $account_id, $body = null)
     {
-        list($response) = $this->addFormToRoomWithHttpInfo($room_id, $account_id, $form_for_add);
+        list($response) = $this->addFormToRoomWithHttpInfo($room_id, $account_id, $body);
         return $response;
     }
 
@@ -854,19 +848,15 @@ class RoomsApi
      *
     * @param int $room_id Id of the room to which the DocuSign Form is being added
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\FormForAdd $form_for_add Contains information about the form being added (required)
+     * @param \DocuSign\Rooms\Model\FormForAdd $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomDocument, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addFormToRoomWithHttpInfo($room_id, $account_id, $form_for_add)
+    public function addFormToRoomWithHttpInfo($room_id, $account_id, $body = null)
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $room_id when calling addFormToRoom');
-        }
-        // verify the required parameter 'form_for_add' is set
-        if ($form_for_add === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $form_for_add when calling addFormToRoom');
         }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -878,11 +868,11 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -906,8 +896,8 @@ class RoomsApi
 
         // body params
         $_tempBody = null;
-        if (isset($form_for_add)) {
-            $_tempBody = $form_for_add;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -935,6 +925,10 @@ class RoomsApi
             return [$this->apiClient->getSerializer()->deserialize($response, '\DocuSign\Rooms\Model\RoomDocument', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\RoomDocument', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 case 201:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\RoomDocument', $e->getResponseHeaders());
                     $e->setResponseObject($data);
@@ -959,13 +953,13 @@ class RoomsApi
      * Creates a new Room
      *
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoomForCreate $room_for_create The properties of the new room (required)
+     * @param \DocuSign\Rooms\Model\RoomForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Room
      */
-    public function createRoom($account_id, $room_for_create)
+    public function createRoom($account_id, $body = null)
     {
-        list($response) = $this->createRoomWithHttpInfo($account_id, $room_for_create);
+        list($response) = $this->createRoomWithHttpInfo($account_id, $body);
         return $response;
     }
 
@@ -975,16 +969,12 @@ class RoomsApi
      * Creates a new Room
      *
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoomForCreate $room_for_create The properties of the new room (required)
+     * @param \DocuSign\Rooms\Model\RoomForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Room, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRoomWithHttpInfo($account_id, $room_for_create)
+    public function createRoomWithHttpInfo($account_id, $body = null)
     {
-        // verify the required parameter 'room_for_create' is set
-        if ($room_for_create === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $room_for_create when calling createRoom');
-        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling createRoom');
@@ -995,11 +985,11 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -1015,8 +1005,8 @@ class RoomsApi
 
         // body params
         $_tempBody = null;
-        if (isset($room_for_create)) {
-            $_tempBody = $room_for_create;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -1104,7 +1094,7 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1214,7 +1204,7 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1348,7 +1338,7 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1433,7 +1423,7 @@ class RoomsApi
     /**
      * Operation getRoom
      *
-     * Gets information about the given room.
+     * Gets information about the given
      *
     * @param int $room_id 
     * @param string $account_id 
@@ -1450,7 +1440,7 @@ class RoomsApi
     /**
      * Operation getRoomWithHttpInfo
      *
-     * Gets information about the given room.
+     * Gets information about the given
      *
     * @param int $room_id 
     * @param string $account_id 
@@ -1474,7 +1464,7 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1594,7 +1584,7 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1667,7 +1657,7 @@ class RoomsApi
     /**
      * Operation getRoomFieldSet
      *
-     * Gets the field set associated with the room.
+     * Gets the field set associated with the
      *
     * @param int $room_id 
     * @param string $account_id 
@@ -1683,7 +1673,7 @@ class RoomsApi
     /**
      * Operation getRoomFieldSetWithHttpInfo
      *
-     * Gets the field set associated with the room.
+     * Gets the field set associated with the
      *
     * @param int $room_id 
     * @param string $account_id 
@@ -1706,7 +1696,7 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1779,7 +1769,7 @@ class RoomsApi
     /**
      * Operation getRoomUsers
      *
-     * Retrieves the list of users in the given room.
+     * Retrieves the list of users in the given
      *
     * @param int $room_id 
     * @param string $account_id 
@@ -1796,7 +1786,7 @@ class RoomsApi
     /**
      * Operation getRoomUsersWithHttpInfo
      *
-     * Retrieves the list of users in the given room.
+     * Retrieves the list of users in the given
      *
     * @param int $room_id 
     * @param string $account_id 
@@ -1820,7 +1810,7 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1948,7 +1938,7 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -2053,13 +2043,13 @@ class RoomsApi
      *
     * @param int $room_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoomInvite $room_invite_request  (required)
+     * @param \DocuSign\Rooms\Model\RoomInvite $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomInviteResponse
      */
-    public function inviteUser($room_id, $account_id, $room_invite_request)
+    public function inviteUser($room_id, $account_id, $body = null)
     {
-        list($response) = $this->inviteUserWithHttpInfo($room_id, $account_id, $room_invite_request);
+        list($response) = $this->inviteUserWithHttpInfo($room_id, $account_id, $body);
         return $response;
     }
 
@@ -2070,19 +2060,15 @@ class RoomsApi
      *
     * @param int $room_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoomInvite $room_invite_request  (required)
+     * @param \DocuSign\Rooms\Model\RoomInvite $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomInviteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function inviteUserWithHttpInfo($room_id, $account_id, $room_invite_request)
+    public function inviteUserWithHttpInfo($room_id, $account_id, $body = null)
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $room_id when calling inviteUser');
-        }
-        // verify the required parameter 'room_invite_request' is set
-        if ($room_invite_request === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $room_invite_request when calling inviteUser');
         }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -2094,11 +2080,11 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -2122,8 +2108,8 @@ class RoomsApi
 
         // body params
         $_tempBody = null;
-        if (isset($room_invite_request)) {
-            $_tempBody = $room_invite_request;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -2151,6 +2137,10 @@ class RoomsApi
             return [$this->apiClient->getSerializer()->deserialize($response, '\DocuSign\Rooms\Model\RoomInviteResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\RoomInviteResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 case 201:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\RoomInviteResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
@@ -2177,13 +2167,13 @@ class RoomsApi
     * @param int $room_id 
     * @param int $user_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoomUserForUpdate $room_user_for_update  (required)
+     * @param \DocuSign\Rooms\Model\RoomUserForUpdate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomUser
      */
-    public function putRoomUser($room_id, $user_id, $account_id, $room_user_for_update)
+    public function putRoomUser($room_id, $user_id, $account_id, $body = null)
     {
-        list($response) = $this->putRoomUserWithHttpInfo($room_id, $user_id, $account_id, $room_user_for_update);
+        list($response) = $this->putRoomUserWithHttpInfo($room_id, $user_id, $account_id, $body);
         return $response;
     }
 
@@ -2195,11 +2185,11 @@ class RoomsApi
     * @param int $room_id 
     * @param int $user_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoomUserForUpdate $room_user_for_update  (required)
+     * @param \DocuSign\Rooms\Model\RoomUserForUpdate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomUser, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putRoomUserWithHttpInfo($room_id, $user_id, $account_id, $room_user_for_update)
+    public function putRoomUserWithHttpInfo($room_id, $user_id, $account_id, $body = null)
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
@@ -2208,10 +2198,6 @@ class RoomsApi
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $user_id when calling putRoomUser');
-        }
-        // verify the required parameter 'room_user_for_update' is set
-        if ($room_user_for_update === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $room_user_for_update when calling putRoomUser');
         }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -2223,11 +2209,11 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -2259,8 +2245,8 @@ class RoomsApi
 
         // body params
         $_tempBody = null;
-        if (isset($room_user_for_update)) {
-            $_tempBody = $room_user_for_update;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -2309,7 +2295,7 @@ class RoomsApi
     /**
      * Operation restoreRoomUserAccess
      *
-     * Restores the specified user's access to the room.
+     * Restores the specified user's access to the
      *
     * @param int $room_id The room Id to restore access
     * @param int $user_id The user Id getting restored to the room
@@ -2326,7 +2312,7 @@ class RoomsApi
     /**
      * Operation restoreRoomUserAccessWithHttpInfo
      *
-     * Restores the specified user's access to the room.
+     * Restores the specified user's access to the
      *
     * @param int $room_id The room Id to restore access
     * @param int $user_id The user Id getting restored to the room
@@ -2354,7 +2340,7 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -2431,34 +2417,34 @@ class RoomsApi
     /**
      * Operation revokeRoomUserAccess
      *
-     * Revokes the specified user's access to the room.
+     * Revokes the specified user's access to the
      *
     * @param int $room_id The room Id to revoke access from
     * @param int $user_id The user Id getting revoked from the room
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoomUserRemovalDetail $room_user_removal_detail Contains the date on which the users room access should be revoked (optional)
+     * @param \DocuSign\Rooms\Model\RoomUserRemovalDetail $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return void
      */
-    public function revokeRoomUserAccess($room_id, $user_id, $account_id, $room_user_removal_detail = null)
+    public function revokeRoomUserAccess($room_id, $user_id, $account_id, $body = null)
     {
-        list($response) = $this->revokeRoomUserAccessWithHttpInfo($room_id, $user_id, $account_id, $room_user_removal_detail);
+        list($response) = $this->revokeRoomUserAccessWithHttpInfo($room_id, $user_id, $account_id, $body);
         return $response;
     }
 
     /**
      * Operation revokeRoomUserAccessWithHttpInfo
      *
-     * Revokes the specified user's access to the room.
+     * Revokes the specified user's access to the
      *
     * @param int $room_id The room Id to revoke access from
     * @param int $user_id The user Id getting revoked from the room
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoomUserRemovalDetail $room_user_removal_detail Contains the date on which the users room access should be revoked (optional)
+     * @param \DocuSign\Rooms\Model\RoomUserRemovalDetail $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function revokeRoomUserAccessWithHttpInfo($room_id, $user_id, $account_id, $room_user_removal_detail = null)
+    public function revokeRoomUserAccessWithHttpInfo($room_id, $user_id, $account_id, $body = null)
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
@@ -2478,11 +2464,11 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -2514,8 +2500,8 @@ class RoomsApi
 
         // body params
         $_tempBody = null;
-        if (isset($room_user_removal_detail)) {
-            $_tempBody = $room_user_removal_detail;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -2560,30 +2546,32 @@ class RoomsApi
     /**
      * Operation updatePicture
      *
-     * Update the picture for a room.
+     * Update the picture for a
      *
     * @param int $room_id ID of the room the picture is for.
     * @param string $account_id 
+    * @param \SplFileObject $file  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomPicture
      */
-    public function updatePicture($room_id, $account_id)
+    public function updatePicture($room_id, $account_id, $file)
     {
-        list($response) = $this->updatePictureWithHttpInfo($room_id, $account_id);
+        list($response) = $this->updatePictureWithHttpInfo($room_id, $account_id, $file);
         return $response;
     }
 
     /**
      * Operation updatePictureWithHttpInfo
      *
-     * Update the picture for a room.
+     * Update the picture for a
      *
     * @param int $room_id ID of the room the picture is for.
     * @param string $account_id 
+    * @param \SplFileObject $file  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomPicture, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePictureWithHttpInfo($room_id, $account_id)
+    public function updatePictureWithHttpInfo($room_id, $account_id, $file)
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
@@ -2603,7 +2591,7 @@ class RoomsApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['multipart/form-data']);
 
 
         // path params
@@ -2625,6 +2613,16 @@ class RoomsApi
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
+        // form params
+        if ($file !== null) {
+            // PHP 5.5 introduced a CurlFile object that deprecates the old @filename syntax
+            // See: https://wiki.php.net/rfc/curl-file-upload
+            if (function_exists('curl_file_create')) {
+                $formParams['file'] = curl_file_create($this->apiClient->getSerializer()->toFormValue($file));
+            } else {
+                $formParams['file'] = '@' . $this->apiClient->getSerializer()->toFormValue($file);
+            }
+        }
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -2676,13 +2674,13 @@ class RoomsApi
      *
     * @param int $room_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\FieldDataForUpdate $field_data_for_update  (required)
+     * @param \DocuSign\Rooms\Model\FieldDataForUpdate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FieldData
      */
-    public function updateRoomFieldData($room_id, $account_id, $field_data_for_update)
+    public function updateRoomFieldData($room_id, $account_id, $body = null)
     {
-        list($response) = $this->updateRoomFieldDataWithHttpInfo($room_id, $account_id, $field_data_for_update);
+        list($response) = $this->updateRoomFieldDataWithHttpInfo($room_id, $account_id, $body);
         return $response;
     }
 
@@ -2693,19 +2691,15 @@ class RoomsApi
      *
     * @param int $room_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\FieldDataForUpdate $field_data_for_update  (required)
+     * @param \DocuSign\Rooms\Model\FieldDataForUpdate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FieldData, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRoomFieldDataWithHttpInfo($room_id, $account_id, $field_data_for_update)
+    public function updateRoomFieldDataWithHttpInfo($room_id, $account_id, $body = null)
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $room_id when calling updateRoomFieldData');
-        }
-        // verify the required parameter 'field_data_for_update' is set
-        if ($field_data_for_update === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $field_data_for_update when calling updateRoomFieldData');
         }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -2717,11 +2711,11 @@ class RoomsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -2745,8 +2739,8 @@ class RoomsApi
 
         // body params
         $_tempBody = null;
-        if (isset($field_data_for_update)) {
-            $_tempBody = $field_data_for_update;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)

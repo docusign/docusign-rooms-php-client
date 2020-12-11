@@ -102,7 +102,7 @@ class TestConfig
         $this->clientKey = !empty($key) ? $key : 'Docs/private.pem';
         $this->privateKeyB64 = !empty($privateKey) ? $privateKey : getenv('PRIVATE_KEY');
 
-        $this->recipientEmail = !empty($recipientEmail) ? $recipientEmail : 'docusignsdktest@mailinator.com';
+        $this->recipientEmail = !empty($recipientEmail) ? $recipientEmail : getenv('RECIPIENT_EMAIL');
         $this->recipientName = !empty($recipientName) ? $recipientName : 'PHP SDK';
 
         $this->templateRoleName = !empty($templateRoleName) ? $templateRoleName : 'Manager';

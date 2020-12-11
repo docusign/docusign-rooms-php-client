@@ -59,7 +59,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'company_id' => 'int',
         'name' => 'string',
-        'company_version' => 'string',
+        'company_version' => '\DocuSign\Rooms\Model\ProductVersion',
         'docu_sign_account_guid' => 'string',
         'default_field_set_id' => 'string',
         'require_office_library_assignments' => 'bool'
@@ -183,23 +183,8 @@ class AccountSummary implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const COMPANY_VERSION_V5 = 'v5';
-    const COMPANY_VERSION_V6 = 'v6';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCompanyVersionAllowableValues()
-    {
-        return [
-            self::COMPANY_VERSION_V5,
-            self::COMPANY_VERSION_V6,
-        ];
-    }
     
 
     /**
@@ -233,14 +218,6 @@ class AccountSummary implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getCompanyVersionAllowableValues();
-        if (!is_null($this->container['company_version']) && !in_array($this->container['company_version'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'company_version', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -308,7 +285,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Gets company_version
      *
-     * @return string
+     * @return \DocuSign\Rooms\Model\ProductVersion
      */
     public function getCompanyVersion()
     {
@@ -318,21 +295,12 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Sets company_version
      *
-     * @param string $company_version company_version
+     * @param \DocuSign\Rooms\Model\ProductVersion $company_version company_version
      *
      * @return $this
      */
     public function setCompanyVersion($company_version)
     {
-        $allowedValues = $this->getCompanyVersionAllowableValues();
-        if (!is_null($company_version) && !in_array($company_version, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'company_version', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['company_version'] = $company_version;
 
         return $this;

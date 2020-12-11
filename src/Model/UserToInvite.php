@@ -61,7 +61,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
         'last_name' => 'string',
         'email' => 'string',
         'role_id' => 'int',
-        'access_level' => 'string',
+        'access_level' => '\DocuSign\Rooms\Model\AccessLevel',
         'default_office_id' => 'int',
         'regions' => 'int[]',
         'offices' => 'int[]',
@@ -84,7 +84,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
         'regions' => 'int32',
         'offices' => 'int32',
         'e_sign_permission_profile_id' => null,
-        'redirect_url' => null
+        'redirect_url' => 'uri'
     ];
 
     /**
@@ -203,29 +203,8 @@ class UserToInvite implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ACCESS_LEVEL_CONTRIBUTOR = 'Contributor';
-    const ACCESS_LEVEL_OFFICE = 'Office';
-    const ACCESS_LEVEL_REGION = 'Region';
-    const ACCESS_LEVEL_COMPANY = 'Company';
-    const ACCESS_LEVEL_ADMIN = 'Admin';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAccessLevelAllowableValues()
-    {
-        return [
-            self::ACCESS_LEVEL_CONTRIBUTOR,
-            self::ACCESS_LEVEL_OFFICE,
-            self::ACCESS_LEVEL_REGION,
-            self::ACCESS_LEVEL_COMPANY,
-            self::ACCESS_LEVEL_ADMIN,
-        ];
-    }
     
 
     /**
@@ -279,14 +258,6 @@ class UserToInvite implements ModelInterface, ArrayAccess
         if ($this->container['access_level'] === null) {
             $invalidProperties[] = "'access_level' can't be null";
         }
-        $allowedValues = $this->getAccessLevelAllowableValues();
-        if (!is_null($this->container['access_level']) && !in_array($this->container['access_level'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'access_level', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['default_office_id'] === null) {
             $invalidProperties[] = "'default_office_id' can't be null";
         }
@@ -407,7 +378,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets access_level
      *
-     * @return string
+     * @return \DocuSign\Rooms\Model\AccessLevel
      */
     public function getAccessLevel()
     {
@@ -417,21 +388,12 @@ class UserToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets access_level
      *
-     * @param string $access_level access_level
+     * @param \DocuSign\Rooms\Model\AccessLevel $access_level access_level
      *
      * @return $this
      */
     public function setAccessLevel($access_level)
     {
-        $allowedValues = $this->getAccessLevelAllowableValues();
-        if (!in_array($access_level, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'access_level', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['access_level'] = $access_level;
 
         return $this;

@@ -1,6 +1,6 @@
 <?php
 /**
- * RoomTemplatesSummaryList
+ * FormGroup
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \DocuSign\Rooms\ObjectSerializer;
 
 /**
- * RoomTemplatesSummaryList Class Doc Comment
+ * FormGroup Class Doc Comment
  *
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
+class FormGroup implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RoomTemplatesSummaryList';
+    protected static $swaggerModelName = 'FormGroup';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,10 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'room_templates' => '\DocuSign\Rooms\Model\RoomTemplate[]',
-        'result_set_size' => 'int',
-        'start_position' => 'int',
-        'end_position' => 'int',
-        'next_uri' => 'string',
-        'prior_uri' => 'string',
-        'total_row_count' => 'int'
+        'form_group_id' => 'string',
+        'name' => 'string',
+        'office_ids' => 'int[]',
+        'forms' => '\DocuSign\Rooms\Model\GroupForm[]'
     ];
 
     /**
@@ -72,13 +69,10 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'room_templates' => null,
-        'result_set_size' => 'int32',
-        'start_position' => 'int32',
-        'end_position' => 'int32',
-        'next_uri' => null,
-        'prior_uri' => null,
-        'total_row_count' => 'int32'
+        'form_group_id' => 'uuid',
+        'name' => null,
+        'office_ids' => 'int32',
+        'forms' => null
     ];
 
     /**
@@ -108,13 +102,10 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'room_templates' => 'roomTemplates',
-        'result_set_size' => 'resultSetSize',
-        'start_position' => 'startPosition',
-        'end_position' => 'endPosition',
-        'next_uri' => 'nextUri',
-        'prior_uri' => 'priorUri',
-        'total_row_count' => 'totalRowCount'
+        'form_group_id' => 'formGroupId',
+        'name' => 'name',
+        'office_ids' => 'officeIds',
+        'forms' => 'forms'
     ];
 
     /**
@@ -123,13 +114,10 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'room_templates' => 'setRoomTemplates',
-        'result_set_size' => 'setResultSetSize',
-        'start_position' => 'setStartPosition',
-        'end_position' => 'setEndPosition',
-        'next_uri' => 'setNextUri',
-        'prior_uri' => 'setPriorUri',
-        'total_row_count' => 'setTotalRowCount'
+        'form_group_id' => 'setFormGroupId',
+        'name' => 'setName',
+        'office_ids' => 'setOfficeIds',
+        'forms' => 'setForms'
     ];
 
     /**
@@ -138,13 +126,10 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'room_templates' => 'getRoomTemplates',
-        'result_set_size' => 'getResultSetSize',
-        'start_position' => 'getStartPosition',
-        'end_position' => 'getEndPosition',
-        'next_uri' => 'getNextUri',
-        'prior_uri' => 'getPriorUri',
-        'total_row_count' => 'getTotalRowCount'
+        'form_group_id' => 'getFormGroupId',
+        'name' => 'getName',
+        'office_ids' => 'getOfficeIds',
+        'forms' => 'getForms'
     ];
 
     /**
@@ -207,13 +192,10 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['room_templates'] = isset($data['room_templates']) ? $data['room_templates'] : null;
-        $this->container['result_set_size'] = isset($data['result_set_size']) ? $data['result_set_size'] : null;
-        $this->container['start_position'] = isset($data['start_position']) ? $data['start_position'] : null;
-        $this->container['end_position'] = isset($data['end_position']) ? $data['end_position'] : null;
-        $this->container['next_uri'] = isset($data['next_uri']) ? $data['next_uri'] : null;
-        $this->container['prior_uri'] = isset($data['prior_uri']) ? $data['prior_uri'] : null;
-        $this->container['total_row_count'] = isset($data['total_row_count']) ? $data['total_row_count'] : null;
+        $this->container['form_group_id'] = isset($data['form_group_id']) ? $data['form_group_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['office_ids'] = isset($data['office_ids']) ? $data['office_ids'] : null;
+        $this->container['forms'] = isset($data['forms']) ? $data['forms'] : null;
     }
 
     /**
@@ -241,169 +223,97 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets room_templates
-     *
-     * @return \DocuSign\Rooms\Model\RoomTemplate[]
-     */
-    public function getRoomTemplates()
-    {
-        return $this->container['room_templates'];
-    }
-
-    /**
-     * Sets room_templates
-     *
-     * @param \DocuSign\Rooms\Model\RoomTemplate[] $room_templates room_templates
-     *
-     * @return $this
-     */
-    public function setRoomTemplates($room_templates)
-    {
-        $this->container['room_templates'] = $room_templates;
-
-        return $this;
-    }
-
-    /**
-     * Gets result_set_size
-     *
-     * @return int
-     */
-    public function getResultSetSize()
-    {
-        return $this->container['result_set_size'];
-    }
-
-    /**
-     * Sets result_set_size
-     *
-     * @param int $result_set_size result_set_size
-     *
-     * @return $this
-     */
-    public function setResultSetSize($result_set_size)
-    {
-        $this->container['result_set_size'] = $result_set_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_position
-     *
-     * @return int
-     */
-    public function getStartPosition()
-    {
-        return $this->container['start_position'];
-    }
-
-    /**
-     * Sets start_position
-     *
-     * @param int $start_position start_position
-     *
-     * @return $this
-     */
-    public function setStartPosition($start_position)
-    {
-        $this->container['start_position'] = $start_position;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_position
-     *
-     * @return int
-     */
-    public function getEndPosition()
-    {
-        return $this->container['end_position'];
-    }
-
-    /**
-     * Sets end_position
-     *
-     * @param int $end_position end_position
-     *
-     * @return $this
-     */
-    public function setEndPosition($end_position)
-    {
-        $this->container['end_position'] = $end_position;
-
-        return $this;
-    }
-
-    /**
-     * Gets next_uri
+     * Gets form_group_id
      *
      * @return string
      */
-    public function getNextUri()
+    public function getFormGroupId()
     {
-        return $this->container['next_uri'];
+        return $this->container['form_group_id'];
     }
 
     /**
-     * Sets next_uri
+     * Sets form_group_id
      *
-     * @param string $next_uri next_uri
+     * @param string $form_group_id form_group_id
      *
      * @return $this
      */
-    public function setNextUri($next_uri)
+    public function setFormGroupId($form_group_id)
     {
-        $this->container['next_uri'] = $next_uri;
+        $this->container['form_group_id'] = $form_group_id;
 
         return $this;
     }
 
     /**
-     * Gets prior_uri
+     * Gets name
      *
      * @return string
      */
-    public function getPriorUri()
+    public function getName()
     {
-        return $this->container['prior_uri'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets prior_uri
+     * Sets name
      *
-     * @param string $prior_uri prior_uri
+     * @param string $name name
      *
      * @return $this
      */
-    public function setPriorUri($prior_uri)
+    public function setName($name)
     {
-        $this->container['prior_uri'] = $prior_uri;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets total_row_count
+     * Gets office_ids
      *
-     * @return int
+     * @return int[]
      */
-    public function getTotalRowCount()
+    public function getOfficeIds()
     {
-        return $this->container['total_row_count'];
+        return $this->container['office_ids'];
     }
 
     /**
-     * Sets total_row_count
+     * Sets office_ids
      *
-     * @param int $total_row_count total_row_count
+     * @param int[] $office_ids office_ids
      *
      * @return $this
      */
-    public function setTotalRowCount($total_row_count)
+    public function setOfficeIds($office_ids)
     {
-        $this->container['total_row_count'] = $total_row_count;
+        $this->container['office_ids'] = $office_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets forms
+     *
+     * @return \DocuSign\Rooms\Model\GroupForm[]
+     */
+    public function getForms()
+    {
+        return $this->container['forms'];
+    }
+
+    /**
+     * Sets forms
+     *
+     * @param \DocuSign\Rooms\Model\GroupForm[] $forms forms
+     *
+     * @return $this
+     */
+    public function setForms($forms)
+    {
+        $this->container['forms'] = $forms;
 
         return $this;
     }

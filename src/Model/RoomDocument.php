@@ -64,7 +64,10 @@ class RoomDocument implements ModelInterface, ArrayAccess
         'folder_id' => 'int',
         'created_date' => '\DateTime',
         'is_signed' => 'bool',
-        'docu_sign_form_id' => 'string'
+        'docu_sign_form_id' => 'string',
+        'is_archived' => 'bool',
+        'is_virtual' => 'bool',
+        'owner' => '\DocuSign\Rooms\Model\RoomDocumentOwner'
     ];
 
     /**
@@ -80,7 +83,10 @@ class RoomDocument implements ModelInterface, ArrayAccess
         'folder_id' => 'int32',
         'created_date' => 'date-time',
         'is_signed' => null,
-        'docu_sign_form_id' => null
+        'docu_sign_form_id' => null,
+        'is_archived' => null,
+        'is_virtual' => null,
+        'owner' => null
     ];
 
     /**
@@ -117,7 +123,10 @@ class RoomDocument implements ModelInterface, ArrayAccess
         'folder_id' => 'folderId',
         'created_date' => 'createdDate',
         'is_signed' => 'isSigned',
-        'docu_sign_form_id' => 'docuSignFormId'
+        'docu_sign_form_id' => 'docuSignFormId',
+        'is_archived' => 'isArchived',
+        'is_virtual' => 'isVirtual',
+        'owner' => 'owner'
     ];
 
     /**
@@ -133,7 +142,10 @@ class RoomDocument implements ModelInterface, ArrayAccess
         'folder_id' => 'setFolderId',
         'created_date' => 'setCreatedDate',
         'is_signed' => 'setIsSigned',
-        'docu_sign_form_id' => 'setDocuSignFormId'
+        'docu_sign_form_id' => 'setDocuSignFormId',
+        'is_archived' => 'setIsArchived',
+        'is_virtual' => 'setIsVirtual',
+        'owner' => 'setOwner'
     ];
 
     /**
@@ -149,7 +161,10 @@ class RoomDocument implements ModelInterface, ArrayAccess
         'folder_id' => 'getFolderId',
         'created_date' => 'getCreatedDate',
         'is_signed' => 'getIsSigned',
-        'docu_sign_form_id' => 'getDocuSignFormId'
+        'docu_sign_form_id' => 'getDocuSignFormId',
+        'is_archived' => 'getIsArchived',
+        'is_virtual' => 'getIsVirtual',
+        'owner' => 'getOwner'
     ];
 
     /**
@@ -220,6 +235,9 @@ class RoomDocument implements ModelInterface, ArrayAccess
         $this->container['created_date'] = isset($data['created_date']) ? $data['created_date'] : null;
         $this->container['is_signed'] = isset($data['is_signed']) ? $data['is_signed'] : null;
         $this->container['docu_sign_form_id'] = isset($data['docu_sign_form_id']) ? $data['docu_sign_form_id'] : null;
+        $this->container['is_archived'] = isset($data['is_archived']) ? $data['is_archived'] : null;
+        $this->container['is_virtual'] = isset($data['is_virtual']) ? $data['is_virtual'] : null;
+        $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
     }
 
     /**
@@ -434,6 +452,78 @@ class RoomDocument implements ModelInterface, ArrayAccess
     public function setDocuSignFormId($docu_sign_form_id)
     {
         $this->container['docu_sign_form_id'] = $docu_sign_form_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_archived
+     *
+     * @return bool
+     */
+    public function getIsArchived()
+    {
+        return $this->container['is_archived'];
+    }
+
+    /**
+     * Sets is_archived
+     *
+     * @param bool $is_archived is_archived
+     *
+     * @return $this
+     */
+    public function setIsArchived($is_archived)
+    {
+        $this->container['is_archived'] = $is_archived;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_virtual
+     *
+     * @return bool
+     */
+    public function getIsVirtual()
+    {
+        return $this->container['is_virtual'];
+    }
+
+    /**
+     * Sets is_virtual
+     *
+     * @param bool $is_virtual is_virtual
+     *
+     * @return $this
+     */
+    public function setIsVirtual($is_virtual)
+    {
+        $this->container['is_virtual'] = $is_virtual;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner
+     *
+     * @return \DocuSign\Rooms\Model\RoomDocumentOwner
+     */
+    public function getOwner()
+    {
+        return $this->container['owner'];
+    }
+
+    /**
+     * Sets owner
+     *
+     * @param \DocuSign\Rooms\Model\RoomDocumentOwner $owner owner
+     *
+     * @return $this
+     */
+    public function setOwner($owner)
+    {
+        $this->container['owner'] = $owner;
 
         return $this;
     }
