@@ -61,6 +61,7 @@ class ClassicAgentToInvite implements ModelInterface, ArrayAccess
         'last_name' => 'string',
         'email' => 'string',
         'office_id' => 'int',
+        'company_type_id' => 'string',
         'e_sign_permission_profile_id' => 'string'
     ];
 
@@ -74,6 +75,7 @@ class ClassicAgentToInvite implements ModelInterface, ArrayAccess
         'last_name' => null,
         'email' => null,
         'office_id' => 'int32',
+        'company_type_id' => null,
         'e_sign_permission_profile_id' => null
     ];
 
@@ -108,6 +110,7 @@ class ClassicAgentToInvite implements ModelInterface, ArrayAccess
         'last_name' => 'lastName',
         'email' => 'email',
         'office_id' => 'officeId',
+        'company_type_id' => 'companyTypeId',
         'e_sign_permission_profile_id' => 'eSignPermissionProfileId'
     ];
 
@@ -121,6 +124,7 @@ class ClassicAgentToInvite implements ModelInterface, ArrayAccess
         'last_name' => 'setLastName',
         'email' => 'setEmail',
         'office_id' => 'setOfficeId',
+        'company_type_id' => 'setCompanyTypeId',
         'e_sign_permission_profile_id' => 'setESignPermissionProfileId'
     ];
 
@@ -134,6 +138,7 @@ class ClassicAgentToInvite implements ModelInterface, ArrayAccess
         'last_name' => 'getLastName',
         'email' => 'getEmail',
         'office_id' => 'getOfficeId',
+        'company_type_id' => 'getCompanyTypeId',
         'e_sign_permission_profile_id' => 'getESignPermissionProfileId'
     ];
 
@@ -201,6 +206,7 @@ class ClassicAgentToInvite implements ModelInterface, ArrayAccess
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['office_id'] = isset($data['office_id']) ? $data['office_id'] : null;
+        $this->container['company_type_id'] = isset($data['company_type_id']) ? $data['company_type_id'] : null;
         $this->container['e_sign_permission_profile_id'] = isset($data['e_sign_permission_profile_id']) ? $data['e_sign_permission_profile_id'] : null;
     }
 
@@ -332,6 +338,30 @@ class ClassicAgentToInvite implements ModelInterface, ArrayAccess
     public function setOfficeId($office_id)
     {
         $this->container['office_id'] = $office_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_type_id
+     *
+     * @return string
+     */
+    public function getCompanyTypeId()
+    {
+        return $this->container['company_type_id'];
+    }
+
+    /**
+     * Sets company_type_id
+     *
+     * @param string $company_type_id company_type_id
+     *
+     * @return $this
+     */
+    public function setCompanyTypeId($company_type_id)
+    {
+        $this->container['company_type_id'] = $company_type_id;
 
         return $this;
     }

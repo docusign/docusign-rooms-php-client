@@ -145,6 +145,450 @@ class FormGroupsApi
     }
 
     /**
+     * Operation assignFormGroupForm
+     *
+     * Assigns a form to a form group.
+     *
+    * @param string $form_group_id 
+    * @param string $account_id 
+     * @param \DocuSign\Rooms\Model\FormGroupFormToAssign $body  (optional)
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return \DocuSign\Rooms\Model\FormGroupFormToAssign
+     */
+    public function assignFormGroupForm($form_group_id, $account_id, $body = null)
+    {
+        list($response) = $this->assignFormGroupFormWithHttpInfo($form_group_id, $account_id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation assignFormGroupFormWithHttpInfo
+     *
+     * Assigns a form to a form group.
+     *
+    * @param string $form_group_id 
+    * @param string $account_id 
+     * @param \DocuSign\Rooms\Model\FormGroupFormToAssign $body  (optional)
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return array of \DocuSign\Rooms\Model\FormGroupFormToAssign, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function assignFormGroupFormWithHttpInfo($form_group_id, $account_id, $body = null)
+    {
+        // verify the required parameter 'form_group_id' is set
+        if ($form_group_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $form_group_id when calling assignFormGroupForm');
+        }
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling assignFormGroupForm');
+        }
+        // parse inputs
+        $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}/assign_form";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+
+
+        // path params
+        if ($form_group_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "formGroupId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($form_group_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "accountId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\DocuSign\Rooms\Model\FormGroupFormToAssign',
+                '/v2/accounts/{accountId}/form_groups/{formGroupId}/assign_form'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\DocuSign\Rooms\Model\FormGroupFormToAssign', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 204:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\FormGroupFormToAssign', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createFormGroup
+     *
+     * Creates a form group.
+     *
+    * @param string $account_id 
+     * @param \DocuSign\Rooms\Model\FormGroupForCreate $body  (optional)
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return \DocuSign\Rooms\Model\FormGroup
+     */
+    public function createFormGroup($account_id, $body = null)
+    {
+        list($response) = $this->createFormGroupWithHttpInfo($account_id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation createFormGroupWithHttpInfo
+     *
+     * Creates a form group.
+     *
+    * @param string $account_id 
+     * @param \DocuSign\Rooms\Model\FormGroupForCreate $body  (optional)
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return array of \DocuSign\Rooms\Model\FormGroup, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createFormGroupWithHttpInfo($account_id, $body = null)
+    {
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling createFormGroup');
+        }
+        // parse inputs
+        $resourcePath = "/v2/accounts/{accountId}/form_groups";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+
+
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "accountId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\DocuSign\Rooms\Model\FormGroup',
+                '/v2/accounts/{accountId}/form_groups'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\DocuSign\Rooms\Model\FormGroup', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\FormGroup', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteFormGroup
+     *
+     * Deletes a form group.
+     *
+    * @param string $form_group_id 
+    * @param string $account_id 
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return void
+     */
+    public function deleteFormGroup($form_group_id, $account_id)
+    {
+        list($response) = $this->deleteFormGroupWithHttpInfo($form_group_id, $account_id);
+        return $response;
+    }
+
+    /**
+     * Operation deleteFormGroupWithHttpInfo
+     *
+     * Deletes a form group.
+     *
+    * @param string $form_group_id 
+    * @param string $account_id 
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteFormGroupWithHttpInfo($form_group_id, $account_id)
+    {
+        // verify the required parameter 'form_group_id' is set
+        if ($form_group_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $form_group_id when calling deleteFormGroup');
+        }
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling deleteFormGroup');
+        }
+        // parse inputs
+        $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+
+        // path params
+        if ($form_group_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "formGroupId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($form_group_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "accountId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'DELETE',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/v2/accounts/{accountId}/form_groups/{formGroupId}'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getFormGroup
+     *
+     * Gets a form group.
+     *
+    * @param string $form_group_id 
+    * @param string $account_id 
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return \DocuSign\Rooms\Model\FormGroup
+     */
+    public function getFormGroup($form_group_id, $account_id)
+    {
+        list($response) = $this->getFormGroupWithHttpInfo($form_group_id, $account_id);
+        return $response;
+    }
+
+    /**
+     * Operation getFormGroupWithHttpInfo
+     *
+     * Gets a form group.
+     *
+    * @param string $form_group_id 
+    * @param string $account_id 
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return array of \DocuSign\Rooms\Model\FormGroup, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getFormGroupWithHttpInfo($form_group_id, $account_id)
+    {
+        // verify the required parameter 'form_group_id' is set
+        if ($form_group_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $form_group_id when calling getFormGroup');
+        }
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling getFormGroup');
+        }
+        // parse inputs
+        $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+
+        // path params
+        if ($form_group_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "formGroupId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($form_group_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "accountId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\DocuSign\Rooms\Model\FormGroup',
+                '/v2/accounts/{accountId}/form_groups/{formGroupId}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\DocuSign\Rooms\Model\FormGroup', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\FormGroup', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation getFormGroups
      *
      * Get account Form Groups.
@@ -182,7 +626,7 @@ class FormGroupsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -242,6 +686,491 @@ class FormGroupsApi
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\FormGroupSummaryList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation grantOfficeAccessToFormGroup
+     *
+     * Assign office to a form group so the specified office has access to the form group.
+     *
+    * @param string $form_group_id 
+    * @param int $office_id 
+    * @param string $account_id 
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return void
+     */
+    public function grantOfficeAccessToFormGroup($form_group_id, $office_id, $account_id)
+    {
+        list($response) = $this->grantOfficeAccessToFormGroupWithHttpInfo($form_group_id, $office_id, $account_id);
+        return $response;
+    }
+
+    /**
+     * Operation grantOfficeAccessToFormGroupWithHttpInfo
+     *
+     * Assign office to a form group so the specified office has access to the form group.
+     *
+    * @param string $form_group_id 
+    * @param int $office_id 
+    * @param string $account_id 
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function grantOfficeAccessToFormGroupWithHttpInfo($form_group_id, $office_id, $account_id)
+    {
+        // verify the required parameter 'form_group_id' is set
+        if ($form_group_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $form_group_id when calling grantOfficeAccessToFormGroup');
+        }
+        // verify the required parameter 'office_id' is set
+        if ($office_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $office_id when calling grantOfficeAccessToFormGroup');
+        }
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling grantOfficeAccessToFormGroup');
+        }
+        // parse inputs
+        $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}/grant_office_access/{officeId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+
+        // path params
+        if ($form_group_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "formGroupId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($form_group_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($office_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "officeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($office_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "accountId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/v2/accounts/{accountId}/form_groups/{formGroupId}/grant_office_access/{officeId}'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation removeFormGroupForm
+     *
+     * Removes a form from a form group.
+     *
+    * @param string $form_group_id 
+    * @param string $form_id 
+    * @param string $account_id 
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return void
+     */
+    public function removeFormGroupForm($form_group_id, $form_id, $account_id)
+    {
+        list($response) = $this->removeFormGroupFormWithHttpInfo($form_group_id, $form_id, $account_id);
+        return $response;
+    }
+
+    /**
+     * Operation removeFormGroupFormWithHttpInfo
+     *
+     * Removes a form from a form group.
+     *
+    * @param string $form_group_id 
+    * @param string $form_id 
+    * @param string $account_id 
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function removeFormGroupFormWithHttpInfo($form_group_id, $form_id, $account_id)
+    {
+        // verify the required parameter 'form_group_id' is set
+        if ($form_group_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $form_group_id when calling removeFormGroupForm');
+        }
+        // verify the required parameter 'form_id' is set
+        if ($form_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $form_id when calling removeFormGroupForm');
+        }
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling removeFormGroupForm');
+        }
+        // parse inputs
+        $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}/unassign_form/{formId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+
+        // path params
+        if ($form_group_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "formGroupId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($form_group_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($form_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "formId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($form_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "accountId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/v2/accounts/{accountId}/form_groups/{formGroupId}/unassign_form/{formId}'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation renameFormGroup
+     *
+     * Renames a form group.
+     *
+    * @param string $form_group_id 
+    * @param string $account_id 
+     * @param \DocuSign\Rooms\Model\FormGroupForUpdate $body  (optional)
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return \DocuSign\Rooms\Model\FormGroup
+     */
+    public function renameFormGroup($form_group_id, $account_id, $body = null)
+    {
+        list($response) = $this->renameFormGroupWithHttpInfo($form_group_id, $account_id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation renameFormGroupWithHttpInfo
+     *
+     * Renames a form group.
+     *
+    * @param string $form_group_id 
+    * @param string $account_id 
+     * @param \DocuSign\Rooms\Model\FormGroupForUpdate $body  (optional)
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return array of \DocuSign\Rooms\Model\FormGroup, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function renameFormGroupWithHttpInfo($form_group_id, $account_id, $body = null)
+    {
+        // verify the required parameter 'form_group_id' is set
+        if ($form_group_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $form_group_id when calling renameFormGroup');
+        }
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling renameFormGroup');
+        }
+        // parse inputs
+        $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+
+
+        // path params
+        if ($form_group_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "formGroupId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($form_group_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "accountId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\DocuSign\Rooms\Model\FormGroup',
+                '/v2/accounts/{accountId}/form_groups/{formGroupId}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\DocuSign\Rooms\Model\FormGroup', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\FormGroup', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation revokeOfficeAccessFromFormGroup
+     *
+     * Remove office to a form group so the specified office doesn't have access to the form group.
+     *
+    * @param string $form_group_id 
+    * @param int $office_id 
+    * @param string $account_id 
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return void
+     */
+    public function revokeOfficeAccessFromFormGroup($form_group_id, $office_id, $account_id)
+    {
+        list($response) = $this->revokeOfficeAccessFromFormGroupWithHttpInfo($form_group_id, $office_id, $account_id);
+        return $response;
+    }
+
+    /**
+     * Operation revokeOfficeAccessFromFormGroupWithHttpInfo
+     *
+     * Remove office to a form group so the specified office doesn't have access to the form group.
+     *
+    * @param string $form_group_id 
+    * @param int $office_id 
+    * @param string $account_id 
+     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function revokeOfficeAccessFromFormGroupWithHttpInfo($form_group_id, $office_id, $account_id)
+    {
+        // verify the required parameter 'form_group_id' is set
+        if ($form_group_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $form_group_id when calling revokeOfficeAccessFromFormGroup');
+        }
+        // verify the required parameter 'office_id' is set
+        if ($office_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $office_id when calling revokeOfficeAccessFromFormGroup');
+        }
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling revokeOfficeAccessFromFormGroup');
+        }
+        // parse inputs
+        $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}/revoke_office_access/{officeId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+
+        // path params
+        if ($form_group_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "formGroupId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($form_group_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($office_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "officeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($office_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "accountId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/v2/accounts/{accountId}/form_groups/{formGroupId}/revoke_office_access/{officeId}'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
                 case 400:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
                     $e->setResponseObject($data);

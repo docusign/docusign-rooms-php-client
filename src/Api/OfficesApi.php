@@ -200,13 +200,13 @@ class OfficesApi
      * Create an office.
      *
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\OfficeForCreate $office  (required)
+     * @param \DocuSign\Rooms\Model\OfficeForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Office
      */
-    public function createOffice($account_id, $office)
+    public function createOffice($account_id, $body = null)
     {
-        list($response) = $this->createOfficeWithHttpInfo($account_id, $office);
+        list($response) = $this->createOfficeWithHttpInfo($account_id, $body);
         return $response;
     }
 
@@ -216,16 +216,12 @@ class OfficesApi
      * Create an office.
      *
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\OfficeForCreate $office  (required)
+     * @param \DocuSign\Rooms\Model\OfficeForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Office, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOfficeWithHttpInfo($account_id, $office)
+    public function createOfficeWithHttpInfo($account_id, $body = null)
     {
-        // verify the required parameter 'office' is set
-        if ($office === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $office when calling createOffice');
-        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling createOffice');
@@ -236,11 +232,11 @@ class OfficesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -256,8 +252,8 @@ class OfficesApi
 
         // body params
         $_tempBody = null;
-        if (isset($office)) {
-            $_tempBody = $office;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -345,7 +341,7 @@ class OfficesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -453,7 +449,7 @@ class OfficesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -526,7 +522,7 @@ class OfficesApi
     /**
      * Operation getOffices
      *
-     * Get all offices.
+     * Get all
      *
     * @param string $account_id 
      * @param  $options Options for modifying the behavior of the function. (optional)
@@ -542,7 +538,7 @@ class OfficesApi
     /**
      * Operation getOfficesWithHttpInfo
      *
-     * Get all offices.
+     * Get all
      *
     * @param string $account_id 
      * @param  $options Options for modifying the behavior of the function. (optional)
@@ -561,7 +557,7 @@ class OfficesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -685,7 +681,7 @@ class OfficesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }

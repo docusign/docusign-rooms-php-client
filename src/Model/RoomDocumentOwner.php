@@ -1,6 +1,6 @@
 <?php
 /**
- * RoomTemplatesSummaryList
+ * RoomDocumentOwner
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \DocuSign\Rooms\ObjectSerializer;
 
 /**
- * RoomTemplatesSummaryList Class Doc Comment
+ * RoomDocumentOwner Class Doc Comment
  *
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
+class RoomDocumentOwner implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RoomTemplatesSummaryList';
+    protected static $swaggerModelName = 'RoomDocumentOwner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,11 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'room_templates' => '\DocuSign\Rooms\Model\RoomTemplate[]',
-        'result_set_size' => 'int',
-        'start_position' => 'int',
-        'end_position' => 'int',
-        'next_uri' => 'string',
-        'prior_uri' => 'string',
-        'total_row_count' => 'int'
+        'user_id' => 'int',
+        'first_name' => 'string',
+        'last_name' => 'string',
+        'company_name' => 'string',
+        'image_src' => 'string'
     ];
 
     /**
@@ -72,13 +70,11 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'room_templates' => null,
-        'result_set_size' => 'int32',
-        'start_position' => 'int32',
-        'end_position' => 'int32',
-        'next_uri' => null,
-        'prior_uri' => null,
-        'total_row_count' => 'int32'
+        'user_id' => 'int32',
+        'first_name' => null,
+        'last_name' => null,
+        'company_name' => null,
+        'image_src' => null
     ];
 
     /**
@@ -108,13 +104,11 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'room_templates' => 'roomTemplates',
-        'result_set_size' => 'resultSetSize',
-        'start_position' => 'startPosition',
-        'end_position' => 'endPosition',
-        'next_uri' => 'nextUri',
-        'prior_uri' => 'priorUri',
-        'total_row_count' => 'totalRowCount'
+        'user_id' => 'userId',
+        'first_name' => 'firstName',
+        'last_name' => 'lastName',
+        'company_name' => 'companyName',
+        'image_src' => 'imageSrc'
     ];
 
     /**
@@ -123,13 +117,11 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'room_templates' => 'setRoomTemplates',
-        'result_set_size' => 'setResultSetSize',
-        'start_position' => 'setStartPosition',
-        'end_position' => 'setEndPosition',
-        'next_uri' => 'setNextUri',
-        'prior_uri' => 'setPriorUri',
-        'total_row_count' => 'setTotalRowCount'
+        'user_id' => 'setUserId',
+        'first_name' => 'setFirstName',
+        'last_name' => 'setLastName',
+        'company_name' => 'setCompanyName',
+        'image_src' => 'setImageSrc'
     ];
 
     /**
@@ -138,13 +130,11 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'room_templates' => 'getRoomTemplates',
-        'result_set_size' => 'getResultSetSize',
-        'start_position' => 'getStartPosition',
-        'end_position' => 'getEndPosition',
-        'next_uri' => 'getNextUri',
-        'prior_uri' => 'getPriorUri',
-        'total_row_count' => 'getTotalRowCount'
+        'user_id' => 'getUserId',
+        'first_name' => 'getFirstName',
+        'last_name' => 'getLastName',
+        'company_name' => 'getCompanyName',
+        'image_src' => 'getImageSrc'
     ];
 
     /**
@@ -207,13 +197,11 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['room_templates'] = isset($data['room_templates']) ? $data['room_templates'] : null;
-        $this->container['result_set_size'] = isset($data['result_set_size']) ? $data['result_set_size'] : null;
-        $this->container['start_position'] = isset($data['start_position']) ? $data['start_position'] : null;
-        $this->container['end_position'] = isset($data['end_position']) ? $data['end_position'] : null;
-        $this->container['next_uri'] = isset($data['next_uri']) ? $data['next_uri'] : null;
-        $this->container['prior_uri'] = isset($data['prior_uri']) ? $data['prior_uri'] : null;
-        $this->container['total_row_count'] = isset($data['total_row_count']) ? $data['total_row_count'] : null;
+        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
+        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
+        $this->container['image_src'] = isset($data['image_src']) ? $data['image_src'] : null;
     }
 
     /**
@@ -241,169 +229,121 @@ class RoomTemplatesSummaryList implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets room_templates
-     *
-     * @return \DocuSign\Rooms\Model\RoomTemplate[]
-     */
-    public function getRoomTemplates()
-    {
-        return $this->container['room_templates'];
-    }
-
-    /**
-     * Sets room_templates
-     *
-     * @param \DocuSign\Rooms\Model\RoomTemplate[] $room_templates room_templates
-     *
-     * @return $this
-     */
-    public function setRoomTemplates($room_templates)
-    {
-        $this->container['room_templates'] = $room_templates;
-
-        return $this;
-    }
-
-    /**
-     * Gets result_set_size
+     * Gets user_id
      *
      * @return int
      */
-    public function getResultSetSize()
+    public function getUserId()
     {
-        return $this->container['result_set_size'];
+        return $this->container['user_id'];
     }
 
     /**
-     * Sets result_set_size
+     * Sets user_id
      *
-     * @param int $result_set_size result_set_size
+     * @param int $user_id user_id
      *
      * @return $this
      */
-    public function setResultSetSize($result_set_size)
+    public function setUserId($user_id)
     {
-        $this->container['result_set_size'] = $result_set_size;
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }
 
     /**
-     * Gets start_position
-     *
-     * @return int
-     */
-    public function getStartPosition()
-    {
-        return $this->container['start_position'];
-    }
-
-    /**
-     * Sets start_position
-     *
-     * @param int $start_position start_position
-     *
-     * @return $this
-     */
-    public function setStartPosition($start_position)
-    {
-        $this->container['start_position'] = $start_position;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_position
-     *
-     * @return int
-     */
-    public function getEndPosition()
-    {
-        return $this->container['end_position'];
-    }
-
-    /**
-     * Sets end_position
-     *
-     * @param int $end_position end_position
-     *
-     * @return $this
-     */
-    public function setEndPosition($end_position)
-    {
-        $this->container['end_position'] = $end_position;
-
-        return $this;
-    }
-
-    /**
-     * Gets next_uri
+     * Gets first_name
      *
      * @return string
      */
-    public function getNextUri()
+    public function getFirstName()
     {
-        return $this->container['next_uri'];
+        return $this->container['first_name'];
     }
 
     /**
-     * Sets next_uri
+     * Sets first_name
      *
-     * @param string $next_uri next_uri
+     * @param string $first_name first_name
      *
      * @return $this
      */
-    public function setNextUri($next_uri)
+    public function setFirstName($first_name)
     {
-        $this->container['next_uri'] = $next_uri;
+        $this->container['first_name'] = $first_name;
 
         return $this;
     }
 
     /**
-     * Gets prior_uri
+     * Gets last_name
      *
      * @return string
      */
-    public function getPriorUri()
+    public function getLastName()
     {
-        return $this->container['prior_uri'];
+        return $this->container['last_name'];
     }
 
     /**
-     * Sets prior_uri
+     * Sets last_name
      *
-     * @param string $prior_uri prior_uri
+     * @param string $last_name last_name
      *
      * @return $this
      */
-    public function setPriorUri($prior_uri)
+    public function setLastName($last_name)
     {
-        $this->container['prior_uri'] = $prior_uri;
+        $this->container['last_name'] = $last_name;
 
         return $this;
     }
 
     /**
-     * Gets total_row_count
+     * Gets company_name
      *
-     * @return int
+     * @return string
      */
-    public function getTotalRowCount()
+    public function getCompanyName()
     {
-        return $this->container['total_row_count'];
+        return $this->container['company_name'];
     }
 
     /**
-     * Sets total_row_count
+     * Sets company_name
      *
-     * @param int $total_row_count total_row_count
+     * @param string $company_name company_name
      *
      * @return $this
      */
-    public function setTotalRowCount($total_row_count)
+    public function setCompanyName($company_name)
     {
-        $this->container['total_row_count'] = $total_row_count;
+        $this->container['company_name'] = $company_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_src
+     *
+     * @return string
+     */
+    public function getImageSrc()
+    {
+        return $this->container['image_src'];
+    }
+
+    /**
+     * Sets image_src
+     *
+     * @param string $image_src image_src
+     *
+     * @return $this
+     */
+    public function setImageSrc($image_src)
+    {
+        $this->container['image_src'] = $image_src;
 
         return $this;
     }

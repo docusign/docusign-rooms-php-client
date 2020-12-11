@@ -163,7 +163,7 @@ class FieldsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -174,7 +174,7 @@ class FieldsApi
         // query params
         // query params
         if (is_array($fields_custom_data_filters)) {
-            $fields_custom_data_filters = $this->apiClient->getSerializer()->serializeCollection($fields_custom_data_filters, 'multi', true);
+            $fields_custom_data_filters = $this->apiClient->getSerializer()->serializeCollection($fields_custom_data_filters, 'csv', true);
         }
         if ($options->getFieldsCustomDataFilters() !== null) {
             $queryParams['fieldsCustomDataFilters'] = $this->apiClient->getSerializer()->toQueryValue($options->getFieldsCustomDataFilters());

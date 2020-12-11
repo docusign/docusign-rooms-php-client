@@ -228,13 +228,13 @@ class RolesApi
      * Creates a role.
      *
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoleForCreate $role  (required)
+     * @param \DocuSign\Rooms\Model\RoleForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Role
      */
-    public function createRole($account_id, $role)
+    public function createRole($account_id, $body = null)
     {
-        list($response) = $this->createRoleWithHttpInfo($account_id, $role);
+        list($response) = $this->createRoleWithHttpInfo($account_id, $body);
         return $response;
     }
 
@@ -244,16 +244,12 @@ class RolesApi
      * Creates a role.
      *
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoleForCreate $role  (required)
+     * @param \DocuSign\Rooms\Model\RoleForCreate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Role, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRoleWithHttpInfo($account_id, $role)
+    public function createRoleWithHttpInfo($account_id, $body = null)
     {
-        // verify the required parameter 'role' is set
-        if ($role === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $role when calling createRole');
-        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling createRole');
@@ -264,11 +260,11 @@ class RolesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -284,8 +280,8 @@ class RolesApi
 
         // body params
         $_tempBody = null;
-        if (isset($role)) {
-            $_tempBody = $role;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -373,7 +369,7 @@ class RolesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -483,7 +479,7 @@ class RolesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -599,7 +595,7 @@ class RolesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -688,13 +684,13 @@ class RolesApi
      *
     * @param int $role_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoleForUpdate $role  (required)
+     * @param \DocuSign\Rooms\Model\RoleForUpdate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Role
      */
-    public function updateRole($role_id, $account_id, $role)
+    public function updateRole($role_id, $account_id, $body = null)
     {
-        list($response) = $this->updateRoleWithHttpInfo($role_id, $account_id, $role);
+        list($response) = $this->updateRoleWithHttpInfo($role_id, $account_id, $body);
         return $response;
     }
 
@@ -705,19 +701,15 @@ class RolesApi
      *
     * @param int $role_id 
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\RoleForUpdate $role  (required)
+     * @param \DocuSign\Rooms\Model\RoleForUpdate $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Role, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRoleWithHttpInfo($role_id, $account_id, $role)
+    public function updateRoleWithHttpInfo($role_id, $account_id, $body = null)
     {
         // verify the required parameter 'role_id' is set
         if ($role_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $role_id when calling updateRole');
-        }
-        // verify the required parameter 'role' is set
-        if ($role === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $role when calling updateRole');
         }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -729,11 +721,11 @@ class RolesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -757,8 +749,8 @@ class RolesApi
 
         // body params
         $_tempBody = null;
-        if (isset($role)) {
-            $_tempBody = $role;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)

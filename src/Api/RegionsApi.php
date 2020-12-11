@@ -175,13 +175,13 @@ class RegionsApi
      * Creates a new region for a company
      *
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\Region $region The information required to create a new region for the caller&#39;s company (required)
+     * @param \DocuSign\Rooms\Model\Region $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Region
      */
-    public function createRegion($account_id, $region)
+    public function createRegion($account_id, $body = null)
     {
-        list($response) = $this->createRegionWithHttpInfo($account_id, $region);
+        list($response) = $this->createRegionWithHttpInfo($account_id, $body);
         return $response;
     }
 
@@ -191,16 +191,12 @@ class RegionsApi
      * Creates a new region for a company
      *
     * @param string $account_id 
-     * @param \DocuSign\Rooms\Model\Region $region The information required to create a new region for the caller&#39;s company (required)
+     * @param \DocuSign\Rooms\Model\Region $body  (optional)
      * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Region, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRegionWithHttpInfo($account_id, $region)
+    public function createRegionWithHttpInfo($account_id, $body = null)
     {
-        // verify the required parameter 'region' is set
-        if ($region === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $region when calling createRegion');
-        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling createRegion');
@@ -211,11 +207,11 @@ class RegionsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
@@ -231,8 +227,8 @@ class RegionsApi
 
         // body params
         $_tempBody = null;
-        if (isset($region)) {
-            $_tempBody = $region;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -320,7 +316,7 @@ class RegionsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -428,7 +424,7 @@ class RegionsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -540,7 +536,7 @@ class RegionsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -613,7 +609,7 @@ class RegionsApi
     /**
      * Operation getRegions
      *
-     * Get account regions.
+     * Get account
      *
     * @param string $account_id 
      * @param  $options Options for modifying the behavior of the function. (optional)
@@ -629,7 +625,7 @@ class RegionsApi
     /**
      * Operation getRegionsWithHttpInfo
      *
-     * Get account regions.
+     * Get account
      *
     * @param string $account_id 
      * @param  $options Options for modifying the behavior of the function. (optional)
@@ -648,7 +644,7 @@ class RegionsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }

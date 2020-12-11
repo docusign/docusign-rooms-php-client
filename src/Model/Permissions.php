@@ -69,8 +69,13 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_copy_room_details' => 'bool',
         'can_edit_any_room_role' => 'bool',
         'can_edit_invited_room_role' => 'bool',
+        'can_edit_room_side' => 'bool',
         'can_manage_any_user_room_access' => 'bool',
         'can_manage_invited_user_room_access' => 'bool',
+        'is_hidden_in_room' => 'bool',
+        'can_manage_room_owners' => 'bool',
+        'can_delete_rooms' => 'bool',
+        'can_connect_to_mortgage_cadence' => 'bool',
         'can_view_room_details' => 'bool',
         'can_view_and_edit_room_details' => 'bool',
         'can_send_room_details_to_lone_wolf' => 'bool',
@@ -97,7 +102,8 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_task_templates_for_all_regions_all_offices' => 'bool',
         'can_apply_room_templates' => 'bool',
         'can_add_tasks_to_rooms' => 'bool',
-        'can_create_and_manage_packages' => 'bool',
+        'can_review_any_task' => 'bool',
+        'can_manage_docs_on_any_task' => 'bool',
         'can_add_member_and_set_role_lower_access_level' => 'bool',
         'can_add_member_and_set_role_same_access_level' => 'bool',
         'can_change_member_role_lower_access_level' => 'bool',
@@ -108,6 +114,7 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_remove_company_member_same_access_level' => 'bool',
         'can_manage_account' => 'bool',
         'can_manage_logo' => 'bool',
+        'can_manage_roles_and_permissions' => 'bool',
         'can_manage_room_details' => 'bool',
         'can_manage_room_templates' => 'bool',
         'can_manage_integration_settings' => 'bool'
@@ -131,8 +138,13 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_copy_room_details' => null,
         'can_edit_any_room_role' => null,
         'can_edit_invited_room_role' => null,
+        'can_edit_room_side' => null,
         'can_manage_any_user_room_access' => null,
         'can_manage_invited_user_room_access' => null,
+        'is_hidden_in_room' => null,
+        'can_manage_room_owners' => null,
+        'can_delete_rooms' => null,
+        'can_connect_to_mortgage_cadence' => null,
         'can_view_room_details' => null,
         'can_view_and_edit_room_details' => null,
         'can_send_room_details_to_lone_wolf' => null,
@@ -159,7 +171,8 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_task_templates_for_all_regions_all_offices' => null,
         'can_apply_room_templates' => null,
         'can_add_tasks_to_rooms' => null,
-        'can_create_and_manage_packages' => null,
+        'can_review_any_task' => null,
+        'can_manage_docs_on_any_task' => null,
         'can_add_member_and_set_role_lower_access_level' => null,
         'can_add_member_and_set_role_same_access_level' => null,
         'can_change_member_role_lower_access_level' => null,
@@ -170,6 +183,7 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_remove_company_member_same_access_level' => null,
         'can_manage_account' => null,
         'can_manage_logo' => null,
+        'can_manage_roles_and_permissions' => null,
         'can_manage_room_details' => null,
         'can_manage_room_templates' => null,
         'can_manage_integration_settings' => null
@@ -214,8 +228,13 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_copy_room_details' => 'canCopyRoomDetails',
         'can_edit_any_room_role' => 'canEditAnyRoomRole',
         'can_edit_invited_room_role' => 'canEditInvitedRoomRole',
+        'can_edit_room_side' => 'canEditRoomSide',
         'can_manage_any_user_room_access' => 'canManageAnyUserRoomAccess',
         'can_manage_invited_user_room_access' => 'canManageInvitedUserRoomAccess',
+        'is_hidden_in_room' => 'isHiddenInRoom',
+        'can_manage_room_owners' => 'canManageRoomOwners',
+        'can_delete_rooms' => 'canDeleteRooms',
+        'can_connect_to_mortgage_cadence' => 'canConnectToMortgageCadence',
         'can_view_room_details' => 'canViewRoomDetails',
         'can_view_and_edit_room_details' => 'canViewAndEditRoomDetails',
         'can_send_room_details_to_lone_wolf' => 'canSendRoomDetailsToLoneWolf',
@@ -242,7 +261,8 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_task_templates_for_all_regions_all_offices' => 'canManageTaskTemplatesForAllRegionsAllOffices',
         'can_apply_room_templates' => 'canApplyRoomTemplates',
         'can_add_tasks_to_rooms' => 'canAddTasksToRooms',
-        'can_create_and_manage_packages' => 'canCreateAndManagePackages',
+        'can_review_any_task' => 'canReviewAnyTask',
+        'can_manage_docs_on_any_task' => 'canManageDocsOnAnyTask',
         'can_add_member_and_set_role_lower_access_level' => 'canAddMemberAndSetRoleLowerAccessLevel',
         'can_add_member_and_set_role_same_access_level' => 'canAddMemberAndSetRoleSameAccessLevel',
         'can_change_member_role_lower_access_level' => 'canChangeMemberRoleLowerAccessLevel',
@@ -253,6 +273,7 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_remove_company_member_same_access_level' => 'canRemoveCompanyMemberSameAccessLevel',
         'can_manage_account' => 'canManageAccount',
         'can_manage_logo' => 'canManageLogo',
+        'can_manage_roles_and_permissions' => 'canManageRolesAndPermissions',
         'can_manage_room_details' => 'canManageRoomDetails',
         'can_manage_room_templates' => 'canManageRoomTemplates',
         'can_manage_integration_settings' => 'canManageIntegrationSettings'
@@ -276,8 +297,13 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_copy_room_details' => 'setCanCopyRoomDetails',
         'can_edit_any_room_role' => 'setCanEditAnyRoomRole',
         'can_edit_invited_room_role' => 'setCanEditInvitedRoomRole',
+        'can_edit_room_side' => 'setCanEditRoomSide',
         'can_manage_any_user_room_access' => 'setCanManageAnyUserRoomAccess',
         'can_manage_invited_user_room_access' => 'setCanManageInvitedUserRoomAccess',
+        'is_hidden_in_room' => 'setIsHiddenInRoom',
+        'can_manage_room_owners' => 'setCanManageRoomOwners',
+        'can_delete_rooms' => 'setCanDeleteRooms',
+        'can_connect_to_mortgage_cadence' => 'setCanConnectToMortgageCadence',
         'can_view_room_details' => 'setCanViewRoomDetails',
         'can_view_and_edit_room_details' => 'setCanViewAndEditRoomDetails',
         'can_send_room_details_to_lone_wolf' => 'setCanSendRoomDetailsToLoneWolf',
@@ -304,7 +330,8 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_task_templates_for_all_regions_all_offices' => 'setCanManageTaskTemplatesForAllRegionsAllOffices',
         'can_apply_room_templates' => 'setCanApplyRoomTemplates',
         'can_add_tasks_to_rooms' => 'setCanAddTasksToRooms',
-        'can_create_and_manage_packages' => 'setCanCreateAndManagePackages',
+        'can_review_any_task' => 'setCanReviewAnyTask',
+        'can_manage_docs_on_any_task' => 'setCanManageDocsOnAnyTask',
         'can_add_member_and_set_role_lower_access_level' => 'setCanAddMemberAndSetRoleLowerAccessLevel',
         'can_add_member_and_set_role_same_access_level' => 'setCanAddMemberAndSetRoleSameAccessLevel',
         'can_change_member_role_lower_access_level' => 'setCanChangeMemberRoleLowerAccessLevel',
@@ -315,6 +342,7 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_remove_company_member_same_access_level' => 'setCanRemoveCompanyMemberSameAccessLevel',
         'can_manage_account' => 'setCanManageAccount',
         'can_manage_logo' => 'setCanManageLogo',
+        'can_manage_roles_and_permissions' => 'setCanManageRolesAndPermissions',
         'can_manage_room_details' => 'setCanManageRoomDetails',
         'can_manage_room_templates' => 'setCanManageRoomTemplates',
         'can_manage_integration_settings' => 'setCanManageIntegrationSettings'
@@ -338,8 +366,13 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_copy_room_details' => 'getCanCopyRoomDetails',
         'can_edit_any_room_role' => 'getCanEditAnyRoomRole',
         'can_edit_invited_room_role' => 'getCanEditInvitedRoomRole',
+        'can_edit_room_side' => 'getCanEditRoomSide',
         'can_manage_any_user_room_access' => 'getCanManageAnyUserRoomAccess',
         'can_manage_invited_user_room_access' => 'getCanManageInvitedUserRoomAccess',
+        'is_hidden_in_room' => 'getIsHiddenInRoom',
+        'can_manage_room_owners' => 'getCanManageRoomOwners',
+        'can_delete_rooms' => 'getCanDeleteRooms',
+        'can_connect_to_mortgage_cadence' => 'getCanConnectToMortgageCadence',
         'can_view_room_details' => 'getCanViewRoomDetails',
         'can_view_and_edit_room_details' => 'getCanViewAndEditRoomDetails',
         'can_send_room_details_to_lone_wolf' => 'getCanSendRoomDetailsToLoneWolf',
@@ -366,7 +399,8 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_task_templates_for_all_regions_all_offices' => 'getCanManageTaskTemplatesForAllRegionsAllOffices',
         'can_apply_room_templates' => 'getCanApplyRoomTemplates',
         'can_add_tasks_to_rooms' => 'getCanAddTasksToRooms',
-        'can_create_and_manage_packages' => 'getCanCreateAndManagePackages',
+        'can_review_any_task' => 'getCanReviewAnyTask',
+        'can_manage_docs_on_any_task' => 'getCanManageDocsOnAnyTask',
         'can_add_member_and_set_role_lower_access_level' => 'getCanAddMemberAndSetRoleLowerAccessLevel',
         'can_add_member_and_set_role_same_access_level' => 'getCanAddMemberAndSetRoleSameAccessLevel',
         'can_change_member_role_lower_access_level' => 'getCanChangeMemberRoleLowerAccessLevel',
@@ -377,6 +411,7 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_remove_company_member_same_access_level' => 'getCanRemoveCompanyMemberSameAccessLevel',
         'can_manage_account' => 'getCanManageAccount',
         'can_manage_logo' => 'getCanManageLogo',
+        'can_manage_roles_and_permissions' => 'getCanManageRolesAndPermissions',
         'can_manage_room_details' => 'getCanManageRoomDetails',
         'can_manage_room_templates' => 'getCanManageRoomTemplates',
         'can_manage_integration_settings' => 'getCanManageIntegrationSettings'
@@ -454,8 +489,13 @@ class Permissions implements ModelInterface, ArrayAccess
         $this->container['can_copy_room_details'] = isset($data['can_copy_room_details']) ? $data['can_copy_room_details'] : null;
         $this->container['can_edit_any_room_role'] = isset($data['can_edit_any_room_role']) ? $data['can_edit_any_room_role'] : null;
         $this->container['can_edit_invited_room_role'] = isset($data['can_edit_invited_room_role']) ? $data['can_edit_invited_room_role'] : null;
+        $this->container['can_edit_room_side'] = isset($data['can_edit_room_side']) ? $data['can_edit_room_side'] : null;
         $this->container['can_manage_any_user_room_access'] = isset($data['can_manage_any_user_room_access']) ? $data['can_manage_any_user_room_access'] : null;
         $this->container['can_manage_invited_user_room_access'] = isset($data['can_manage_invited_user_room_access']) ? $data['can_manage_invited_user_room_access'] : null;
+        $this->container['is_hidden_in_room'] = isset($data['is_hidden_in_room']) ? $data['is_hidden_in_room'] : null;
+        $this->container['can_manage_room_owners'] = isset($data['can_manage_room_owners']) ? $data['can_manage_room_owners'] : null;
+        $this->container['can_delete_rooms'] = isset($data['can_delete_rooms']) ? $data['can_delete_rooms'] : null;
+        $this->container['can_connect_to_mortgage_cadence'] = isset($data['can_connect_to_mortgage_cadence']) ? $data['can_connect_to_mortgage_cadence'] : null;
         $this->container['can_view_room_details'] = isset($data['can_view_room_details']) ? $data['can_view_room_details'] : null;
         $this->container['can_view_and_edit_room_details'] = isset($data['can_view_and_edit_room_details']) ? $data['can_view_and_edit_room_details'] : null;
         $this->container['can_send_room_details_to_lone_wolf'] = isset($data['can_send_room_details_to_lone_wolf']) ? $data['can_send_room_details_to_lone_wolf'] : null;
@@ -482,7 +522,8 @@ class Permissions implements ModelInterface, ArrayAccess
         $this->container['can_manage_task_templates_for_all_regions_all_offices'] = isset($data['can_manage_task_templates_for_all_regions_all_offices']) ? $data['can_manage_task_templates_for_all_regions_all_offices'] : null;
         $this->container['can_apply_room_templates'] = isset($data['can_apply_room_templates']) ? $data['can_apply_room_templates'] : null;
         $this->container['can_add_tasks_to_rooms'] = isset($data['can_add_tasks_to_rooms']) ? $data['can_add_tasks_to_rooms'] : null;
-        $this->container['can_create_and_manage_packages'] = isset($data['can_create_and_manage_packages']) ? $data['can_create_and_manage_packages'] : null;
+        $this->container['can_review_any_task'] = isset($data['can_review_any_task']) ? $data['can_review_any_task'] : null;
+        $this->container['can_manage_docs_on_any_task'] = isset($data['can_manage_docs_on_any_task']) ? $data['can_manage_docs_on_any_task'] : null;
         $this->container['can_add_member_and_set_role_lower_access_level'] = isset($data['can_add_member_and_set_role_lower_access_level']) ? $data['can_add_member_and_set_role_lower_access_level'] : null;
         $this->container['can_add_member_and_set_role_same_access_level'] = isset($data['can_add_member_and_set_role_same_access_level']) ? $data['can_add_member_and_set_role_same_access_level'] : null;
         $this->container['can_change_member_role_lower_access_level'] = isset($data['can_change_member_role_lower_access_level']) ? $data['can_change_member_role_lower_access_level'] : null;
@@ -493,6 +534,7 @@ class Permissions implements ModelInterface, ArrayAccess
         $this->container['can_remove_company_member_same_access_level'] = isset($data['can_remove_company_member_same_access_level']) ? $data['can_remove_company_member_same_access_level'] : null;
         $this->container['can_manage_account'] = isset($data['can_manage_account']) ? $data['can_manage_account'] : null;
         $this->container['can_manage_logo'] = isset($data['can_manage_logo']) ? $data['can_manage_logo'] : null;
+        $this->container['can_manage_roles_and_permissions'] = isset($data['can_manage_roles_and_permissions']) ? $data['can_manage_roles_and_permissions'] : null;
         $this->container['can_manage_room_details'] = isset($data['can_manage_room_details']) ? $data['can_manage_room_details'] : null;
         $this->container['can_manage_room_templates'] = isset($data['can_manage_room_templates']) ? $data['can_manage_room_templates'] : null;
         $this->container['can_manage_integration_settings'] = isset($data['can_manage_integration_settings']) ? $data['can_manage_integration_settings'] : null;
@@ -811,6 +853,30 @@ class Permissions implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets can_edit_room_side
+     *
+     * @return bool
+     */
+    public function getCanEditRoomSide()
+    {
+        return $this->container['can_edit_room_side'];
+    }
+
+    /**
+     * Sets can_edit_room_side
+     *
+     * @param bool $can_edit_room_side can_edit_room_side
+     *
+     * @return $this
+     */
+    public function setCanEditRoomSide($can_edit_room_side)
+    {
+        $this->container['can_edit_room_side'] = $can_edit_room_side;
+
+        return $this;
+    }
+
+    /**
      * Gets can_manage_any_user_room_access
      *
      * @return bool
@@ -854,6 +920,102 @@ class Permissions implements ModelInterface, ArrayAccess
     public function setCanManageInvitedUserRoomAccess($can_manage_invited_user_room_access)
     {
         $this->container['can_manage_invited_user_room_access'] = $can_manage_invited_user_room_access;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_hidden_in_room
+     *
+     * @return bool
+     */
+    public function getIsHiddenInRoom()
+    {
+        return $this->container['is_hidden_in_room'];
+    }
+
+    /**
+     * Sets is_hidden_in_room
+     *
+     * @param bool $is_hidden_in_room is_hidden_in_room
+     *
+     * @return $this
+     */
+    public function setIsHiddenInRoom($is_hidden_in_room)
+    {
+        $this->container['is_hidden_in_room'] = $is_hidden_in_room;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_manage_room_owners
+     *
+     * @return bool
+     */
+    public function getCanManageRoomOwners()
+    {
+        return $this->container['can_manage_room_owners'];
+    }
+
+    /**
+     * Sets can_manage_room_owners
+     *
+     * @param bool $can_manage_room_owners can_manage_room_owners
+     *
+     * @return $this
+     */
+    public function setCanManageRoomOwners($can_manage_room_owners)
+    {
+        $this->container['can_manage_room_owners'] = $can_manage_room_owners;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_delete_rooms
+     *
+     * @return bool
+     */
+    public function getCanDeleteRooms()
+    {
+        return $this->container['can_delete_rooms'];
+    }
+
+    /**
+     * Sets can_delete_rooms
+     *
+     * @param bool $can_delete_rooms can_delete_rooms
+     *
+     * @return $this
+     */
+    public function setCanDeleteRooms($can_delete_rooms)
+    {
+        $this->container['can_delete_rooms'] = $can_delete_rooms;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_connect_to_mortgage_cadence
+     *
+     * @return bool
+     */
+    public function getCanConnectToMortgageCadence()
+    {
+        return $this->container['can_connect_to_mortgage_cadence'];
+    }
+
+    /**
+     * Sets can_connect_to_mortgage_cadence
+     *
+     * @param bool $can_connect_to_mortgage_cadence can_connect_to_mortgage_cadence
+     *
+     * @return $this
+     */
+    public function setCanConnectToMortgageCadence($can_connect_to_mortgage_cadence)
+    {
+        $this->container['can_connect_to_mortgage_cadence'] = $can_connect_to_mortgage_cadence;
 
         return $this;
     }
@@ -1483,25 +1645,49 @@ class Permissions implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets can_create_and_manage_packages
+     * Gets can_review_any_task
      *
      * @return bool
      */
-    public function getCanCreateAndManagePackages()
+    public function getCanReviewAnyTask()
     {
-        return $this->container['can_create_and_manage_packages'];
+        return $this->container['can_review_any_task'];
     }
 
     /**
-     * Sets can_create_and_manage_packages
+     * Sets can_review_any_task
      *
-     * @param bool $can_create_and_manage_packages can_create_and_manage_packages
+     * @param bool $can_review_any_task can_review_any_task
      *
      * @return $this
      */
-    public function setCanCreateAndManagePackages($can_create_and_manage_packages)
+    public function setCanReviewAnyTask($can_review_any_task)
     {
-        $this->container['can_create_and_manage_packages'] = $can_create_and_manage_packages;
+        $this->container['can_review_any_task'] = $can_review_any_task;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_manage_docs_on_any_task
+     *
+     * @return bool
+     */
+    public function getCanManageDocsOnAnyTask()
+    {
+        return $this->container['can_manage_docs_on_any_task'];
+    }
+
+    /**
+     * Sets can_manage_docs_on_any_task
+     *
+     * @param bool $can_manage_docs_on_any_task can_manage_docs_on_any_task
+     *
+     * @return $this
+     */
+    public function setCanManageDocsOnAnyTask($can_manage_docs_on_any_task)
+    {
+        $this->container['can_manage_docs_on_any_task'] = $can_manage_docs_on_any_task;
 
         return $this;
     }
@@ -1742,6 +1928,30 @@ class Permissions implements ModelInterface, ArrayAccess
     public function setCanManageLogo($can_manage_logo)
     {
         $this->container['can_manage_logo'] = $can_manage_logo;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_manage_roles_and_permissions
+     *
+     * @return bool
+     */
+    public function getCanManageRolesAndPermissions()
+    {
+        return $this->container['can_manage_roles_and_permissions'];
+    }
+
+    /**
+     * Sets can_manage_roles_and_permissions
+     *
+     * @param bool $can_manage_roles_and_permissions can_manage_roles_and_permissions
+     *
+     * @return $this
+     */
+    public function setCanManageRolesAndPermissions($can_manage_roles_and_permissions)
+    {
+        $this->container['can_manage_roles_and_permissions'] = $can_manage_roles_and_permissions;
 
         return $this;
     }

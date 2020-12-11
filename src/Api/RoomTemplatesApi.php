@@ -31,7 +31,7 @@ namespace DocuSign\Rooms\Api\RoomTemplatesApi;
 class GetRoomTemplatesOptions
 {
     /**
-      * $office_id Get all room templates you have access to for this office. Response includes Company and Region level templates. If onlyAssignable is true, and no officeId is provided, user's default office is assumed.
+      * $office_id Get all room templates you have access to for this office. Response includes Company and Region level  If onlyAssignable is true, and no officeId is provided, user's default office is assumed.
       * @var int
       */
     protected $office_id;
@@ -47,7 +47,7 @@ class GetRoomTemplatesOptions
   
     /**
      * Sets office_id
-     * @param int $office_id Get all room templates you have access to for this office. Response includes Company and Region level templates. If onlyAssignable is true, and no officeId is provided, user's default office is assumed.
+     * @param int $office_id Get all room templates you have access to for this office. Response includes Company and Region level  If onlyAssignable is true, and no officeId is provided, user's default office is assumed.
      * @return $this
      */
     public function setOfficeId($office_id)
@@ -78,6 +78,31 @@ class GetRoomTemplatesOptions
     public function setOnlyAssignable($only_assignable)
     {
         $this->only_assignable = $only_assignable;
+        return $this;
+    }
+    /**
+      * $only_enabled When set to true, only returns room templates that are not disabled.
+      * @var bool
+      */
+    protected $only_enabled;
+
+    /**
+     * Gets only_enabled
+     * @return bool
+     */
+    public function getOnlyEnabled()
+    {
+        return $this->only_enabled;
+    }
+  
+    /**
+     * Sets only_enabled
+     * @param bool $only_enabled When set to true, only returns room templates that are not disabled.
+     * @return $this
+     */
+    public function setOnlyEnabled($only_enabled)
+    {
+        $this->only_enabled = $only_enabled;
         return $this;
     }
     /**
@@ -232,7 +257,7 @@ class RoomTemplatesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -248,6 +273,10 @@ class RoomTemplatesApi
         // query params
         if ($options->getOnlyAssignable() !== null) {
             $queryParams['onlyAssignable'] = $this->apiClient->getSerializer()->toQueryValue($options->getOnlyAssignable());
+        }
+        // query params
+        if ($options->getOnlyEnabled() !== null) {
+            $queryParams['onlyEnabled'] = $this->apiClient->getSerializer()->toQueryValue($options->getOnlyEnabled());
         }
         // query params
         if ($options->getCount() !== null) {

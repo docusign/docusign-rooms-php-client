@@ -66,7 +66,7 @@ class ExternalFormFillSession implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'url' => null
+        'url' => 'uri'
     ];
 
     /**

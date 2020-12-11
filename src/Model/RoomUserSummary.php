@@ -63,7 +63,9 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
         'last_name' => 'string',
         'transaction_side_id' => 'string',
         'role_id' => 'int',
-        'title_id' => 'int'
+        'title_id' => 'int',
+        'company_name' => 'string',
+        'role_name' => 'string'
     ];
 
     /**
@@ -78,7 +80,9 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
         'last_name' => null,
         'transaction_side_id' => null,
         'role_id' => 'int32',
-        'title_id' => 'int32'
+        'title_id' => 'int32',
+        'company_name' => null,
+        'role_name' => null
     ];
 
     /**
@@ -114,7 +118,9 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
         'last_name' => 'lastName',
         'transaction_side_id' => 'transactionSideId',
         'role_id' => 'roleId',
-        'title_id' => 'titleId'
+        'title_id' => 'titleId',
+        'company_name' => 'companyName',
+        'role_name' => 'roleName'
     ];
 
     /**
@@ -129,7 +135,9 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
         'last_name' => 'setLastName',
         'transaction_side_id' => 'setTransactionSideId',
         'role_id' => 'setRoleId',
-        'title_id' => 'setTitleId'
+        'title_id' => 'setTitleId',
+        'company_name' => 'setCompanyName',
+        'role_name' => 'setRoleName'
     ];
 
     /**
@@ -144,7 +152,9 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
         'last_name' => 'getLastName',
         'transaction_side_id' => 'getTransactionSideId',
         'role_id' => 'getRoleId',
-        'title_id' => 'getTitleId'
+        'title_id' => 'getTitleId',
+        'company_name' => 'getCompanyName',
+        'role_name' => 'getRoleName'
     ];
 
     /**
@@ -214,6 +224,8 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
         $this->container['transaction_side_id'] = isset($data['transaction_side_id']) ? $data['transaction_side_id'] : null;
         $this->container['role_id'] = isset($data['role_id']) ? $data['role_id'] : null;
         $this->container['title_id'] = isset($data['title_id']) ? $data['title_id'] : null;
+        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
+        $this->container['role_name'] = isset($data['role_name']) ? $data['role_name'] : null;
     }
 
     /**
@@ -404,6 +416,54 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     public function setTitleId($title_id)
     {
         $this->container['title_id'] = $title_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_name
+     *
+     * @return string
+     */
+    public function getCompanyName()
+    {
+        return $this->container['company_name'];
+    }
+
+    /**
+     * Sets company_name
+     *
+     * @param string $company_name company_name
+     *
+     * @return $this
+     */
+    public function setCompanyName($company_name)
+    {
+        $this->container['company_name'] = $company_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets role_name
+     *
+     * @return string
+     */
+    public function getRoleName()
+    {
+        return $this->container['role_name'];
+    }
+
+    /**
+     * Sets role_name
+     *
+     * @param string $role_name role_name
+     *
+     * @return $this
+     */
+    public function setRoleName($role_name)
+    {
+        $this->container['role_name'] = $role_name;
 
         return $this;
     }
