@@ -2,7 +2,7 @@
 /**
  * RoomUserSummary
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoomUserSummary Class Doc Comment
@@ -57,15 +57,15 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user_id' => 'int',
-        'email' => 'string',
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'transaction_side_id' => 'string',
-        'role_id' => 'int',
-        'title_id' => 'int',
-        'company_name' => 'string',
-        'role_name' => 'string'
+        'user_id' => '?int',
+        'email' => '?string',
+        'first_name' => '?string',
+        'last_name' => '?string',
+        'transaction_side_id' => '?string',
+        'role_id' => '?int',
+        'title_id' => '?int',
+        'company_name' => '?string',
+        'role_name' => '?string'
     ];
 
     /**
@@ -255,7 +255,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Gets user_id
      *
-     * @return int
+     * @return ?int
      */
     public function getUserId()
     {
@@ -265,7 +265,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int $user_id user_id
+     * @param ?int $user_id user_id
      *
      * @return $this
      */
@@ -279,7 +279,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Gets email
      *
-     * @return string
+     * @return ?string
      */
     public function getEmail()
     {
@@ -289,7 +289,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email email
+     * @param ?string $email email
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Gets first_name
      *
-     * @return string
+     * @return ?string
      */
     public function getFirstName()
     {
@@ -313,7 +313,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Sets first_name
      *
-     * @param string $first_name first_name
+     * @param ?string $first_name first_name
      *
      * @return $this
      */
@@ -327,7 +327,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Gets last_name
      *
-     * @return string
+     * @return ?string
      */
     public function getLastName()
     {
@@ -337,7 +337,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Sets last_name
      *
-     * @param string $last_name last_name
+     * @param ?string $last_name last_name
      *
      * @return $this
      */
@@ -351,7 +351,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Gets transaction_side_id
      *
-     * @return string
+     * @return ?string
      */
     public function getTransactionSideId()
     {
@@ -361,7 +361,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_side_id
      *
-     * @param string $transaction_side_id transaction_side_id
+     * @param ?string $transaction_side_id transaction_side_id
      *
      * @return $this
      */
@@ -375,7 +375,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Gets role_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRoleId()
     {
@@ -385,7 +385,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Sets role_id
      *
-     * @param int $role_id role_id
+     * @param ?int $role_id role_id
      *
      * @return $this
      */
@@ -399,7 +399,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Gets title_id
      *
-     * @return int
+     * @return ?int
      */
     public function getTitleId()
     {
@@ -409,7 +409,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Sets title_id
      *
-     * @param int $title_id title_id
+     * @param ?int $title_id title_id
      *
      * @return $this
      */
@@ -423,7 +423,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Gets company_name
      *
-     * @return string
+     * @return ?string
      */
     public function getCompanyName()
     {
@@ -433,7 +433,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Sets company_name
      *
-     * @param string $company_name company_name
+     * @param ?string $company_name company_name
      *
      * @return $this
      */
@@ -447,7 +447,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Gets role_name
      *
-     * @return string
+     * @return ?string
      */
     public function getRoleName()
     {
@@ -457,7 +457,7 @@ class RoomUserSummary implements ModelInterface, ArrayAccess
     /**
      * Sets role_name
      *
-     * @param string $role_name role_name
+     * @param ?string $role_name role_name
      *
      * @return $this
      */

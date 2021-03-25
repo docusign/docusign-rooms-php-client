@@ -2,7 +2,7 @@
 /**
  * FormGroupSummary
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * FormGroupSummary Class Doc Comment
@@ -57,9 +57,9 @@ class FormGroupSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'form_group_id' => 'string',
-        'name' => 'string',
-        'form_count' => 'int'
+        'form_group_id' => '?string',
+        'name' => '?string',
+        'form_count' => '?int'
     ];
 
     /**
@@ -219,7 +219,7 @@ class FormGroupSummary implements ModelInterface, ArrayAccess
     /**
      * Gets form_group_id
      *
-     * @return string
+     * @return ?string
      */
     public function getFormGroupId()
     {
@@ -229,7 +229,7 @@ class FormGroupSummary implements ModelInterface, ArrayAccess
     /**
      * Sets form_group_id
      *
-     * @param string $form_group_id form_group_id
+     * @param ?string $form_group_id form_group_id
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class FormGroupSummary implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -253,7 +253,7 @@ class FormGroupSummary implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class FormGroupSummary implements ModelInterface, ArrayAccess
     /**
      * Gets form_count
      *
-     * @return int
+     * @return ?int
      */
     public function getFormCount()
     {
@@ -277,7 +277,7 @@ class FormGroupSummary implements ModelInterface, ArrayAccess
     /**
      * Sets form_count
      *
-     * @param int $form_count form_count
+     * @param ?int $form_count form_count
      *
      * @return $this
      */

@@ -2,7 +2,7 @@
 /**
  * DocumentUserForCreate
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * DocumentUserForCreate Class Doc Comment
@@ -57,7 +57,7 @@ class DocumentUserForCreate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user_id' => 'int'
+        'user_id' => '?int'
     ];
 
     /**
@@ -210,7 +210,7 @@ class DocumentUserForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets user_id
      *
-     * @return int
+     * @return ?int
      */
     public function getUserId()
     {
@@ -220,7 +220,7 @@ class DocumentUserForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int $user_id user_id
+     * @param ?int $user_id user_id
      *
      * @return $this
      */

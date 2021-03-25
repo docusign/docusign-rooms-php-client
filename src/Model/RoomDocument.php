@@ -2,7 +2,7 @@
 /**
  * RoomDocument
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoomDocument Class Doc Comment
@@ -57,16 +57,16 @@ class RoomDocument implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'document_id' => 'int',
-        'name' => 'string',
-        'owner_id' => 'int',
+        'document_id' => '?int',
+        'name' => '?string',
+        'owner_id' => '?int',
         'size' => 'int',
-        'folder_id' => 'int',
+        'folder_id' => '?int',
         'created_date' => '\DateTime',
-        'is_signed' => 'bool',
-        'docu_sign_form_id' => 'string',
-        'is_archived' => 'bool',
-        'is_virtual' => 'bool',
+        'is_signed' => '?bool',
+        'docu_sign_form_id' => '?string',
+        'is_archived' => '?bool',
+        'is_virtual' => '?bool',
         'owner' => '\DocuSign\Rooms\Model\RoomDocumentOwner'
     ];
 
@@ -267,7 +267,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Gets document_id
      *
-     * @return int
+     * @return ?int
      */
     public function getDocumentId()
     {
@@ -277,7 +277,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Sets document_id
      *
-     * @param int $document_id document_id
+     * @param ?int $document_id document_id
      *
      * @return $this
      */
@@ -291,7 +291,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -301,7 +301,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -315,7 +315,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Gets owner_id
      *
-     * @return int
+     * @return ?int
      */
     public function getOwnerId()
     {
@@ -325,7 +325,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Sets owner_id
      *
-     * @param int $owner_id owner_id
+     * @param ?int $owner_id owner_id
      *
      * @return $this
      */
@@ -363,7 +363,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Gets folder_id
      *
-     * @return int
+     * @return ?int
      */
     public function getFolderId()
     {
@@ -373,7 +373,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Sets folder_id
      *
-     * @param int $folder_id folder_id
+     * @param ?int $folder_id folder_id
      *
      * @return $this
      */
@@ -411,7 +411,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Gets is_signed
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsSigned()
     {
@@ -421,7 +421,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Sets is_signed
      *
-     * @param bool $is_signed is_signed
+     * @param ?bool $is_signed is_signed
      *
      * @return $this
      */
@@ -435,7 +435,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Gets docu_sign_form_id
      *
-     * @return string
+     * @return ?string
      */
     public function getDocuSignFormId()
     {
@@ -445,7 +445,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Sets docu_sign_form_id
      *
-     * @param string $docu_sign_form_id docu_sign_form_id
+     * @param ?string $docu_sign_form_id docu_sign_form_id
      *
      * @return $this
      */
@@ -459,7 +459,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Gets is_archived
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsArchived()
     {
@@ -469,7 +469,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Sets is_archived
      *
-     * @param bool $is_archived is_archived
+     * @param ?bool $is_archived is_archived
      *
      * @return $this
      */
@@ -483,7 +483,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Gets is_virtual
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsVirtual()
     {
@@ -493,7 +493,7 @@ class RoomDocument implements ModelInterface, ArrayAccess
     /**
      * Sets is_virtual
      *
-     * @param bool $is_virtual is_virtual
+     * @param ?bool $is_virtual is_virtual
      *
      * @return $this
      */

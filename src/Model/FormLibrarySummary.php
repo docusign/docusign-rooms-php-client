@@ -2,7 +2,7 @@
 /**
  * FormLibrarySummary
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * FormLibrarySummary Class Doc Comment
@@ -57,9 +57,9 @@ class FormLibrarySummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'forms_library_id' => 'string',
-        'name' => 'string',
-        'form_count' => 'int'
+        'forms_library_id' => '?string',
+        'name' => '?string',
+        'form_count' => '?int'
     ];
 
     /**
@@ -219,7 +219,7 @@ class FormLibrarySummary implements ModelInterface, ArrayAccess
     /**
      * Gets forms_library_id
      *
-     * @return string
+     * @return ?string
      */
     public function getFormsLibraryId()
     {
@@ -229,7 +229,7 @@ class FormLibrarySummary implements ModelInterface, ArrayAccess
     /**
      * Sets forms_library_id
      *
-     * @param string $forms_library_id forms_library_id
+     * @param ?string $forms_library_id forms_library_id
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class FormLibrarySummary implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -253,7 +253,7 @@ class FormLibrarySummary implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class FormLibrarySummary implements ModelInterface, ArrayAccess
     /**
      * Gets form_count
      *
-     * @return int
+     * @return ?int
      */
     public function getFormCount()
     {
@@ -277,7 +277,7 @@ class FormLibrarySummary implements ModelInterface, ArrayAccess
     /**
      * Sets form_count
      *
-     * @param int $form_count form_count
+     * @param ?int $form_count form_count
      *
      * @return $this
      */

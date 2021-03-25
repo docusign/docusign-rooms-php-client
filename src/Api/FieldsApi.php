@@ -1,7 +1,10 @@
 <?php
+declare(strict_types=1);
+
 /**
- * FieldsApi
- * PHP version 5
+ * FieldsApi.
+ *
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -28,29 +31,30 @@
 
 namespace DocuSign\Rooms\Api\FieldsApi;
 
+
 class GetFieldSetOptions
 {
     /**
       * $fields_custom_data_filters 
-      * @var string[]
+      * @var ?string[]
       */
-    protected $fields_custom_data_filters;
+    protected ?string[] $fields_custom_data_filters = null;
 
     /**
      * Gets fields_custom_data_filters
-     * @return string[]
+     * @return ?string[]
      */
-    public function getFieldsCustomDataFilters()
+    public function getFieldsCustomDataFilters(): ?string[]
     {
         return $this->fields_custom_data_filters;
     }
-  
+
     /**
      * Sets fields_custom_data_filters
-     * @param string[] $fields_custom_data_filters 
-     * @return $this
+     * @param ?string[] $fields_custom_data_filters 
+     * @return self
      */
-    public function setFieldsCustomDataFilters($fields_custom_data_filters)
+    public function setFieldsCustomDataFilters(?string[] $fields_custom_data_filters): self
     {
         $this->fields_custom_data_filters = $fields_custom_data_filters;
         return $this;
@@ -58,12 +62,13 @@ class GetFieldSetOptions
 }
 
 
+
 namespace DocuSign\Rooms\Api;
 
-use \DocuSign\Rooms\Client\ApiClient;
-use \DocuSign\Rooms\Client\ApiException;
-use \DocuSign\Rooms\Configuration;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\Client\ApiClient;
+use DocuSign\Rooms\Client\ApiException;
+use DocuSign\Rooms\Configuration;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * FieldsApi Class Doc Comment
@@ -78,30 +83,27 @@ class FieldsApi
     /**
      * API Client
      *
-     * @var \DocuSign\Rooms\Client\ApiClient instance of the ApiClient
+     * @var ApiClient instance of the ApiClient
      */
-    protected $apiClient;
+    protected ApiClient $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DocuSign\Rooms\Client\ApiClient|null $apiClient The api client to use
+     * @param ApiClient|null $apiClient The api client to use
+     * @return void
      */
-    public function __construct(\DocuSign\Rooms\Client\ApiClient $apiClient = null)
+    public function __construct(ApiClient $apiClient = null)
     {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
-
-        $this->apiClient = $apiClient;
+        $this->apiClient = $apiClient ?? new ApiClient();
     }
 
     /**
      * Get API client
      *
-     * @return \DocuSign\Rooms\Client\ApiClient get the API client
+     * @return ApiClient get the API client
      */
-    public function getApiClient()
+    public function getApiClient(): ApiClient
     {
         return $this->apiClient;
     }
@@ -109,28 +111,47 @@ class FieldsApi
     /**
      * Set the API client
      *
-     * @param \DocuSign\Rooms\Client\ApiClient $apiClient set the API client
+     * @param ApiClient $apiClient set the API client
      *
-     * @return FieldsApi
+     * @return self
      */
-    public function setApiClient(\DocuSign\Rooms\Client\ApiClient $apiClient)
+    public function setApiClient(ApiClient $apiClient): self
     {
         $this->apiClient = $apiClient;
         return $this;
     }
 
     /**
+    * Update $resourcePath with $
+    *
+    * @param string $resourcePath
+    * @param string $baseName
+    * @param string $paramName
+    *
+    * @return string
+    */
+    public function updateResourcePath(string $resourcePath, string $baseName, string $paramName): string
+    {
+        return str_replace(
+            "{" . $baseName . "}",
+            $this->apiClient->getSerializer()->toPathValue($paramName),
+            $resourcePath
+        );
+    }
+
+
+    /**
      * Operation getFieldSet
      *
      * Get details of a specific field set.
      *
-    * @param string $field_set_id 
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $field_set_id 
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\FieldsApi\GetFieldSetOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FieldSet
      */
-    public function getFieldSet($field_set_id, $account_id, FieldsApi\GetFieldSetOptions $options = null)
+    public function getFieldSet($field_set_id, $account_id, \DocuSign\Rooms\Api\FieldsApi\GetFieldSetOptions $options = null): \DocuSign\Rooms\Model\FieldSet
     {
         list($response) = $this->getFieldSetWithHttpInfo($field_set_id, $account_id, $options);
         return $response;
@@ -141,13 +162,13 @@ class FieldsApi
      *
      * Get details of a specific field set.
      *
-    * @param string $field_set_id 
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $field_set_id 
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\FieldsApi\GetFieldSetOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FieldSet, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFieldSetWithHttpInfo($field_set_id, $account_id, FieldsApi\GetFieldSetOptions $options = null)
+    public function getFieldSetWithHttpInfo($field_set_id, $account_id, \DocuSign\Rooms\Api\FieldsApi\GetFieldSetOptions $options = null): array
     {
         // verify the required parameter 'field_set_id' is set
         if ($field_set_id === null) {
@@ -159,47 +180,33 @@ class FieldsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/field_sets/{fieldSetId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         if ($options != null)
         {
-        // query params
-        // query params
-        if (is_array($fields_custom_data_filters)) {
-            $fields_custom_data_filters = $this->apiClient->getSerializer()->serializeCollection($fields_custom_data_filters, 'csv', true);
-        }
-        if ($options->getFieldsCustomDataFilters() !== null) {
-            $queryParams['fieldsCustomDataFilters'] = $this->apiClient->getSerializer()->toQueryValue($options->getFieldsCustomDataFilters());
-        }
+            // query params
+            if (is_array($fields_custom_data_filters)) {
+                $fields_custom_data_filters = $this->apiClient->getSerializer()->serializeCollection($fields_custom_data_filters, 'csv', true);
+            }
+            if ($options->getFieldsCustomDataFilters() != 'null') {
+                $queryParams['fieldsCustomDataFilters'] = $this->apiClient->getSerializer()->toQueryValue($options->getFieldsCustomDataFilters());
+            }
         }
 
         // path params
         if ($field_set_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "fieldSetId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($field_set_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "fieldSetId", $field_set_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {

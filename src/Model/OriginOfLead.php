@@ -2,7 +2,7 @@
 /**
  * OriginOfLead
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * OriginOfLead Class Doc Comment
@@ -57,8 +57,8 @@ class OriginOfLead implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'origin_of_lead_id' => 'string',
-        'name' => 'string'
+        'origin_of_lead_id' => '?string',
+        'name' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class OriginOfLead implements ModelInterface, ArrayAccess
     /**
      * Gets origin_of_lead_id
      *
-     * @return string
+     * @return ?string
      */
     public function getOriginOfLeadId()
     {
@@ -223,7 +223,7 @@ class OriginOfLead implements ModelInterface, ArrayAccess
     /**
      * Sets origin_of_lead_id
      *
-     * @param string $origin_of_lead_id origin_of_lead_id
+     * @param ?string $origin_of_lead_id origin_of_lead_id
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class OriginOfLead implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -247,7 +247,7 @@ class OriginOfLead implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */

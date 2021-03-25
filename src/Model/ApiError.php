@@ -2,7 +2,7 @@
 /**
  * ApiError
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * ApiError Class Doc Comment
@@ -57,8 +57,8 @@ class ApiError implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error_code' => 'string',
-        'message' => 'string'
+        'error_code' => '?string',
+        'message' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class ApiError implements ModelInterface, ArrayAccess
     /**
      * Gets error_code
      *
-     * @return string
+     * @return ?string
      */
     public function getErrorCode()
     {
@@ -223,7 +223,7 @@ class ApiError implements ModelInterface, ArrayAccess
     /**
      * Sets error_code
      *
-     * @param string $error_code error_code
+     * @param ?string $error_code error_code
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class ApiError implements ModelInterface, ArrayAccess
     /**
      * Gets message
      *
-     * @return string
+     * @return ?string
      */
     public function getMessage()
     {
@@ -247,7 +247,7 @@ class ApiError implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param ?string $message message
      *
      * @return $this
      */

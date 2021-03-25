@@ -2,7 +2,7 @@
 /**
  * RoomUserForUpdate
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoomUserForUpdate Class Doc Comment
@@ -57,8 +57,8 @@ class RoomUserForUpdate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'role_id' => 'int',
-        'transaction_side_id' => 'string'
+        'role_id' => '?int',
+        'transaction_side_id' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class RoomUserForUpdate implements ModelInterface, ArrayAccess
     /**
      * Gets role_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRoleId()
     {
@@ -223,7 +223,7 @@ class RoomUserForUpdate implements ModelInterface, ArrayAccess
     /**
      * Sets role_id
      *
-     * @param int $role_id role_id
+     * @param ?int $role_id role_id
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class RoomUserForUpdate implements ModelInterface, ArrayAccess
     /**
      * Gets transaction_side_id
      *
-     * @return string
+     * @return ?string
      */
     public function getTransactionSideId()
     {
@@ -247,7 +247,7 @@ class RoomUserForUpdate implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_side_id
      *
-     * @param string $transaction_side_id transaction_side_id
+     * @param ?string $transaction_side_id transaction_side_id
      *
      * @return $this
      */

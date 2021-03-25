@@ -1,7 +1,10 @@
 <?php
+declare(strict_types=1);
+
 /**
- * UsersApi
- * PHP version 5
+ * UsersApi.
+ *
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -28,254 +31,255 @@
 
 namespace DocuSign\Rooms\Api\UsersApi;
 
+
 class GetUsersOptions
 {
     /**
       * $filter Filters by name and email
-      * @var string
+      * @var ?string
       */
-    protected $filter;
+    protected ?string $filter = null;
 
     /**
      * Gets filter
-     * @return string
+     * @return ?string
      */
-    public function getFilter()
+    public function getFilter(): ?string
     {
         return $this->filter;
     }
-  
+
     /**
      * Sets filter
-     * @param string $filter Filters by name and email
-     * @return $this
+     * @param ?string $filter Filters by name and email
+     * @return self
      */
-    public function setFilter($filter)
+    public function setFilter(?string $filter): self
     {
         $this->filter = $filter;
         return $this;
     }
     /**
       * $sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
-      * @var string
+      * @var ?string
       */
-    protected $sort;
+    protected ?string $sort = null;
 
     /**
      * Gets sort
-     * @return string
+     * @return ?string
      */
-    public function getSort()
+    public function getSort(): ?string
     {
         return $this->sort;
     }
-  
+
     /**
      * Sets sort
-     * @param string $sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
-     * @return $this
+     * @param ?string $sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
+     * @return self
      */
-    public function setSort($sort)
+    public function setSort(?string $sort): self
     {
         $this->sort = $sort;
         return $this;
     }
     /**
       * $default_office_id 
-      * @var int
+      * @var ?int
       */
-    protected $default_office_id;
+    protected ?int $default_office_id = null;
 
     /**
      * Gets default_office_id
-     * @return int
+     * @return ?int
      */
-    public function getDefaultOfficeId()
+    public function getDefaultOfficeId(): ?int
     {
         return $this->default_office_id;
     }
-  
+
     /**
      * Sets default_office_id
-     * @param int $default_office_id 
-     * @return $this
+     * @param ?int $default_office_id 
+     * @return self
      */
-    public function setDefaultOfficeId($default_office_id)
+    public function setDefaultOfficeId(?int $default_office_id): self
     {
         $this->default_office_id = $default_office_id;
         return $this;
     }
     /**
       * $access_level Valid values are 'Company', 'Region', 'Office', 'Contributor'
-      * @var string
+      * @var ?string
       */
-    protected $access_level;
+    protected ?string $access_level = null;
 
     /**
      * Gets access_level
-     * @return string
+     * @return ?string
      */
-    public function getAccessLevel()
+    public function getAccessLevel(): ?string
     {
         return $this->access_level;
     }
-  
+
     /**
      * Sets access_level
-     * @param string $access_level Valid values are 'Company', 'Region', 'Office', 'Contributor'
-     * @return $this
+     * @param ?string $access_level Valid values are 'Company', 'Region', 'Office', 'Contributor'
+     * @return self
      */
-    public function setAccessLevel($access_level)
+    public function setAccessLevel(?string $access_level): self
     {
         $this->access_level = $access_level;
         return $this;
     }
     /**
       * $title_id Only valid for classic companies
-      * @var int
+      * @var ?int
       */
-    protected $title_id;
+    protected ?int $title_id = null;
 
     /**
      * Gets title_id
-     * @return int
+     * @return ?int
      */
-    public function getTitleId()
+    public function getTitleId(): ?int
     {
         return $this->title_id;
     }
-  
+
     /**
      * Sets title_id
-     * @param int $title_id Only valid for classic companies
-     * @return $this
+     * @param ?int $title_id Only valid for classic companies
+     * @return self
      */
-    public function setTitleId($title_id)
+    public function setTitleId(?int $title_id): self
     {
         $this->title_id = $title_id;
         return $this;
     }
     /**
       * $role_id Only valid for next gen companies
-      * @var int
+      * @var ?int
       */
-    protected $role_id;
+    protected ?int $role_id = null;
 
     /**
      * Gets role_id
-     * @return int
+     * @return ?int
      */
-    public function getRoleId()
+    public function getRoleId(): ?int
     {
         return $this->role_id;
     }
-  
+
     /**
      * Sets role_id
-     * @param int $role_id Only valid for next gen companies
-     * @return $this
+     * @param ?int $role_id Only valid for next gen companies
+     * @return self
      */
-    public function setRoleId($role_id)
+    public function setRoleId(?int $role_id): self
     {
         $this->role_id = $role_id;
         return $this;
     }
     /**
       * $status Valid values are 'Active', 'Pending'
-      * @var string
+      * @var ?string
       */
-    protected $status;
+    protected ?string $status = null;
 
     /**
      * Gets status
-     * @return string
+     * @return ?string
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
-  
+
     /**
      * Sets status
-     * @param string $status Valid values are 'Active', 'Pending'
-     * @return $this
+     * @param ?string $status Valid values are 'Active', 'Pending'
+     * @return self
      */
-    public function setStatus($status)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
         return $this;
     }
     /**
       * $locked_only 
-      * @var bool
+      * @var ?bool
       */
-    protected $locked_only;
+    protected ?bool $locked_only = null;
 
     /**
      * Gets locked_only
-     * @return bool
+     * @return ?bool
      */
-    public function getLockedOnly()
+    public function getLockedOnly(): ?bool
     {
         return $this->locked_only;
     }
-  
+
     /**
      * Sets locked_only
-     * @param bool $locked_only 
-     * @return $this
+     * @param ?bool $locked_only 
+     * @return self
      */
-    public function setLockedOnly($locked_only)
+    public function setLockedOnly(?bool $locked_only): self
     {
         $this->locked_only = $locked_only;
         return $this;
     }
     /**
       * $start_position Defaults to 0
-      * @var int
+      * @var ?int
       */
-    protected $start_position;
+    protected ?int $start_position = null;
 
     /**
      * Gets start_position
-     * @return int
+     * @return ?int
      */
-    public function getStartPosition()
+    public function getStartPosition(): ?int
     {
         return $this->start_position;
     }
-  
+
     /**
      * Sets start_position
-     * @param int $start_position Defaults to 0
-     * @return $this
+     * @param ?int $start_position Defaults to 0
+     * @return self
      */
-    public function setStartPosition($start_position)
+    public function setStartPosition(?int $start_position): self
     {
         $this->start_position = $start_position;
         return $this;
     }
     /**
       * $count Defaults to 100. Must be less than or equal to 100
-      * @var int
+      * @var ?int
       */
-    protected $count;
+    protected ?int $count = null;
 
     /**
      * Gets count
-     * @return int
+     * @return ?int
      */
-    public function getCount()
+    public function getCount(): ?int
     {
         return $this->count;
     }
-  
+
     /**
      * Sets count
-     * @param int $count Defaults to 100. Must be less than or equal to 100
-     * @return $this
+     * @param ?int $count Defaults to 100. Must be less than or equal to 100
+     * @return self
      */
-    public function setCount($count)
+    public function setCount(?int $count): self
     {
         $this->count = $count;
         return $this;
@@ -283,12 +287,13 @@ class GetUsersOptions
 }
 
 
+
 namespace DocuSign\Rooms\Api;
 
-use \DocuSign\Rooms\Client\ApiClient;
-use \DocuSign\Rooms\Client\ApiException;
-use \DocuSign\Rooms\Configuration;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\Client\ApiClient;
+use DocuSign\Rooms\Client\ApiException;
+use DocuSign\Rooms\Configuration;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * UsersApi Class Doc Comment
@@ -303,30 +308,27 @@ class UsersApi
     /**
      * API Client
      *
-     * @var \DocuSign\Rooms\Client\ApiClient instance of the ApiClient
+     * @var ApiClient instance of the ApiClient
      */
-    protected $apiClient;
+    protected ApiClient $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DocuSign\Rooms\Client\ApiClient|null $apiClient The api client to use
+     * @param ApiClient|null $apiClient The api client to use
+     * @return void
      */
-    public function __construct(\DocuSign\Rooms\Client\ApiClient $apiClient = null)
+    public function __construct(ApiClient $apiClient = null)
     {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
-
-        $this->apiClient = $apiClient;
+        $this->apiClient = $apiClient ?? new ApiClient();
     }
 
     /**
      * Get API client
      *
-     * @return \DocuSign\Rooms\Client\ApiClient get the API client
+     * @return ApiClient get the API client
      */
-    public function getApiClient()
+    public function getApiClient(): ApiClient
     {
         return $this->apiClient;
     }
@@ -334,28 +336,47 @@ class UsersApi
     /**
      * Set the API client
      *
-     * @param \DocuSign\Rooms\Client\ApiClient $apiClient set the API client
+     * @param ApiClient $apiClient set the API client
      *
-     * @return UsersApi
+     * @return self
      */
-    public function setApiClient(\DocuSign\Rooms\Client\ApiClient $apiClient)
+    public function setApiClient(ApiClient $apiClient): self
     {
         $this->apiClient = $apiClient;
         return $this;
     }
 
     /**
+    * Update $resourcePath with $
+    *
+    * @param string $resourcePath
+    * @param string $baseName
+    * @param string $paramName
+    *
+    * @return string
+    */
+    public function updateResourcePath(string $resourcePath, string $baseName, string $paramName): string
+    {
+        return str_replace(
+            "{" . $baseName . "}",
+            $this->apiClient->getSerializer()->toPathValue($paramName),
+            $resourcePath
+        );
+    }
+
+
+    /**
      * Operation addUserToOffice
      *
      * Adds the user to the designated office.
      *
-    * @param int $user_id 
-    * @param string $account_id 
+     * @param ?int $user_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\DesignatedOffice $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function addUserToOffice($user_id, $account_id, $body = null)
+    public function addUserToOffice($user_id, $account_id, $body = null): mixed
     {
         list($response) = $this->addUserToOfficeWithHttpInfo($user_id, $account_id, $body);
         return $response;
@@ -366,13 +387,13 @@ class UsersApi
      *
      * Adds the user to the designated office.
      *
-    * @param int $user_id 
-    * @param string $account_id 
+     * @param ?int $user_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\DesignatedOffice $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addUserToOfficeWithHttpInfo($user_id, $account_id, $body = null)
+    public function addUserToOfficeWithHttpInfo($user_id, $account_id, $body = null): array
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -384,36 +405,23 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/add_to_office";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "userId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "userId", $user_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -464,13 +472,13 @@ class UsersApi
      *
      * Adds the user to the designated region.
      *
-    * @param int $user_id 
-    * @param string $account_id 
+     * @param ?int $user_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\DesignatedRegion $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function addUserToRegion($user_id, $account_id, $body = null)
+    public function addUserToRegion($user_id, $account_id, $body = null): mixed
     {
         list($response) = $this->addUserToRegionWithHttpInfo($user_id, $account_id, $body);
         return $response;
@@ -481,13 +489,13 @@ class UsersApi
      *
      * Adds the user to the designated region.
      *
-    * @param int $user_id 
-    * @param string $account_id 
+     * @param ?int $user_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\DesignatedRegion $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addUserToRegionWithHttpInfo($user_id, $account_id, $body = null)
+    public function addUserToRegionWithHttpInfo($user_id, $account_id, $body = null): array
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -499,36 +507,23 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/add_to_region";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "userId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "userId", $user_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -579,12 +574,12 @@ class UsersApi
      *
      * Retrieves user information for the user having the given UserId.
      *
-    * @param int $user_id 
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $user_id 
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\User
      */
-    public function getUser($user_id, $account_id)
+    public function getUser($user_id, $account_id): \DocuSign\Rooms\Model\User
     {
         list($response) = $this->getUserWithHttpInfo($user_id, $account_id);
         return $response;
@@ -595,12 +590,12 @@ class UsersApi
      *
      * Retrieves user information for the user having the given UserId.
      *
-    * @param int $user_id 
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $user_id 
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\User, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserWithHttpInfo($user_id, $account_id)
+    public function getUserWithHttpInfo($user_id, $account_id): array
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -612,36 +607,23 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
 
         // path params
         if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "userId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "userId", $user_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -691,12 +673,12 @@ class UsersApi
      *
      * Gets a paged-list of
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\UsersApi\GetUsersOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\UserSummaryList
      */
-    public function getUsers($account_id, UsersApi\GetUsersOptions $options = null)
+    public function getUsers($account_id, \DocuSign\Rooms\Api\UsersApi\GetUsersOptions $options = null): \DocuSign\Rooms\Model\UserSummaryList
     {
         list($response) = $this->getUsersWithHttpInfo($account_id, $options);
         return $response;
@@ -707,12 +689,12 @@ class UsersApi
      *
      * Gets a paged-list of
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\UsersApi\GetUsersOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\UserSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUsersWithHttpInfo($account_id, UsersApi\GetUsersOptions $options = null)
+    public function getUsersWithHttpInfo($account_id, \DocuSign\Rooms\Api\UsersApi\GetUsersOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -720,72 +702,53 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         if ($options != null)
         {
-        // query params
-        // query params
-        if ($options->getFilter() !== null) {
-            $queryParams['filter'] = $this->apiClient->getSerializer()->toQueryValue($options->getFilter());
-        }
-        // query params
-        if ($options->getSort() !== null) {
-            $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($options->getSort());
-        }
-        // query params
-        if ($options->getDefaultOfficeId() !== null) {
-            $queryParams['defaultOfficeId'] = $this->apiClient->getSerializer()->toQueryValue($options->getDefaultOfficeId());
-        }
-        // query params
-        if ($options->getAccessLevel() !== null) {
-            $queryParams['accessLevel'] = $this->apiClient->getSerializer()->toQueryValue($options->getAccessLevel());
-        }
-        // query params
-        if ($options->getTitleId() !== null) {
-            $queryParams['titleId'] = $this->apiClient->getSerializer()->toQueryValue($options->getTitleId());
-        }
-        // query params
-        if ($options->getRoleId() !== null) {
-            $queryParams['roleId'] = $this->apiClient->getSerializer()->toQueryValue($options->getRoleId());
-        }
-        // query params
-        if ($options->getStatus() !== null) {
-            $queryParams['status'] = $this->apiClient->getSerializer()->toQueryValue($options->getStatus());
-        }
-        // query params
-        if ($options->getLockedOnly() !== null) {
-            $queryParams['lockedOnly'] = $this->apiClient->getSerializer()->toQueryValue($options->getLockedOnly());
-        }
-        // query params
-        if ($options->getStartPosition() !== null) {
-            $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
-        }
-        // query params
-        if ($options->getCount() !== null) {
-            $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
-        }
+            // query params
+            if ($options->getFilter() != 'null') {
+                $queryParams['filter'] = $this->apiClient->getSerializer()->toQueryValue($options->getFilter());
+            }
+            if ($options->getSort() != 'null') {
+                $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($options->getSort());
+            }
+            if ($options->getDefaultOfficeId() != 'null') {
+                $queryParams['defaultOfficeId'] = $this->apiClient->getSerializer()->toQueryValue($options->getDefaultOfficeId());
+            }
+            if ($options->getAccessLevel() != 'null') {
+                $queryParams['accessLevel'] = $this->apiClient->getSerializer()->toQueryValue($options->getAccessLevel());
+            }
+            if ($options->getTitleId() != 'null') {
+                $queryParams['titleId'] = $this->apiClient->getSerializer()->toQueryValue($options->getTitleId());
+            }
+            if ($options->getRoleId() != 'null') {
+                $queryParams['roleId'] = $this->apiClient->getSerializer()->toQueryValue($options->getRoleId());
+            }
+            if ($options->getStatus() != 'null') {
+                $queryParams['status'] = $this->apiClient->getSerializer()->toQueryValue($options->getStatus());
+            }
+            if ($options->getLockedOnly() != 'null') {
+                $queryParams['lockedOnly'] = $this->apiClient->getSerializer()->toQueryValue($options->getLockedOnly());
+            }
+            if ($options->getStartPosition() != 'null') {
+                $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
+            }
+            if ($options->getCount() != 'null') {
+                $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
+            }
         }
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -835,12 +798,12 @@ class UsersApi
      *
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as an admin.
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\ClassicAdminToInvite $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\User
      */
-    public function inviteClassicAdmin($account_id, $body = null)
+    public function inviteClassicAdmin($account_id, $body = null): \DocuSign\Rooms\Model\User
     {
         list($response) = $this->inviteClassicAdminWithHttpInfo($account_id, $body);
         return $response;
@@ -851,12 +814,12 @@ class UsersApi
      *
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as an admin.
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\ClassicAdminToInvite $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\User, HTTP status code, HTTP response headers (array of strings)
      */
-    public function inviteClassicAdminWithHttpInfo($account_id, $body = null)
+    public function inviteClassicAdminWithHttpInfo($account_id, $body = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -864,28 +827,19 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/invite_classic_admin";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -940,12 +894,12 @@ class UsersApi
      *
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as an agent.
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\ClassicAgentToInvite $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\User
      */
-    public function inviteClassicAgent($account_id, $body = null)
+    public function inviteClassicAgent($account_id, $body = null): \DocuSign\Rooms\Model\User
     {
         list($response) = $this->inviteClassicAgentWithHttpInfo($account_id, $body);
         return $response;
@@ -956,12 +910,12 @@ class UsersApi
      *
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as an agent.
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\ClassicAgentToInvite $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\User, HTTP status code, HTTP response headers (array of strings)
      */
-    public function inviteClassicAgentWithHttpInfo($account_id, $body = null)
+    public function inviteClassicAgentWithHttpInfo($account_id, $body = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -969,28 +923,19 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/invite_classic_agent";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1045,12 +990,12 @@ class UsersApi
      *
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as a manager.
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\ClassicManagerToInvite $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\User
      */
-    public function inviteClassicManager($account_id, $body = null)
+    public function inviteClassicManager($account_id, $body = null): \DocuSign\Rooms\Model\User
     {
         list($response) = $this->inviteClassicManagerWithHttpInfo($account_id, $body);
         return $response;
@@ -1061,12 +1006,12 @@ class UsersApi
      *
      * CLASSIC COMPANY ONLY. Send an invitation to join the company as a manager.
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\ClassicManagerToInvite $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\User, HTTP status code, HTTP response headers (array of strings)
      */
-    public function inviteClassicManagerWithHttpInfo($account_id, $body = null)
+    public function inviteClassicManagerWithHttpInfo($account_id, $body = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -1074,28 +1019,19 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/invite_classic_manager";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1150,12 +1086,12 @@ class UsersApi
      *
      * NON-CLASSIC COMPANY ONLY. Send an invitation to the user or non-user having the given email.
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\UserToInvite $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\User
      */
-    public function inviteUser($account_id, $body = null)
+    public function inviteUser($account_id, $body = null): \DocuSign\Rooms\Model\User
     {
         list($response) = $this->inviteUserWithHttpInfo($account_id, $body);
         return $response;
@@ -1166,12 +1102,12 @@ class UsersApi
      *
      * NON-CLASSIC COMPANY ONLY. Send an invitation to the user or non-user having the given email.
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\UserToInvite $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\User, HTTP status code, HTTP response headers (array of strings)
      */
-    public function inviteUserWithHttpInfo($account_id, $body = null)
+    public function inviteUserWithHttpInfo($account_id, $body = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -1179,28 +1115,19 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/invite_user";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1255,13 +1182,13 @@ class UsersApi
      *
      * Locks the account of the user.
      *
-    * @param int $user_id User Id of the user attempting to be locked.
-    * @param string $account_id 
+     * @param ?int $user_id User Id of the user attempting to be locked.
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\LockedOutDetails $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function lockUser($user_id, $account_id, $body = null)
+    public function lockUser($user_id, $account_id, $body = null): mixed
     {
         list($response) = $this->lockUserWithHttpInfo($user_id, $account_id, $body);
         return $response;
@@ -1272,13 +1199,13 @@ class UsersApi
      *
      * Locks the account of the user.
      *
-    * @param int $user_id User Id of the user attempting to be locked.
-    * @param string $account_id 
+     * @param ?int $user_id User Id of the user attempting to be locked.
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\LockedOutDetails $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function lockUserWithHttpInfo($user_id, $account_id, $body = null)
+    public function lockUserWithHttpInfo($user_id, $account_id, $body = null): array
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -1290,36 +1217,23 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/lock";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "userId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "userId", $user_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1370,12 +1284,12 @@ class UsersApi
      *
      * Reinvites the pending user with the given userId.
      *
-    * @param int $user_id 
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @param ?int $user_id 
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function reinviteUser($user_id, $account_id)
+    public function reinviteUser($user_id, $account_id): mixed
     {
         list($response) = $this->reinviteUserWithHttpInfo($user_id, $account_id);
         return $response;
@@ -1386,12 +1300,12 @@ class UsersApi
      *
      * Reinvites the pending user with the given userId.
      *
-    * @param int $user_id 
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $user_id 
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reinviteUserWithHttpInfo($user_id, $account_id)
+    public function reinviteUserWithHttpInfo($user_id, $account_id): array
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -1403,36 +1317,23 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/reinvite";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
 
         // path params
         if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "userId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "userId", $user_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1478,12 +1379,12 @@ class UsersApi
      *
      * Removes a user from the company.
      *
-    * @param int $user_id Id of the user you wish to remove.
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @param ?int $user_id Id of the user you wish to remove.
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function removeUser($user_id, $account_id)
+    public function removeUser($user_id, $account_id): mixed
     {
         list($response) = $this->removeUserWithHttpInfo($user_id, $account_id);
         return $response;
@@ -1494,12 +1395,12 @@ class UsersApi
      *
      * Removes a user from the company.
      *
-    * @param int $user_id Id of the user you wish to remove.
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $user_id Id of the user you wish to remove.
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeUserWithHttpInfo($user_id, $account_id)
+    public function removeUserWithHttpInfo($user_id, $account_id): array
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -1511,36 +1412,23 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
 
         // path params
         if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "userId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "userId", $user_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1586,13 +1474,13 @@ class UsersApi
      *
      * Removes the user from the designated office.
      *
-    * @param int $user_id 
-    * @param string $account_id 
+     * @param ?int $user_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\DesignatedOffice $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function removeUserFromOffice($user_id, $account_id, $body = null)
+    public function removeUserFromOffice($user_id, $account_id, $body = null): mixed
     {
         list($response) = $this->removeUserFromOfficeWithHttpInfo($user_id, $account_id, $body);
         return $response;
@@ -1603,13 +1491,13 @@ class UsersApi
      *
      * Removes the user from the designated office.
      *
-    * @param int $user_id 
-    * @param string $account_id 
+     * @param ?int $user_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\DesignatedOffice $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeUserFromOfficeWithHttpInfo($user_id, $account_id, $body = null)
+    public function removeUserFromOfficeWithHttpInfo($user_id, $account_id, $body = null): array
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -1621,36 +1509,23 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/remove_from_office";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "userId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "userId", $user_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1701,13 +1576,13 @@ class UsersApi
      *
      * Removes the user from the designated region.
      *
-    * @param int $user_id 
-    * @param string $account_id 
+     * @param ?int $user_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\DesignatedRegion $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function removeUserFromRegion($user_id, $account_id, $body = null)
+    public function removeUserFromRegion($user_id, $account_id, $body = null): mixed
     {
         list($response) = $this->removeUserFromRegionWithHttpInfo($user_id, $account_id, $body);
         return $response;
@@ -1718,13 +1593,13 @@ class UsersApi
      *
      * Removes the user from the designated region.
      *
-    * @param int $user_id 
-    * @param string $account_id 
+     * @param ?int $user_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\DesignatedRegion $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeUserFromRegionWithHttpInfo($user_id, $account_id, $body = null)
+    public function removeUserFromRegionWithHttpInfo($user_id, $account_id, $body = null): array
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -1736,36 +1611,23 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/remove_from_region";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "userId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "userId", $user_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1816,12 +1678,12 @@ class UsersApi
      *
      * Unlocks the account of the user.
      *
-    * @param int $user_id User Id of the user attempting to be unlocked.
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @param ?int $user_id User Id of the user attempting to be unlocked.
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function unlockUser($user_id, $account_id)
+    public function unlockUser($user_id, $account_id): mixed
     {
         list($response) = $this->unlockUserWithHttpInfo($user_id, $account_id);
         return $response;
@@ -1832,12 +1694,12 @@ class UsersApi
      *
      * Unlocks the account of the user.
      *
-    * @param int $user_id User Id of the user attempting to be unlocked.
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $user_id User Id of the user attempting to be unlocked.
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unlockUserWithHttpInfo($user_id, $account_id)
+    public function unlockUserWithHttpInfo($user_id, $account_id): array
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -1849,36 +1711,23 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/unlock";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
 
         // path params
         if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "userId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "userId", $user_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1924,13 +1773,13 @@ class UsersApi
      *
      * Updates user information
      *
-    * @param int $user_id 
-    * @param string $account_id 
+     * @param ?int $user_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\UserForUpdate $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\User
      */
-    public function updateUser($user_id, $account_id, $body = null)
+    public function updateUser($user_id, $account_id, $body = null): \DocuSign\Rooms\Model\User
     {
         list($response) = $this->updateUserWithHttpInfo($user_id, $account_id, $body);
         return $response;
@@ -1941,13 +1790,13 @@ class UsersApi
      *
      * Updates user information
      *
-    * @param int $user_id 
-    * @param string $account_id 
+     * @param ?int $user_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\UserForUpdate $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\User, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserWithHttpInfo($user_id, $account_id, $body = null)
+    public function updateUserWithHttpInfo($user_id, $account_id, $body = null): array
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -1959,36 +1808,23 @@ class UsersApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "userId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "userId", $user_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {

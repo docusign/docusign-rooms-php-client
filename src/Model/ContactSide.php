@@ -2,7 +2,7 @@
 /**
  * ContactSide
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * ContactSide Class Doc Comment
@@ -57,8 +57,8 @@ class ContactSide implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'contact_side_id' => 'string',
-        'name' => 'string'
+        'contact_side_id' => '?string',
+        'name' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class ContactSide implements ModelInterface, ArrayAccess
     /**
      * Gets contact_side_id
      *
-     * @return string
+     * @return ?string
      */
     public function getContactSideId()
     {
@@ -223,7 +223,7 @@ class ContactSide implements ModelInterface, ArrayAccess
     /**
      * Sets contact_side_id
      *
-     * @param string $contact_side_id contact_side_id
+     * @param ?string $contact_side_id contact_side_id
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class ContactSide implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -247,7 +247,7 @@ class ContactSide implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */

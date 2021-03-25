@@ -1,7 +1,10 @@
 <?php
+declare(strict_types=1);
+
 /**
- * TaskListTemplatesApi
- * PHP version 5
+ * TaskListTemplatesApi.
+ *
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -28,54 +31,55 @@
 
 namespace DocuSign\Rooms\Api\TaskListTemplatesApi;
 
+
 class GetTaskListTemplatesOptions
 {
     /**
       * $start_position 
-      * @var int
+      * @var ?int
       */
-    protected $start_position;
+    protected ?int $start_position = null;
 
     /**
      * Gets start_position
-     * @return int
+     * @return ?int
      */
-    public function getStartPosition()
+    public function getStartPosition(): ?int
     {
         return $this->start_position;
     }
-  
+
     /**
      * Sets start_position
-     * @param int $start_position 
-     * @return $this
+     * @param ?int $start_position 
+     * @return self
      */
-    public function setStartPosition($start_position)
+    public function setStartPosition(?int $start_position): self
     {
         $this->start_position = $start_position;
         return $this;
     }
     /**
       * $count 
-      * @var int
+      * @var ?int
       */
-    protected $count;
+    protected ?int $count = null;
 
     /**
      * Gets count
-     * @return int
+     * @return ?int
      */
-    public function getCount()
+    public function getCount(): ?int
     {
         return $this->count;
     }
-  
+
     /**
      * Sets count
-     * @param int $count 
-     * @return $this
+     * @param ?int $count 
+     * @return self
      */
-    public function setCount($count)
+    public function setCount(?int $count): self
     {
         $this->count = $count;
         return $this;
@@ -83,12 +87,13 @@ class GetTaskListTemplatesOptions
 }
 
 
+
 namespace DocuSign\Rooms\Api;
 
-use \DocuSign\Rooms\Client\ApiClient;
-use \DocuSign\Rooms\Client\ApiException;
-use \DocuSign\Rooms\Configuration;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\Client\ApiClient;
+use DocuSign\Rooms\Client\ApiException;
+use DocuSign\Rooms\Configuration;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * TaskListTemplatesApi Class Doc Comment
@@ -103,30 +108,27 @@ class TaskListTemplatesApi
     /**
      * API Client
      *
-     * @var \DocuSign\Rooms\Client\ApiClient instance of the ApiClient
+     * @var ApiClient instance of the ApiClient
      */
-    protected $apiClient;
+    protected ApiClient $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DocuSign\Rooms\Client\ApiClient|null $apiClient The api client to use
+     * @param ApiClient|null $apiClient The api client to use
+     * @return void
      */
-    public function __construct(\DocuSign\Rooms\Client\ApiClient $apiClient = null)
+    public function __construct(ApiClient $apiClient = null)
     {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
-
-        $this->apiClient = $apiClient;
+        $this->apiClient = $apiClient ?? new ApiClient();
     }
 
     /**
      * Get API client
      *
-     * @return \DocuSign\Rooms\Client\ApiClient get the API client
+     * @return ApiClient get the API client
      */
-    public function getApiClient()
+    public function getApiClient(): ApiClient
     {
         return $this->apiClient;
     }
@@ -134,27 +136,46 @@ class TaskListTemplatesApi
     /**
      * Set the API client
      *
-     * @param \DocuSign\Rooms\Client\ApiClient $apiClient set the API client
+     * @param ApiClient $apiClient set the API client
      *
-     * @return TaskListTemplatesApi
+     * @return self
      */
-    public function setApiClient(\DocuSign\Rooms\Client\ApiClient $apiClient)
+    public function setApiClient(ApiClient $apiClient): self
     {
         $this->apiClient = $apiClient;
         return $this;
     }
 
     /**
+    * Update $resourcePath with $
+    *
+    * @param string $resourcePath
+    * @param string $baseName
+    * @param string $paramName
+    *
+    * @return string
+    */
+    public function updateResourcePath(string $resourcePath, string $baseName, string $paramName): string
+    {
+        return str_replace(
+            "{" . $baseName . "}",
+            $this->apiClient->getSerializer()->toPathValue($paramName),
+            $resourcePath
+        );
+    }
+
+
+    /**
      * Operation getTaskListTemplates
      *
      * Returns all task list templates for the company of the active user.
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\TaskListTemplatesApi\GetTaskListTemplatesOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\TaskListTemplateList
      */
-    public function getTaskListTemplates($account_id, TaskListTemplatesApi\GetTaskListTemplatesOptions $options = null)
+    public function getTaskListTemplates($account_id, \DocuSign\Rooms\Api\TaskListTemplatesApi\GetTaskListTemplatesOptions $options = null): \DocuSign\Rooms\Model\TaskListTemplateList
     {
         list($response) = $this->getTaskListTemplatesWithHttpInfo($account_id, $options);
         return $response;
@@ -165,12 +186,12 @@ class TaskListTemplatesApi
      *
      * Returns all task list templates for the company of the active user.
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\TaskListTemplatesApi\GetTaskListTemplatesOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\TaskListTemplateList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTaskListTemplatesWithHttpInfo($account_id, TaskListTemplatesApi\GetTaskListTemplatesOptions $options = null)
+    public function getTaskListTemplatesWithHttpInfo($account_id, \DocuSign\Rooms\Api\TaskListTemplatesApi\GetTaskListTemplatesOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -178,40 +199,29 @@ class TaskListTemplatesApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/task_list_templates";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         if ($options != null)
         {
-        // query params
-        // query params
-        if ($options->getStartPosition() !== null) {
-            $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
-        }
-        // query params
-        if ($options->getCount() !== null) {
-            $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
-        }
+            // query params
+            if ($options->getStartPosition() != 'null') {
+                $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
+            }
+            if ($options->getCount() != 'null') {
+                $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
+            }
         }
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {

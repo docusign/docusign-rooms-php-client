@@ -2,7 +2,7 @@
 /**
  * RoomFolder
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoomFolder Class Doc Comment
@@ -57,9 +57,9 @@ class RoomFolder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'room_folder_id' => 'int',
-        'name' => 'string',
-        'is_default' => 'bool'
+        'room_folder_id' => '?int',
+        'name' => '?string',
+        'is_default' => '?bool'
     ];
 
     /**
@@ -219,7 +219,7 @@ class RoomFolder implements ModelInterface, ArrayAccess
     /**
      * Gets room_folder_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRoomFolderId()
     {
@@ -229,7 +229,7 @@ class RoomFolder implements ModelInterface, ArrayAccess
     /**
      * Sets room_folder_id
      *
-     * @param int $room_folder_id room_folder_id
+     * @param ?int $room_folder_id room_folder_id
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class RoomFolder implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -253,7 +253,7 @@ class RoomFolder implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class RoomFolder implements ModelInterface, ArrayAccess
     /**
      * Gets is_default
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsDefault()
     {
@@ -277,7 +277,7 @@ class RoomFolder implements ModelInterface, ArrayAccess
     /**
      * Sets is_default
      *
-     * @param bool $is_default is_default
+     * @param ?bool $is_default is_default
      *
      * @return $this
      */

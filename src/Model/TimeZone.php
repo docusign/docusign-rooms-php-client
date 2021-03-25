@@ -2,7 +2,7 @@
 /**
  * TimeZone
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * TimeZone Class Doc Comment
@@ -57,8 +57,8 @@ class TimeZone implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'time_zone_id' => 'string',
-        'name' => 'string'
+        'time_zone_id' => '?string',
+        'name' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class TimeZone implements ModelInterface, ArrayAccess
     /**
      * Gets time_zone_id
      *
-     * @return string
+     * @return ?string
      */
     public function getTimeZoneId()
     {
@@ -223,7 +223,7 @@ class TimeZone implements ModelInterface, ArrayAccess
     /**
      * Sets time_zone_id
      *
-     * @param string $time_zone_id time_zone_id
+     * @param ?string $time_zone_id time_zone_id
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class TimeZone implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -247,7 +247,7 @@ class TimeZone implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */

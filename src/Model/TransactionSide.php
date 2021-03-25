@@ -2,7 +2,7 @@
 /**
  * TransactionSide
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * TransactionSide Class Doc Comment
@@ -57,8 +57,8 @@ class TransactionSide implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'transaction_side_id' => 'string',
-        'name' => 'string'
+        'transaction_side_id' => '?string',
+        'name' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class TransactionSide implements ModelInterface, ArrayAccess
     /**
      * Gets transaction_side_id
      *
-     * @return string
+     * @return ?string
      */
     public function getTransactionSideId()
     {
@@ -223,7 +223,7 @@ class TransactionSide implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_side_id
      *
-     * @param string $transaction_side_id transaction_side_id
+     * @param ?string $transaction_side_id transaction_side_id
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class TransactionSide implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -247,7 +247,7 @@ class TransactionSide implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */

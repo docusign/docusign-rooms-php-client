@@ -2,7 +2,7 @@
 /**
  * RoomInvite
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoomInvite Class Doc Comment
@@ -57,11 +57,11 @@ class RoomInvite implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'email' => 'string',
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'role_id' => 'int',
-        'transaction_side_id' => 'string'
+        'email' => '?string',
+        'first_name' => '?string',
+        'last_name' => '?string',
+        'role_id' => '?int',
+        'transaction_side_id' => '?string'
     ];
 
     /**
@@ -243,7 +243,7 @@ class RoomInvite implements ModelInterface, ArrayAccess
     /**
      * Gets email
      *
-     * @return string
+     * @return ?string
      */
     public function getEmail()
     {
@@ -253,7 +253,7 @@ class RoomInvite implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email email
+     * @param ?string $email email
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class RoomInvite implements ModelInterface, ArrayAccess
     /**
      * Gets first_name
      *
-     * @return string
+     * @return ?string
      */
     public function getFirstName()
     {
@@ -277,7 +277,7 @@ class RoomInvite implements ModelInterface, ArrayAccess
     /**
      * Sets first_name
      *
-     * @param string $first_name first_name
+     * @param ?string $first_name first_name
      *
      * @return $this
      */
@@ -291,7 +291,7 @@ class RoomInvite implements ModelInterface, ArrayAccess
     /**
      * Gets last_name
      *
-     * @return string
+     * @return ?string
      */
     public function getLastName()
     {
@@ -301,7 +301,7 @@ class RoomInvite implements ModelInterface, ArrayAccess
     /**
      * Sets last_name
      *
-     * @param string $last_name last_name
+     * @param ?string $last_name last_name
      *
      * @return $this
      */
@@ -315,7 +315,7 @@ class RoomInvite implements ModelInterface, ArrayAccess
     /**
      * Gets role_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRoleId()
     {
@@ -325,7 +325,7 @@ class RoomInvite implements ModelInterface, ArrayAccess
     /**
      * Sets role_id
      *
-     * @param int $role_id role_id
+     * @param ?int $role_id role_id
      *
      * @return $this
      */
@@ -339,7 +339,7 @@ class RoomInvite implements ModelInterface, ArrayAccess
     /**
      * Gets transaction_side_id
      *
-     * @return string
+     * @return ?string
      */
     public function getTransactionSideId()
     {
@@ -349,7 +349,7 @@ class RoomInvite implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_side_id
      *
-     * @param string $transaction_side_id Required for a real estate company; otherwise ignored.
+     * @param ?string $transaction_side_id Required for a real estate company; otherwise ignored.
      *
      * @return $this
      */

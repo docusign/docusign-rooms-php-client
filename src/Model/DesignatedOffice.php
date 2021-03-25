@@ -2,7 +2,7 @@
 /**
  * DesignatedOffice
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * DesignatedOffice Class Doc Comment
@@ -57,7 +57,7 @@ class DesignatedOffice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'office_id' => 'int'
+        'office_id' => '?int'
     ];
 
     /**
@@ -210,7 +210,7 @@ class DesignatedOffice implements ModelInterface, ArrayAccess
     /**
      * Gets office_id
      *
-     * @return int
+     * @return ?int
      */
     public function getOfficeId()
     {
@@ -220,7 +220,7 @@ class DesignatedOffice implements ModelInterface, ArrayAccess
     /**
      * Sets office_id
      *
-     * @param int $office_id office_id
+     * @param ?int $office_id office_id
      *
      * @return $this
      */

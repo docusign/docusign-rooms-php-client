@@ -2,7 +2,7 @@
 /**
  * SelectListFieldOption
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * SelectListFieldOption Class Doc Comment
@@ -58,8 +58,8 @@ class SelectListFieldOption implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'object',
-        'title' => 'string',
-        'order' => 'int'
+        'title' => '?string',
+        'order' => '?int'
     ];
 
     /**
@@ -243,7 +243,7 @@ class SelectListFieldOption implements ModelInterface, ArrayAccess
     /**
      * Gets title
      *
-     * @return string
+     * @return ?string
      */
     public function getTitle()
     {
@@ -253,7 +253,7 @@ class SelectListFieldOption implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title title
+     * @param ?string $title title
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class SelectListFieldOption implements ModelInterface, ArrayAccess
     /**
      * Gets order
      *
-     * @return int
+     * @return ?int
      */
     public function getOrder()
     {
@@ -277,7 +277,7 @@ class SelectListFieldOption implements ModelInterface, ArrayAccess
     /**
      * Sets order
      *
-     * @param int $order order
+     * @param ?int $order order
      *
      * @return $this
      */

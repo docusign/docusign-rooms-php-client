@@ -2,7 +2,7 @@
 /**
  * FormDetails
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * FormDetails Class Doc Comment
@@ -57,14 +57,14 @@ class FormDetails implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'form_id' => 'string',
-        'name' => 'string',
+        'form_id' => '?string',
+        'name' => '?string',
         'created_date' => '\DateTime',
         'last_updated_date' => '\DateTime',
         'available_on_date' => '\DateTime',
-        'owner_name' => 'string',
-        'version' => 'string',
-        'number_of_pages' => 'int'
+        'owner_name' => '?string',
+        'version' => '?string',
+        'number_of_pages' => '?int'
     ];
 
     /**
@@ -249,7 +249,7 @@ class FormDetails implements ModelInterface, ArrayAccess
     /**
      * Gets form_id
      *
-     * @return string
+     * @return ?string
      */
     public function getFormId()
     {
@@ -259,7 +259,7 @@ class FormDetails implements ModelInterface, ArrayAccess
     /**
      * Sets form_id
      *
-     * @param string $form_id form_id
+     * @param ?string $form_id form_id
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class FormDetails implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -283,7 +283,7 @@ class FormDetails implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -369,7 +369,7 @@ class FormDetails implements ModelInterface, ArrayAccess
     /**
      * Gets owner_name
      *
-     * @return string
+     * @return ?string
      */
     public function getOwnerName()
     {
@@ -379,7 +379,7 @@ class FormDetails implements ModelInterface, ArrayAccess
     /**
      * Sets owner_name
      *
-     * @param string $owner_name owner_name
+     * @param ?string $owner_name owner_name
      *
      * @return $this
      */
@@ -393,7 +393,7 @@ class FormDetails implements ModelInterface, ArrayAccess
     /**
      * Gets version
      *
-     * @return string
+     * @return ?string
      */
     public function getVersion()
     {
@@ -403,7 +403,7 @@ class FormDetails implements ModelInterface, ArrayAccess
     /**
      * Sets version
      *
-     * @param string $version version
+     * @param ?string $version version
      *
      * @return $this
      */
@@ -417,7 +417,7 @@ class FormDetails implements ModelInterface, ArrayAccess
     /**
      * Gets number_of_pages
      *
-     * @return int
+     * @return ?int
      */
     public function getNumberOfPages()
     {
@@ -427,7 +427,7 @@ class FormDetails implements ModelInterface, ArrayAccess
     /**
      * Sets number_of_pages
      *
-     * @param int $number_of_pages number_of_pages
+     * @param ?int $number_of_pages number_of_pages
      *
      * @return $this
      */

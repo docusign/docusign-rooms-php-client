@@ -2,7 +2,7 @@
 /**
  * Region
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * Region Class Doc Comment
@@ -57,8 +57,8 @@ class Region implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'region_id' => 'int',
-        'name' => 'string',
+        'region_id' => '?int',
+        'name' => '?string',
         'created_date' => '\DateTime'
     ];
 
@@ -222,7 +222,7 @@ class Region implements ModelInterface, ArrayAccess
     /**
      * Gets region_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRegionId()
     {
@@ -232,7 +232,7 @@ class Region implements ModelInterface, ArrayAccess
     /**
      * Sets region_id
      *
-     * @param int $region_id region_id
+     * @param ?int $region_id region_id
      *
      * @return $this
      */
@@ -246,7 +246,7 @@ class Region implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -256,7 +256,7 @@ class Region implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */

@@ -2,7 +2,7 @@
 /**
  * RoomSummary
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoomSummary Class Doc Comment
@@ -57,16 +57,16 @@ class RoomSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'room_id' => 'int',
-        'name' => 'string',
-        'office_id' => 'int',
+        'room_id' => '?int',
+        'name' => '?string',
+        'office_id' => '?int',
         'created_date' => '\DateTime',
         'submitted_for_review_date' => '\DateTime',
         'closed_date' => '\DateTime',
         'rejected_date' => '\DateTime',
-        'created_by_user_id' => 'int',
-        'rejected_by_user_id' => 'int',
-        'closed_status_id' => 'string',
+        'created_by_user_id' => '?int',
+        'rejected_by_user_id' => '?int',
+        'closed_status_id' => '?string',
         'field_data_last_updated_date' => '\DateTime'
     ];
 
@@ -267,7 +267,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Gets room_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRoomId()
     {
@@ -277,7 +277,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Sets room_id
      *
-     * @param int $room_id room_id
+     * @param ?int $room_id room_id
      *
      * @return $this
      */
@@ -291,7 +291,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -301,7 +301,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -315,7 +315,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Gets office_id
      *
-     * @return int
+     * @return ?int
      */
     public function getOfficeId()
     {
@@ -325,7 +325,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Sets office_id
      *
-     * @param int $office_id office_id
+     * @param ?int $office_id office_id
      *
      * @return $this
      */
@@ -435,7 +435,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Gets created_by_user_id
      *
-     * @return int
+     * @return ?int
      */
     public function getCreatedByUserId()
     {
@@ -445,7 +445,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Sets created_by_user_id
      *
-     * @param int $created_by_user_id created_by_user_id
+     * @param ?int $created_by_user_id created_by_user_id
      *
      * @return $this
      */
@@ -459,7 +459,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Gets rejected_by_user_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRejectedByUserId()
     {
@@ -469,7 +469,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Sets rejected_by_user_id
      *
-     * @param int $rejected_by_user_id rejected_by_user_id
+     * @param ?int $rejected_by_user_id rejected_by_user_id
      *
      * @return $this
      */
@@ -483,7 +483,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Gets closed_status_id
      *
-     * @return string
+     * @return ?string
      */
     public function getClosedStatusId()
     {
@@ -493,7 +493,7 @@ class RoomSummary implements ModelInterface, ArrayAccess
     /**
      * Sets closed_status_id
      *
-     * @param string $closed_status_id closed_status_id
+     * @param ?string $closed_status_id closed_status_id
      *
      * @return $this
      */

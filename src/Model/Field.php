@@ -2,7 +2,7 @@
 /**
  * Field
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * Field Class Doc Comment
@@ -57,11 +57,11 @@ class Field implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'field_id' => 'string',
-        'field_definition_id' => 'string',
-        'title' => 'string',
-        'api_name' => 'string',
-        'type' => 'string',
+        'field_id' => '?string',
+        'field_definition_id' => '?string',
+        'title' => '?string',
+        'api_name' => '?string',
+        'type' => '?string',
         'fields' => '\DocuSign\Rooms\Model\Field[]',
         'configuration' => '\DocuSign\Rooms\Model\FieldConfiguration',
         'custom_data' => '\DocuSign\Rooms\Model\CustomData'
@@ -249,7 +249,7 @@ class Field implements ModelInterface, ArrayAccess
     /**
      * Gets field_id
      *
-     * @return string
+     * @return ?string
      */
     public function getFieldId()
     {
@@ -259,7 +259,7 @@ class Field implements ModelInterface, ArrayAccess
     /**
      * Sets field_id
      *
-     * @param string $field_id field_id
+     * @param ?string $field_id field_id
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class Field implements ModelInterface, ArrayAccess
     /**
      * Gets field_definition_id
      *
-     * @return string
+     * @return ?string
      */
     public function getFieldDefinitionId()
     {
@@ -283,7 +283,7 @@ class Field implements ModelInterface, ArrayAccess
     /**
      * Sets field_definition_id
      *
-     * @param string $field_definition_id field_definition_id
+     * @param ?string $field_definition_id field_definition_id
      *
      * @return $this
      */
@@ -297,7 +297,7 @@ class Field implements ModelInterface, ArrayAccess
     /**
      * Gets title
      *
-     * @return string
+     * @return ?string
      */
     public function getTitle()
     {
@@ -307,7 +307,7 @@ class Field implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title title
+     * @param ?string $title title
      *
      * @return $this
      */
@@ -321,7 +321,7 @@ class Field implements ModelInterface, ArrayAccess
     /**
      * Gets api_name
      *
-     * @return string
+     * @return ?string
      */
     public function getApiName()
     {
@@ -331,7 +331,7 @@ class Field implements ModelInterface, ArrayAccess
     /**
      * Sets api_name
      *
-     * @param string $api_name api_name
+     * @param ?string $api_name api_name
      *
      * @return $this
      */
@@ -345,7 +345,7 @@ class Field implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return string
+     * @return ?string
      */
     public function getType()
     {
@@ -355,7 +355,7 @@ class Field implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param ?string $type type
      *
      * @return $this
      */

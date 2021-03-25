@@ -2,7 +2,7 @@
 /**
  * DocumentUser
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * DocumentUser Class Doc Comment
@@ -57,19 +57,19 @@ class DocumentUser implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user_id' => 'int',
-        'document_id' => 'int',
-        'name' => 'string',
-        'has_access' => 'bool',
-        'can_approve_task' => 'bool',
-        'can_assign_to_task_list' => 'bool',
-        'can_copy' => 'bool',
-        'can_delete' => 'bool',
-        'can_remove_from_task_list' => 'bool',
-        'can_remove_approval' => 'bool',
-        'can_rename' => 'bool',
-        'can_share' => 'bool',
-        'can_view_activity' => 'bool'
+        'user_id' => '?int',
+        'document_id' => '?int',
+        'name' => '?string',
+        'has_access' => '?bool',
+        'can_approve_task' => '?bool',
+        'can_assign_to_task_list' => '?bool',
+        'can_copy' => '?bool',
+        'can_delete' => '?bool',
+        'can_remove_from_task_list' => '?bool',
+        'can_remove_approval' => '?bool',
+        'can_rename' => '?bool',
+        'can_share' => '?bool',
+        'can_view_activity' => '?bool'
     ];
 
     /**
@@ -279,7 +279,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets user_id
      *
-     * @return int
+     * @return ?int
      */
     public function getUserId()
     {
@@ -289,7 +289,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int $user_id user_id
+     * @param ?int $user_id user_id
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets document_id
      *
-     * @return int
+     * @return ?int
      */
     public function getDocumentId()
     {
@@ -313,7 +313,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets document_id
      *
-     * @param int $document_id document_id
+     * @param ?int $document_id document_id
      *
      * @return $this
      */
@@ -327,7 +327,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -337,7 +337,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -351,7 +351,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets has_access
      *
-     * @return bool
+     * @return ?bool
      */
     public function getHasAccess()
     {
@@ -361,7 +361,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets has_access
      *
-     * @param bool $has_access has_access
+     * @param ?bool $has_access has_access
      *
      * @return $this
      */
@@ -375,7 +375,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets can_approve_task
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanApproveTask()
     {
@@ -385,7 +385,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets can_approve_task
      *
-     * @param bool $can_approve_task can_approve_task
+     * @param ?bool $can_approve_task can_approve_task
      *
      * @return $this
      */
@@ -399,7 +399,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets can_assign_to_task_list
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanAssignToTaskList()
     {
@@ -409,7 +409,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets can_assign_to_task_list
      *
-     * @param bool $can_assign_to_task_list can_assign_to_task_list
+     * @param ?bool $can_assign_to_task_list can_assign_to_task_list
      *
      * @return $this
      */
@@ -423,7 +423,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets can_copy
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanCopy()
     {
@@ -433,7 +433,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets can_copy
      *
-     * @param bool $can_copy can_copy
+     * @param ?bool $can_copy can_copy
      *
      * @return $this
      */
@@ -447,7 +447,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets can_delete
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanDelete()
     {
@@ -457,7 +457,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets can_delete
      *
-     * @param bool $can_delete can_delete
+     * @param ?bool $can_delete can_delete
      *
      * @return $this
      */
@@ -471,7 +471,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets can_remove_from_task_list
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanRemoveFromTaskList()
     {
@@ -481,7 +481,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets can_remove_from_task_list
      *
-     * @param bool $can_remove_from_task_list can_remove_from_task_list
+     * @param ?bool $can_remove_from_task_list can_remove_from_task_list
      *
      * @return $this
      */
@@ -495,7 +495,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets can_remove_approval
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanRemoveApproval()
     {
@@ -505,7 +505,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets can_remove_approval
      *
-     * @param bool $can_remove_approval can_remove_approval
+     * @param ?bool $can_remove_approval can_remove_approval
      *
      * @return $this
      */
@@ -519,7 +519,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets can_rename
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanRename()
     {
@@ -529,7 +529,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets can_rename
      *
-     * @param bool $can_rename can_rename
+     * @param ?bool $can_rename can_rename
      *
      * @return $this
      */
@@ -543,7 +543,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets can_share
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanShare()
     {
@@ -553,7 +553,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets can_share
      *
-     * @param bool $can_share can_share
+     * @param ?bool $can_share can_share
      *
      * @return $this
      */
@@ -567,7 +567,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Gets can_view_activity
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanViewActivity()
     {
@@ -577,7 +577,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
     /**
      * Sets can_view_activity
      *
-     * @param bool $can_view_activity can_view_activity
+     * @param ?bool $can_view_activity can_view_activity
      *
      * @return $this
      */

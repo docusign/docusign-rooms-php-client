@@ -2,7 +2,7 @@
 /**
  * Country
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * Country Class Doc Comment
@@ -57,8 +57,8 @@ class Country implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'country_id' => 'string',
-        'name' => 'string'
+        'country_id' => '?string',
+        'name' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class Country implements ModelInterface, ArrayAccess
     /**
      * Gets country_id
      *
-     * @return string
+     * @return ?string
      */
     public function getCountryId()
     {
@@ -223,7 +223,7 @@ class Country implements ModelInterface, ArrayAccess
     /**
      * Sets country_id
      *
-     * @param string $country_id country_id
+     * @param ?string $country_id country_id
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class Country implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -247,7 +247,7 @@ class Country implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */

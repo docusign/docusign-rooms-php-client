@@ -2,7 +2,7 @@
 /**
  * RoomTemplate
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoomTemplate Class Doc Comment
@@ -57,9 +57,9 @@ class RoomTemplate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'room_template_id' => 'int',
-        'name' => 'string',
-        'task_template_count' => 'int'
+        'room_template_id' => '?int',
+        'name' => '?string',
+        'task_template_count' => '?int'
     ];
 
     /**
@@ -219,7 +219,7 @@ class RoomTemplate implements ModelInterface, ArrayAccess
     /**
      * Gets room_template_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRoomTemplateId()
     {
@@ -229,7 +229,7 @@ class RoomTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets room_template_id
      *
-     * @param int $room_template_id room_template_id
+     * @param ?int $room_template_id room_template_id
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class RoomTemplate implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -253,7 +253,7 @@ class RoomTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class RoomTemplate implements ModelInterface, ArrayAccess
     /**
      * Gets task_template_count
      *
-     * @return int
+     * @return ?int
      */
     public function getTaskTemplateCount()
     {
@@ -277,7 +277,7 @@ class RoomTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets task_template_count
      *
-     * @param int $task_template_count task_template_count
+     * @param ?int $task_template_count task_template_count
      *
      * @return $this
      */

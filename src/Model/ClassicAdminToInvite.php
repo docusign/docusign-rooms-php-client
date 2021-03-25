@@ -2,7 +2,7 @@
 /**
  * ClassicAdminToInvite
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * ClassicAdminToInvite Class Doc Comment
@@ -57,9 +57,9 @@ class ClassicAdminToInvite implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'email' => 'string'
+        'first_name' => '?string',
+        'last_name' => '?string',
+        'email' => '?string'
     ];
 
     /**
@@ -228,7 +228,7 @@ class ClassicAdminToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets first_name
      *
-     * @return string
+     * @return ?string
      */
     public function getFirstName()
     {
@@ -238,7 +238,7 @@ class ClassicAdminToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets first_name
      *
-     * @param string $first_name first_name
+     * @param ?string $first_name first_name
      *
      * @return $this
      */
@@ -252,7 +252,7 @@ class ClassicAdminToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets last_name
      *
-     * @return string
+     * @return ?string
      */
     public function getLastName()
     {
@@ -262,7 +262,7 @@ class ClassicAdminToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets last_name
      *
-     * @param string $last_name last_name
+     * @param ?string $last_name last_name
      *
      * @return $this
      */
@@ -276,7 +276,7 @@ class ClassicAdminToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets email
      *
-     * @return string
+     * @return ?string
      */
     public function getEmail()
     {
@@ -286,7 +286,7 @@ class ClassicAdminToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email email
+     * @param ?string $email email
      *
      * @return $this
      */

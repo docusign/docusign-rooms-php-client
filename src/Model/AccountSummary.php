@@ -2,7 +2,7 @@
 /**
  * AccountSummary
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * AccountSummary Class Doc Comment
@@ -57,12 +57,12 @@ class AccountSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'company_id' => 'int',
-        'name' => 'string',
+        'company_id' => '?int',
+        'name' => '?string',
         'company_version' => '\DocuSign\Rooms\Model\ProductVersion',
-        'docu_sign_account_guid' => 'string',
-        'default_field_set_id' => 'string',
-        'require_office_library_assignments' => 'bool'
+        'docu_sign_account_guid' => '?string',
+        'default_field_set_id' => '?string',
+        'require_office_library_assignments' => '?bool'
     ];
 
     /**
@@ -237,7 +237,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Gets company_id
      *
-     * @return int
+     * @return ?int
      */
     public function getCompanyId()
     {
@@ -247,7 +247,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Sets company_id
      *
-     * @param int $company_id company_id
+     * @param ?int $company_id company_id
      *
      * @return $this
      */
@@ -261,7 +261,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -271,7 +271,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -309,7 +309,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Gets docu_sign_account_guid
      *
-     * @return string
+     * @return ?string
      */
     public function getDocuSignAccountGuid()
     {
@@ -319,7 +319,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Sets docu_sign_account_guid
      *
-     * @param string $docu_sign_account_guid docu_sign_account_guid
+     * @param ?string $docu_sign_account_guid docu_sign_account_guid
      *
      * @return $this
      */
@@ -333,7 +333,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Gets default_field_set_id
      *
-     * @return string
+     * @return ?string
      */
     public function getDefaultFieldSetId()
     {
@@ -343,7 +343,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Sets default_field_set_id
      *
-     * @param string $default_field_set_id default_field_set_id
+     * @param ?string $default_field_set_id default_field_set_id
      *
      * @return $this
      */
@@ -357,7 +357,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Gets require_office_library_assignments
      *
-     * @return bool
+     * @return ?bool
      */
     public function getRequireOfficeLibraryAssignments()
     {
@@ -367,7 +367,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Sets require_office_library_assignments
      *
-     * @param bool $require_office_library_assignments require_office_library_assignments
+     * @param ?bool $require_office_library_assignments require_office_library_assignments
      *
      * @return $this
      */

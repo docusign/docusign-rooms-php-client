@@ -1,7 +1,10 @@
 <?php
+declare(strict_types=1);
+
 /**
- * TaskListsApi
- * PHP version 5
+ * TaskListsApi.
+ *
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -32,10 +35,10 @@ namespace DocuSign\Rooms\Api\TaskListsApi;
 
 namespace DocuSign\Rooms\Api;
 
-use \DocuSign\Rooms\Client\ApiClient;
-use \DocuSign\Rooms\Client\ApiException;
-use \DocuSign\Rooms\Configuration;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\Client\ApiClient;
+use DocuSign\Rooms\Client\ApiException;
+use DocuSign\Rooms\Configuration;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * TaskListsApi Class Doc Comment
@@ -50,30 +53,27 @@ class TaskListsApi
     /**
      * API Client
      *
-     * @var \DocuSign\Rooms\Client\ApiClient instance of the ApiClient
+     * @var ApiClient instance of the ApiClient
      */
-    protected $apiClient;
+    protected ApiClient $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DocuSign\Rooms\Client\ApiClient|null $apiClient The api client to use
+     * @param ApiClient|null $apiClient The api client to use
+     * @return void
      */
-    public function __construct(\DocuSign\Rooms\Client\ApiClient $apiClient = null)
+    public function __construct(ApiClient $apiClient = null)
     {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
-
-        $this->apiClient = $apiClient;
+        $this->apiClient = $apiClient ?? new ApiClient();
     }
 
     /**
      * Get API client
      *
-     * @return \DocuSign\Rooms\Client\ApiClient get the API client
+     * @return ApiClient get the API client
      */
-    public function getApiClient()
+    public function getApiClient(): ApiClient
     {
         return $this->apiClient;
     }
@@ -81,28 +81,47 @@ class TaskListsApi
     /**
      * Set the API client
      *
-     * @param \DocuSign\Rooms\Client\ApiClient $apiClient set the API client
+     * @param ApiClient $apiClient set the API client
      *
-     * @return TaskListsApi
+     * @return self
      */
-    public function setApiClient(\DocuSign\Rooms\Client\ApiClient $apiClient)
+    public function setApiClient(ApiClient $apiClient): self
     {
         $this->apiClient = $apiClient;
         return $this;
     }
 
     /**
+    * Update $resourcePath with $
+    *
+    * @param string $resourcePath
+    * @param string $baseName
+    * @param string $paramName
+    *
+    * @return string
+    */
+    public function updateResourcePath(string $resourcePath, string $baseName, string $paramName): string
+    {
+        return str_replace(
+            "{" . $baseName . "}",
+            $this->apiClient->getSerializer()->toPathValue($paramName),
+            $resourcePath
+        );
+    }
+
+
+    /**
      * Operation createTaskList
      *
      * Add a task list to a room based on a task list template.
      *
-    * @param int $room_id Room ID.
-    * @param string $account_id 
+     * @param ?int $room_id Room ID.
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\TaskListForCreate $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\TaskList
      */
-    public function createTaskList($room_id, $account_id, $body = null)
+    public function createTaskList($room_id, $account_id, $body = null): \DocuSign\Rooms\Model\TaskList
     {
         list($response) = $this->createTaskListWithHttpInfo($room_id, $account_id, $body);
         return $response;
@@ -113,13 +132,13 @@ class TaskListsApi
      *
      * Add a task list to a room based on a task list template.
      *
-    * @param int $room_id Room ID.
-    * @param string $account_id 
+     * @param ?int $room_id Room ID.
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\TaskListForCreate $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\TaskList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTaskListWithHttpInfo($room_id, $account_id, $body = null)
+    public function createTaskListWithHttpInfo($room_id, $account_id, $body = null): array
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
@@ -131,36 +150,23 @@ class TaskListsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/rooms/{roomId}/task_lists";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($room_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "roomId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($room_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "roomId", $room_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -215,12 +221,12 @@ class TaskListsApi
      *
      * Deletes a task list. If there are attached documents they will remain in the associated
      *
-    * @param int $task_list_id Task List ID
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @param ?int $task_list_id Task List ID
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function deleteTaskList($task_list_id, $account_id)
+    public function deleteTaskList($task_list_id, $account_id): mixed
     {
         list($response) = $this->deleteTaskListWithHttpInfo($task_list_id, $account_id);
         return $response;
@@ -231,12 +237,12 @@ class TaskListsApi
      *
      * Deletes a task list. If there are attached documents they will remain in the associated
      *
-    * @param int $task_list_id Task List ID
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $task_list_id Task List ID
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTaskListWithHttpInfo($task_list_id, $account_id)
+    public function deleteTaskListWithHttpInfo($task_list_id, $account_id): array
     {
         // verify the required parameter 'task_list_id' is set
         if ($task_list_id === null) {
@@ -248,36 +254,23 @@ class TaskListsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/task_lists/{taskListId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
 
         // path params
         if ($task_list_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "taskListId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($task_list_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "taskListId", $task_list_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -323,12 +316,12 @@ class TaskListsApi
      *
      * Returns the summary for all viewable task lists in a
      *
-    * @param int $room_id Room ID
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $room_id Room ID
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\TaskListSummaryList
      */
-    public function getTaskLists($room_id, $account_id)
+    public function getTaskLists($room_id, $account_id): \DocuSign\Rooms\Model\TaskListSummaryList
     {
         list($response) = $this->getTaskListsWithHttpInfo($room_id, $account_id);
         return $response;
@@ -339,12 +332,12 @@ class TaskListsApi
      *
      * Returns the summary for all viewable task lists in a
      *
-    * @param int $room_id Room ID
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $room_id Room ID
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\TaskListSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTaskListsWithHttpInfo($room_id, $account_id)
+    public function getTaskListsWithHttpInfo($room_id, $account_id): array
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
@@ -356,36 +349,23 @@ class TaskListsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/rooms/{roomId}/task_lists";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
 
         // path params
         if ($room_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "roomId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($room_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "roomId", $room_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {

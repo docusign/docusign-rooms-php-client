@@ -2,7 +2,7 @@
 /**
  * OfficeForCreate
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * OfficeForCreate Class Doc Comment
@@ -57,16 +57,16 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'region_id' => 'int',
-        'address1' => 'string',
-        'address2' => 'string',
-        'city' => 'string',
-        'state_id' => 'string',
-        'postal_code' => 'string',
-        'country_id' => 'string',
-        'time_zone_id' => 'string',
-        'phone' => 'string'
+        'name' => '?string',
+        'region_id' => '?int',
+        'address1' => '?string',
+        'address2' => '?string',
+        'city' => '?string',
+        'state_id' => '?string',
+        'postal_code' => '?string',
+        'country_id' => '?string',
+        'time_zone_id' => '?string',
+        'phone' => '?string'
     ];
 
     /**
@@ -264,7 +264,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -274,7 +274,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -288,7 +288,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets region_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRegionId()
     {
@@ -298,7 +298,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets region_id
      *
-     * @param int $region_id region_id
+     * @param ?int $region_id region_id
      *
      * @return $this
      */
@@ -312,7 +312,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets address1
      *
-     * @return string
+     * @return ?string
      */
     public function getAddress1()
     {
@@ -322,7 +322,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets address1
      *
-     * @param string $address1 address1
+     * @param ?string $address1 address1
      *
      * @return $this
      */
@@ -336,7 +336,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets address2
      *
-     * @return string
+     * @return ?string
      */
     public function getAddress2()
     {
@@ -346,7 +346,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets address2
      *
-     * @param string $address2 address2
+     * @param ?string $address2 address2
      *
      * @return $this
      */
@@ -360,7 +360,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets city
      *
-     * @return string
+     * @return ?string
      */
     public function getCity()
     {
@@ -370,7 +370,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets city
      *
-     * @param string $city city
+     * @param ?string $city city
      *
      * @return $this
      */
@@ -384,7 +384,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets state_id
      *
-     * @return string
+     * @return ?string
      */
     public function getStateId()
     {
@@ -394,7 +394,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets state_id
      *
-     * @param string $state_id state_id
+     * @param ?string $state_id state_id
      *
      * @return $this
      */
@@ -408,7 +408,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets postal_code
      *
-     * @return string
+     * @return ?string
      */
     public function getPostalCode()
     {
@@ -418,7 +418,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets postal_code
      *
-     * @param string $postal_code postal_code
+     * @param ?string $postal_code postal_code
      *
      * @return $this
      */
@@ -432,7 +432,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets country_id
      *
-     * @return string
+     * @return ?string
      */
     public function getCountryId()
     {
@@ -442,7 +442,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets country_id
      *
-     * @param string $country_id country_id
+     * @param ?string $country_id country_id
      *
      * @return $this
      */
@@ -456,7 +456,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets time_zone_id
      *
-     * @return string
+     * @return ?string
      */
     public function getTimeZoneId()
     {
@@ -466,7 +466,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets time_zone_id
      *
-     * @param string $time_zone_id time_zone_id
+     * @param ?string $time_zone_id time_zone_id
      *
      * @return $this
      */
@@ -480,7 +480,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets phone
      *
-     * @return string
+     * @return ?string
      */
     public function getPhone()
     {
@@ -490,7 +490,7 @@ class OfficeForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string $phone phone
+     * @param ?string $phone phone
      *
      * @return $this
      */

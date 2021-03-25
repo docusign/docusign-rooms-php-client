@@ -2,7 +2,7 @@
 /**
  * TaskListForCreate
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * TaskListForCreate Class Doc Comment
@@ -57,7 +57,7 @@ class TaskListForCreate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'task_list_template_id' => 'int'
+        'task_list_template_id' => '?int'
     ];
 
     /**
@@ -207,7 +207,7 @@ class TaskListForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets task_list_template_id
      *
-     * @return int
+     * @return ?int
      */
     public function getTaskListTemplateId()
     {
@@ -217,7 +217,7 @@ class TaskListForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets task_list_template_id
      *
-     * @param int $task_list_template_id task_list_template_id
+     * @param ?int $task_list_template_id task_list_template_id
      *
      * @return $this
      */

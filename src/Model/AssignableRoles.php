@@ -2,7 +2,7 @@
 /**
  * AssignableRoles
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * AssignableRoles Class Doc Comment
@@ -57,14 +57,14 @@ class AssignableRoles implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'current_role_id' => 'int',
+        'current_role_id' => '?int',
         'roles' => '\DocuSign\Rooms\Model\RoleSummary[]',
-        'result_set_size' => 'int',
-        'start_position' => 'int',
-        'end_position' => 'int',
-        'next_uri' => 'string',
-        'prior_uri' => 'string',
-        'total_row_count' => 'int'
+        'result_set_size' => '?int',
+        'start_position' => '?int',
+        'end_position' => '?int',
+        'next_uri' => '?string',
+        'prior_uri' => '?string',
+        'total_row_count' => '?int'
     ];
 
     /**
@@ -249,7 +249,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Gets current_role_id
      *
-     * @return int
+     * @return ?int
      */
     public function getCurrentRoleId()
     {
@@ -259,7 +259,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Sets current_role_id
      *
-     * @param int $current_role_id current_role_id
+     * @param ?int $current_role_id current_role_id
      *
      * @return $this
      */
@@ -297,7 +297,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Gets result_set_size
      *
-     * @return int
+     * @return ?int
      */
     public function getResultSetSize()
     {
@@ -307,7 +307,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Sets result_set_size
      *
-     * @param int $result_set_size result_set_size
+     * @param ?int $result_set_size result_set_size
      *
      * @return $this
      */
@@ -321,7 +321,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Gets start_position
      *
-     * @return int
+     * @return ?int
      */
     public function getStartPosition()
     {
@@ -331,7 +331,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Sets start_position
      *
-     * @param int $start_position start_position
+     * @param ?int $start_position start_position
      *
      * @return $this
      */
@@ -345,7 +345,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Gets end_position
      *
-     * @return int
+     * @return ?int
      */
     public function getEndPosition()
     {
@@ -355,7 +355,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Sets end_position
      *
-     * @param int $end_position end_position
+     * @param ?int $end_position end_position
      *
      * @return $this
      */
@@ -369,7 +369,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Gets next_uri
      *
-     * @return string
+     * @return ?string
      */
     public function getNextUri()
     {
@@ -379,7 +379,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Sets next_uri
      *
-     * @param string $next_uri next_uri
+     * @param ?string $next_uri next_uri
      *
      * @return $this
      */
@@ -393,7 +393,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Gets prior_uri
      *
-     * @return string
+     * @return ?string
      */
     public function getPriorUri()
     {
@@ -403,7 +403,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Sets prior_uri
      *
-     * @param string $prior_uri prior_uri
+     * @param ?string $prior_uri prior_uri
      *
      * @return $this
      */
@@ -417,7 +417,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Gets total_row_count
      *
-     * @return int
+     * @return ?int
      */
     public function getTotalRowCount()
     {
@@ -427,7 +427,7 @@ class AssignableRoles implements ModelInterface, ArrayAccess
     /**
      * Sets total_row_count
      *
-     * @param int $total_row_count total_row_count
+     * @param ?int $total_row_count total_row_count
      *
      * @return $this
      */

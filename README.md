@@ -1,4 +1,4 @@
-# The Official DocuSign Rooms PHP Client 
+# The Official DocuSign PHP Client 
 
 [![Build status][travis-image]][travis-url]
 

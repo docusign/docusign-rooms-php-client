@@ -2,7 +2,7 @@
 /**
  * TaskListTemplate
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * TaskListTemplate Class Doc Comment
@@ -57,10 +57,10 @@ class TaskListTemplate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'task_list_template_id' => 'int',
-        'name' => 'string',
-        'task_count' => 'int',
-        'tasks_with_documents_count' => 'int'
+        'task_list_template_id' => '?int',
+        'name' => '?string',
+        'task_count' => '?int',
+        'tasks_with_documents_count' => '?int'
     ];
 
     /**
@@ -225,7 +225,7 @@ class TaskListTemplate implements ModelInterface, ArrayAccess
     /**
      * Gets task_list_template_id
      *
-     * @return int
+     * @return ?int
      */
     public function getTaskListTemplateId()
     {
@@ -235,7 +235,7 @@ class TaskListTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets task_list_template_id
      *
-     * @param int $task_list_template_id task_list_template_id
+     * @param ?int $task_list_template_id task_list_template_id
      *
      * @return $this
      */
@@ -249,7 +249,7 @@ class TaskListTemplate implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -259,7 +259,7 @@ class TaskListTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class TaskListTemplate implements ModelInterface, ArrayAccess
     /**
      * Gets task_count
      *
-     * @return int
+     * @return ?int
      */
     public function getTaskCount()
     {
@@ -283,7 +283,7 @@ class TaskListTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets task_count
      *
-     * @param int $task_count task_count
+     * @param ?int $task_count task_count
      *
      * @return $this
      */
@@ -297,7 +297,7 @@ class TaskListTemplate implements ModelInterface, ArrayAccess
     /**
      * Gets tasks_with_documents_count
      *
-     * @return int
+     * @return ?int
      */
     public function getTasksWithDocumentsCount()
     {
@@ -307,7 +307,7 @@ class TaskListTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets tasks_with_documents_count
      *
-     * @param int $tasks_with_documents_count tasks_with_documents_count
+     * @param ?int $tasks_with_documents_count tasks_with_documents_count
      *
      * @return $this
      */

@@ -2,7 +2,7 @@
 /**
  * ESignAccountRoleSettings
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * ESignAccountRoleSettings Class Doc Comment
@@ -57,7 +57,7 @@ class ESignAccountRoleSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allow_account_management' => 'bool'
+        'allow_account_management' => '?bool'
     ];
 
     /**
@@ -207,7 +207,7 @@ class ESignAccountRoleSettings implements ModelInterface, ArrayAccess
     /**
      * Gets allow_account_management
      *
-     * @return bool
+     * @return ?bool
      */
     public function getAllowAccountManagement()
     {
@@ -217,7 +217,7 @@ class ESignAccountRoleSettings implements ModelInterface, ArrayAccess
     /**
      * Sets allow_account_management
      *
-     * @param bool $allow_account_management allow_account_management
+     * @param ?bool $allow_account_management allow_account_management
      *
      * @return $this
      */

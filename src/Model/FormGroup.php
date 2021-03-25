@@ -2,7 +2,7 @@
 /**
  * FormGroup
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * FormGroup Class Doc Comment
@@ -57,9 +57,9 @@ class FormGroup implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'form_group_id' => 'string',
-        'name' => 'string',
-        'office_ids' => 'int[]',
+        'form_group_id' => '?string',
+        'name' => '?string',
+        'office_ids' => '?int[]',
         'forms' => '\DocuSign\Rooms\Model\GroupForm[]'
     ];
 
@@ -225,7 +225,7 @@ class FormGroup implements ModelInterface, ArrayAccess
     /**
      * Gets form_group_id
      *
-     * @return string
+     * @return ?string
      */
     public function getFormGroupId()
     {
@@ -235,7 +235,7 @@ class FormGroup implements ModelInterface, ArrayAccess
     /**
      * Sets form_group_id
      *
-     * @param string $form_group_id form_group_id
+     * @param ?string $form_group_id form_group_id
      *
      * @return $this
      */
@@ -249,7 +249,7 @@ class FormGroup implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -259,7 +259,7 @@ class FormGroup implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class FormGroup implements ModelInterface, ArrayAccess
     /**
      * Gets office_ids
      *
-     * @return int[]
+     * @return ?int[]
      */
     public function getOfficeIds()
     {
@@ -283,7 +283,7 @@ class FormGroup implements ModelInterface, ArrayAccess
     /**
      * Sets office_ids
      *
-     * @param int[] $office_ids office_ids
+     * @param ?int[] $office_ids office_ids
      *
      * @return $this
      */

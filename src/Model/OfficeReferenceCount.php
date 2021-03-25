@@ -2,7 +2,7 @@
 /**
  * OfficeReferenceCount
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * OfficeReferenceCount Class Doc Comment
@@ -57,8 +57,8 @@ class OfficeReferenceCount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reference_type' => 'string',
-        'referenced_count' => 'int'
+        'reference_type' => '?string',
+        'referenced_count' => '?int'
     ];
 
     /**
@@ -213,7 +213,7 @@ class OfficeReferenceCount implements ModelInterface, ArrayAccess
     /**
      * Gets reference_type
      *
-     * @return string
+     * @return ?string
      */
     public function getReferenceType()
     {
@@ -223,7 +223,7 @@ class OfficeReferenceCount implements ModelInterface, ArrayAccess
     /**
      * Sets reference_type
      *
-     * @param string $reference_type reference_type
+     * @param ?string $reference_type reference_type
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class OfficeReferenceCount implements ModelInterface, ArrayAccess
     /**
      * Gets referenced_count
      *
-     * @return int
+     * @return ?int
      */
     public function getReferencedCount()
     {
@@ -247,7 +247,7 @@ class OfficeReferenceCount implements ModelInterface, ArrayAccess
     /**
      * Sets referenced_count
      *
-     * @param int $referenced_count referenced_count
+     * @param ?int $referenced_count referenced_count
      *
      * @return $this
      */

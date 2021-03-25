@@ -2,7 +2,7 @@
 /**
  * TaskList
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * TaskList Class Doc Comment
@@ -57,16 +57,16 @@ class TaskList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'task_list_id' => 'int',
-        'name' => 'string',
-        'task_list_template_id' => 'int',
+        'task_list_id' => '?int',
+        'name' => '?string',
+        'task_list_template_id' => '?int',
         'submitted_for_review_date' => '\DateTime',
         'approval_date' => '\DateTime',
         'rejected_date' => '\DateTime',
         'created_date' => '\DateTime',
-        'approved_by_user_id' => 'int',
-        'rejected_by_user_id' => 'int',
-        'comment' => 'string',
+        'approved_by_user_id' => '?int',
+        'rejected_by_user_id' => '?int',
+        'comment' => '?string',
         'tasks' => '\DocuSign\Rooms\Model\TaskSummary[]'
     ];
 
@@ -267,7 +267,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Gets task_list_id
      *
-     * @return int
+     * @return ?int
      */
     public function getTaskListId()
     {
@@ -277,7 +277,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Sets task_list_id
      *
-     * @param int $task_list_id task_list_id
+     * @param ?int $task_list_id task_list_id
      *
      * @return $this
      */
@@ -291,7 +291,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -301,7 +301,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -315,7 +315,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Gets task_list_template_id
      *
-     * @return int
+     * @return ?int
      */
     public function getTaskListTemplateId()
     {
@@ -325,7 +325,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Sets task_list_template_id
      *
-     * @param int $task_list_template_id task_list_template_id
+     * @param ?int $task_list_template_id task_list_template_id
      *
      * @return $this
      */
@@ -435,7 +435,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Gets approved_by_user_id
      *
-     * @return int
+     * @return ?int
      */
     public function getApprovedByUserId()
     {
@@ -445,7 +445,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Sets approved_by_user_id
      *
-     * @param int $approved_by_user_id approved_by_user_id
+     * @param ?int $approved_by_user_id approved_by_user_id
      *
      * @return $this
      */
@@ -459,7 +459,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Gets rejected_by_user_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRejectedByUserId()
     {
@@ -469,7 +469,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Sets rejected_by_user_id
      *
-     * @param int $rejected_by_user_id rejected_by_user_id
+     * @param ?int $rejected_by_user_id rejected_by_user_id
      *
      * @return $this
      */
@@ -483,7 +483,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Gets comment
      *
-     * @return string
+     * @return ?string
      */
     public function getComment()
     {
@@ -493,7 +493,7 @@ class TaskList implements ModelInterface, ArrayAccess
     /**
      * Sets comment
      *
-     * @param string $comment comment
+     * @param ?string $comment comment
      *
      * @return $this
      */

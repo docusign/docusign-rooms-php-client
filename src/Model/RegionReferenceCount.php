@@ -2,7 +2,7 @@
 /**
  * RegionReferenceCount
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RegionReferenceCount Class Doc Comment
@@ -57,8 +57,8 @@ class RegionReferenceCount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reference_type' => 'string',
-        'reference_count' => 'int'
+        'reference_type' => '?string',
+        'reference_count' => '?int'
     ];
 
     /**
@@ -213,7 +213,7 @@ class RegionReferenceCount implements ModelInterface, ArrayAccess
     /**
      * Gets reference_type
      *
-     * @return string
+     * @return ?string
      */
     public function getReferenceType()
     {
@@ -223,7 +223,7 @@ class RegionReferenceCount implements ModelInterface, ArrayAccess
     /**
      * Sets reference_type
      *
-     * @param string $reference_type reference_type
+     * @param ?string $reference_type reference_type
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class RegionReferenceCount implements ModelInterface, ArrayAccess
     /**
      * Gets reference_count
      *
-     * @return int
+     * @return ?int
      */
     public function getReferenceCount()
     {
@@ -247,7 +247,7 @@ class RegionReferenceCount implements ModelInterface, ArrayAccess
     /**
      * Sets reference_count
      *
-     * @param int $reference_count reference_count
+     * @param ?int $reference_count reference_count
      *
      * @return $this
      */
