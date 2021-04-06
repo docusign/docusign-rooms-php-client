@@ -2,7 +2,7 @@
 /**
  * GroupForm
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * GroupForm Class Doc Comment
@@ -57,9 +57,9 @@ class GroupForm implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'form_id' => 'string',
-        'name' => 'string',
-        'is_required' => 'bool',
+        'form_id' => '?string',
+        'name' => '?string',
+        'is_required' => '?bool',
         'last_updated_date' => '\DateTime'
     ];
 
@@ -225,7 +225,7 @@ class GroupForm implements ModelInterface, ArrayAccess
     /**
      * Gets form_id
      *
-     * @return string
+     * @return ?string
      */
     public function getFormId()
     {
@@ -235,7 +235,7 @@ class GroupForm implements ModelInterface, ArrayAccess
     /**
      * Sets form_id
      *
-     * @param string $form_id form_id
+     * @param ?string $form_id form_id
      *
      * @return $this
      */
@@ -249,7 +249,7 @@ class GroupForm implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -259,7 +259,7 @@ class GroupForm implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class GroupForm implements ModelInterface, ArrayAccess
     /**
      * Gets is_required
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsRequired()
     {
@@ -283,7 +283,7 @@ class GroupForm implements ModelInterface, ArrayAccess
     /**
      * Sets is_required
      *
-     * @param bool $is_required is_required
+     * @param ?bool $is_required is_required
      *
      * @return $this
      */

@@ -2,7 +2,7 @@
 /**
  * RoomForCreate
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoomForCreate Class Doc Comment
@@ -57,12 +57,12 @@ class RoomForCreate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'role_id' => 'int',
-        'transaction_side_id' => 'string',
-        'owner_id' => 'int',
-        'template_id' => 'int',
-        'office_id' => 'int',
+        'name' => '?string',
+        'role_id' => '?int',
+        'transaction_side_id' => '?string',
+        'owner_id' => '?int',
+        'template_id' => '?int',
+        'office_id' => '?int',
         'field_data' => '\DocuSign\Rooms\Model\FieldDataForCreate'
     ];
 
@@ -249,7 +249,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -259,7 +259,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets role_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRoleId()
     {
@@ -283,7 +283,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets role_id
      *
-     * @param int $role_id role_id
+     * @param ?int $role_id role_id
      *
      * @return $this
      */
@@ -297,7 +297,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets transaction_side_id
      *
-     * @return string
+     * @return ?string
      */
     public function getTransactionSideId()
     {
@@ -307,7 +307,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_side_id
      *
-     * @param string $transaction_side_id Required for a real estate company; otherwise ignored.
+     * @param ?string $transaction_side_id Required for a real estate company; otherwise ignored.
      *
      * @return $this
      */
@@ -321,7 +321,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets owner_id
      *
-     * @return int
+     * @return ?int
      */
     public function getOwnerId()
     {
@@ -331,7 +331,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets owner_id
      *
-     * @param int $owner_id owner_id
+     * @param ?int $owner_id owner_id
      *
      * @return $this
      */
@@ -345,7 +345,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets template_id
      *
-     * @return int
+     * @return ?int
      */
     public function getTemplateId()
     {
@@ -355,7 +355,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets template_id
      *
-     * @param int $template_id template_id
+     * @param ?int $template_id template_id
      *
      * @return $this
      */
@@ -369,7 +369,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets office_id
      *
-     * @return int
+     * @return ?int
      */
     public function getOfficeId()
     {
@@ -379,7 +379,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets office_id
      *
-     * @param int $office_id office_id
+     * @param ?int $office_id office_id
      *
      * @return $this
      */

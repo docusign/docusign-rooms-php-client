@@ -2,7 +2,7 @@
 /**
  * RoleSummary
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoleSummary Class Doc Comment
@@ -57,11 +57,11 @@ class RoleSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'role_id' => 'int',
-        'legacy_role_id' => 'string',
-        'name' => 'string',
-        'is_default_for_admin' => 'bool',
-        'is_external' => 'bool',
+        'role_id' => '?int',
+        'legacy_role_id' => '?string',
+        'name' => '?string',
+        'is_default_for_admin' => '?bool',
+        'is_external' => '?bool',
         'created_date' => '\DateTime'
     ];
 
@@ -237,7 +237,7 @@ class RoleSummary implements ModelInterface, ArrayAccess
     /**
      * Gets role_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRoleId()
     {
@@ -247,7 +247,7 @@ class RoleSummary implements ModelInterface, ArrayAccess
     /**
      * Sets role_id
      *
-     * @param int $role_id role_id
+     * @param ?int $role_id role_id
      *
      * @return $this
      */
@@ -261,7 +261,7 @@ class RoleSummary implements ModelInterface, ArrayAccess
     /**
      * Gets legacy_role_id
      *
-     * @return string
+     * @return ?string
      */
     public function getLegacyRoleId()
     {
@@ -271,7 +271,7 @@ class RoleSummary implements ModelInterface, ArrayAccess
     /**
      * Sets legacy_role_id
      *
-     * @param string $legacy_role_id legacy_role_id
+     * @param ?string $legacy_role_id legacy_role_id
      *
      * @return $this
      */
@@ -285,7 +285,7 @@ class RoleSummary implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -295,7 +295,7 @@ class RoleSummary implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -309,7 +309,7 @@ class RoleSummary implements ModelInterface, ArrayAccess
     /**
      * Gets is_default_for_admin
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsDefaultForAdmin()
     {
@@ -319,7 +319,7 @@ class RoleSummary implements ModelInterface, ArrayAccess
     /**
      * Sets is_default_for_admin
      *
-     * @param bool $is_default_for_admin is_default_for_admin
+     * @param ?bool $is_default_for_admin is_default_for_admin
      *
      * @return $this
      */
@@ -333,7 +333,7 @@ class RoleSummary implements ModelInterface, ArrayAccess
     /**
      * Gets is_external
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsExternal()
     {
@@ -343,7 +343,7 @@ class RoleSummary implements ModelInterface, ArrayAccess
     /**
      * Sets is_external
      *
-     * @param bool $is_external is_external
+     * @param ?bool $is_external is_external
      *
      * @return $this
      */

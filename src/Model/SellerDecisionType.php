@@ -2,7 +2,7 @@
 /**
  * SellerDecisionType
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * SellerDecisionType Class Doc Comment
@@ -57,8 +57,8 @@ class SellerDecisionType implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'seller_decision_type_id' => 'string',
-        'name' => 'string'
+        'seller_decision_type_id' => '?string',
+        'name' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class SellerDecisionType implements ModelInterface, ArrayAccess
     /**
      * Gets seller_decision_type_id
      *
-     * @return string
+     * @return ?string
      */
     public function getSellerDecisionTypeId()
     {
@@ -223,7 +223,7 @@ class SellerDecisionType implements ModelInterface, ArrayAccess
     /**
      * Sets seller_decision_type_id
      *
-     * @param string $seller_decision_type_id seller_decision_type_id
+     * @param ?string $seller_decision_type_id seller_decision_type_id
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class SellerDecisionType implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -247,7 +247,7 @@ class SellerDecisionType implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */

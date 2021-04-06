@@ -1,7 +1,10 @@
 <?php
+declare(strict_types=1);
+
 /**
- * RegionsApi
- * PHP version 5
+ * RegionsApi.
+ *
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -28,79 +31,80 @@
 
 namespace DocuSign\Rooms\Api\RegionsApi;
 
+
 class GetRegionsOptions
 {
     /**
       * $count Number of regions to include in the response, (Default 100).
-      * @var int
+      * @var ?int
       */
-    protected $count;
+    protected ?int $count = null;
 
     /**
      * Gets count
-     * @return int
+     * @return ?int
      */
-    public function getCount()
+    public function getCount(): ?int
     {
         return $this->count;
     }
-  
+
     /**
      * Sets count
-     * @param int $count Number of regions to include in the response, (Default 100).
-     * @return $this
+     * @param ?int $count Number of regions to include in the response, (Default 100).
+     * @return self
      */
-    public function setCount($count)
+    public function setCount(?int $count): self
     {
         $this->count = $count;
         return $this;
     }
     /**
       * $start_position Position in the overall list of regions to begin results.
-      * @var int
+      * @var ?int
       */
-    protected $start_position;
+    protected ?int $start_position = null;
 
     /**
      * Gets start_position
-     * @return int
+     * @return ?int
      */
-    public function getStartPosition()
+    public function getStartPosition(): ?int
     {
         return $this->start_position;
     }
-  
+
     /**
      * Sets start_position
-     * @param int $start_position Position in the overall list of regions to begin results.
-     * @return $this
+     * @param ?int $start_position Position in the overall list of regions to begin results.
+     * @return self
      */
-    public function setStartPosition($start_position)
+    public function setStartPosition(?int $start_position): self
     {
         $this->start_position = $start_position;
         return $this;
     }
     /**
       * $managed_only When true, the response only includes regions that the calling user can manage.
-      * @var bool
+      * @var ?bool
       */
-    protected $managed_only;
+    protected ?bool $managed_only = null;
 
     /**
      * Gets managed_only
-     * @return bool
+     * @return ?bool
      */
-    public function getManagedOnly()
+    public function getManagedOnly(): ?bool
     {
         return $this->managed_only;
     }
-  
+
     /**
      * Sets managed_only
-     * @param bool $managed_only When true, the response only includes regions that the calling user can manage.
-     * @return $this
+     * @param ?bool $managed_only When true, the response only includes regions that the calling user can manage.
+     * @return self
      */
-    public function setManagedOnly($managed_only)
+    public function setManagedOnly(?bool $managed_only): self
     {
         $this->managed_only = $managed_only;
         return $this;
@@ -108,12 +112,13 @@ class GetRegionsOptions
 }
 
 
+
 namespace DocuSign\Rooms\Api;
 
-use \DocuSign\Rooms\Client\ApiClient;
-use \DocuSign\Rooms\Client\ApiException;
-use \DocuSign\Rooms\Configuration;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\Client\ApiClient;
+use DocuSign\Rooms\Client\ApiException;
+use DocuSign\Rooms\Configuration;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RegionsApi Class Doc Comment
@@ -128,30 +133,27 @@ class RegionsApi
     /**
      * API Client
      *
-     * @var \DocuSign\Rooms\Client\ApiClient instance of the ApiClient
+     * @var ApiClient instance of the ApiClient
      */
-    protected $apiClient;
+    protected ApiClient $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DocuSign\Rooms\Client\ApiClient|null $apiClient The api client to use
+     * @param ApiClient|null $apiClient The api client to use
+     * @return void
      */
-    public function __construct(\DocuSign\Rooms\Client\ApiClient $apiClient = null)
+    public function __construct(ApiClient $apiClient = null)
     {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
-
-        $this->apiClient = $apiClient;
+        $this->apiClient = $apiClient ?? new ApiClient();
     }
 
     /**
      * Get API client
      *
-     * @return \DocuSign\Rooms\Client\ApiClient get the API client
+     * @return ApiClient get the API client
      */
-    public function getApiClient()
+    public function getApiClient(): ApiClient
     {
         return $this->apiClient;
     }
@@ -159,27 +161,46 @@ class RegionsApi
     /**
      * Set the API client
      *
-     * @param \DocuSign\Rooms\Client\ApiClient $apiClient set the API client
+     * @param ApiClient $apiClient set the API client
      *
-     * @return RegionsApi
+     * @return self
      */
-    public function setApiClient(\DocuSign\Rooms\Client\ApiClient $apiClient)
+    public function setApiClient(ApiClient $apiClient): self
     {
         $this->apiClient = $apiClient;
         return $this;
     }
 
     /**
+    * Update $resourcePath with $
+    *
+    * @param string $resourcePath
+    * @param string $baseName
+    * @param string $paramName
+    *
+    * @return string
+    */
+    public function updateResourcePath(string $resourcePath, string $baseName, string $paramName): string
+    {
+        return str_replace(
+            "{" . $baseName . "}",
+            $this->apiClient->getSerializer()->toPathValue($paramName),
+            $resourcePath
+        );
+    }
+
+
+    /**
      * Operation createRegion
      *
      * Creates a new region for a company
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\Region $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Region
      */
-    public function createRegion($account_id, $body = null)
+    public function createRegion($account_id, $body = null): \DocuSign\Rooms\Model\Region
     {
         list($response) = $this->createRegionWithHttpInfo($account_id, $body);
         return $response;
@@ -190,12 +211,12 @@ class RegionsApi
      *
      * Creates a new region for a company
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\Region $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Region, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRegionWithHttpInfo($account_id, $body = null)
+    public function createRegionWithHttpInfo($account_id, $body = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -203,28 +224,19 @@ class RegionsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/regions";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -279,12 +291,12 @@ class RegionsApi
      *
      * Delete a region.
      *
-    * @param int $region_id Id of the desired region
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @param ?int $region_id Id of the desired region
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function deleteRegion($region_id, $account_id)
+    public function deleteRegion($region_id, $account_id): mixed
     {
         list($response) = $this->deleteRegionWithHttpInfo($region_id, $account_id);
         return $response;
@@ -295,12 +307,12 @@ class RegionsApi
      *
      * Delete a region.
      *
-    * @param int $region_id Id of the desired region
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $region_id Id of the desired region
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteRegionWithHttpInfo($region_id, $account_id)
+    public function deleteRegionWithHttpInfo($region_id, $account_id): array
     {
         // verify the required parameter 'region_id' is set
         if ($region_id === null) {
@@ -312,36 +324,23 @@ class RegionsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/regions/{regionId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
 
         // path params
         if ($region_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "regionId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($region_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "regionId", $region_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -387,12 +386,12 @@ class RegionsApi
      *
      * Get information about the region with the given regionId
      *
-    * @param int $region_id Id of the desired region
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $region_id Id of the desired region
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Region
      */
-    public function getRegion($region_id, $account_id)
+    public function getRegion($region_id, $account_id): \DocuSign\Rooms\Model\Region
     {
         list($response) = $this->getRegionWithHttpInfo($region_id, $account_id);
         return $response;
@@ -403,12 +402,12 @@ class RegionsApi
      *
      * Get information about the region with the given regionId
      *
-    * @param int $region_id Id of the desired region
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $region_id Id of the desired region
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Region, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRegionWithHttpInfo($region_id, $account_id)
+    public function getRegionWithHttpInfo($region_id, $account_id): array
     {
         // verify the required parameter 'region_id' is set
         if ($region_id === null) {
@@ -420,36 +419,23 @@ class RegionsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/regions/{regionId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
 
         // path params
         if ($region_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "regionId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($region_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "regionId", $region_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -499,12 +485,12 @@ class RegionsApi
      *
      * Get region reference counts.
      *
-    * @param int $region_id Id of the desired region
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $region_id Id of the desired region
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RegionReferenceCountList
      */
-    public function getRegionReferenceCounts($region_id, $account_id)
+    public function getRegionReferenceCounts($region_id, $account_id): \DocuSign\Rooms\Model\RegionReferenceCountList
     {
         list($response) = $this->getRegionReferenceCountsWithHttpInfo($region_id, $account_id);
         return $response;
@@ -515,12 +501,12 @@ class RegionsApi
      *
      * Get region reference counts.
      *
-    * @param int $region_id Id of the desired region
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $region_id Id of the desired region
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RegionReferenceCountList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRegionReferenceCountsWithHttpInfo($region_id, $account_id)
+    public function getRegionReferenceCountsWithHttpInfo($region_id, $account_id): array
     {
         // verify the required parameter 'region_id' is set
         if ($region_id === null) {
@@ -532,36 +518,23 @@ class RegionsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/regions/{regionId}/reference_counts";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
 
         // path params
         if ($region_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "regionId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($region_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "regionId", $region_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -611,12 +584,12 @@ class RegionsApi
      *
      * Get account
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\RegionsApi\GetRegionsOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RegionSummaryList
      */
-    public function getRegions($account_id, RegionsApi\GetRegionsOptions $options = null)
+    public function getRegions($account_id, \DocuSign\Rooms\Api\RegionsApi\GetRegionsOptions $options = null): \DocuSign\Rooms\Model\RegionSummaryList
     {
         list($response) = $this->getRegionsWithHttpInfo($account_id, $options);
         return $response;
@@ -627,12 +600,12 @@ class RegionsApi
      *
      * Get account
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\RegionsApi\GetRegionsOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RegionSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRegionsWithHttpInfo($account_id, RegionsApi\GetRegionsOptions $options = null)
+    public function getRegionsWithHttpInfo($account_id, \DocuSign\Rooms\Api\RegionsApi\GetRegionsOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -640,44 +613,32 @@ class RegionsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/regions";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         if ($options != null)
         {
-        // query params
-        // query params
-        if ($options->getCount() !== null) {
-            $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
-        }
-        // query params
-        if ($options->getStartPosition() !== null) {
-            $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
-        }
-        // query params
-        if ($options->getManagedOnly() !== null) {
-            $queryParams['managedOnly'] = $this->apiClient->getSerializer()->toQueryValue($options->getManagedOnly());
-        }
+            // query params
+            if ($options->getCount() != 'null') {
+                $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
+            }
+            if ($options->getStartPosition() != 'null') {
+                $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
+            }
+            if ($options->getManagedOnly() != 'null') {
+                $queryParams['managedOnly'] = $this->apiClient->getSerializer()->toQueryValue($options->getManagedOnly());
+            }
         }
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {

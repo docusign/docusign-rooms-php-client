@@ -2,7 +2,7 @@
 /**
  * TaskSummary
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * TaskSummary Class Doc Comment
@@ -57,19 +57,19 @@ class TaskSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'task_id' => 'int',
-        'name' => 'string',
-        'requires_approval' => 'bool',
-        'due_date_type_id' => 'string',
-        'due_date_offset' => 'int',
+        'task_id' => '?int',
+        'name' => '?string',
+        'requires_approval' => '?bool',
+        'due_date_type_id' => '?string',
+        'due_date_offset' => '?int',
         'fixed_due_date' => '\DateTime',
-        'owner_user_id' => 'int',
+        'owner_user_id' => '?int',
         'completion_date' => '\DateTime',
         'approval_date' => '\DateTime',
         'rejected_date' => '\DateTime',
         'created_date' => '\DateTime',
-        'is_document_task' => 'bool',
-        'requires_review' => 'bool'
+        'is_document_task' => '?bool',
+        'requires_review' => '?bool'
     ];
 
     /**
@@ -279,7 +279,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Gets task_id
      *
-     * @return int
+     * @return ?int
      */
     public function getTaskId()
     {
@@ -289,7 +289,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Sets task_id
      *
-     * @param int $task_id task_id
+     * @param ?int $task_id task_id
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -313,7 +313,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -327,7 +327,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Gets requires_approval
      *
-     * @return bool
+     * @return ?bool
      */
     public function getRequiresApproval()
     {
@@ -337,7 +337,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Sets requires_approval
      *
-     * @param bool $requires_approval requires_approval
+     * @param ?bool $requires_approval requires_approval
      *
      * @return $this
      */
@@ -351,7 +351,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Gets due_date_type_id
      *
-     * @return string
+     * @return ?string
      */
     public function getDueDateTypeId()
     {
@@ -361,7 +361,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Sets due_date_type_id
      *
-     * @param string $due_date_type_id due_date_type_id
+     * @param ?string $due_date_type_id due_date_type_id
      *
      * @return $this
      */
@@ -375,7 +375,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Gets due_date_offset
      *
-     * @return int
+     * @return ?int
      */
     public function getDueDateOffset()
     {
@@ -385,7 +385,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Sets due_date_offset
      *
-     * @param int $due_date_offset due_date_offset
+     * @param ?int $due_date_offset due_date_offset
      *
      * @return $this
      */
@@ -423,7 +423,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Gets owner_user_id
      *
-     * @return int
+     * @return ?int
      */
     public function getOwnerUserId()
     {
@@ -433,7 +433,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Sets owner_user_id
      *
-     * @param int $owner_user_id owner_user_id
+     * @param ?int $owner_user_id owner_user_id
      *
      * @return $this
      */
@@ -543,7 +543,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Gets is_document_task
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsDocumentTask()
     {
@@ -553,7 +553,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Sets is_document_task
      *
-     * @param bool $is_document_task is_document_task
+     * @param ?bool $is_document_task is_document_task
      *
      * @return $this
      */
@@ -567,7 +567,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Gets requires_review
      *
-     * @return bool
+     * @return ?bool
      */
     public function getRequiresReview()
     {
@@ -577,7 +577,7 @@ class TaskSummary implements ModelInterface, ArrayAccess
     /**
      * Sets requires_review
      *
-     * @param bool $requires_review requires_review
+     * @param ?bool $requires_review requires_review
      *
      * @return $this
      */

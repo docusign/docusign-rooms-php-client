@@ -2,7 +2,7 @@
 /**
  * Document
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * Document Class Doc Comment
@@ -57,16 +57,16 @@ class Document implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'document_id' => 'int',
-        'name' => 'string',
-        'room_id' => 'int',
-        'owner_id' => 'int',
+        'document_id' => '?int',
+        'name' => '?string',
+        'room_id' => '?int',
+        'owner_id' => '?int',
         'size' => 'int',
-        'folder_id' => 'int',
+        'folder_id' => '?int',
         'created_date' => '\DateTime',
-        'is_signed' => 'bool',
-        'content_type' => 'string',
-        'base64_contents' => 'string'
+        'is_signed' => '?bool',
+        'content_type' => '?string',
+        'base64_contents' => '?string'
     ];
 
     /**
@@ -267,7 +267,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Gets document_id
      *
-     * @return int
+     * @return ?int
      */
     public function getDocumentId()
     {
@@ -277,7 +277,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Sets document_id
      *
-     * @param int $document_id document_id
+     * @param ?int $document_id document_id
      *
      * @return $this
      */
@@ -291,7 +291,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -301,7 +301,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -315,7 +315,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Gets room_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRoomId()
     {
@@ -325,7 +325,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Sets room_id
      *
-     * @param int $room_id room_id
+     * @param ?int $room_id room_id
      *
      * @return $this
      */
@@ -339,7 +339,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Gets owner_id
      *
-     * @return int
+     * @return ?int
      */
     public function getOwnerId()
     {
@@ -349,7 +349,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Sets owner_id
      *
-     * @param int $owner_id owner_id
+     * @param ?int $owner_id owner_id
      *
      * @return $this
      */
@@ -387,7 +387,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Gets folder_id
      *
-     * @return int
+     * @return ?int
      */
     public function getFolderId()
     {
@@ -397,7 +397,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Sets folder_id
      *
-     * @param int $folder_id folder_id
+     * @param ?int $folder_id folder_id
      *
      * @return $this
      */
@@ -435,7 +435,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Gets is_signed
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsSigned()
     {
@@ -445,7 +445,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Sets is_signed
      *
-     * @param bool $is_signed is_signed
+     * @param ?bool $is_signed is_signed
      *
      * @return $this
      */
@@ -459,7 +459,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Gets content_type
      *
-     * @return string
+     * @return ?string
      */
     public function getContentType()
     {
@@ -469,7 +469,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Sets content_type
      *
-     * @param string $content_type content_type
+     * @param ?string $content_type content_type
      *
      * @return $this
      */
@@ -483,7 +483,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Gets base64_contents
      *
-     * @return string
+     * @return ?string
      */
     public function getBase64Contents()
     {
@@ -493,7 +493,7 @@ class Document implements ModelInterface, ArrayAccess
     /**
      * Sets base64_contents
      *
-     * @param string $base64_contents base64_contents
+     * @param ?string $base64_contents base64_contents
      *
      * @return $this
      */

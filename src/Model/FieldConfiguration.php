@@ -2,7 +2,7 @@
 /**
  * FieldConfiguration
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * FieldConfiguration Class Doc Comment
@@ -60,10 +60,10 @@ class FieldConfiguration implements ModelInterface, ArrayAccess
         'max_value' => 'double',
         'min_value' => 'double',
         'multiple_of' => 'double',
-        'max_length' => 'int',
-        'min_length' => 'int',
-        'pattern' => 'string',
-        'is_publisher' => 'bool',
+        'max_length' => '?int',
+        'min_length' => '?int',
+        'pattern' => '?string',
+        'is_publisher' => '?bool',
         'depends_on' => '\DocuSign\Rooms\Model\DependsOn[]',
         'options' => '\DocuSign\Rooms\Model\SelectListFieldOption[]'
     ];
@@ -327,7 +327,7 @@ class FieldConfiguration implements ModelInterface, ArrayAccess
     /**
      * Gets max_length
      *
-     * @return int
+     * @return ?int
      */
     public function getMaxLength()
     {
@@ -337,7 +337,7 @@ class FieldConfiguration implements ModelInterface, ArrayAccess
     /**
      * Sets max_length
      *
-     * @param int $max_length max_length
+     * @param ?int $max_length max_length
      *
      * @return $this
      */
@@ -351,7 +351,7 @@ class FieldConfiguration implements ModelInterface, ArrayAccess
     /**
      * Gets min_length
      *
-     * @return int
+     * @return ?int
      */
     public function getMinLength()
     {
@@ -361,7 +361,7 @@ class FieldConfiguration implements ModelInterface, ArrayAccess
     /**
      * Sets min_length
      *
-     * @param int $min_length min_length
+     * @param ?int $min_length min_length
      *
      * @return $this
      */
@@ -375,7 +375,7 @@ class FieldConfiguration implements ModelInterface, ArrayAccess
     /**
      * Gets pattern
      *
-     * @return string
+     * @return ?string
      */
     public function getPattern()
     {
@@ -385,7 +385,7 @@ class FieldConfiguration implements ModelInterface, ArrayAccess
     /**
      * Sets pattern
      *
-     * @param string $pattern pattern
+     * @param ?string $pattern pattern
      *
      * @return $this
      */
@@ -399,7 +399,7 @@ class FieldConfiguration implements ModelInterface, ArrayAccess
     /**
      * Gets is_publisher
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsPublisher()
     {
@@ -409,7 +409,7 @@ class FieldConfiguration implements ModelInterface, ArrayAccess
     /**
      * Sets is_publisher
      *
-     * @param bool $is_publisher is_publisher
+     * @param ?bool $is_publisher is_publisher
      *
      * @return $this
      */

@@ -2,7 +2,7 @@
 /**
  * LockedOutDetails
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * LockedOutDetails Class Doc Comment
@@ -57,7 +57,7 @@ class LockedOutDetails implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reason' => 'string'
+        'reason' => '?string'
     ];
 
     /**
@@ -210,7 +210,7 @@ class LockedOutDetails implements ModelInterface, ArrayAccess
     /**
      * Gets reason
      *
-     * @return string
+     * @return ?string
      */
     public function getReason()
     {
@@ -220,7 +220,7 @@ class LockedOutDetails implements ModelInterface, ArrayAccess
     /**
      * Sets reason
      *
-     * @param string $reason reason
+     * @param ?string $reason reason
      *
      * @return $this
      */

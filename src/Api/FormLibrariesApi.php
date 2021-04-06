@@ -1,7 +1,10 @@
 <?php
+declare(strict_types=1);
+
 /**
- * FormLibrariesApi
- * PHP version 5
+ * FormLibrariesApi.
+ *
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -28,107 +31,110 @@
 
 namespace DocuSign\Rooms\Api\FormLibrariesApi;
 
+
 class GetFormLibrariesOptions
 {
     /**
       * $count Default value is 100 and max value is 100
-      * @var int
+      * @var ?int
       */
-    protected $count;
+    protected ?int $count = null;
 
     /**
      * Gets count
-     * @return int
+     * @return ?int
      */
-    public function getCount()
+    public function getCount(): ?int
     {
         return $this->count;
     }
-  
+
     /**
      * Sets count
-     * @param int $count Default value is 100 and max value is 100
-     * @return $this
+     * @param ?int $count Default value is 100 and max value is 100
+     * @return self
      */
-    public function setCount($count)
+    public function setCount(?int $count): self
     {
         $this->count = $count;
         return $this;
     }
     /**
       * $start_position Default value is 0
-      * @var int
+      * @var ?int
       */
-    protected $start_position;
+    protected ?int $start_position = null;
 
     /**
      * Gets start_position
-     * @return int
+     * @return ?int
      */
-    public function getStartPosition()
+    public function getStartPosition(): ?int
     {
         return $this->start_position;
     }
-  
+
     /**
      * Sets start_position
-     * @param int $start_position Default value is 0
-     * @return $this
+     * @param ?int $start_position Default value is 0
+     * @return self
      */
-    public function setStartPosition($start_position)
+    public function setStartPosition(?int $start_position): self
     {
         $this->start_position = $start_position;
         return $this;
     }
 }
+
+
 class GetFormLibraryFormsOptions
 {
     /**
       * $count Default value is 100 and max value is 100
-      * @var int
+      * @var ?int
       */
-    protected $count;
+    protected ?int $count = null;
 
     /**
      * Gets count
-     * @return int
+     * @return ?int
      */
-    public function getCount()
+    public function getCount(): ?int
     {
         return $this->count;
     }
-  
+
     /**
      * Sets count
-     * @param int $count Default value is 100 and max value is 100
-     * @return $this
+     * @param ?int $count Default value is 100 and max value is 100
+     * @return self
      */
-    public function setCount($count)
+    public function setCount(?int $count): self
     {
         $this->count = $count;
         return $this;
     }
     /**
       * $start_position Default value is 0
-      * @var int
+      * @var ?int
       */
-    protected $start_position;
+    protected ?int $start_position = null;
 
     /**
      * Gets start_position
-     * @return int
+     * @return ?int
      */
-    public function getStartPosition()
+    public function getStartPosition(): ?int
     {
         return $this->start_position;
     }
-  
+
     /**
      * Sets start_position
-     * @param int $start_position Default value is 0
-     * @return $this
+     * @param ?int $start_position Default value is 0
+     * @return self
      */
-    public function setStartPosition($start_position)
+    public function setStartPosition(?int $start_position): self
     {
         $this->start_position = $start_position;
         return $this;
@@ -136,12 +142,13 @@ class GetFormLibraryFormsOptions
 }
 
 
+
 namespace DocuSign\Rooms\Api;
 
-use \DocuSign\Rooms\Client\ApiClient;
-use \DocuSign\Rooms\Client\ApiException;
-use \DocuSign\Rooms\Configuration;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\Client\ApiClient;
+use DocuSign\Rooms\Client\ApiException;
+use DocuSign\Rooms\Configuration;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * FormLibrariesApi Class Doc Comment
@@ -156,30 +163,27 @@ class FormLibrariesApi
     /**
      * API Client
      *
-     * @var \DocuSign\Rooms\Client\ApiClient instance of the ApiClient
+     * @var ApiClient instance of the ApiClient
      */
-    protected $apiClient;
+    protected ApiClient $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DocuSign\Rooms\Client\ApiClient|null $apiClient The api client to use
+     * @param ApiClient|null $apiClient The api client to use
+     * @return void
      */
-    public function __construct(\DocuSign\Rooms\Client\ApiClient $apiClient = null)
+    public function __construct(ApiClient $apiClient = null)
     {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
-
-        $this->apiClient = $apiClient;
+        $this->apiClient = $apiClient ?? new ApiClient();
     }
 
     /**
      * Get API client
      *
-     * @return \DocuSign\Rooms\Client\ApiClient get the API client
+     * @return ApiClient get the API client
      */
-    public function getApiClient()
+    public function getApiClient(): ApiClient
     {
         return $this->apiClient;
     }
@@ -187,27 +191,46 @@ class FormLibrariesApi
     /**
      * Set the API client
      *
-     * @param \DocuSign\Rooms\Client\ApiClient $apiClient set the API client
+     * @param ApiClient $apiClient set the API client
      *
-     * @return FormLibrariesApi
+     * @return self
      */
-    public function setApiClient(\DocuSign\Rooms\Client\ApiClient $apiClient)
+    public function setApiClient(ApiClient $apiClient): self
     {
         $this->apiClient = $apiClient;
         return $this;
     }
 
     /**
+    * Update $resourcePath with $
+    *
+    * @param string $resourcePath
+    * @param string $baseName
+    * @param string $paramName
+    *
+    * @return string
+    */
+    public function updateResourcePath(string $resourcePath, string $baseName, string $paramName): string
+    {
+        return str_replace(
+            "{" . $baseName . "}",
+            $this->apiClient->getSerializer()->toPathValue($paramName),
+            $resourcePath
+        );
+    }
+
+
+    /**
      * Operation getFormLibraries
      *
      * Gets a paged list of forms libraries.
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibrariesOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FormLibrarySummaryList
      */
-    public function getFormLibraries($account_id, FormLibrariesApi\GetFormLibrariesOptions $options = null)
+    public function getFormLibraries($account_id, \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibrariesOptions $options = null): \DocuSign\Rooms\Model\FormLibrarySummaryList
     {
         list($response) = $this->getFormLibrariesWithHttpInfo($account_id, $options);
         return $response;
@@ -218,12 +241,12 @@ class FormLibrariesApi
      *
      * Gets a paged list of forms libraries.
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibrariesOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FormLibrarySummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFormLibrariesWithHttpInfo($account_id, FormLibrariesApi\GetFormLibrariesOptions $options = null)
+    public function getFormLibrariesWithHttpInfo($account_id, \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibrariesOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -231,40 +254,29 @@ class FormLibrariesApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/form_libraries";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         if ($options != null)
         {
-        // query params
-        // query params
-        if ($options->getCount() !== null) {
-            $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
-        }
-        // query params
-        if ($options->getStartPosition() !== null) {
-            $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
-        }
+            // query params
+            if ($options->getCount() != 'null') {
+                $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
+            }
+            if ($options->getStartPosition() != 'null') {
+                $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
+            }
         }
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -314,13 +326,13 @@ class FormLibrariesApi
      *
      * Gets a paged list of forms in a forms library.
      *
-    * @param string $form_library_id Library Id
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $form_library_id Library Id
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibraryFormsOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FormSummaryList
      */
-    public function getFormLibraryForms($form_library_id, $account_id, FormLibrariesApi\GetFormLibraryFormsOptions $options = null)
+    public function getFormLibraryForms($form_library_id, $account_id, \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibraryFormsOptions $options = null): \DocuSign\Rooms\Model\FormSummaryList
     {
         list($response) = $this->getFormLibraryFormsWithHttpInfo($form_library_id, $account_id, $options);
         return $response;
@@ -331,13 +343,13 @@ class FormLibrariesApi
      *
      * Gets a paged list of forms in a forms library.
      *
-    * @param string $form_library_id Library Id
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $form_library_id Library Id
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibraryFormsOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FormSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFormLibraryFormsWithHttpInfo($form_library_id, $account_id, FormLibrariesApi\GetFormLibraryFormsOptions $options = null)
+    public function getFormLibraryFormsWithHttpInfo($form_library_id, $account_id, \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibraryFormsOptions $options = null): array
     {
         // verify the required parameter 'form_library_id' is set
         if ($form_library_id === null) {
@@ -349,48 +361,33 @@ class FormLibrariesApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/form_libraries/{formLibraryId}/forms";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         if ($options != null)
         {
-        // query params
-        // query params
-        if ($options->getCount() !== null) {
-            $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
-        }
-        // query params
-        if ($options->getStartPosition() !== null) {
-            $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
-        }
+            // query params
+            if ($options->getCount() != 'null') {
+                $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
+            }
+            if ($options->getStartPosition() != 'null') {
+                $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
+            }
         }
 
         // path params
         if ($form_library_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "formLibraryId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($form_library_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "formLibraryId", $form_library_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {

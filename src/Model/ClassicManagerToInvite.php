@@ -2,7 +2,7 @@
 /**
  * ClassicManagerToInvite
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * ClassicManagerToInvite Class Doc Comment
@@ -57,16 +57,16 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'email' => 'string',
-        'default_office_id' => 'int',
-        'title_id' => 'int',
+        'first_name' => '?string',
+        'last_name' => '?string',
+        'email' => '?string',
+        'default_office_id' => '?int',
+        'title_id' => '?int',
         'access_level' => '\DocuSign\Rooms\Model\AccessLevel',
         'permissions' => '\DocuSign\Rooms\Model\ClassicManagerPermissions',
-        'offices' => 'int[]',
-        'regions' => 'int[]',
-        'e_sign_permission_profile_id' => 'string'
+        'offices' => '?int[]',
+        'regions' => '?int[]',
+        'e_sign_permission_profile_id' => '?string'
     ];
 
     /**
@@ -282,7 +282,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets first_name
      *
-     * @return string
+     * @return ?string
      */
     public function getFirstName()
     {
@@ -292,7 +292,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets first_name
      *
-     * @param string $first_name first_name
+     * @param ?string $first_name first_name
      *
      * @return $this
      */
@@ -306,7 +306,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets last_name
      *
-     * @return string
+     * @return ?string
      */
     public function getLastName()
     {
@@ -316,7 +316,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets last_name
      *
-     * @param string $last_name last_name
+     * @param ?string $last_name last_name
      *
      * @return $this
      */
@@ -330,7 +330,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets email
      *
-     * @return string
+     * @return ?string
      */
     public function getEmail()
     {
@@ -340,7 +340,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email email
+     * @param ?string $email email
      *
      * @return $this
      */
@@ -354,7 +354,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets default_office_id
      *
-     * @return int
+     * @return ?int
      */
     public function getDefaultOfficeId()
     {
@@ -364,7 +364,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets default_office_id
      *
-     * @param int $default_office_id default_office_id
+     * @param ?int $default_office_id default_office_id
      *
      * @return $this
      */
@@ -378,7 +378,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets title_id
      *
-     * @return int
+     * @return ?int
      */
     public function getTitleId()
     {
@@ -388,7 +388,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets title_id
      *
-     * @param int $title_id title_id
+     * @param ?int $title_id title_id
      *
      * @return $this
      */
@@ -450,7 +450,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets offices
      *
-     * @return int[]
+     * @return ?int[]
      */
     public function getOffices()
     {
@@ -460,7 +460,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets offices
      *
-     * @param int[] $offices offices
+     * @param ?int[] $offices offices
      *
      * @return $this
      */
@@ -474,7 +474,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets regions
      *
-     * @return int[]
+     * @return ?int[]
      */
     public function getRegions()
     {
@@ -484,7 +484,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets regions
      *
-     * @param int[] $regions regions
+     * @param ?int[] $regions regions
      *
      * @return $this
      */
@@ -498,7 +498,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets e_sign_permission_profile_id
      *
-     * @return string
+     * @return ?string
      */
     public function getESignPermissionProfileId()
     {
@@ -508,7 +508,7 @@ class ClassicManagerToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets e_sign_permission_profile_id
      *
-     * @param string $e_sign_permission_profile_id Required when the company is tightly bound to an eSign account; otherwise ignored.
+     * @param ?string $e_sign_permission_profile_id Required when the company is tightly bound to an eSign account; otherwise ignored.
      *
      * @return $this
      */

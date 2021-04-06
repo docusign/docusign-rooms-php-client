@@ -1,7 +1,10 @@
 <?php
+declare(strict_types=1);
+
 /**
- * RoomTemplatesApi
- * PHP version 5
+ * RoomTemplatesApi.
+ *
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -28,129 +31,130 @@
 
 namespace DocuSign\Rooms\Api\RoomTemplatesApi;
 
+
 class GetRoomTemplatesOptions
 {
     /**
       * $office_id Get all room templates you have access to for this office. Response includes Company and Region level  If onlyAssignable is true, and no officeId is provided, user's default office is assumed.
-      * @var int
+      * @var ?int
       */
-    protected $office_id;
+    protected ?int $office_id = null;
 
     /**
      * Gets office_id
-     * @return int
+     * @return ?int
      */
-    public function getOfficeId()
+    public function getOfficeId(): ?int
     {
         return $this->office_id;
     }
-  
+
     /**
      * Sets office_id
-     * @param int $office_id Get all room templates you have access to for this office. Response includes Company and Region level  If onlyAssignable is true, and no officeId is provided, user's default office is assumed.
-     * @return $this
+     * @param ?int $office_id Get all room templates you have access to for this office. Response includes Company and Region level  If onlyAssignable is true, and no officeId is provided, user's default office is assumed.
+     * @return self
      */
-    public function setOfficeId($office_id)
+    public function setOfficeId(?int $office_id): self
     {
         $this->office_id = $office_id;
         return $this;
     }
     /**
       * $only_assignable Get list of templates you have access to. Default value false.
-      * @var bool
+      * @var ?bool
       */
-    protected $only_assignable;
+    protected ?bool $only_assignable = null;
 
     /**
      * Gets only_assignable
-     * @return bool
+     * @return ?bool
      */
-    public function getOnlyAssignable()
+    public function getOnlyAssignable(): ?bool
     {
         return $this->only_assignable;
     }
-  
+
     /**
      * Sets only_assignable
-     * @param bool $only_assignable Get list of templates you have access to. Default value false.
-     * @return $this
+     * @param ?bool $only_assignable Get list of templates you have access to. Default value false.
+     * @return self
      */
-    public function setOnlyAssignable($only_assignable)
+    public function setOnlyAssignable(?bool $only_assignable): self
     {
         $this->only_assignable = $only_assignable;
         return $this;
     }
     /**
       * $only_enabled When set to true, only returns room templates that are not disabled.
-      * @var bool
+      * @var ?bool
       */
-    protected $only_enabled;
+    protected ?bool $only_enabled = null;
 
     /**
      * Gets only_enabled
-     * @return bool
+     * @return ?bool
      */
-    public function getOnlyEnabled()
+    public function getOnlyEnabled(): ?bool
     {
         return $this->only_enabled;
     }
-  
+
     /**
      * Sets only_enabled
-     * @param bool $only_enabled When set to true, only returns room templates that are not disabled.
-     * @return $this
+     * @param ?bool $only_enabled When set to true, only returns room templates that are not disabled.
+     * @return self
      */
-    public function setOnlyEnabled($only_enabled)
+    public function setOnlyEnabled(?bool $only_enabled): self
     {
         $this->only_enabled = $only_enabled;
         return $this;
     }
     /**
       * $count Number of room templates to return. Defaults to the maximum which is 100.
-      * @var int
+      * @var ?int
       */
-    protected $count;
+    protected ?int $count = null;
 
     /**
      * Gets count
-     * @return int
+     * @return ?int
      */
-    public function getCount()
+    public function getCount(): ?int
     {
         return $this->count;
     }
-  
+
     /**
      * Sets count
-     * @param int $count Number of room templates to return. Defaults to the maximum which is 100.
-     * @return $this
+     * @param ?int $count Number of room templates to return. Defaults to the maximum which is 100.
+     * @return self
      */
-    public function setCount($count)
+    public function setCount(?int $count): self
     {
         $this->count = $count;
         return $this;
     }
     /**
       * $start_position Position of the first item in the total results. Defaults to 0.
-      * @var int
+      * @var ?int
       */
-    protected $start_position;
+    protected ?int $start_position = null;
 
     /**
      * Gets start_position
-     * @return int
+     * @return ?int
      */
-    public function getStartPosition()
+    public function getStartPosition(): ?int
     {
         return $this->start_position;
     }
-  
+
     /**
      * Sets start_position
-     * @param int $start_position Position of the first item in the total results. Defaults to 0.
-     * @return $this
+     * @param ?int $start_position Position of the first item in the total results. Defaults to 0.
+     * @return self
      */
-    public function setStartPosition($start_position)
+    public function setStartPosition(?int $start_position): self
     {
         $this->start_position = $start_position;
         return $this;
@@ -158,12 +162,13 @@ class GetRoomTemplatesOptions
 }
 
 
+
 namespace DocuSign\Rooms\Api;
 
-use \DocuSign\Rooms\Client\ApiClient;
-use \DocuSign\Rooms\Client\ApiException;
-use \DocuSign\Rooms\Configuration;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\Client\ApiClient;
+use DocuSign\Rooms\Client\ApiException;
+use DocuSign\Rooms\Configuration;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoomTemplatesApi Class Doc Comment
@@ -178,30 +183,27 @@ class RoomTemplatesApi
     /**
      * API Client
      *
-     * @var \DocuSign\Rooms\Client\ApiClient instance of the ApiClient
+     * @var ApiClient instance of the ApiClient
      */
-    protected $apiClient;
+    protected ApiClient $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DocuSign\Rooms\Client\ApiClient|null $apiClient The api client to use
+     * @param ApiClient|null $apiClient The api client to use
+     * @return void
      */
-    public function __construct(\DocuSign\Rooms\Client\ApiClient $apiClient = null)
+    public function __construct(ApiClient $apiClient = null)
     {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
-
-        $this->apiClient = $apiClient;
+        $this->apiClient = $apiClient ?? new ApiClient();
     }
 
     /**
      * Get API client
      *
-     * @return \DocuSign\Rooms\Client\ApiClient get the API client
+     * @return ApiClient get the API client
      */
-    public function getApiClient()
+    public function getApiClient(): ApiClient
     {
         return $this->apiClient;
     }
@@ -209,27 +211,46 @@ class RoomTemplatesApi
     /**
      * Set the API client
      *
-     * @param \DocuSign\Rooms\Client\ApiClient $apiClient set the API client
+     * @param ApiClient $apiClient set the API client
      *
-     * @return RoomTemplatesApi
+     * @return self
      */
-    public function setApiClient(\DocuSign\Rooms\Client\ApiClient $apiClient)
+    public function setApiClient(ApiClient $apiClient): self
     {
         $this->apiClient = $apiClient;
         return $this;
     }
 
     /**
+    * Update $resourcePath with $
+    *
+    * @param string $resourcePath
+    * @param string $baseName
+    * @param string $paramName
+    *
+    * @return string
+    */
+    public function updateResourcePath(string $resourcePath, string $baseName, string $paramName): string
+    {
+        return str_replace(
+            "{" . $baseName . "}",
+            $this->apiClient->getSerializer()->toPathValue($paramName),
+            $resourcePath
+        );
+    }
+
+
+    /**
      * Operation getRoomTemplates
      *
      * Returns all room templates that the active user has access to
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\RoomTemplatesApi\GetRoomTemplatesOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomTemplatesSummaryList
      */
-    public function getRoomTemplates($account_id, RoomTemplatesApi\GetRoomTemplatesOptions $options = null)
+    public function getRoomTemplates($account_id, \DocuSign\Rooms\Api\RoomTemplatesApi\GetRoomTemplatesOptions $options = null): \DocuSign\Rooms\Model\RoomTemplatesSummaryList
     {
         list($response) = $this->getRoomTemplatesWithHttpInfo($account_id, $options);
         return $response;
@@ -240,12 +261,12 @@ class RoomTemplatesApi
      *
      * Returns all room templates that the active user has access to
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\RoomTemplatesApi\GetRoomTemplatesOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomTemplatesSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoomTemplatesWithHttpInfo($account_id, RoomTemplatesApi\GetRoomTemplatesOptions $options = null)
+    public function getRoomTemplatesWithHttpInfo($account_id, \DocuSign\Rooms\Api\RoomTemplatesApi\GetRoomTemplatesOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -253,52 +274,38 @@ class RoomTemplatesApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/room_templates";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         if ($options != null)
         {
-        // query params
-        // query params
-        if ($options->getOfficeId() !== null) {
-            $queryParams['officeId'] = $this->apiClient->getSerializer()->toQueryValue($options->getOfficeId());
-        }
-        // query params
-        if ($options->getOnlyAssignable() !== null) {
-            $queryParams['onlyAssignable'] = $this->apiClient->getSerializer()->toQueryValue($options->getOnlyAssignable());
-        }
-        // query params
-        if ($options->getOnlyEnabled() !== null) {
-            $queryParams['onlyEnabled'] = $this->apiClient->getSerializer()->toQueryValue($options->getOnlyEnabled());
-        }
-        // query params
-        if ($options->getCount() !== null) {
-            $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
-        }
-        // query params
-        if ($options->getStartPosition() !== null) {
-            $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
-        }
+            // query params
+            if ($options->getOfficeId() != 'null') {
+                $queryParams['officeId'] = $this->apiClient->getSerializer()->toQueryValue($options->getOfficeId());
+            }
+            if ($options->getOnlyAssignable() != 'null') {
+                $queryParams['onlyAssignable'] = $this->apiClient->getSerializer()->toQueryValue($options->getOnlyAssignable());
+            }
+            if ($options->getOnlyEnabled() != 'null') {
+                $queryParams['onlyEnabled'] = $this->apiClient->getSerializer()->toQueryValue($options->getOnlyEnabled());
+            }
+            if ($options->getCount() != 'null') {
+                $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
+            }
+            if ($options->getStartPosition() != 'null') {
+                $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
+            }
         }
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {

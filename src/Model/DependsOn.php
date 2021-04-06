@@ -2,7 +2,7 @@
 /**
  * DependsOn
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * DependsOn Class Doc Comment
@@ -57,8 +57,8 @@ class DependsOn implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action_type' => 'string',
-        'parent_api_name' => 'string'
+        'action_type' => '?string',
+        'parent_api_name' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class DependsOn implements ModelInterface, ArrayAccess
     /**
      * Gets action_type
      *
-     * @return string
+     * @return ?string
      */
     public function getActionType()
     {
@@ -223,7 +223,7 @@ class DependsOn implements ModelInterface, ArrayAccess
     /**
      * Sets action_type
      *
-     * @param string $action_type action_type
+     * @param ?string $action_type action_type
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class DependsOn implements ModelInterface, ArrayAccess
     /**
      * Gets parent_api_name
      *
-     * @return string
+     * @return ?string
      */
     public function getParentApiName()
     {
@@ -247,7 +247,7 @@ class DependsOn implements ModelInterface, ArrayAccess
     /**
      * Sets parent_api_name
      *
-     * @param string $parent_api_name parent_api_name
+     * @param ?string $parent_api_name parent_api_name
      *
      * @return $this
      */

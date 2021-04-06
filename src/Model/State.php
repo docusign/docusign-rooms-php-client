@@ -2,7 +2,7 @@
 /**
  * State
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * State Class Doc Comment
@@ -57,8 +57,8 @@ class State implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'state_id' => 'string',
-        'name' => 'string'
+        'state_id' => '?string',
+        'name' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class State implements ModelInterface, ArrayAccess
     /**
      * Gets state_id
      *
-     * @return string
+     * @return ?string
      */
     public function getStateId()
     {
@@ -223,7 +223,7 @@ class State implements ModelInterface, ArrayAccess
     /**
      * Sets state_id
      *
-     * @param string $state_id state_id
+     * @param ?string $state_id state_id
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class State implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -247,7 +247,7 @@ class State implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */

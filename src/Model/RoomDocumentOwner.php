@@ -2,7 +2,7 @@
 /**
  * RoomDocumentOwner
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoomDocumentOwner Class Doc Comment
@@ -57,11 +57,11 @@ class RoomDocumentOwner implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user_id' => 'int',
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'company_name' => 'string',
-        'image_src' => 'string'
+        'user_id' => '?int',
+        'first_name' => '?string',
+        'last_name' => '?string',
+        'company_name' => '?string',
+        'image_src' => '?string'
     ];
 
     /**
@@ -231,7 +231,7 @@ class RoomDocumentOwner implements ModelInterface, ArrayAccess
     /**
      * Gets user_id
      *
-     * @return int
+     * @return ?int
      */
     public function getUserId()
     {
@@ -241,7 +241,7 @@ class RoomDocumentOwner implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int $user_id user_id
+     * @param ?int $user_id user_id
      *
      * @return $this
      */
@@ -255,7 +255,7 @@ class RoomDocumentOwner implements ModelInterface, ArrayAccess
     /**
      * Gets first_name
      *
-     * @return string
+     * @return ?string
      */
     public function getFirstName()
     {
@@ -265,7 +265,7 @@ class RoomDocumentOwner implements ModelInterface, ArrayAccess
     /**
      * Sets first_name
      *
-     * @param string $first_name first_name
+     * @param ?string $first_name first_name
      *
      * @return $this
      */
@@ -279,7 +279,7 @@ class RoomDocumentOwner implements ModelInterface, ArrayAccess
     /**
      * Gets last_name
      *
-     * @return string
+     * @return ?string
      */
     public function getLastName()
     {
@@ -289,7 +289,7 @@ class RoomDocumentOwner implements ModelInterface, ArrayAccess
     /**
      * Sets last_name
      *
-     * @param string $last_name last_name
+     * @param ?string $last_name last_name
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class RoomDocumentOwner implements ModelInterface, ArrayAccess
     /**
      * Gets company_name
      *
-     * @return string
+     * @return ?string
      */
     public function getCompanyName()
     {
@@ -313,7 +313,7 @@ class RoomDocumentOwner implements ModelInterface, ArrayAccess
     /**
      * Sets company_name
      *
-     * @param string $company_name company_name
+     * @param ?string $company_name company_name
      *
      * @return $this
      */
@@ -327,7 +327,7 @@ class RoomDocumentOwner implements ModelInterface, ArrayAccess
     /**
      * Gets image_src
      *
-     * @return string
+     * @return ?string
      */
     public function getImageSrc()
     {
@@ -337,7 +337,7 @@ class RoomDocumentOwner implements ModelInterface, ArrayAccess
     /**
      * Sets image_src
      *
-     * @param string $image_src image_src
+     * @param ?string $image_src image_src
      *
      * @return $this
      */

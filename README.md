@@ -4,12 +4,12 @@
 
 ## Requirements
 
-- PHP 5.4+
+- PHP 7.4+
 - Free [Developer Sandbox](https://go.docusign.com/sandbox/productshot/?elqCampaignId=16531)
 
 ## Compatibility
 
-- PHP 5.4+
+- PHP 7.4+
 
 ## Note
 

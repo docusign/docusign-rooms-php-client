@@ -2,7 +2,7 @@
 /**
  * CustomData
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * CustomData Class Doc Comment
@@ -57,8 +57,8 @@ class CustomData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_required_on_create' => 'bool',
-        'is_required_on_submit' => 'bool'
+        'is_required_on_create' => '?bool',
+        'is_required_on_submit' => '?bool'
     ];
 
     /**
@@ -213,7 +213,7 @@ class CustomData implements ModelInterface, ArrayAccess
     /**
      * Gets is_required_on_create
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsRequiredOnCreate()
     {
@@ -223,7 +223,7 @@ class CustomData implements ModelInterface, ArrayAccess
     /**
      * Sets is_required_on_create
      *
-     * @param bool $is_required_on_create is_required_on_create
+     * @param ?bool $is_required_on_create is_required_on_create
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class CustomData implements ModelInterface, ArrayAccess
     /**
      * Gets is_required_on_submit
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsRequiredOnSubmit()
     {
@@ -247,7 +247,7 @@ class CustomData implements ModelInterface, ArrayAccess
     /**
      * Sets is_required_on_submit
      *
-     * @param bool $is_required_on_submit is_required_on_submit
+     * @param ?bool $is_required_on_submit is_required_on_submit
      *
      * @return $this
      */

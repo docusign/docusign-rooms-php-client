@@ -2,7 +2,7 @@
 /**
  * FieldSet
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * FieldSet Class Doc Comment
@@ -57,8 +57,8 @@ class FieldSet implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'field_set_id' => 'string',
-        'title' => 'string',
+        'field_set_id' => '?string',
+        'title' => '?string',
         'fields' => '\DocuSign\Rooms\Model\Field[]'
     ];
 
@@ -219,7 +219,7 @@ class FieldSet implements ModelInterface, ArrayAccess
     /**
      * Gets field_set_id
      *
-     * @return string
+     * @return ?string
      */
     public function getFieldSetId()
     {
@@ -229,7 +229,7 @@ class FieldSet implements ModelInterface, ArrayAccess
     /**
      * Sets field_set_id
      *
-     * @param string $field_set_id field_set_id
+     * @param ?string $field_set_id field_set_id
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class FieldSet implements ModelInterface, ArrayAccess
     /**
      * Gets title
      *
-     * @return string
+     * @return ?string
      */
     public function getTitle()
     {
@@ -253,7 +253,7 @@ class FieldSet implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title title
+     * @param ?string $title title
      *
      * @return $this
      */

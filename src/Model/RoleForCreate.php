@@ -2,7 +2,7 @@
 /**
  * RoleForCreate
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoleForCreate Class Doc Comment
@@ -57,8 +57,8 @@ class RoleForCreate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'is_external' => 'bool',
+        'name' => '?string',
+        'is_external' => '?bool',
         'permissions' => '\DocuSign\Rooms\Model\Permissions'
     ];
 
@@ -219,7 +219,7 @@ class RoleForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -229,7 +229,7 @@ class RoleForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class RoleForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets is_external
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsExternal()
     {
@@ -253,7 +253,7 @@ class RoleForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets is_external
      *
-     * @param bool $is_external is_external
+     * @param ?bool $is_external is_external
      *
      * @return $this
      */

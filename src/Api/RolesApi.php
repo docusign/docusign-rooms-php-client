@@ -1,7 +1,10 @@
 <?php
+declare(strict_types=1);
+
 /**
- * RolesApi
- * PHP version 5
+ * RolesApi.
+ *
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -28,132 +31,135 @@
 
 namespace DocuSign\Rooms\Api\RolesApi;
 
+
 class GetRoleOptions
 {
     /**
       * $include_is_assigned 
-      * @var bool
+      * @var ?bool
       */
-    protected $include_is_assigned;
+    protected ?bool $include_is_assigned = null;
 
     /**
      * Gets include_is_assigned
-     * @return bool
+     * @return ?bool
      */
-    public function getIncludeIsAssigned()
+    public function getIncludeIsAssigned(): ?bool
     {
         return $this->include_is_assigned;
     }
-  
+
     /**
      * Sets include_is_assigned
-     * @param bool $include_is_assigned 
-     * @return $this
+     * @param ?bool $include_is_assigned 
+     * @return self
      */
-    public function setIncludeIsAssigned($include_is_assigned)
+    public function setIncludeIsAssigned(?bool $include_is_assigned): self
     {
         $this->include_is_assigned = $include_is_assigned;
         return $this;
     }
 }
+
+
 class GetRolesOptions
 {
     /**
       * $only_assignable 
-      * @var bool
+      * @var ?bool
       */
-    protected $only_assignable;
+    protected ?bool $only_assignable = null;
 
     /**
      * Gets only_assignable
-     * @return bool
+     * @return ?bool
      */
-    public function getOnlyAssignable()
+    public function getOnlyAssignable(): ?bool
     {
         return $this->only_assignable;
     }
-  
+
     /**
      * Sets only_assignable
-     * @param bool $only_assignable 
-     * @return $this
+     * @param ?bool $only_assignable 
+     * @return self
      */
-    public function setOnlyAssignable($only_assignable)
+    public function setOnlyAssignable(?bool $only_assignable): self
     {
         $this->only_assignable = $only_assignable;
         return $this;
     }
     /**
       * $filter 
-      * @var string
+      * @var ?string
       */
-    protected $filter;
+    protected ?string $filter = null;
 
     /**
      * Gets filter
-     * @return string
+     * @return ?string
      */
-    public function getFilter()
+    public function getFilter(): ?string
     {
         return $this->filter;
     }
-  
+
     /**
      * Sets filter
-     * @param string $filter 
-     * @return $this
+     * @param ?string $filter 
+     * @return self
      */
-    public function setFilter($filter)
+    public function setFilter(?string $filter): self
     {
         $this->filter = $filter;
         return $this;
     }
     /**
       * $start_position 
-      * @var int
+      * @var ?int
       */
-    protected $start_position;
+    protected ?int $start_position = null;
 
     /**
      * Gets start_position
-     * @return int
+     * @return ?int
      */
-    public function getStartPosition()
+    public function getStartPosition(): ?int
     {
         return $this->start_position;
     }
-  
+
     /**
      * Sets start_position
-     * @param int $start_position 
-     * @return $this
+     * @param ?int $start_position 
+     * @return self
      */
-    public function setStartPosition($start_position)
+    public function setStartPosition(?int $start_position): self
     {
         $this->start_position = $start_position;
         return $this;
     }
     /**
       * $count 
-      * @var int
+      * @var ?int
       */
-    protected $count;
+    protected ?int $count = null;
 
     /**
      * Gets count
-     * @return int
+     * @return ?int
      */
-    public function getCount()
+    public function getCount(): ?int
     {
         return $this->count;
     }
-  
+
     /**
      * Sets count
-     * @param int $count 
-     * @return $this
+     * @param ?int $count 
+     * @return self
      */
-    public function setCount($count)
+    public function setCount(?int $count): self
     {
         $this->count = $count;
         return $this;
@@ -161,12 +167,13 @@ class GetRolesOptions
 }
 
 
+
 namespace DocuSign\Rooms\Api;
 
-use \DocuSign\Rooms\Client\ApiClient;
-use \DocuSign\Rooms\Client\ApiException;
-use \DocuSign\Rooms\Configuration;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\Client\ApiClient;
+use DocuSign\Rooms\Client\ApiException;
+use DocuSign\Rooms\Configuration;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RolesApi Class Doc Comment
@@ -181,30 +188,27 @@ class RolesApi
     /**
      * API Client
      *
-     * @var \DocuSign\Rooms\Client\ApiClient instance of the ApiClient
+     * @var ApiClient instance of the ApiClient
      */
-    protected $apiClient;
+    protected ApiClient $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DocuSign\Rooms\Client\ApiClient|null $apiClient The api client to use
+     * @param ApiClient|null $apiClient The api client to use
+     * @return void
      */
-    public function __construct(\DocuSign\Rooms\Client\ApiClient $apiClient = null)
+    public function __construct(ApiClient $apiClient = null)
     {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
-
-        $this->apiClient = $apiClient;
+        $this->apiClient = $apiClient ?? new ApiClient();
     }
 
     /**
      * Get API client
      *
-     * @return \DocuSign\Rooms\Client\ApiClient get the API client
+     * @return ApiClient get the API client
      */
-    public function getApiClient()
+    public function getApiClient(): ApiClient
     {
         return $this->apiClient;
     }
@@ -212,27 +216,46 @@ class RolesApi
     /**
      * Set the API client
      *
-     * @param \DocuSign\Rooms\Client\ApiClient $apiClient set the API client
+     * @param ApiClient $apiClient set the API client
      *
-     * @return RolesApi
+     * @return self
      */
-    public function setApiClient(\DocuSign\Rooms\Client\ApiClient $apiClient)
+    public function setApiClient(ApiClient $apiClient): self
     {
         $this->apiClient = $apiClient;
         return $this;
     }
 
     /**
+    * Update $resourcePath with $
+    *
+    * @param string $resourcePath
+    * @param string $baseName
+    * @param string $paramName
+    *
+    * @return string
+    */
+    public function updateResourcePath(string $resourcePath, string $baseName, string $paramName): string
+    {
+        return str_replace(
+            "{" . $baseName . "}",
+            $this->apiClient->getSerializer()->toPathValue($paramName),
+            $resourcePath
+        );
+    }
+
+
+    /**
      * Operation createRole
      *
      * Creates a role.
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\RoleForCreate $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Role
      */
-    public function createRole($account_id, $body = null)
+    public function createRole($account_id, $body = null): \DocuSign\Rooms\Model\Role
     {
         list($response) = $this->createRoleWithHttpInfo($account_id, $body);
         return $response;
@@ -243,12 +266,12 @@ class RolesApi
      *
      * Creates a role.
      *
-    * @param string $account_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\RoleForCreate $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Role, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRoleWithHttpInfo($account_id, $body = null)
+    public function createRoleWithHttpInfo($account_id, $body = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -256,28 +279,19 @@ class RolesApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/roles";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -332,12 +346,12 @@ class RolesApi
      *
      * Deletes the role with the given roleId.
      *
-    * @param int $role_id 
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @param ?int $role_id 
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function deleteRole($role_id, $account_id)
+    public function deleteRole($role_id, $account_id): mixed
     {
         list($response) = $this->deleteRoleWithHttpInfo($role_id, $account_id);
         return $response;
@@ -348,12 +362,12 @@ class RolesApi
      *
      * Deletes the role with the given roleId.
      *
-    * @param int $role_id 
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $role_id 
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteRoleWithHttpInfo($role_id, $account_id)
+    public function deleteRoleWithHttpInfo($role_id, $account_id): array
     {
         // verify the required parameter 'role_id' is set
         if ($role_id === null) {
@@ -365,36 +379,23 @@ class RolesApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/roles/{roleId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
 
         // path params
         if ($role_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "roleId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($role_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "roleId", $role_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -440,13 +441,13 @@ class RolesApi
      *
      * Get information about the role with the given roleId.
      *
-    * @param int $role_id 
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $role_id 
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\RolesApi\GetRoleOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Role
      */
-    public function getRole($role_id, $account_id, RolesApi\GetRoleOptions $options = null)
+    public function getRole($role_id, $account_id, \DocuSign\Rooms\Api\RolesApi\GetRoleOptions $options = null): \DocuSign\Rooms\Model\Role
     {
         list($response) = $this->getRoleWithHttpInfo($role_id, $account_id, $options);
         return $response;
@@ -457,13 +458,13 @@ class RolesApi
      *
      * Get information about the role with the given roleId.
      *
-    * @param int $role_id 
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $role_id 
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\RolesApi\GetRoleOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Role, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoleWithHttpInfo($role_id, $account_id, RolesApi\GetRoleOptions $options = null)
+    public function getRoleWithHttpInfo($role_id, $account_id, \DocuSign\Rooms\Api\RolesApi\GetRoleOptions $options = null): array
     {
         // verify the required parameter 'role_id' is set
         if ($role_id === null) {
@@ -475,44 +476,30 @@ class RolesApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/roles/{roleId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         if ($options != null)
         {
-        // query params
-        // query params
-        if ($options->getIncludeIsAssigned() !== null) {
-            $queryParams['includeIsAssigned'] = $this->apiClient->getSerializer()->toQueryValue($options->getIncludeIsAssigned());
-        }
+            // query params
+            if ($options->getIncludeIsAssigned() != 'null') {
+                $queryParams['includeIsAssigned'] = $this->apiClient->getSerializer()->toQueryValue($options->getIncludeIsAssigned());
+            }
         }
 
         // path params
         if ($role_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "roleId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($role_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "roleId", $role_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -562,12 +549,12 @@ class RolesApi
      *
      * Gets a paged-list of roles in your company
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\RolesApi\GetRolesOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoleSummaryList
      */
-    public function getRoles($account_id, RolesApi\GetRolesOptions $options = null)
+    public function getRoles($account_id, \DocuSign\Rooms\Api\RolesApi\GetRolesOptions $options = null): \DocuSign\Rooms\Model\RoleSummaryList
     {
         list($response) = $this->getRolesWithHttpInfo($account_id, $options);
         return $response;
@@ -578,12 +565,12 @@ class RolesApi
      *
      * Gets a paged-list of roles in your company
      *
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\RolesApi\GetRolesOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoleSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRolesWithHttpInfo($account_id, RolesApi\GetRolesOptions $options = null)
+    public function getRolesWithHttpInfo($account_id, \DocuSign\Rooms\Api\RolesApi\GetRolesOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -591,48 +578,35 @@ class RolesApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/roles";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         if ($options != null)
         {
-        // query params
-        // query params
-        if ($options->getOnlyAssignable() !== null) {
-            $queryParams['onlyAssignable'] = $this->apiClient->getSerializer()->toQueryValue($options->getOnlyAssignable());
-        }
-        // query params
-        if ($options->getFilter() !== null) {
-            $queryParams['filter'] = $this->apiClient->getSerializer()->toQueryValue($options->getFilter());
-        }
-        // query params
-        if ($options->getStartPosition() !== null) {
-            $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
-        }
-        // query params
-        if ($options->getCount() !== null) {
-            $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
-        }
+            // query params
+            if ($options->getOnlyAssignable() != 'null') {
+                $queryParams['onlyAssignable'] = $this->apiClient->getSerializer()->toQueryValue($options->getOnlyAssignable());
+            }
+            if ($options->getFilter() != 'null') {
+                $queryParams['filter'] = $this->apiClient->getSerializer()->toQueryValue($options->getFilter());
+            }
+            if ($options->getStartPosition() != 'null') {
+                $queryParams['startPosition'] = $this->apiClient->getSerializer()->toQueryValue($options->getStartPosition());
+            }
+            if ($options->getCount() != 'null') {
+                $queryParams['count'] = $this->apiClient->getSerializer()->toQueryValue($options->getCount());
+            }
         }
 
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -682,13 +656,13 @@ class RolesApi
      *
      * Updates the role with the given roleId.
      *
-    * @param int $role_id 
-    * @param string $account_id 
+     * @param ?int $role_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\RoleForUpdate $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Role
      */
-    public function updateRole($role_id, $account_id, $body = null)
+    public function updateRole($role_id, $account_id, $body = null): \DocuSign\Rooms\Model\Role
     {
         list($response) = $this->updateRoleWithHttpInfo($role_id, $account_id, $body);
         return $response;
@@ -699,13 +673,13 @@ class RolesApi
      *
      * Updates the role with the given roleId.
      *
-    * @param int $role_id 
-    * @param string $account_id 
+     * @param ?int $role_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\RoleForUpdate $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Role, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRoleWithHttpInfo($role_id, $account_id, $body = null)
+    public function updateRoleWithHttpInfo($role_id, $account_id, $body = null): array
     {
         // verify the required parameter 'role_id' is set
         if ($role_id === null) {
@@ -717,36 +691,23 @@ class RolesApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/roles/{roleId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($role_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "roleId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($role_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "roleId", $role_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {

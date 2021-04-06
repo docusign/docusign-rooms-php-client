@@ -1,7 +1,10 @@
 <?php
+declare(strict_types=1);
+
 /**
- * DocumentsApi
- * PHP version 5
+ * DocumentsApi.
+ *
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -28,29 +31,30 @@
 
 namespace DocuSign\Rooms\Api\DocumentsApi;
 
+
 class GetDocumentOptions
 {
     /**
       * $include_contents 
-      * @var bool
+      * @var ?bool
       */
-    protected $include_contents;
+    protected ?bool $include_contents = null;
 
     /**
      * Gets include_contents
-     * @return bool
+     * @return ?bool
      */
-    public function getIncludeContents()
+    public function getIncludeContents(): ?bool
     {
         return $this->include_contents;
     }
-  
+
     /**
      * Sets include_contents
-     * @param bool $include_contents 
-     * @return $this
+     * @param ?bool $include_contents 
+     * @return self
      */
-    public function setIncludeContents($include_contents)
+    public function setIncludeContents(?bool $include_contents): self
     {
         $this->include_contents = $include_contents;
         return $this;
@@ -58,12 +62,13 @@ class GetDocumentOptions
 }
 
 
+
 namespace DocuSign\Rooms\Api;
 
-use \DocuSign\Rooms\Client\ApiClient;
-use \DocuSign\Rooms\Client\ApiException;
-use \DocuSign\Rooms\Configuration;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\Client\ApiClient;
+use DocuSign\Rooms\Client\ApiException;
+use DocuSign\Rooms\Configuration;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * DocumentsApi Class Doc Comment
@@ -78,30 +83,27 @@ class DocumentsApi
     /**
      * API Client
      *
-     * @var \DocuSign\Rooms\Client\ApiClient instance of the ApiClient
+     * @var ApiClient instance of the ApiClient
      */
-    protected $apiClient;
+    protected ApiClient $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DocuSign\Rooms\Client\ApiClient|null $apiClient The api client to use
+     * @param ApiClient|null $apiClient The api client to use
+     * @return void
      */
-    public function __construct(\DocuSign\Rooms\Client\ApiClient $apiClient = null)
+    public function __construct(ApiClient $apiClient = null)
     {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
-
-        $this->apiClient = $apiClient;
+        $this->apiClient = $apiClient ?? new ApiClient();
     }
 
     /**
      * Get API client
      *
-     * @return \DocuSign\Rooms\Client\ApiClient get the API client
+     * @return ApiClient get the API client
      */
-    public function getApiClient()
+    public function getApiClient(): ApiClient
     {
         return $this->apiClient;
     }
@@ -109,28 +111,47 @@ class DocumentsApi
     /**
      * Set the API client
      *
-     * @param \DocuSign\Rooms\Client\ApiClient $apiClient set the API client
+     * @param ApiClient $apiClient set the API client
      *
-     * @return DocumentsApi
+     * @return self
      */
-    public function setApiClient(\DocuSign\Rooms\Client\ApiClient $apiClient)
+    public function setApiClient(ApiClient $apiClient): self
     {
         $this->apiClient = $apiClient;
         return $this;
     }
 
     /**
+    * Update $resourcePath with $
+    *
+    * @param string $resourcePath
+    * @param string $baseName
+    * @param string $paramName
+    *
+    * @return string
+    */
+    public function updateResourcePath(string $resourcePath, string $baseName, string $paramName): string
+    {
+        return str_replace(
+            "{" . $baseName . "}",
+            $this->apiClient->getSerializer()->toPathValue($paramName),
+            $resourcePath
+        );
+    }
+
+
+    /**
      * Operation createDocumentUser
      *
      * Grants access to a document for a user.
      *
-    * @param int $document_id 
-    * @param string $account_id 
+     * @param ?int $document_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\DocumentUserForCreate $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\DocumentUser
      */
-    public function createDocumentUser($document_id, $account_id, $body = null)
+    public function createDocumentUser($document_id, $account_id, $body = null): \DocuSign\Rooms\Model\DocumentUser
     {
         list($response) = $this->createDocumentUserWithHttpInfo($document_id, $account_id, $body);
         return $response;
@@ -141,13 +162,13 @@ class DocumentsApi
      *
      * Grants access to a document for a user.
      *
-    * @param int $document_id 
-    * @param string $account_id 
+     * @param ?int $document_id 
+     * @param ?string $account_id 
      * @param \DocuSign\Rooms\Model\DocumentUserForCreate $body  (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\DocumentUser, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDocumentUserWithHttpInfo($document_id, $account_id, $body = null)
+    public function createDocumentUserWithHttpInfo($document_id, $account_id, $body = null): array
     {
         // verify the required parameter 'document_id' is set
         if ($document_id === null) {
@@ -159,36 +180,23 @@ class DocumentsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/documents/{documentId}/users";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
         // path params
         if ($document_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "documentId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($document_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "documentId", $document_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -243,12 +251,12 @@ class DocumentsApi
      *
      * Deletes a document.
      *
-    * @param int $document_id 
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
-     * @return void
+     * @param ?int $document_id 
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
+     * @return mixed
      */
-    public function deleteDocument($document_id, $account_id)
+    public function deleteDocument($document_id, $account_id): mixed
     {
         list($response) = $this->deleteDocumentWithHttpInfo($document_id, $account_id);
         return $response;
@@ -259,12 +267,12 @@ class DocumentsApi
      *
      * Deletes a document.
      *
-    * @param int $document_id 
-    * @param string $account_id 
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $document_id 
+     * @param ?string $account_id 
+     * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteDocumentWithHttpInfo($document_id, $account_id)
+    public function deleteDocumentWithHttpInfo($document_id, $account_id): array
     {
         // verify the required parameter 'document_id' is set
         if ($document_id === null) {
@@ -276,36 +284,23 @@ class DocumentsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/documents/{documentId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
 
         // path params
         if ($document_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "documentId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($document_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "documentId", $document_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -351,13 +346,13 @@ class DocumentsApi
      *
      * Get information about the Document with the given DocumentId.
      *
-    * @param int $document_id 
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $document_id 
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\DocumentsApi\GetDocumentOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Document
      */
-    public function getDocument($document_id, $account_id, DocumentsApi\GetDocumentOptions $options = null)
+    public function getDocument($document_id, $account_id, \DocuSign\Rooms\Api\DocumentsApi\GetDocumentOptions $options = null): \DocuSign\Rooms\Model\Document
     {
         list($response) = $this->getDocumentWithHttpInfo($document_id, $account_id, $options);
         return $response;
@@ -368,13 +363,13 @@ class DocumentsApi
      *
      * Get information about the Document with the given DocumentId.
      *
-    * @param int $document_id 
-    * @param string $account_id 
-     * @param  $options Options for modifying the behavior of the function. (optional)
-     * @throws \DocuSign\Rooms\Client\ApiException on non-2xx response
+     * @param ?int $document_id 
+     * @param ?string $account_id 
+     * @param  \DocuSign\Rooms\Api\DocumentsApi\GetDocumentOptions for modifying the behavior of the function. (optional)
+     * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Document, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDocumentWithHttpInfo($document_id, $account_id, DocumentsApi\GetDocumentOptions $options = null)
+    public function getDocumentWithHttpInfo($document_id, $account_id, \DocuSign\Rooms\Api\DocumentsApi\GetDocumentOptions $options = null): array
     {
         // verify the required parameter 'document_id' is set
         if ($document_id === null) {
@@ -386,44 +381,30 @@ class DocumentsApi
         }
         // parse inputs
         $resourcePath = "/v2/accounts/{accountId}/documents/{documentId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
+        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
+        $queryParams = $headerParams = $formParams = [];
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         if ($options != null)
         {
-        // query params
-        // query params
-        if ($options->getIncludeContents() !== null) {
-            $queryParams['includeContents'] = $this->apiClient->getSerializer()->toQueryValue($options->getIncludeContents());
-        }
+            // query params
+            if ($options->getIncludeContents() != 'null') {
+                $queryParams['includeContents'] = $this->apiClient->getSerializer()->toQueryValue($options->getIncludeContents());
+            }
         }
 
         // path params
         if ($document_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "documentId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($document_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "documentId", $document_id);
         }
         // path params
         if ($account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "accountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($account_id),
-                $resourcePath
-            );
+            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
         }
+
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         
         // for model (json/xml)
         if (isset($_tempBody)) {

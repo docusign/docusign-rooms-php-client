@@ -2,7 +2,7 @@
 /**
  * MemberSortingOption
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -28,7 +28,7 @@
  */
 
 namespace DocuSign\Rooms\Model;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * MemberSortingOption Class Doc Comment

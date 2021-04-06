@@ -2,7 +2,7 @@
 /**
  * ExternalFormFillSessionForCreate
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * ExternalFormFillSessionForCreate Class Doc Comment
@@ -57,9 +57,9 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'form_id' => 'string',
-        'room_id' => 'int',
-        'x_frame_allowed_url' => 'string'
+        'form_id' => '?string',
+        'room_id' => '?int',
+        'x_frame_allowed_url' => '?string'
     ];
 
     /**
@@ -225,7 +225,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets form_id
      *
-     * @return string
+     * @return ?string
      */
     public function getFormId()
     {
@@ -235,7 +235,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets form_id
      *
-     * @param string $form_id form_id
+     * @param ?string $form_id form_id
      *
      * @return $this
      */
@@ -249,7 +249,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets room_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRoomId()
     {
@@ -259,7 +259,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets room_id
      *
-     * @param int $room_id room_id
+     * @param ?int $room_id room_id
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     /**
      * Gets x_frame_allowed_url
      *
-     * @return string
+     * @return ?string
      */
     public function getXFrameAllowedUrl()
     {
@@ -283,7 +283,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     /**
      * Sets x_frame_allowed_url
      *
-     * @param string $x_frame_allowed_url x_frame_allowed_url
+     * @param ?string $x_frame_allowed_url x_frame_allowed_url
      *
      * @return $this
      */

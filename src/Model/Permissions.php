@@ -2,7 +2,7 @@
 /**
  * Permissions
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * Permissions Class Doc Comment
@@ -57,67 +57,67 @@ class Permissions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'can_add_users_to_rooms' => 'bool',
-        'can_create_rooms' => 'bool',
-        'can_submit_rooms_for_review' => 'bool',
-        'can_close_rooms' => 'bool',
-        'can_reopen_rooms' => 'bool',
-        'can_delete_owned_rooms' => 'bool',
-        'auto_access_to_rooms' => 'bool',
-        'can_export_room_activity_details_people' => 'bool',
-        'is_visible_in_rooms' => 'bool',
-        'can_copy_room_details' => 'bool',
-        'can_edit_any_room_role' => 'bool',
-        'can_edit_invited_room_role' => 'bool',
-        'can_edit_room_side' => 'bool',
-        'can_manage_any_user_room_access' => 'bool',
-        'can_manage_invited_user_room_access' => 'bool',
-        'is_hidden_in_room' => 'bool',
-        'can_manage_room_owners' => 'bool',
-        'can_delete_rooms' => 'bool',
-        'can_connect_to_mortgage_cadence' => 'bool',
-        'can_view_room_details' => 'bool',
-        'can_view_and_edit_room_details' => 'bool',
-        'can_send_room_details_to_lone_wolf' => 'bool',
-        'can_add_documents' => 'bool',
-        'can_add_documents_from_form_groups' => 'bool',
-        'can_add_documents_from_form_libraries' => 'bool',
-        'documents_viewable_by_others_in_room_from_office' => 'bool',
-        'documents_auto_owned_by_peers' => 'bool',
-        'can_delete_owned_documents' => 'bool',
-        'can_manage_shared_docs' => 'bool',
-        'can_manage_form_groups' => 'bool',
-        'can_share_docs_not_owned' => 'bool',
-        'can_add_tasks_to_any_task_lists' => 'bool',
-        'can_edit_editable_tasks' => 'bool',
-        'can_edit_any_tasks' => 'bool',
-        'can_delete_deletable_tasks' => 'bool',
-        'can_delete_any_tasks' => 'bool',
-        'can_apply_task_list' => 'bool',
-        'can_remove_any_task_list' => 'bool',
-        'can_submit_task_list' => 'bool',
-        'can_auto_submit_task_list' => 'bool',
-        'can_review_task_list' => 'bool',
-        'can_auto_approve_task_list' => 'bool',
-        'can_manage_task_templates_for_all_regions_all_offices' => 'bool',
-        'can_apply_room_templates' => 'bool',
-        'can_add_tasks_to_rooms' => 'bool',
-        'can_review_any_task' => 'bool',
-        'can_manage_docs_on_any_task' => 'bool',
-        'can_add_member_and_set_role_lower_access_level' => 'bool',
-        'can_add_member_and_set_role_same_access_level' => 'bool',
-        'can_change_member_role_lower_access_level' => 'bool',
-        'can_change_member_role_same_access_level' => 'bool',
-        'can_manage_member_lower_access_level' => 'bool',
-        'can_manage_member_same_access_level' => 'bool',
-        'can_remove_company_member_lower_access_level' => 'bool',
-        'can_remove_company_member_same_access_level' => 'bool',
-        'can_manage_account' => 'bool',
-        'can_manage_logo' => 'bool',
-        'can_manage_roles_and_permissions' => 'bool',
-        'can_manage_room_details' => 'bool',
-        'can_manage_room_templates' => 'bool',
-        'can_manage_integration_settings' => 'bool'
+        'can_add_users_to_rooms' => '?bool',
+        'can_create_rooms' => '?bool',
+        'can_submit_rooms_for_review' => '?bool',
+        'can_close_rooms' => '?bool',
+        'can_reopen_rooms' => '?bool',
+        'can_delete_owned_rooms' => '?bool',
+        'auto_access_to_rooms' => '?bool',
+        'can_export_room_activity_details_people' => '?bool',
+        'is_visible_in_rooms' => '?bool',
+        'can_copy_room_details' => '?bool',
+        'can_edit_any_room_role' => '?bool',
+        'can_edit_invited_room_role' => '?bool',
+        'can_edit_room_side' => '?bool',
+        'can_manage_any_user_room_access' => '?bool',
+        'can_manage_invited_user_room_access' => '?bool',
+        'is_hidden_in_room' => '?bool',
+        'can_manage_room_owners' => '?bool',
+        'can_delete_rooms' => '?bool',
+        'can_connect_to_mortgage_cadence' => '?bool',
+        'can_view_room_details' => '?bool',
+        'can_view_and_edit_room_details' => '?bool',
+        'can_send_room_details_to_lone_wolf' => '?bool',
+        'can_add_documents' => '?bool',
+        'can_add_documents_from_form_groups' => '?bool',
+        'can_add_documents_from_form_libraries' => '?bool',
+        'documents_viewable_by_others_in_room_from_office' => '?bool',
+        'documents_auto_owned_by_peers' => '?bool',
+        'can_delete_owned_documents' => '?bool',
+        'can_manage_shared_docs' => '?bool',
+        'can_manage_form_groups' => '?bool',
+        'can_share_docs_not_owned' => '?bool',
+        'can_add_tasks_to_any_task_lists' => '?bool',
+        'can_edit_editable_tasks' => '?bool',
+        'can_edit_any_tasks' => '?bool',
+        'can_delete_deletable_tasks' => '?bool',
+        'can_delete_any_tasks' => '?bool',
+        'can_apply_task_list' => '?bool',
+        'can_remove_any_task_list' => '?bool',
+        'can_submit_task_list' => '?bool',
+        'can_auto_submit_task_list' => '?bool',
+        'can_review_task_list' => '?bool',
+        'can_auto_approve_task_list' => '?bool',
+        'can_manage_task_templates_for_all_regions_all_offices' => '?bool',
+        'can_apply_room_templates' => '?bool',
+        'can_add_tasks_to_rooms' => '?bool',
+        'can_review_any_task' => '?bool',
+        'can_manage_docs_on_any_task' => '?bool',
+        'can_add_member_and_set_role_lower_access_level' => '?bool',
+        'can_add_member_and_set_role_same_access_level' => '?bool',
+        'can_change_member_role_lower_access_level' => '?bool',
+        'can_change_member_role_same_access_level' => '?bool',
+        'can_manage_member_lower_access_level' => '?bool',
+        'can_manage_member_same_access_level' => '?bool',
+        'can_remove_company_member_lower_access_level' => '?bool',
+        'can_remove_company_member_same_access_level' => '?bool',
+        'can_manage_account' => '?bool',
+        'can_manage_logo' => '?bool',
+        'can_manage_roles_and_permissions' => '?bool',
+        'can_manage_room_details' => '?bool',
+        'can_manage_room_templates' => '?bool',
+        'can_manage_integration_settings' => '?bool'
     ];
 
     /**
@@ -567,7 +567,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_add_users_to_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanAddUsersToRooms()
     {
@@ -577,7 +577,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_add_users_to_rooms
      *
-     * @param bool $can_add_users_to_rooms can_add_users_to_rooms
+     * @param ?bool $can_add_users_to_rooms can_add_users_to_rooms
      *
      * @return $this
      */
@@ -591,7 +591,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_create_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanCreateRooms()
     {
@@ -601,7 +601,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_create_rooms
      *
-     * @param bool $can_create_rooms can_create_rooms
+     * @param ?bool $can_create_rooms can_create_rooms
      *
      * @return $this
      */
@@ -615,7 +615,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_submit_rooms_for_review
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanSubmitRoomsForReview()
     {
@@ -625,7 +625,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_submit_rooms_for_review
      *
-     * @param bool $can_submit_rooms_for_review can_submit_rooms_for_review
+     * @param ?bool $can_submit_rooms_for_review can_submit_rooms_for_review
      *
      * @return $this
      */
@@ -639,7 +639,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_close_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanCloseRooms()
     {
@@ -649,7 +649,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_close_rooms
      *
-     * @param bool $can_close_rooms can_close_rooms
+     * @param ?bool $can_close_rooms can_close_rooms
      *
      * @return $this
      */
@@ -663,7 +663,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_reopen_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanReopenRooms()
     {
@@ -673,7 +673,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_reopen_rooms
      *
-     * @param bool $can_reopen_rooms can_reopen_rooms
+     * @param ?bool $can_reopen_rooms can_reopen_rooms
      *
      * @return $this
      */
@@ -687,7 +687,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_delete_owned_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanDeleteOwnedRooms()
     {
@@ -697,7 +697,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_delete_owned_rooms
      *
-     * @param bool $can_delete_owned_rooms can_delete_owned_rooms
+     * @param ?bool $can_delete_owned_rooms can_delete_owned_rooms
      *
      * @return $this
      */
@@ -711,7 +711,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets auto_access_to_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getAutoAccessToRooms()
     {
@@ -721,7 +721,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets auto_access_to_rooms
      *
-     * @param bool $auto_access_to_rooms auto_access_to_rooms
+     * @param ?bool $auto_access_to_rooms auto_access_to_rooms
      *
      * @return $this
      */
@@ -735,7 +735,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_export_room_activity_details_people
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanExportRoomActivityDetailsPeople()
     {
@@ -745,7 +745,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_export_room_activity_details_people
      *
-     * @param bool $can_export_room_activity_details_people can_export_room_activity_details_people
+     * @param ?bool $can_export_room_activity_details_people can_export_room_activity_details_people
      *
      * @return $this
      */
@@ -759,7 +759,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets is_visible_in_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsVisibleInRooms()
     {
@@ -769,7 +769,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets is_visible_in_rooms
      *
-     * @param bool $is_visible_in_rooms is_visible_in_rooms
+     * @param ?bool $is_visible_in_rooms is_visible_in_rooms
      *
      * @return $this
      */
@@ -783,7 +783,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_copy_room_details
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanCopyRoomDetails()
     {
@@ -793,7 +793,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_copy_room_details
      *
-     * @param bool $can_copy_room_details can_copy_room_details
+     * @param ?bool $can_copy_room_details can_copy_room_details
      *
      * @return $this
      */
@@ -807,7 +807,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_edit_any_room_role
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanEditAnyRoomRole()
     {
@@ -817,7 +817,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_edit_any_room_role
      *
-     * @param bool $can_edit_any_room_role can_edit_any_room_role
+     * @param ?bool $can_edit_any_room_role can_edit_any_room_role
      *
      * @return $this
      */
@@ -831,7 +831,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_edit_invited_room_role
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanEditInvitedRoomRole()
     {
@@ -841,7 +841,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_edit_invited_room_role
      *
-     * @param bool $can_edit_invited_room_role can_edit_invited_room_role
+     * @param ?bool $can_edit_invited_room_role can_edit_invited_room_role
      *
      * @return $this
      */
@@ -855,7 +855,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_edit_room_side
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanEditRoomSide()
     {
@@ -865,7 +865,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_edit_room_side
      *
-     * @param bool $can_edit_room_side can_edit_room_side
+     * @param ?bool $can_edit_room_side can_edit_room_side
      *
      * @return $this
      */
@@ -879,7 +879,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_any_user_room_access
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageAnyUserRoomAccess()
     {
@@ -889,7 +889,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_any_user_room_access
      *
-     * @param bool $can_manage_any_user_room_access can_manage_any_user_room_access
+     * @param ?bool $can_manage_any_user_room_access can_manage_any_user_room_access
      *
      * @return $this
      */
@@ -903,7 +903,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_invited_user_room_access
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageInvitedUserRoomAccess()
     {
@@ -913,7 +913,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_invited_user_room_access
      *
-     * @param bool $can_manage_invited_user_room_access can_manage_invited_user_room_access
+     * @param ?bool $can_manage_invited_user_room_access can_manage_invited_user_room_access
      *
      * @return $this
      */
@@ -927,7 +927,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets is_hidden_in_room
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsHiddenInRoom()
     {
@@ -937,7 +937,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets is_hidden_in_room
      *
-     * @param bool $is_hidden_in_room is_hidden_in_room
+     * @param ?bool $is_hidden_in_room is_hidden_in_room
      *
      * @return $this
      */
@@ -951,7 +951,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_room_owners
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageRoomOwners()
     {
@@ -961,7 +961,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_room_owners
      *
-     * @param bool $can_manage_room_owners can_manage_room_owners
+     * @param ?bool $can_manage_room_owners can_manage_room_owners
      *
      * @return $this
      */
@@ -975,7 +975,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_delete_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanDeleteRooms()
     {
@@ -985,7 +985,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_delete_rooms
      *
-     * @param bool $can_delete_rooms can_delete_rooms
+     * @param ?bool $can_delete_rooms can_delete_rooms
      *
      * @return $this
      */
@@ -999,7 +999,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_connect_to_mortgage_cadence
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanConnectToMortgageCadence()
     {
@@ -1009,7 +1009,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_connect_to_mortgage_cadence
      *
-     * @param bool $can_connect_to_mortgage_cadence can_connect_to_mortgage_cadence
+     * @param ?bool $can_connect_to_mortgage_cadence can_connect_to_mortgage_cadence
      *
      * @return $this
      */
@@ -1023,7 +1023,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_view_room_details
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanViewRoomDetails()
     {
@@ -1033,7 +1033,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_view_room_details
      *
-     * @param bool $can_view_room_details can_view_room_details
+     * @param ?bool $can_view_room_details can_view_room_details
      *
      * @return $this
      */
@@ -1047,7 +1047,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_view_and_edit_room_details
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanViewAndEditRoomDetails()
     {
@@ -1057,7 +1057,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_view_and_edit_room_details
      *
-     * @param bool $can_view_and_edit_room_details can_view_and_edit_room_details
+     * @param ?bool $can_view_and_edit_room_details can_view_and_edit_room_details
      *
      * @return $this
      */
@@ -1071,7 +1071,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_send_room_details_to_lone_wolf
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanSendRoomDetailsToLoneWolf()
     {
@@ -1081,7 +1081,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_send_room_details_to_lone_wolf
      *
-     * @param bool $can_send_room_details_to_lone_wolf can_send_room_details_to_lone_wolf
+     * @param ?bool $can_send_room_details_to_lone_wolf can_send_room_details_to_lone_wolf
      *
      * @return $this
      */
@@ -1095,7 +1095,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_add_documents
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanAddDocuments()
     {
@@ -1105,7 +1105,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_add_documents
      *
-     * @param bool $can_add_documents can_add_documents
+     * @param ?bool $can_add_documents can_add_documents
      *
      * @return $this
      */
@@ -1119,7 +1119,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_add_documents_from_form_groups
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanAddDocumentsFromFormGroups()
     {
@@ -1129,7 +1129,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_add_documents_from_form_groups
      *
-     * @param bool $can_add_documents_from_form_groups can_add_documents_from_form_groups
+     * @param ?bool $can_add_documents_from_form_groups can_add_documents_from_form_groups
      *
      * @return $this
      */
@@ -1143,7 +1143,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_add_documents_from_form_libraries
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanAddDocumentsFromFormLibraries()
     {
@@ -1153,7 +1153,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_add_documents_from_form_libraries
      *
-     * @param bool $can_add_documents_from_form_libraries can_add_documents_from_form_libraries
+     * @param ?bool $can_add_documents_from_form_libraries can_add_documents_from_form_libraries
      *
      * @return $this
      */
@@ -1167,7 +1167,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets documents_viewable_by_others_in_room_from_office
      *
-     * @return bool
+     * @return ?bool
      */
     public function getDocumentsViewableByOthersInRoomFromOffice()
     {
@@ -1177,7 +1177,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets documents_viewable_by_others_in_room_from_office
      *
-     * @param bool $documents_viewable_by_others_in_room_from_office documents_viewable_by_others_in_room_from_office
+     * @param ?bool $documents_viewable_by_others_in_room_from_office documents_viewable_by_others_in_room_from_office
      *
      * @return $this
      */
@@ -1191,7 +1191,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets documents_auto_owned_by_peers
      *
-     * @return bool
+     * @return ?bool
      */
     public function getDocumentsAutoOwnedByPeers()
     {
@@ -1201,7 +1201,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets documents_auto_owned_by_peers
      *
-     * @param bool $documents_auto_owned_by_peers documents_auto_owned_by_peers
+     * @param ?bool $documents_auto_owned_by_peers documents_auto_owned_by_peers
      *
      * @return $this
      */
@@ -1215,7 +1215,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_delete_owned_documents
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanDeleteOwnedDocuments()
     {
@@ -1225,7 +1225,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_delete_owned_documents
      *
-     * @param bool $can_delete_owned_documents can_delete_owned_documents
+     * @param ?bool $can_delete_owned_documents can_delete_owned_documents
      *
      * @return $this
      */
@@ -1239,7 +1239,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_shared_docs
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageSharedDocs()
     {
@@ -1249,7 +1249,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_shared_docs
      *
-     * @param bool $can_manage_shared_docs can_manage_shared_docs
+     * @param ?bool $can_manage_shared_docs can_manage_shared_docs
      *
      * @return $this
      */
@@ -1263,7 +1263,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_form_groups
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageFormGroups()
     {
@@ -1273,7 +1273,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_form_groups
      *
-     * @param bool $can_manage_form_groups can_manage_form_groups
+     * @param ?bool $can_manage_form_groups can_manage_form_groups
      *
      * @return $this
      */
@@ -1287,7 +1287,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_share_docs_not_owned
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanShareDocsNotOwned()
     {
@@ -1297,7 +1297,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_share_docs_not_owned
      *
-     * @param bool $can_share_docs_not_owned can_share_docs_not_owned
+     * @param ?bool $can_share_docs_not_owned can_share_docs_not_owned
      *
      * @return $this
      */
@@ -1311,7 +1311,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_add_tasks_to_any_task_lists
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanAddTasksToAnyTaskLists()
     {
@@ -1321,7 +1321,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_add_tasks_to_any_task_lists
      *
-     * @param bool $can_add_tasks_to_any_task_lists can_add_tasks_to_any_task_lists
+     * @param ?bool $can_add_tasks_to_any_task_lists can_add_tasks_to_any_task_lists
      *
      * @return $this
      */
@@ -1335,7 +1335,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_edit_editable_tasks
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanEditEditableTasks()
     {
@@ -1345,7 +1345,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_edit_editable_tasks
      *
-     * @param bool $can_edit_editable_tasks can_edit_editable_tasks
+     * @param ?bool $can_edit_editable_tasks can_edit_editable_tasks
      *
      * @return $this
      */
@@ -1359,7 +1359,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_edit_any_tasks
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanEditAnyTasks()
     {
@@ -1369,7 +1369,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_edit_any_tasks
      *
-     * @param bool $can_edit_any_tasks can_edit_any_tasks
+     * @param ?bool $can_edit_any_tasks can_edit_any_tasks
      *
      * @return $this
      */
@@ -1383,7 +1383,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_delete_deletable_tasks
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanDeleteDeletableTasks()
     {
@@ -1393,7 +1393,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_delete_deletable_tasks
      *
-     * @param bool $can_delete_deletable_tasks can_delete_deletable_tasks
+     * @param ?bool $can_delete_deletable_tasks can_delete_deletable_tasks
      *
      * @return $this
      */
@@ -1407,7 +1407,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_delete_any_tasks
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanDeleteAnyTasks()
     {
@@ -1417,7 +1417,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_delete_any_tasks
      *
-     * @param bool $can_delete_any_tasks can_delete_any_tasks
+     * @param ?bool $can_delete_any_tasks can_delete_any_tasks
      *
      * @return $this
      */
@@ -1431,7 +1431,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_apply_task_list
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanApplyTaskList()
     {
@@ -1441,7 +1441,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_apply_task_list
      *
-     * @param bool $can_apply_task_list can_apply_task_list
+     * @param ?bool $can_apply_task_list can_apply_task_list
      *
      * @return $this
      */
@@ -1455,7 +1455,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_remove_any_task_list
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanRemoveAnyTaskList()
     {
@@ -1465,7 +1465,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_remove_any_task_list
      *
-     * @param bool $can_remove_any_task_list can_remove_any_task_list
+     * @param ?bool $can_remove_any_task_list can_remove_any_task_list
      *
      * @return $this
      */
@@ -1479,7 +1479,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_submit_task_list
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanSubmitTaskList()
     {
@@ -1489,7 +1489,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_submit_task_list
      *
-     * @param bool $can_submit_task_list can_submit_task_list
+     * @param ?bool $can_submit_task_list can_submit_task_list
      *
      * @return $this
      */
@@ -1503,7 +1503,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_auto_submit_task_list
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanAutoSubmitTaskList()
     {
@@ -1513,7 +1513,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_auto_submit_task_list
      *
-     * @param bool $can_auto_submit_task_list can_auto_submit_task_list
+     * @param ?bool $can_auto_submit_task_list can_auto_submit_task_list
      *
      * @return $this
      */
@@ -1527,7 +1527,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_review_task_list
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanReviewTaskList()
     {
@@ -1537,7 +1537,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_review_task_list
      *
-     * @param bool $can_review_task_list can_review_task_list
+     * @param ?bool $can_review_task_list can_review_task_list
      *
      * @return $this
      */
@@ -1551,7 +1551,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_auto_approve_task_list
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanAutoApproveTaskList()
     {
@@ -1561,7 +1561,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_auto_approve_task_list
      *
-     * @param bool $can_auto_approve_task_list can_auto_approve_task_list
+     * @param ?bool $can_auto_approve_task_list can_auto_approve_task_list
      *
      * @return $this
      */
@@ -1575,7 +1575,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_task_templates_for_all_regions_all_offices
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageTaskTemplatesForAllRegionsAllOffices()
     {
@@ -1585,7 +1585,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_task_templates_for_all_regions_all_offices
      *
-     * @param bool $can_manage_task_templates_for_all_regions_all_offices can_manage_task_templates_for_all_regions_all_offices
+     * @param ?bool $can_manage_task_templates_for_all_regions_all_offices can_manage_task_templates_for_all_regions_all_offices
      *
      * @return $this
      */
@@ -1599,7 +1599,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_apply_room_templates
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanApplyRoomTemplates()
     {
@@ -1609,7 +1609,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_apply_room_templates
      *
-     * @param bool $can_apply_room_templates can_apply_room_templates
+     * @param ?bool $can_apply_room_templates can_apply_room_templates
      *
      * @return $this
      */
@@ -1623,7 +1623,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_add_tasks_to_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanAddTasksToRooms()
     {
@@ -1633,7 +1633,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_add_tasks_to_rooms
      *
-     * @param bool $can_add_tasks_to_rooms can_add_tasks_to_rooms
+     * @param ?bool $can_add_tasks_to_rooms can_add_tasks_to_rooms
      *
      * @return $this
      */
@@ -1647,7 +1647,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_review_any_task
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanReviewAnyTask()
     {
@@ -1657,7 +1657,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_review_any_task
      *
-     * @param bool $can_review_any_task can_review_any_task
+     * @param ?bool $can_review_any_task can_review_any_task
      *
      * @return $this
      */
@@ -1671,7 +1671,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_docs_on_any_task
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageDocsOnAnyTask()
     {
@@ -1681,7 +1681,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_docs_on_any_task
      *
-     * @param bool $can_manage_docs_on_any_task can_manage_docs_on_any_task
+     * @param ?bool $can_manage_docs_on_any_task can_manage_docs_on_any_task
      *
      * @return $this
      */
@@ -1695,7 +1695,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_add_member_and_set_role_lower_access_level
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanAddMemberAndSetRoleLowerAccessLevel()
     {
@@ -1705,7 +1705,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_add_member_and_set_role_lower_access_level
      *
-     * @param bool $can_add_member_and_set_role_lower_access_level can_add_member_and_set_role_lower_access_level
+     * @param ?bool $can_add_member_and_set_role_lower_access_level can_add_member_and_set_role_lower_access_level
      *
      * @return $this
      */
@@ -1719,7 +1719,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_add_member_and_set_role_same_access_level
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanAddMemberAndSetRoleSameAccessLevel()
     {
@@ -1729,7 +1729,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_add_member_and_set_role_same_access_level
      *
-     * @param bool $can_add_member_and_set_role_same_access_level can_add_member_and_set_role_same_access_level
+     * @param ?bool $can_add_member_and_set_role_same_access_level can_add_member_and_set_role_same_access_level
      *
      * @return $this
      */
@@ -1743,7 +1743,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_change_member_role_lower_access_level
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanChangeMemberRoleLowerAccessLevel()
     {
@@ -1753,7 +1753,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_change_member_role_lower_access_level
      *
-     * @param bool $can_change_member_role_lower_access_level can_change_member_role_lower_access_level
+     * @param ?bool $can_change_member_role_lower_access_level can_change_member_role_lower_access_level
      *
      * @return $this
      */
@@ -1767,7 +1767,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_change_member_role_same_access_level
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanChangeMemberRoleSameAccessLevel()
     {
@@ -1777,7 +1777,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_change_member_role_same_access_level
      *
-     * @param bool $can_change_member_role_same_access_level can_change_member_role_same_access_level
+     * @param ?bool $can_change_member_role_same_access_level can_change_member_role_same_access_level
      *
      * @return $this
      */
@@ -1791,7 +1791,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_member_lower_access_level
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageMemberLowerAccessLevel()
     {
@@ -1801,7 +1801,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_member_lower_access_level
      *
-     * @param bool $can_manage_member_lower_access_level can_manage_member_lower_access_level
+     * @param ?bool $can_manage_member_lower_access_level can_manage_member_lower_access_level
      *
      * @return $this
      */
@@ -1815,7 +1815,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_member_same_access_level
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageMemberSameAccessLevel()
     {
@@ -1825,7 +1825,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_member_same_access_level
      *
-     * @param bool $can_manage_member_same_access_level can_manage_member_same_access_level
+     * @param ?bool $can_manage_member_same_access_level can_manage_member_same_access_level
      *
      * @return $this
      */
@@ -1839,7 +1839,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_remove_company_member_lower_access_level
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanRemoveCompanyMemberLowerAccessLevel()
     {
@@ -1849,7 +1849,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_remove_company_member_lower_access_level
      *
-     * @param bool $can_remove_company_member_lower_access_level can_remove_company_member_lower_access_level
+     * @param ?bool $can_remove_company_member_lower_access_level can_remove_company_member_lower_access_level
      *
      * @return $this
      */
@@ -1863,7 +1863,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_remove_company_member_same_access_level
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanRemoveCompanyMemberSameAccessLevel()
     {
@@ -1873,7 +1873,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_remove_company_member_same_access_level
      *
-     * @param bool $can_remove_company_member_same_access_level can_remove_company_member_same_access_level
+     * @param ?bool $can_remove_company_member_same_access_level can_remove_company_member_same_access_level
      *
      * @return $this
      */
@@ -1887,7 +1887,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_account
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageAccount()
     {
@@ -1897,7 +1897,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_account
      *
-     * @param bool $can_manage_account can_manage_account
+     * @param ?bool $can_manage_account can_manage_account
      *
      * @return $this
      */
@@ -1911,7 +1911,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_logo
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageLogo()
     {
@@ -1921,7 +1921,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_logo
      *
-     * @param bool $can_manage_logo can_manage_logo
+     * @param ?bool $can_manage_logo can_manage_logo
      *
      * @return $this
      */
@@ -1935,7 +1935,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_roles_and_permissions
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageRolesAndPermissions()
     {
@@ -1945,7 +1945,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_roles_and_permissions
      *
-     * @param bool $can_manage_roles_and_permissions can_manage_roles_and_permissions
+     * @param ?bool $can_manage_roles_and_permissions can_manage_roles_and_permissions
      *
      * @return $this
      */
@@ -1959,7 +1959,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_room_details
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageRoomDetails()
     {
@@ -1969,7 +1969,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_room_details
      *
-     * @param bool $can_manage_room_details can_manage_room_details
+     * @param ?bool $can_manage_room_details can_manage_room_details
      *
      * @return $this
      */
@@ -1983,7 +1983,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_room_templates
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageRoomTemplates()
     {
@@ -1993,7 +1993,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_room_templates
      *
-     * @param bool $can_manage_room_templates can_manage_room_templates
+     * @param ?bool $can_manage_room_templates can_manage_room_templates
      *
      * @return $this
      */
@@ -2007,7 +2007,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_integration_settings
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageIntegrationSettings()
     {
@@ -2017,7 +2017,7 @@ class Permissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_integration_settings
      *
-     * @param bool $can_manage_integration_settings can_manage_integration_settings
+     * @param ?bool $can_manage_integration_settings can_manage_integration_settings
      *
      * @return $this
      */

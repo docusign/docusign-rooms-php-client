@@ -2,7 +2,7 @@
 /**
  * ClosingStatus
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * ClosingStatus Class Doc Comment
@@ -57,8 +57,8 @@ class ClosingStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'closing_status_id' => 'string',
-        'name' => 'string'
+        'closing_status_id' => '?string',
+        'name' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class ClosingStatus implements ModelInterface, ArrayAccess
     /**
      * Gets closing_status_id
      *
-     * @return string
+     * @return ?string
      */
     public function getClosingStatusId()
     {
@@ -223,7 +223,7 @@ class ClosingStatus implements ModelInterface, ArrayAccess
     /**
      * Sets closing_status_id
      *
-     * @param string $closing_status_id closing_status_id
+     * @param ?string $closing_status_id closing_status_id
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class ClosingStatus implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -247,7 +247,7 @@ class ClosingStatus implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */

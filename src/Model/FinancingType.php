@@ -2,7 +2,7 @@
 /**
  * FinancingType
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * FinancingType Class Doc Comment
@@ -57,8 +57,8 @@ class FinancingType implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'financing_type_id' => 'string',
-        'name' => 'string'
+        'financing_type_id' => '?string',
+        'name' => '?string'
     ];
 
     /**
@@ -213,7 +213,7 @@ class FinancingType implements ModelInterface, ArrayAccess
     /**
      * Gets financing_type_id
      *
-     * @return string
+     * @return ?string
      */
     public function getFinancingTypeId()
     {
@@ -223,7 +223,7 @@ class FinancingType implements ModelInterface, ArrayAccess
     /**
      * Sets financing_type_id
      *
-     * @param string $financing_type_id financing_type_id
+     * @param ?string $financing_type_id financing_type_id
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class FinancingType implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -247,7 +247,7 @@ class FinancingType implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */

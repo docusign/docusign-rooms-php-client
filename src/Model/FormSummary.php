@@ -2,7 +2,7 @@
 /**
  * FormSummary
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * FormSummary Class Doc Comment
@@ -57,8 +57,8 @@ class FormSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'library_form_id' => 'string',
-        'name' => 'string',
+        'library_form_id' => '?string',
+        'name' => '?string',
         'last_updated_date' => '\DateTime'
     ];
 
@@ -219,7 +219,7 @@ class FormSummary implements ModelInterface, ArrayAccess
     /**
      * Gets library_form_id
      *
-     * @return string
+     * @return ?string
      */
     public function getLibraryFormId()
     {
@@ -229,7 +229,7 @@ class FormSummary implements ModelInterface, ArrayAccess
     /**
      * Sets library_form_id
      *
-     * @param string $library_form_id library_form_id
+     * @param ?string $library_form_id library_form_id
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class FormSummary implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return ?string
      */
     public function getName()
     {
@@ -253,7 +253,7 @@ class FormSummary implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param ?string $name name
      *
      * @return $this
      */

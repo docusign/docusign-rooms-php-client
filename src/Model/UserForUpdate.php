@@ -2,7 +2,7 @@
 /**
  * UserForUpdate
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * UserForUpdate Class Doc Comment
@@ -57,7 +57,7 @@ class UserForUpdate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'default_office_id' => 'int'
+        'default_office_id' => '?int'
     ];
 
     /**
@@ -210,7 +210,7 @@ class UserForUpdate implements ModelInterface, ArrayAccess
     /**
      * Gets default_office_id
      *
-     * @return int
+     * @return ?int
      */
     public function getDefaultOfficeId()
     {
@@ -220,7 +220,7 @@ class UserForUpdate implements ModelInterface, ArrayAccess
     /**
      * Sets default_office_id
      *
-     * @param int $default_office_id default_office_id
+     * @param ?int $default_office_id default_office_id
      *
      * @return $this
      */

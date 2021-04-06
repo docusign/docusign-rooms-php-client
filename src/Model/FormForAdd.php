@@ -2,7 +2,7 @@
 /**
  * FormForAdd
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * FormForAdd Class Doc Comment
@@ -57,7 +57,7 @@ class FormForAdd implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'form_id' => 'string'
+        'form_id' => '?string'
     ];
 
     /**
@@ -210,7 +210,7 @@ class FormForAdd implements ModelInterface, ArrayAccess
     /**
      * Gets form_id
      *
-     * @return string
+     * @return ?string
      */
     public function getFormId()
     {
@@ -220,7 +220,7 @@ class FormForAdd implements ModelInterface, ArrayAccess
     /**
      * Sets form_id
      *
-     * @param string $form_id form_id
+     * @param ?string $form_id form_id
      *
      * @return $this
      */

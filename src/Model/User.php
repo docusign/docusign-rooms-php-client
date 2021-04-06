@@ -2,7 +2,7 @@
 /**
  * User
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * User Class Doc Comment
@@ -57,19 +57,19 @@ class User implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user_id' => 'int',
-        'email' => 'string',
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'is_locked_out' => 'bool',
-        'status' => 'string',
+        'user_id' => '?int',
+        'email' => '?string',
+        'first_name' => '?string',
+        'last_name' => '?string',
+        'is_locked_out' => '?bool',
+        'status' => '?string',
         'access_level' => '\DocuSign\Rooms\Model\AccessLevel',
-        'default_office_id' => 'int',
-        'title_id' => 'int',
-        'role_id' => 'int',
-        'profile_image_url' => 'string',
-        'offices' => 'int[]',
-        'regions' => 'int[]',
+        'default_office_id' => '?int',
+        'title_id' => '?int',
+        'role_id' => '?int',
+        'profile_image_url' => '?string',
+        'offices' => '?int[]',
+        'regions' => '?int[]',
         'permissions' => '\DocuSign\Rooms\Model\ClassicManagerPermissions'
     ];
 
@@ -285,7 +285,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets user_id
      *
-     * @return int
+     * @return ?int
      */
     public function getUserId()
     {
@@ -295,7 +295,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int $user_id user_id
+     * @param ?int $user_id user_id
      *
      * @return $this
      */
@@ -309,7 +309,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets email
      *
-     * @return string
+     * @return ?string
      */
     public function getEmail()
     {
@@ -319,7 +319,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email email
+     * @param ?string $email email
      *
      * @return $this
      */
@@ -333,7 +333,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets first_name
      *
-     * @return string
+     * @return ?string
      */
     public function getFirstName()
     {
@@ -343,7 +343,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets first_name
      *
-     * @param string $first_name first_name
+     * @param ?string $first_name first_name
      *
      * @return $this
      */
@@ -357,7 +357,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets last_name
      *
-     * @return string
+     * @return ?string
      */
     public function getLastName()
     {
@@ -367,7 +367,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets last_name
      *
-     * @param string $last_name last_name
+     * @param ?string $last_name last_name
      *
      * @return $this
      */
@@ -381,7 +381,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets is_locked_out
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsLockedOut()
     {
@@ -391,7 +391,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets is_locked_out
      *
-     * @param bool $is_locked_out is_locked_out
+     * @param ?bool $is_locked_out is_locked_out
      *
      * @return $this
      */
@@ -405,7 +405,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return string
+     * @return ?string
      */
     public function getStatus()
     {
@@ -415,7 +415,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param ?string $status status
      *
      * @return $this
      */
@@ -453,7 +453,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets default_office_id
      *
-     * @return int
+     * @return ?int
      */
     public function getDefaultOfficeId()
     {
@@ -463,7 +463,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets default_office_id
      *
-     * @param int $default_office_id default_office_id
+     * @param ?int $default_office_id default_office_id
      *
      * @return $this
      */
@@ -477,7 +477,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets title_id
      *
-     * @return int
+     * @return ?int
      */
     public function getTitleId()
     {
@@ -487,7 +487,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets title_id
      *
-     * @param int $title_id title_id
+     * @param ?int $title_id title_id
      *
      * @return $this
      */
@@ -501,7 +501,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets role_id
      *
-     * @return int
+     * @return ?int
      */
     public function getRoleId()
     {
@@ -511,7 +511,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets role_id
      *
-     * @param int $role_id role_id
+     * @param ?int $role_id role_id
      *
      * @return $this
      */
@@ -525,7 +525,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets profile_image_url
      *
-     * @return string
+     * @return ?string
      */
     public function getProfileImageUrl()
     {
@@ -535,7 +535,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets profile_image_url
      *
-     * @param string $profile_image_url profile_image_url
+     * @param ?string $profile_image_url profile_image_url
      *
      * @return $this
      */
@@ -549,7 +549,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets offices
      *
-     * @return int[]
+     * @return ?int[]
      */
     public function getOffices()
     {
@@ -559,7 +559,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets offices
      *
-     * @param int[] $offices offices
+     * @param ?int[] $offices offices
      *
      * @return $this
      */
@@ -573,7 +573,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Gets regions
      *
-     * @return int[]
+     * @return ?int[]
      */
     public function getRegions()
     {
@@ -583,7 +583,7 @@ class User implements ModelInterface, ArrayAccess
     /**
      * Sets regions
      *
-     * @param int[] $regions regions
+     * @param ?int[] $regions regions
      *
      * @return $this
      */

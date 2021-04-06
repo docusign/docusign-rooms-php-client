@@ -2,7 +2,7 @@
 /**
  * RoomPicture
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * RoomPicture Class Doc Comment
@@ -57,7 +57,7 @@ class RoomPicture implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'url' => 'string'
+        'url' => '?string'
     ];
 
     /**
@@ -207,7 +207,7 @@ class RoomPicture implements ModelInterface, ArrayAccess
     /**
      * Gets url
      *
-     * @return string
+     * @return ?string
      */
     public function getUrl()
     {
@@ -217,7 +217,7 @@ class RoomPicture implements ModelInterface, ArrayAccess
     /**
      * Sets url
      *
-     * @param string $url url
+     * @param ?string $url url
      *
      * @return $this
      */

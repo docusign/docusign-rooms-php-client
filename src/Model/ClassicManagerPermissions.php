@@ -2,7 +2,7 @@
 /**
  * ClassicManagerPermissions
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * ClassicManagerPermissions Class Doc Comment
@@ -57,19 +57,19 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_visible_in_transaction_rooms' => 'bool',
-        'can_delete_company_rooms' => 'bool',
-        'can_delete_company_documents' => 'bool',
-        'can_manage_company_rooms' => 'bool',
-        'can_manage_company_account' => 'bool',
-        'can_manage_company_shared_library' => 'bool',
-        'can_manage_company_members' => 'bool',
-        'can_close_company_rooms' => 'bool',
-        'can_approve_company_checklists' => 'bool',
-        'is_company_system_admin' => 'bool',
-        'is_region_manager' => 'bool',
-        'is_office_manager' => 'bool',
-        'auto_access_to_company_rooms' => 'bool'
+        'is_visible_in_transaction_rooms' => '?bool',
+        'can_delete_company_rooms' => '?bool',
+        'can_delete_company_documents' => '?bool',
+        'can_manage_company_rooms' => '?bool',
+        'can_manage_company_account' => '?bool',
+        'can_manage_company_shared_library' => '?bool',
+        'can_manage_company_members' => '?bool',
+        'can_close_company_rooms' => '?bool',
+        'can_approve_company_checklists' => '?bool',
+        'is_company_system_admin' => '?bool',
+        'is_region_manager' => '?bool',
+        'is_office_manager' => '?bool',
+        'auto_access_to_company_rooms' => '?bool'
     ];
 
     /**
@@ -279,7 +279,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets is_visible_in_transaction_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsVisibleInTransactionRooms()
     {
@@ -289,7 +289,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets is_visible_in_transaction_rooms
      *
-     * @param bool $is_visible_in_transaction_rooms is_visible_in_transaction_rooms
+     * @param ?bool $is_visible_in_transaction_rooms is_visible_in_transaction_rooms
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_delete_company_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanDeleteCompanyRooms()
     {
@@ -313,7 +313,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_delete_company_rooms
      *
-     * @param bool $can_delete_company_rooms can_delete_company_rooms
+     * @param ?bool $can_delete_company_rooms can_delete_company_rooms
      *
      * @return $this
      */
@@ -327,7 +327,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_delete_company_documents
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanDeleteCompanyDocuments()
     {
@@ -337,7 +337,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_delete_company_documents
      *
-     * @param bool $can_delete_company_documents can_delete_company_documents
+     * @param ?bool $can_delete_company_documents can_delete_company_documents
      *
      * @return $this
      */
@@ -351,7 +351,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_company_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageCompanyRooms()
     {
@@ -361,7 +361,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_company_rooms
      *
-     * @param bool $can_manage_company_rooms can_manage_company_rooms
+     * @param ?bool $can_manage_company_rooms can_manage_company_rooms
      *
      * @return $this
      */
@@ -375,7 +375,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_company_account
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageCompanyAccount()
     {
@@ -385,7 +385,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_company_account
      *
-     * @param bool $can_manage_company_account can_manage_company_account
+     * @param ?bool $can_manage_company_account can_manage_company_account
      *
      * @return $this
      */
@@ -399,7 +399,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_company_shared_library
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageCompanySharedLibrary()
     {
@@ -409,7 +409,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_company_shared_library
      *
-     * @param bool $can_manage_company_shared_library can_manage_company_shared_library
+     * @param ?bool $can_manage_company_shared_library can_manage_company_shared_library
      *
      * @return $this
      */
@@ -423,7 +423,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_manage_company_members
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanManageCompanyMembers()
     {
@@ -433,7 +433,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_manage_company_members
      *
-     * @param bool $can_manage_company_members can_manage_company_members
+     * @param ?bool $can_manage_company_members can_manage_company_members
      *
      * @return $this
      */
@@ -447,7 +447,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_close_company_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanCloseCompanyRooms()
     {
@@ -457,7 +457,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_close_company_rooms
      *
-     * @param bool $can_close_company_rooms can_close_company_rooms
+     * @param ?bool $can_close_company_rooms can_close_company_rooms
      *
      * @return $this
      */
@@ -471,7 +471,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets can_approve_company_checklists
      *
-     * @return bool
+     * @return ?bool
      */
     public function getCanApproveCompanyChecklists()
     {
@@ -481,7 +481,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets can_approve_company_checklists
      *
-     * @param bool $can_approve_company_checklists can_approve_company_checklists
+     * @param ?bool $can_approve_company_checklists can_approve_company_checklists
      *
      * @return $this
      */
@@ -495,7 +495,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets is_company_system_admin
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsCompanySystemAdmin()
     {
@@ -505,7 +505,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets is_company_system_admin
      *
-     * @param bool $is_company_system_admin is_company_system_admin
+     * @param ?bool $is_company_system_admin is_company_system_admin
      *
      * @return $this
      */
@@ -519,7 +519,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets is_region_manager
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsRegionManager()
     {
@@ -529,7 +529,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets is_region_manager
      *
-     * @param bool $is_region_manager is_region_manager
+     * @param ?bool $is_region_manager is_region_manager
      *
      * @return $this
      */
@@ -543,7 +543,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets is_office_manager
      *
-     * @return bool
+     * @return ?bool
      */
     public function getIsOfficeManager()
     {
@@ -553,7 +553,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets is_office_manager
      *
-     * @param bool $is_office_manager is_office_manager
+     * @param ?bool $is_office_manager is_office_manager
      *
      * @return $this
      */
@@ -567,7 +567,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Gets auto_access_to_company_rooms
      *
-     * @return bool
+     * @return ?bool
      */
     public function getAutoAccessToCompanyRooms()
     {
@@ -577,7 +577,7 @@ class ClassicManagerPermissions implements ModelInterface, ArrayAccess
     /**
      * Sets auto_access_to_company_rooms
      *
-     * @param bool $auto_access_to_company_rooms auto_access_to_company_rooms
+     * @param ?bool $auto_access_to_company_rooms auto_access_to_company_rooms
      *
      * @return $this
      */

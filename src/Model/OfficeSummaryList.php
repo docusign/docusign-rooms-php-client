@@ -2,7 +2,7 @@
 /**
  * OfficeSummaryList
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  DocuSign\Rooms
@@ -30,7 +30,7 @@
 namespace DocuSign\Rooms\Model;
 
 use \ArrayAccess;
-use \DocuSign\Rooms\ObjectSerializer;
+use DocuSign\Rooms\ObjectSerializer;
 
 /**
  * OfficeSummaryList Class Doc Comment
@@ -58,12 +58,12 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'office_summaries' => '\DocuSign\Rooms\Model\OfficeSummary[]',
-        'result_set_size' => 'int',
-        'start_position' => 'int',
-        'end_position' => 'int',
-        'next_uri' => 'string',
-        'prior_uri' => 'string',
-        'total_row_count' => 'int'
+        'result_set_size' => '?int',
+        'start_position' => '?int',
+        'end_position' => '?int',
+        'next_uri' => '?string',
+        'prior_uri' => '?string',
+        'total_row_count' => '?int'
     ];
 
     /**
@@ -267,7 +267,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Gets result_set_size
      *
-     * @return int
+     * @return ?int
      */
     public function getResultSetSize()
     {
@@ -277,7 +277,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Sets result_set_size
      *
-     * @param int $result_set_size result_set_size
+     * @param ?int $result_set_size result_set_size
      *
      * @return $this
      */
@@ -291,7 +291,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Gets start_position
      *
-     * @return int
+     * @return ?int
      */
     public function getStartPosition()
     {
@@ -301,7 +301,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Sets start_position
      *
-     * @param int $start_position start_position
+     * @param ?int $start_position start_position
      *
      * @return $this
      */
@@ -315,7 +315,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Gets end_position
      *
-     * @return int
+     * @return ?int
      */
     public function getEndPosition()
     {
@@ -325,7 +325,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Sets end_position
      *
-     * @param int $end_position end_position
+     * @param ?int $end_position end_position
      *
      * @return $this
      */
@@ -339,7 +339,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Gets next_uri
      *
-     * @return string
+     * @return ?string
      */
     public function getNextUri()
     {
@@ -349,7 +349,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Sets next_uri
      *
-     * @param string $next_uri next_uri
+     * @param ?string $next_uri next_uri
      *
      * @return $this
      */
@@ -363,7 +363,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Gets prior_uri
      *
-     * @return string
+     * @return ?string
      */
     public function getPriorUri()
     {
@@ -373,7 +373,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Sets prior_uri
      *
-     * @param string $prior_uri prior_uri
+     * @param ?string $prior_uri prior_uri
      *
      * @return $this
      */
@@ -387,7 +387,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Gets total_row_count
      *
-     * @return int
+     * @return ?int
      */
     public function getTotalRowCount()
     {
@@ -397,7 +397,7 @@ class OfficeSummaryList implements ModelInterface, ArrayAccess
     /**
      * Sets total_row_count
      *
-     * @param int $total_row_count total_row_count
+     * @param ?int $total_row_count total_row_count
      *
      * @return $this
      */
