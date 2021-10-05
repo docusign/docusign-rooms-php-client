@@ -1,6 +1,6 @@
 <?php
 /**
- * RoomStatus
+ * RolesFilterContextTypes
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ namespace DocuSign\Rooms\Model;
 use DocuSign\Rooms\ObjectSerializer;
 
 /**
- * RoomStatus Class Doc Comment
+ * RolesFilterContextTypes Class Doc Comment
  *
  * @category    Class
  * @package     DocuSign\Rooms
@@ -40,15 +40,14 @@ use DocuSign\Rooms\ObjectSerializer;
  * @license     The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class RoomStatus
+class RolesFilterContextTypes
 {
     /**
      * Possible values of this enum
      */
-    const ACTIVE = 'Active';
-    const PENDING = 'Pending';
-    const CLOSED = 'Closed';
-    const OPEN = 'Open';
+    const ALL_ROLES = 'AllRoles';
+    const ASSIGNABLE_ROLES_BASED_ON_COMPANY_PERMISSIONS = 'AssignableRolesBasedOnCompanyPermissions';
+    const ASSIGNABLE_ROLES_BASED_ON_ALL_PERMISSIONS = 'AssignableRolesBasedOnAllPermissions';
     
     /**
      * Gets allowable values of the enum
@@ -57,10 +56,9 @@ class RoomStatus
     public static function getAllowableEnumValues()
     {
         return [
-            self::ACTIVE,
-            self::PENDING,
-            self::CLOSED,
-            self::OPEN,
+            self::ALL_ROLES,
+            self::ASSIGNABLE_ROLES_BASED_ON_COMPANY_PERMISSIONS,
+            self::ASSIGNABLE_ROLES_BASED_ON_ALL_PERMISSIONS,
         ];
     }
 }
