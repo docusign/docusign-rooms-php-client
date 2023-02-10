@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\FormGroupsApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetFormGroupsOptions
@@ -115,7 +115,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class FormGroupsApi
@@ -188,7 +188,7 @@ class FormGroupsApi
      *
      * @param ?string $form_group_id The ID of the form group.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\FormGroupFormToAssign $body  (optional)
+     * @param \DocuSign\Rooms\Model\FormGroupFormToAssign $body Assigns the form specified in the &#x60;formId&#x60; property of the request to the form group &#x60;formGroupId&#x60;. (optional)
      *
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FormGroupFormToAssign
@@ -206,7 +206,7 @@ class FormGroupsApi
      *
      * @param ?string $form_group_id The ID of the form group.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\FormGroupFormToAssign $body  (optional)
+     * @param \DocuSign\Rooms\Model\FormGroupFormToAssign $body Assigns the form specified in the &#x60;formId&#x60; property of the request to the form group &#x60;formGroupId&#x60;. (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FormGroupFormToAssign, HTTP status code, HTTP response headers (array of strings)
@@ -225,8 +225,8 @@ class FormGroupsApi
         $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}/assign_form";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params
@@ -295,7 +295,7 @@ class FormGroupsApi
      * Creates a form group.
      *
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\FormGroupForCreate $body  (optional)
+     * @param \DocuSign\Rooms\Model\FormGroupForCreate $body Required input of name for the form group (optional)
      *
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FormGroup
@@ -312,7 +312,7 @@ class FormGroupsApi
      * Creates a form group.
      *
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\FormGroupForCreate $body  (optional)
+     * @param \DocuSign\Rooms\Model\FormGroupForCreate $body Required input of name for the form group (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FormGroup, HTTP status code, HTTP response headers (array of strings)
@@ -327,8 +327,8 @@ class FormGroupsApi
         $resourcePath = "/v2/accounts/{accountId}/form_groups";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params
@@ -429,7 +429,7 @@ class FormGroupsApi
         $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -526,7 +526,7 @@ class FormGroupsApi
         $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -623,7 +623,7 @@ class FormGroupsApi
         $resourcePath = "/v2/accounts/{accountId}/form_groups";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
         if ($options != null)
@@ -736,7 +736,7 @@ class FormGroupsApi
         $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}/grant_office_access/{officeId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -843,7 +843,7 @@ class FormGroupsApi
         $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}/unassign_form/{formId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -909,7 +909,7 @@ class FormGroupsApi
      *
      * @param ?string $form_group_id The ID of the form group.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\FormGroupForUpdate $body  (optional)
+     * @param \DocuSign\Rooms\Model\FormGroupForUpdate $body Required input of name for the form group (optional)
      *
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FormGroup
@@ -927,7 +927,7 @@ class FormGroupsApi
      *
      * @param ?string $form_group_id The ID of the form group.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\FormGroupForUpdate $body  (optional)
+     * @param \DocuSign\Rooms\Model\FormGroupForUpdate $body Required input of name for the form group (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FormGroup, HTTP status code, HTTP response headers (array of strings)
@@ -946,8 +946,8 @@ class FormGroupsApi
         $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params
@@ -1058,7 +1058,7 @@ class FormGroupsApi
         $resourcePath = "/v2/accounts/{accountId}/form_groups/{formGroupId}/revoke_office_access/{officeId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 

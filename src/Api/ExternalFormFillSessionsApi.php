@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -47,7 +47,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class ExternalFormFillSessionsApi
@@ -119,7 +119,7 @@ class ExternalFormFillSessionsApi
      * Creates an external form fill session.
      *
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\ExternalFormFillSessionForCreate $body  (optional)
+     * @param \DocuSign\Rooms\Model\ExternalFormFillSessionForCreate $body Request body that accepts the &#x60;roomId&#x60; and &#x60;formId&#x60; or &#x60;formIds&#x60; that you specify in the &#x60;formFillSessionForCreate&#x60; request body. User may supply up to 10 &#x60;formIds&#x60;. Eventually, &#x60;formId&#x60; will be deprecated (optional)
      *
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\ExternalFormFillSession
@@ -136,7 +136,7 @@ class ExternalFormFillSessionsApi
      * Creates an external form fill session.
      *
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\ExternalFormFillSessionForCreate $body  (optional)
+     * @param \DocuSign\Rooms\Model\ExternalFormFillSessionForCreate $body Request body that accepts the &#x60;roomId&#x60; and &#x60;formId&#x60; or &#x60;formIds&#x60; that you specify in the &#x60;formFillSessionForCreate&#x60; request body. User may supply up to 10 &#x60;formIds&#x60;. Eventually, &#x60;formId&#x60; will be deprecated (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\ExternalFormFillSession, HTTP status code, HTTP response headers (array of strings)
@@ -151,8 +151,8 @@ class ExternalFormFillSessionsApi
         $resourcePath = "/v2/accounts/{accountId}/external_form_fill_sessions";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params

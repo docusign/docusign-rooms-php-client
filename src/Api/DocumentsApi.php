@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\DocumentsApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetDocumentOptions
@@ -88,7 +88,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class DocumentsApi
@@ -161,7 +161,7 @@ class DocumentsApi
      *
      * @param ?int $document_id The id of the document.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\DocumentUserForCreate $body  (optional)
+     * @param \DocuSign\Rooms\Model\DocumentUserForCreate $body Request body with user id that the document has to be granted to (optional)
      *
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\DocumentUser
@@ -179,7 +179,7 @@ class DocumentsApi
      *
      * @param ?int $document_id The id of the document.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\DocumentUserForCreate $body  (optional)
+     * @param \DocuSign\Rooms\Model\DocumentUserForCreate $body Request body with user id that the document has to be granted to (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\DocumentUser, HTTP status code, HTTP response headers (array of strings)
@@ -198,8 +198,8 @@ class DocumentsApi
         $resourcePath = "/v2/accounts/{accountId}/documents/{documentId}/users";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params
@@ -304,7 +304,7 @@ class DocumentsApi
         $resourcePath = "/v2/accounts/{accountId}/documents/{documentId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -403,7 +403,7 @@ class DocumentsApi
         $resourcePath = "/v2/accounts/{accountId}/documents/{documentId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
         if ($options != null)

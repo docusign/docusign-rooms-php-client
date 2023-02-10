@@ -7,7 +7,7 @@
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team <apihelp@docusign.com>
- * @license     The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license     The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class FormSummary implements ModelInterface, ArrayAccess
@@ -61,7 +61,8 @@ class FormSummary implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'library_form_id' => '?string',
         'name' => '?string',
-        'last_updated_date' => '\DateTime'
+        'last_updated_date' => '\DateTime',
+        'viewing_user_has_access' => '?bool'
     ];
 
     /**
@@ -72,7 +73,8 @@ class FormSummary implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'library_form_id' => 'uuid',
         'name' => null,
-        'last_updated_date' => 'date-time'
+        'last_updated_date' => 'date-time',
+        'viewing_user_has_access' => null
     ];
 
     /**
@@ -104,7 +106,8 @@ class FormSummary implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'library_form_id' => 'libraryFormId',
         'name' => 'name',
-        'last_updated_date' => 'lastUpdatedDate'
+        'last_updated_date' => 'lastUpdatedDate',
+        'viewing_user_has_access' => 'viewingUserHasAccess'
     ];
 
     /**
@@ -115,7 +118,8 @@ class FormSummary implements ModelInterface, ArrayAccess
     protected static $setters = [
         'library_form_id' => 'setLibraryFormId',
         'name' => 'setName',
-        'last_updated_date' => 'setLastUpdatedDate'
+        'last_updated_date' => 'setLastUpdatedDate',
+        'viewing_user_has_access' => 'setViewingUserHasAccess'
     ];
 
     /**
@@ -126,7 +130,8 @@ class FormSummary implements ModelInterface, ArrayAccess
     protected static $getters = [
         'library_form_id' => 'getLibraryFormId',
         'name' => 'getName',
-        'last_updated_date' => 'getLastUpdatedDate'
+        'last_updated_date' => 'getLastUpdatedDate',
+        'viewing_user_has_access' => 'getViewingUserHasAccess'
     ];
 
     /**
@@ -192,6 +197,7 @@ class FormSummary implements ModelInterface, ArrayAccess
         $this->container['library_form_id'] = isset($data['library_form_id']) ? $data['library_form_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['last_updated_date'] = isset($data['last_updated_date']) ? $data['last_updated_date'] : null;
+        $this->container['viewing_user_has_access'] = isset($data['viewing_user_has_access']) ? $data['viewing_user_has_access'] : null;
     }
 
     /**
@@ -289,6 +295,30 @@ class FormSummary implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets viewing_user_has_access
+     *
+     * @return ?bool
+     */
+    public function getViewingUserHasAccess()
+    {
+        return $this->container['viewing_user_has_access'];
+    }
+
+    /**
+     * Sets viewing_user_has_access
+     *
+     * @param ?bool $viewing_user_has_access viewing_user_has_access
+     *
+     * @return $this
+     */
+    public function setViewingUserHasAccess($viewing_user_has_access)
+    {
+        $this->container['viewing_user_has_access'] = $viewing_user_has_access;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -296,6 +326,7 @@ class FormSummary implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -308,6 +339,7 @@ class FormSummary implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -321,6 +353,7 @@ class FormSummary implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -337,6 +370,7 @@ class FormSummary implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

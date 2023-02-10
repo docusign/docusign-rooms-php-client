@@ -1,15 +1,15 @@
-# The Official DocuSign Rooms PHP Client 
+# The Official DocuSign PHP Client 
 
 [![Build status][travis-image]][travis-url]
 
 ## Requirements
 
-- PHP 7.4+
+- PHP 5.4+
 - Free [Developer Sandbox](https://go.docusign.com/sandbox/productshot/?elqCampaignId=16531)
 
 ## Compatibility
 
-- PHP 7.4+
+- PHP 5.4+
 
 ## Note
 

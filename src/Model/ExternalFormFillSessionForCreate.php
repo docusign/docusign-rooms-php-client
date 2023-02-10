@@ -7,7 +7,7 @@
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team <apihelp@docusign.com>
- * @license     The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license     The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
@@ -61,6 +61,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'form_id' => '?string',
         'room_id' => '?int',
+        'form_ids' => '?string[]',
         'x_frame_allowed_url' => '?string'
     ];
 
@@ -72,6 +73,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'form_id' => null,
         'room_id' => 'int32',
+        'form_ids' => 'uuid',
         'x_frame_allowed_url' => null
     ];
 
@@ -104,6 +106,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'form_id' => 'formId',
         'room_id' => 'roomId',
+        'form_ids' => 'formIds',
         'x_frame_allowed_url' => 'xFrameAllowedUrl'
     ];
 
@@ -115,6 +118,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     protected static $setters = [
         'form_id' => 'setFormId',
         'room_id' => 'setRoomId',
+        'form_ids' => 'setFormIds',
         'x_frame_allowed_url' => 'setXFrameAllowedUrl'
     ];
 
@@ -126,6 +130,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     protected static $getters = [
         'form_id' => 'getFormId',
         'room_id' => 'getRoomId',
+        'form_ids' => 'getFormIds',
         'x_frame_allowed_url' => 'getXFrameAllowedUrl'
     ];
 
@@ -191,6 +196,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     {
         $this->container['form_id'] = isset($data['form_id']) ? $data['form_id'] : null;
         $this->container['room_id'] = isset($data['room_id']) ? $data['room_id'] : null;
+        $this->container['form_ids'] = isset($data['form_ids']) ? $data['form_ids'] : null;
         $this->container['x_frame_allowed_url'] = isset($data['x_frame_allowed_url']) ? $data['x_frame_allowed_url'] : null;
     }
 
@@ -203,9 +209,6 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['form_id'] === null) {
-            $invalidProperties[] = "'form_id' can't be null";
-        }
         if ($this->container['room_id'] === null) {
             $invalidProperties[] = "'room_id' can't be null";
         }
@@ -273,6 +276,30 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets form_ids
+     *
+     * @return ?string[]
+     */
+    public function getFormIds()
+    {
+        return $this->container['form_ids'];
+    }
+
+    /**
+     * Sets form_ids
+     *
+     * @param ?string[] $form_ids form_ids
+     *
+     * @return $this
+     */
+    public function setFormIds($form_ids)
+    {
+        $this->container['form_ids'] = $form_ids;
+
+        return $this;
+    }
+
+    /**
      * Gets x_frame_allowed_url
      *
      * @return ?string
@@ -302,6 +329,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -314,6 +342,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -327,6 +356,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -343,6 +373,7 @@ class ExternalFormFillSessionForCreate implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

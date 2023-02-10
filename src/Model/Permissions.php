@@ -7,7 +7,7 @@
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team <apihelp@docusign.com>
- * @license     The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license     The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class Permissions implements ModelInterface, ArrayAccess
@@ -77,6 +77,7 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_room_owners' => '?bool',
         'can_delete_rooms' => '?bool',
         'can_connect_to_mortgage_cadence' => '?bool',
+        'auto_access_to_rooms_in_office_only' => '?bool',
         'can_view_room_details' => '?bool',
         'can_view_and_edit_room_details' => '?bool',
         'can_send_room_details_to_lone_wolf' => '?bool',
@@ -86,10 +87,13 @@ class Permissions implements ModelInterface, ArrayAccess
         'documents_viewable_by_others_in_room_from_office' => '?bool',
         'documents_auto_owned_by_peers' => '?bool',
         'can_delete_owned_documents' => '?bool',
+        'can_delete_signed_documents' => '?bool',
+        'can_delete_unsigned_documents' => '?bool',
         'can_manage_shared_docs' => '?bool',
         'can_manage_form_groups' => '?bool',
         'can_share_docs_not_owned' => '?bool',
         'can_create_form_templates' => '?bool',
+        'can_manage_form_packets' => '?bool',
         'can_add_tasks_to_any_task_lists' => '?bool',
         'can_edit_editable_tasks' => '?bool',
         'can_edit_any_tasks' => '?bool',
@@ -119,7 +123,8 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_roles_and_permissions' => '?bool',
         'can_manage_room_details' => '?bool',
         'can_manage_room_templates' => '?bool',
-        'can_manage_integration_settings' => '?bool'
+        'can_manage_integration_settings' => '?bool',
+        'can_export_company_usage_report' => '?bool'
     ];
 
     /**
@@ -146,6 +151,7 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_room_owners' => null,
         'can_delete_rooms' => null,
         'can_connect_to_mortgage_cadence' => null,
+        'auto_access_to_rooms_in_office_only' => null,
         'can_view_room_details' => null,
         'can_view_and_edit_room_details' => null,
         'can_send_room_details_to_lone_wolf' => null,
@@ -155,10 +161,13 @@ class Permissions implements ModelInterface, ArrayAccess
         'documents_viewable_by_others_in_room_from_office' => null,
         'documents_auto_owned_by_peers' => null,
         'can_delete_owned_documents' => null,
+        'can_delete_signed_documents' => null,
+        'can_delete_unsigned_documents' => null,
         'can_manage_shared_docs' => null,
         'can_manage_form_groups' => null,
         'can_share_docs_not_owned' => null,
         'can_create_form_templates' => null,
+        'can_manage_form_packets' => null,
         'can_add_tasks_to_any_task_lists' => null,
         'can_edit_editable_tasks' => null,
         'can_edit_any_tasks' => null,
@@ -188,7 +197,8 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_roles_and_permissions' => null,
         'can_manage_room_details' => null,
         'can_manage_room_templates' => null,
-        'can_manage_integration_settings' => null
+        'can_manage_integration_settings' => null,
+        'can_export_company_usage_report' => null
     ];
 
     /**
@@ -236,6 +246,7 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_room_owners' => 'canManageRoomOwners',
         'can_delete_rooms' => 'canDeleteRooms',
         'can_connect_to_mortgage_cadence' => 'canConnectToMortgageCadence',
+        'auto_access_to_rooms_in_office_only' => 'autoAccessToRoomsInOfficeOnly',
         'can_view_room_details' => 'canViewRoomDetails',
         'can_view_and_edit_room_details' => 'canViewAndEditRoomDetails',
         'can_send_room_details_to_lone_wolf' => 'canSendRoomDetailsToLoneWolf',
@@ -245,10 +256,13 @@ class Permissions implements ModelInterface, ArrayAccess
         'documents_viewable_by_others_in_room_from_office' => 'documentsViewableByOthersInRoomFromOffice',
         'documents_auto_owned_by_peers' => 'documentsAutoOwnedByPeers',
         'can_delete_owned_documents' => 'canDeleteOwnedDocuments',
+        'can_delete_signed_documents' => 'canDeleteSignedDocuments',
+        'can_delete_unsigned_documents' => 'canDeleteUnsignedDocuments',
         'can_manage_shared_docs' => 'canManageSharedDocs',
         'can_manage_form_groups' => 'canManageFormGroups',
         'can_share_docs_not_owned' => 'canShareDocsNotOwned',
         'can_create_form_templates' => 'canCreateFormTemplates',
+        'can_manage_form_packets' => 'canManageFormPackets',
         'can_add_tasks_to_any_task_lists' => 'canAddTasksToAnyTaskLists',
         'can_edit_editable_tasks' => 'canEditEditableTasks',
         'can_edit_any_tasks' => 'canEditAnyTasks',
@@ -278,7 +292,8 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_roles_and_permissions' => 'canManageRolesAndPermissions',
         'can_manage_room_details' => 'canManageRoomDetails',
         'can_manage_room_templates' => 'canManageRoomTemplates',
-        'can_manage_integration_settings' => 'canManageIntegrationSettings'
+        'can_manage_integration_settings' => 'canManageIntegrationSettings',
+        'can_export_company_usage_report' => 'canExportCompanyUsageReport'
     ];
 
     /**
@@ -305,6 +320,7 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_room_owners' => 'setCanManageRoomOwners',
         'can_delete_rooms' => 'setCanDeleteRooms',
         'can_connect_to_mortgage_cadence' => 'setCanConnectToMortgageCadence',
+        'auto_access_to_rooms_in_office_only' => 'setAutoAccessToRoomsInOfficeOnly',
         'can_view_room_details' => 'setCanViewRoomDetails',
         'can_view_and_edit_room_details' => 'setCanViewAndEditRoomDetails',
         'can_send_room_details_to_lone_wolf' => 'setCanSendRoomDetailsToLoneWolf',
@@ -314,10 +330,13 @@ class Permissions implements ModelInterface, ArrayAccess
         'documents_viewable_by_others_in_room_from_office' => 'setDocumentsViewableByOthersInRoomFromOffice',
         'documents_auto_owned_by_peers' => 'setDocumentsAutoOwnedByPeers',
         'can_delete_owned_documents' => 'setCanDeleteOwnedDocuments',
+        'can_delete_signed_documents' => 'setCanDeleteSignedDocuments',
+        'can_delete_unsigned_documents' => 'setCanDeleteUnsignedDocuments',
         'can_manage_shared_docs' => 'setCanManageSharedDocs',
         'can_manage_form_groups' => 'setCanManageFormGroups',
         'can_share_docs_not_owned' => 'setCanShareDocsNotOwned',
         'can_create_form_templates' => 'setCanCreateFormTemplates',
+        'can_manage_form_packets' => 'setCanManageFormPackets',
         'can_add_tasks_to_any_task_lists' => 'setCanAddTasksToAnyTaskLists',
         'can_edit_editable_tasks' => 'setCanEditEditableTasks',
         'can_edit_any_tasks' => 'setCanEditAnyTasks',
@@ -347,7 +366,8 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_roles_and_permissions' => 'setCanManageRolesAndPermissions',
         'can_manage_room_details' => 'setCanManageRoomDetails',
         'can_manage_room_templates' => 'setCanManageRoomTemplates',
-        'can_manage_integration_settings' => 'setCanManageIntegrationSettings'
+        'can_manage_integration_settings' => 'setCanManageIntegrationSettings',
+        'can_export_company_usage_report' => 'setCanExportCompanyUsageReport'
     ];
 
     /**
@@ -374,6 +394,7 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_room_owners' => 'getCanManageRoomOwners',
         'can_delete_rooms' => 'getCanDeleteRooms',
         'can_connect_to_mortgage_cadence' => 'getCanConnectToMortgageCadence',
+        'auto_access_to_rooms_in_office_only' => 'getAutoAccessToRoomsInOfficeOnly',
         'can_view_room_details' => 'getCanViewRoomDetails',
         'can_view_and_edit_room_details' => 'getCanViewAndEditRoomDetails',
         'can_send_room_details_to_lone_wolf' => 'getCanSendRoomDetailsToLoneWolf',
@@ -383,10 +404,13 @@ class Permissions implements ModelInterface, ArrayAccess
         'documents_viewable_by_others_in_room_from_office' => 'getDocumentsViewableByOthersInRoomFromOffice',
         'documents_auto_owned_by_peers' => 'getDocumentsAutoOwnedByPeers',
         'can_delete_owned_documents' => 'getCanDeleteOwnedDocuments',
+        'can_delete_signed_documents' => 'getCanDeleteSignedDocuments',
+        'can_delete_unsigned_documents' => 'getCanDeleteUnsignedDocuments',
         'can_manage_shared_docs' => 'getCanManageSharedDocs',
         'can_manage_form_groups' => 'getCanManageFormGroups',
         'can_share_docs_not_owned' => 'getCanShareDocsNotOwned',
         'can_create_form_templates' => 'getCanCreateFormTemplates',
+        'can_manage_form_packets' => 'getCanManageFormPackets',
         'can_add_tasks_to_any_task_lists' => 'getCanAddTasksToAnyTaskLists',
         'can_edit_editable_tasks' => 'getCanEditEditableTasks',
         'can_edit_any_tasks' => 'getCanEditAnyTasks',
@@ -416,7 +440,8 @@ class Permissions implements ModelInterface, ArrayAccess
         'can_manage_roles_and_permissions' => 'getCanManageRolesAndPermissions',
         'can_manage_room_details' => 'getCanManageRoomDetails',
         'can_manage_room_templates' => 'getCanManageRoomTemplates',
-        'can_manage_integration_settings' => 'getCanManageIntegrationSettings'
+        'can_manage_integration_settings' => 'getCanManageIntegrationSettings',
+        'can_export_company_usage_report' => 'getCanExportCompanyUsageReport'
     ];
 
     /**
@@ -497,6 +522,7 @@ class Permissions implements ModelInterface, ArrayAccess
         $this->container['can_manage_room_owners'] = isset($data['can_manage_room_owners']) ? $data['can_manage_room_owners'] : null;
         $this->container['can_delete_rooms'] = isset($data['can_delete_rooms']) ? $data['can_delete_rooms'] : null;
         $this->container['can_connect_to_mortgage_cadence'] = isset($data['can_connect_to_mortgage_cadence']) ? $data['can_connect_to_mortgage_cadence'] : null;
+        $this->container['auto_access_to_rooms_in_office_only'] = isset($data['auto_access_to_rooms_in_office_only']) ? $data['auto_access_to_rooms_in_office_only'] : null;
         $this->container['can_view_room_details'] = isset($data['can_view_room_details']) ? $data['can_view_room_details'] : null;
         $this->container['can_view_and_edit_room_details'] = isset($data['can_view_and_edit_room_details']) ? $data['can_view_and_edit_room_details'] : null;
         $this->container['can_send_room_details_to_lone_wolf'] = isset($data['can_send_room_details_to_lone_wolf']) ? $data['can_send_room_details_to_lone_wolf'] : null;
@@ -506,10 +532,13 @@ class Permissions implements ModelInterface, ArrayAccess
         $this->container['documents_viewable_by_others_in_room_from_office'] = isset($data['documents_viewable_by_others_in_room_from_office']) ? $data['documents_viewable_by_others_in_room_from_office'] : null;
         $this->container['documents_auto_owned_by_peers'] = isset($data['documents_auto_owned_by_peers']) ? $data['documents_auto_owned_by_peers'] : null;
         $this->container['can_delete_owned_documents'] = isset($data['can_delete_owned_documents']) ? $data['can_delete_owned_documents'] : null;
+        $this->container['can_delete_signed_documents'] = isset($data['can_delete_signed_documents']) ? $data['can_delete_signed_documents'] : null;
+        $this->container['can_delete_unsigned_documents'] = isset($data['can_delete_unsigned_documents']) ? $data['can_delete_unsigned_documents'] : null;
         $this->container['can_manage_shared_docs'] = isset($data['can_manage_shared_docs']) ? $data['can_manage_shared_docs'] : null;
         $this->container['can_manage_form_groups'] = isset($data['can_manage_form_groups']) ? $data['can_manage_form_groups'] : null;
         $this->container['can_share_docs_not_owned'] = isset($data['can_share_docs_not_owned']) ? $data['can_share_docs_not_owned'] : null;
         $this->container['can_create_form_templates'] = isset($data['can_create_form_templates']) ? $data['can_create_form_templates'] : null;
+        $this->container['can_manage_form_packets'] = isset($data['can_manage_form_packets']) ? $data['can_manage_form_packets'] : null;
         $this->container['can_add_tasks_to_any_task_lists'] = isset($data['can_add_tasks_to_any_task_lists']) ? $data['can_add_tasks_to_any_task_lists'] : null;
         $this->container['can_edit_editable_tasks'] = isset($data['can_edit_editable_tasks']) ? $data['can_edit_editable_tasks'] : null;
         $this->container['can_edit_any_tasks'] = isset($data['can_edit_any_tasks']) ? $data['can_edit_any_tasks'] : null;
@@ -540,6 +569,7 @@ class Permissions implements ModelInterface, ArrayAccess
         $this->container['can_manage_room_details'] = isset($data['can_manage_room_details']) ? $data['can_manage_room_details'] : null;
         $this->container['can_manage_room_templates'] = isset($data['can_manage_room_templates']) ? $data['can_manage_room_templates'] : null;
         $this->container['can_manage_integration_settings'] = isset($data['can_manage_integration_settings']) ? $data['can_manage_integration_settings'] : null;
+        $this->container['can_export_company_usage_report'] = isset($data['can_export_company_usage_report']) ? $data['can_export_company_usage_report'] : null;
     }
 
     /**
@@ -999,6 +1029,30 @@ class Permissions implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets auto_access_to_rooms_in_office_only
+     *
+     * @return ?bool
+     */
+    public function getAutoAccessToRoomsInOfficeOnly()
+    {
+        return $this->container['auto_access_to_rooms_in_office_only'];
+    }
+
+    /**
+     * Sets auto_access_to_rooms_in_office_only
+     *
+     * @param ?bool $auto_access_to_rooms_in_office_only auto_access_to_rooms_in_office_only
+     *
+     * @return $this
+     */
+    public function setAutoAccessToRoomsInOfficeOnly($auto_access_to_rooms_in_office_only)
+    {
+        $this->container['auto_access_to_rooms_in_office_only'] = $auto_access_to_rooms_in_office_only;
+
+        return $this;
+    }
+
+    /**
      * Gets can_view_room_details
      *
      * @return ?bool
@@ -1215,6 +1269,54 @@ class Permissions implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets can_delete_signed_documents
+     *
+     * @return ?bool
+     */
+    public function getCanDeleteSignedDocuments()
+    {
+        return $this->container['can_delete_signed_documents'];
+    }
+
+    /**
+     * Sets can_delete_signed_documents
+     *
+     * @param ?bool $can_delete_signed_documents can_delete_signed_documents
+     *
+     * @return $this
+     */
+    public function setCanDeleteSignedDocuments($can_delete_signed_documents)
+    {
+        $this->container['can_delete_signed_documents'] = $can_delete_signed_documents;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_delete_unsigned_documents
+     *
+     * @return ?bool
+     */
+    public function getCanDeleteUnsignedDocuments()
+    {
+        return $this->container['can_delete_unsigned_documents'];
+    }
+
+    /**
+     * Sets can_delete_unsigned_documents
+     *
+     * @param ?bool $can_delete_unsigned_documents can_delete_unsigned_documents
+     *
+     * @return $this
+     */
+    public function setCanDeleteUnsignedDocuments($can_delete_unsigned_documents)
+    {
+        $this->container['can_delete_unsigned_documents'] = $can_delete_unsigned_documents;
+
+        return $this;
+    }
+
+    /**
      * Gets can_manage_shared_docs
      *
      * @return ?bool
@@ -1306,6 +1408,30 @@ class Permissions implements ModelInterface, ArrayAccess
     public function setCanCreateFormTemplates($can_create_form_templates)
     {
         $this->container['can_create_form_templates'] = $can_create_form_templates;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_manage_form_packets
+     *
+     * @return ?bool
+     */
+    public function getCanManageFormPackets()
+    {
+        return $this->container['can_manage_form_packets'];
+    }
+
+    /**
+     * Sets can_manage_form_packets
+     *
+     * @param ?bool $can_manage_form_packets can_manage_form_packets
+     *
+     * @return $this
+     */
+    public function setCanManageFormPackets($can_manage_form_packets)
+    {
+        $this->container['can_manage_form_packets'] = $can_manage_form_packets;
 
         return $this;
     }
@@ -2029,6 +2155,30 @@ class Permissions implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets can_export_company_usage_report
+     *
+     * @return ?bool
+     */
+    public function getCanExportCompanyUsageReport()
+    {
+        return $this->container['can_export_company_usage_report'];
+    }
+
+    /**
+     * Sets can_export_company_usage_report
+     *
+     * @param ?bool $can_export_company_usage_report can_export_company_usage_report
+     *
+     * @return $this
+     */
+    public function setCanExportCompanyUsageReport($can_export_company_usage_report)
+    {
+        $this->container['can_export_company_usage_report'] = $can_export_company_usage_report;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -2036,6 +2186,7 @@ class Permissions implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -2048,6 +2199,7 @@ class Permissions implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -2061,6 +2213,7 @@ class Permissions implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -2077,6 +2230,7 @@ class Permissions implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

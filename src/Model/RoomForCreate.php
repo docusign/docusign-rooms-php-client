@@ -7,7 +7,7 @@
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team <apihelp@docusign.com>
- * @license     The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license     The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class RoomForCreate implements ModelInterface, ArrayAccess
@@ -65,7 +65,8 @@ class RoomForCreate implements ModelInterface, ArrayAccess
         'owner_id' => '?int',
         'template_id' => '?int',
         'office_id' => '?int',
-        'field_data' => '\DocuSign\Rooms\Model\FieldDataForCreate'
+        'field_data' => '\DocuSign\Rooms\Model\FieldDataForCreate',
+        'listing_source' => '?string'
     ];
 
     /**
@@ -80,7 +81,8 @@ class RoomForCreate implements ModelInterface, ArrayAccess
         'owner_id' => 'int32',
         'template_id' => 'int32',
         'office_id' => 'int32',
-        'field_data' => null
+        'field_data' => null,
+        'listing_source' => null
     ];
 
     /**
@@ -116,7 +118,8 @@ class RoomForCreate implements ModelInterface, ArrayAccess
         'owner_id' => 'ownerId',
         'template_id' => 'templateId',
         'office_id' => 'officeId',
-        'field_data' => 'fieldData'
+        'field_data' => 'fieldData',
+        'listing_source' => 'listingSource'
     ];
 
     /**
@@ -131,7 +134,8 @@ class RoomForCreate implements ModelInterface, ArrayAccess
         'owner_id' => 'setOwnerId',
         'template_id' => 'setTemplateId',
         'office_id' => 'setOfficeId',
-        'field_data' => 'setFieldData'
+        'field_data' => 'setFieldData',
+        'listing_source' => 'setListingSource'
     ];
 
     /**
@@ -146,7 +150,8 @@ class RoomForCreate implements ModelInterface, ArrayAccess
         'owner_id' => 'getOwnerId',
         'template_id' => 'getTemplateId',
         'office_id' => 'getOfficeId',
-        'field_data' => 'getFieldData'
+        'field_data' => 'getFieldData',
+        'listing_source' => 'getListingSource'
     ];
 
     /**
@@ -190,8 +195,23 @@ class RoomForCreate implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const LISTING_SOURCE_PUBLIC_RECORDS = 'PublicRecords';
+    const LISTING_SOURCE_MLS = 'MLS';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getListingSourceAllowableValues()
+    {
+        return [
+            self::LISTING_SOURCE_PUBLIC_RECORDS,
+            self::LISTING_SOURCE_MLS,
+        ];
+    }
     
 
     /**
@@ -216,6 +236,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
         $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
         $this->container['office_id'] = isset($data['office_id']) ? $data['office_id'] : null;
         $this->container['field_data'] = isset($data['field_data']) ? $data['field_data'] : null;
+        $this->container['listing_source'] = isset($data['listing_source']) ? $data['listing_source'] : null;
     }
 
     /**
@@ -233,6 +254,14 @@ class RoomForCreate implements ModelInterface, ArrayAccess
         if ($this->container['role_id'] === null) {
             $invalidProperties[] = "'role_id' can't be null";
         }
+        $allowedValues = $this->getListingSourceAllowableValues();
+        if (!is_null($this->container['listing_source']) && !in_array($this->container['listing_source'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'listing_source', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -415,6 +444,39 @@ class RoomForCreate implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets listing_source
+     *
+     * @return ?string
+     */
+    public function getListingSource()
+    {
+        return $this->container['listing_source'];
+    }
+
+    /**
+     * Sets listing_source
+     *
+     * @param ?string $listing_source listing_source
+     *
+     * @return $this
+     */
+    public function setListingSource($listing_source)
+    {
+        $allowedValues = $this->getListingSourceAllowableValues();
+        if (!is_null($listing_source) && !in_array($listing_source, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'listing_source', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['listing_source'] = $listing_source;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -422,6 +484,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -434,6 +497,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -447,6 +511,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -463,6 +528,7 @@ class RoomForCreate implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

@@ -7,7 +7,7 @@
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team <apihelp@docusign.com>
- * @license     The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license     The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class GroupForm implements ModelInterface, ArrayAccess
@@ -62,7 +62,8 @@ class GroupForm implements ModelInterface, ArrayAccess
         'form_id' => '?string',
         'name' => '?string',
         'is_required' => '?bool',
-        'last_updated_date' => '\DateTime'
+        'last_updated_date' => '\DateTime',
+        'viewing_user_has_access' => '?bool'
     ];
 
     /**
@@ -74,7 +75,8 @@ class GroupForm implements ModelInterface, ArrayAccess
         'form_id' => 'uuid',
         'name' => null,
         'is_required' => null,
-        'last_updated_date' => 'date-time'
+        'last_updated_date' => 'date-time',
+        'viewing_user_has_access' => null
     ];
 
     /**
@@ -107,7 +109,8 @@ class GroupForm implements ModelInterface, ArrayAccess
         'form_id' => 'formId',
         'name' => 'name',
         'is_required' => 'isRequired',
-        'last_updated_date' => 'lastUpdatedDate'
+        'last_updated_date' => 'lastUpdatedDate',
+        'viewing_user_has_access' => 'viewingUserHasAccess'
     ];
 
     /**
@@ -119,7 +122,8 @@ class GroupForm implements ModelInterface, ArrayAccess
         'form_id' => 'setFormId',
         'name' => 'setName',
         'is_required' => 'setIsRequired',
-        'last_updated_date' => 'setLastUpdatedDate'
+        'last_updated_date' => 'setLastUpdatedDate',
+        'viewing_user_has_access' => 'setViewingUserHasAccess'
     ];
 
     /**
@@ -131,7 +135,8 @@ class GroupForm implements ModelInterface, ArrayAccess
         'form_id' => 'getFormId',
         'name' => 'getName',
         'is_required' => 'getIsRequired',
-        'last_updated_date' => 'getLastUpdatedDate'
+        'last_updated_date' => 'getLastUpdatedDate',
+        'viewing_user_has_access' => 'getViewingUserHasAccess'
     ];
 
     /**
@@ -198,6 +203,7 @@ class GroupForm implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['is_required'] = isset($data['is_required']) ? $data['is_required'] : null;
         $this->container['last_updated_date'] = isset($data['last_updated_date']) ? $data['last_updated_date'] : null;
+        $this->container['viewing_user_has_access'] = isset($data['viewing_user_has_access']) ? $data['viewing_user_has_access'] : null;
     }
 
     /**
@@ -319,6 +325,30 @@ class GroupForm implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets viewing_user_has_access
+     *
+     * @return ?bool
+     */
+    public function getViewingUserHasAccess()
+    {
+        return $this->container['viewing_user_has_access'];
+    }
+
+    /**
+     * Sets viewing_user_has_access
+     *
+     * @param ?bool $viewing_user_has_access viewing_user_has_access
+     *
+     * @return $this
+     */
+    public function setViewingUserHasAccess($viewing_user_has_access)
+    {
+        $this->container['viewing_user_has_access'] = $viewing_user_has_access;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -326,6 +356,7 @@ class GroupForm implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -338,6 +369,7 @@ class GroupForm implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -351,6 +383,7 @@ class GroupForm implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -367,6 +400,7 @@ class GroupForm implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

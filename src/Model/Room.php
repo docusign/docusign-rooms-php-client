@@ -7,7 +7,7 @@
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team <apihelp@docusign.com>
- * @license     The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license     The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class Room implements ModelInterface, ArrayAccess
@@ -68,8 +68,10 @@ class Room implements ModelInterface, ArrayAccess
         'closed_date' => '\DateTime',
         'rejected_date' => '\DateTime',
         'created_by_user_id' => '?int',
+        'room_owner_ids' => '?int[]',
         'rejected_by_user_id' => '?int',
         'closed_status_id' => '?string',
+        'field_data_last_updated_date' => '\DateTime',
         'field_data' => '\DocuSign\Rooms\Model\FieldData'
     ];
 
@@ -88,8 +90,10 @@ class Room implements ModelInterface, ArrayAccess
         'closed_date' => 'date-time',
         'rejected_date' => 'date-time',
         'created_by_user_id' => 'int32',
+        'room_owner_ids' => 'int32',
         'rejected_by_user_id' => 'int32',
         'closed_status_id' => null,
+        'field_data_last_updated_date' => 'date-time',
         'field_data' => null
     ];
 
@@ -129,8 +133,10 @@ class Room implements ModelInterface, ArrayAccess
         'closed_date' => 'closedDate',
         'rejected_date' => 'rejectedDate',
         'created_by_user_id' => 'createdByUserId',
+        'room_owner_ids' => 'roomOwnerIds',
         'rejected_by_user_id' => 'rejectedByUserId',
         'closed_status_id' => 'closedStatusId',
+        'field_data_last_updated_date' => 'fieldDataLastUpdatedDate',
         'field_data' => 'fieldData'
     ];
 
@@ -149,8 +155,10 @@ class Room implements ModelInterface, ArrayAccess
         'closed_date' => 'setClosedDate',
         'rejected_date' => 'setRejectedDate',
         'created_by_user_id' => 'setCreatedByUserId',
+        'room_owner_ids' => 'setRoomOwnerIds',
         'rejected_by_user_id' => 'setRejectedByUserId',
         'closed_status_id' => 'setClosedStatusId',
+        'field_data_last_updated_date' => 'setFieldDataLastUpdatedDate',
         'field_data' => 'setFieldData'
     ];
 
@@ -169,8 +177,10 @@ class Room implements ModelInterface, ArrayAccess
         'closed_date' => 'getClosedDate',
         'rejected_date' => 'getRejectedDate',
         'created_by_user_id' => 'getCreatedByUserId',
+        'room_owner_ids' => 'getRoomOwnerIds',
         'rejected_by_user_id' => 'getRejectedByUserId',
         'closed_status_id' => 'getClosedStatusId',
+        'field_data_last_updated_date' => 'getFieldDataLastUpdatedDate',
         'field_data' => 'getFieldData'
     ];
 
@@ -243,8 +253,10 @@ class Room implements ModelInterface, ArrayAccess
         $this->container['closed_date'] = isset($data['closed_date']) ? $data['closed_date'] : null;
         $this->container['rejected_date'] = isset($data['rejected_date']) ? $data['rejected_date'] : null;
         $this->container['created_by_user_id'] = isset($data['created_by_user_id']) ? $data['created_by_user_id'] : null;
+        $this->container['room_owner_ids'] = isset($data['room_owner_ids']) ? $data['room_owner_ids'] : null;
         $this->container['rejected_by_user_id'] = isset($data['rejected_by_user_id']) ? $data['rejected_by_user_id'] : null;
         $this->container['closed_status_id'] = isset($data['closed_status_id']) ? $data['closed_status_id'] : null;
+        $this->container['field_data_last_updated_date'] = isset($data['field_data_last_updated_date']) ? $data['field_data_last_updated_date'] : null;
         $this->container['field_data'] = isset($data['field_data']) ? $data['field_data'] : null;
     }
 
@@ -489,6 +501,30 @@ class Room implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets room_owner_ids
+     *
+     * @return ?int[]
+     */
+    public function getRoomOwnerIds()
+    {
+        return $this->container['room_owner_ids'];
+    }
+
+    /**
+     * Sets room_owner_ids
+     *
+     * @param ?int[] $room_owner_ids room_owner_ids
+     *
+     * @return $this
+     */
+    public function setRoomOwnerIds($room_owner_ids)
+    {
+        $this->container['room_owner_ids'] = $room_owner_ids;
+
+        return $this;
+    }
+
+    /**
      * Gets rejected_by_user_id
      *
      * @return ?int
@@ -537,6 +573,30 @@ class Room implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets field_data_last_updated_date
+     *
+     * @return \DateTime
+     */
+    public function getFieldDataLastUpdatedDate()
+    {
+        return $this->container['field_data_last_updated_date'];
+    }
+
+    /**
+     * Sets field_data_last_updated_date
+     *
+     * @param \DateTime $field_data_last_updated_date field_data_last_updated_date
+     *
+     * @return $this
+     */
+    public function setFieldDataLastUpdatedDate($field_data_last_updated_date)
+    {
+        $this->container['field_data_last_updated_date'] = $field_data_last_updated_date;
+
+        return $this;
+    }
+
+    /**
      * Gets field_data
      *
      * @return \DocuSign\Rooms\Model\FieldData
@@ -566,6 +626,7 @@ class Room implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -578,6 +639,7 @@ class Room implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -591,6 +653,7 @@ class Room implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -607,6 +670,7 @@ class Room implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
