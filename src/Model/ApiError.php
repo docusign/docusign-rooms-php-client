@@ -7,7 +7,7 @@
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team <apihelp@docusign.com>
- * @license     The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license     The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class ApiError implements ModelInterface, ArrayAccess
@@ -60,7 +60,8 @@ class ApiError implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'error_code' => '?string',
-        'message' => '?string'
+        'message' => '?string',
+        'reference_id' => '?string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class ApiError implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'error_code' => null,
-        'message' => null
+        'message' => null,
+        'reference_id' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class ApiError implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'error_code' => 'errorCode',
-        'message' => 'message'
+        'message' => 'message',
+        'reference_id' => 'referenceId'
     ];
 
     /**
@@ -111,7 +114,8 @@ class ApiError implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'error_code' => 'setErrorCode',
-        'message' => 'setMessage'
+        'message' => 'setMessage',
+        'reference_id' => 'setReferenceId'
     ];
 
     /**
@@ -121,7 +125,8 @@ class ApiError implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'error_code' => 'getErrorCode',
-        'message' => 'getMessage'
+        'message' => 'getMessage',
+        'reference_id' => 'getReferenceId'
     ];
 
     /**
@@ -186,6 +191,7 @@ class ApiError implements ModelInterface, ArrayAccess
     {
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
     }
 
     /**
@@ -259,6 +265,30 @@ class ApiError implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets reference_id
+     *
+     * @return ?string
+     */
+    public function getReferenceId()
+    {
+        return $this->container['reference_id'];
+    }
+
+    /**
+     * Sets reference_id
+     *
+     * @param ?string $reference_id reference_id
+     *
+     * @return $this
+     */
+    public function setReferenceId($reference_id)
+    {
+        $this->container['reference_id'] = $reference_id;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -266,6 +296,7 @@ class ApiError implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -278,6 +309,7 @@ class ApiError implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -291,6 +323,7 @@ class ApiError implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -307,6 +340,7 @@ class ApiError implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

@@ -7,7 +7,7 @@
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team <apihelp@docusign.com>
- * @license     The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license     The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class UserToInvite implements ModelInterface, ArrayAccess
@@ -63,10 +63,11 @@ class UserToInvite implements ModelInterface, ArrayAccess
         'last_name' => '?string',
         'email' => '?string',
         'role_id' => '?int',
-        'access_level' => '\DocuSign\Rooms\Model\AccessLevel',
+        'access_level' => '?string',
         'default_office_id' => '?int',
         'regions' => '?int[]',
         'offices' => '?int[]',
+        'subscribe_to_rooms_activity_notifications' => '?bool',
         'e_sign_permission_profile_id' => '?string',
         'redirect_url' => '?string'
     ];
@@ -85,6 +86,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
         'default_office_id' => 'int32',
         'regions' => 'int32',
         'offices' => 'int32',
+        'subscribe_to_rooms_activity_notifications' => null,
         'e_sign_permission_profile_id' => null,
         'redirect_url' => 'uri'
     ];
@@ -124,6 +126,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
         'default_office_id' => 'defaultOfficeId',
         'regions' => 'regions',
         'offices' => 'offices',
+        'subscribe_to_rooms_activity_notifications' => 'subscribeToRoomsActivityNotifications',
         'e_sign_permission_profile_id' => 'eSignPermissionProfileId',
         'redirect_url' => 'redirectUrl'
     ];
@@ -142,6 +145,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
         'default_office_id' => 'setDefaultOfficeId',
         'regions' => 'setRegions',
         'offices' => 'setOffices',
+        'subscribe_to_rooms_activity_notifications' => 'setSubscribeToRoomsActivityNotifications',
         'e_sign_permission_profile_id' => 'setESignPermissionProfileId',
         'redirect_url' => 'setRedirectUrl'
     ];
@@ -160,6 +164,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
         'default_office_id' => 'getDefaultOfficeId',
         'regions' => 'getRegions',
         'offices' => 'getOffices',
+        'subscribe_to_rooms_activity_notifications' => 'getSubscribeToRoomsActivityNotifications',
         'e_sign_permission_profile_id' => 'getESignPermissionProfileId',
         'redirect_url' => 'getRedirectUrl'
     ];
@@ -205,8 +210,29 @@ class UserToInvite implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ACCESS_LEVEL_CONTRIBUTOR = 'Contributor';
+    const ACCESS_LEVEL_OFFICE = 'Office';
+    const ACCESS_LEVEL_REGION = 'Region';
+    const ACCESS_LEVEL_COMPANY = 'Company';
+    const ACCESS_LEVEL_ADMIN = 'Admin';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAccessLevelAllowableValues()
+    {
+        return [
+            self::ACCESS_LEVEL_CONTRIBUTOR,
+            self::ACCESS_LEVEL_OFFICE,
+            self::ACCESS_LEVEL_REGION,
+            self::ACCESS_LEVEL_COMPANY,
+            self::ACCESS_LEVEL_ADMIN,
+        ];
+    }
     
 
     /**
@@ -232,6 +258,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
         $this->container['default_office_id'] = isset($data['default_office_id']) ? $data['default_office_id'] : null;
         $this->container['regions'] = isset($data['regions']) ? $data['regions'] : null;
         $this->container['offices'] = isset($data['offices']) ? $data['offices'] : null;
+        $this->container['subscribe_to_rooms_activity_notifications'] = isset($data['subscribe_to_rooms_activity_notifications']) ? $data['subscribe_to_rooms_activity_notifications'] : true;
         $this->container['e_sign_permission_profile_id'] = isset($data['e_sign_permission_profile_id']) ? $data['e_sign_permission_profile_id'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
     }
@@ -260,6 +287,14 @@ class UserToInvite implements ModelInterface, ArrayAccess
         if ($this->container['access_level'] === null) {
             $invalidProperties[] = "'access_level' can't be null";
         }
+        $allowedValues = $this->getAccessLevelAllowableValues();
+        if (!is_null($this->container['access_level']) && !in_array($this->container['access_level'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'access_level', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['default_office_id'] === null) {
             $invalidProperties[] = "'default_office_id' can't be null";
         }
@@ -380,7 +415,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
     /**
      * Gets access_level
      *
-     * @return \DocuSign\Rooms\Model\AccessLevel
+     * @return ?string
      */
     public function getAccessLevel()
     {
@@ -390,12 +425,21 @@ class UserToInvite implements ModelInterface, ArrayAccess
     /**
      * Sets access_level
      *
-     * @param \DocuSign\Rooms\Model\AccessLevel $access_level access_level
+     * @param ?string $access_level access_level
      *
      * @return $this
      */
     public function setAccessLevel($access_level)
     {
+        $allowedValues = $this->getAccessLevelAllowableValues();
+        if (!in_array($access_level, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'access_level', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['access_level'] = $access_level;
 
         return $this;
@@ -474,6 +518,30 @@ class UserToInvite implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets subscribe_to_rooms_activity_notifications
+     *
+     * @return ?bool
+     */
+    public function getSubscribeToRoomsActivityNotifications()
+    {
+        return $this->container['subscribe_to_rooms_activity_notifications'];
+    }
+
+    /**
+     * Sets subscribe_to_rooms_activity_notifications
+     *
+     * @param ?bool $subscribe_to_rooms_activity_notifications subscribe_to_rooms_activity_notifications
+     *
+     * @return $this
+     */
+    public function setSubscribeToRoomsActivityNotifications($subscribe_to_rooms_activity_notifications)
+    {
+        $this->container['subscribe_to_rooms_activity_notifications'] = $subscribe_to_rooms_activity_notifications;
+
+        return $this;
+    }
+
+    /**
      * Gets e_sign_permission_profile_id
      *
      * @return ?string
@@ -527,6 +595,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -539,6 +608,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -552,6 +622,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -568,6 +639,7 @@ class UserToInvite implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

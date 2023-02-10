@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\OfficesApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetOfficesOptions
@@ -169,7 +169,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class OfficesApi
@@ -241,7 +241,7 @@ class OfficesApi
      * Create an office.
      *
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\OfficeForCreate $body  (optional)
+     * @param \DocuSign\Rooms\Model\OfficeForCreate $body Creates an office with given name and other details like Region,Address (optional)
      *
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Office
@@ -258,7 +258,7 @@ class OfficesApi
      * Create an office.
      *
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\OfficeForCreate $body  (optional)
+     * @param \DocuSign\Rooms\Model\OfficeForCreate $body Creates an office with given name and other details like Region,Address (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Office, HTTP status code, HTTP response headers (array of strings)
@@ -273,8 +273,8 @@ class OfficesApi
         $resourcePath = "/v2/accounts/{accountId}/offices";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params
@@ -338,7 +338,7 @@ class OfficesApi
      *
      * Delete an office.
      *
-     * @param ?int $office_id 
+     * @param ?int $office_id Office ID to be deleted
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
      *
      * @throws ApiException on non-2xx response
@@ -355,7 +355,7 @@ class OfficesApi
      *
      * Delete an office.
      *
-     * @param ?int $office_id 
+     * @param ?int $office_id Office ID to be deleted
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
      *
      * @throws ApiException on non-2xx response
@@ -375,7 +375,7 @@ class OfficesApi
         $resourcePath = "/v2/accounts/{accountId}/offices/{officeId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -472,7 +472,7 @@ class OfficesApi
         $resourcePath = "/v2/accounts/{accountId}/offices/{officeId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -569,7 +569,7 @@ class OfficesApi
         $resourcePath = "/v2/accounts/{accountId}/offices";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
         if ($options != null)
@@ -645,7 +645,7 @@ class OfficesApi
      *
      * Lists the number of objects of each type that reference the office.
      *
-     * @param ?int $office_id 
+     * @param ?int $office_id ID of the office
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
      *
      * @throws ApiException on non-2xx response
@@ -662,7 +662,7 @@ class OfficesApi
      *
      * Lists the number of objects of each type that reference the office.
      *
-     * @param ?int $office_id 
+     * @param ?int $office_id ID of the office
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
      *
      * @throws ApiException on non-2xx response
@@ -682,7 +682,7 @@ class OfficesApi
         $resourcePath = "/v2/accounts/{accountId}/offices/{officeId}/reference_counts";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\UsersApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetUsersOptions
@@ -73,33 +73,33 @@ class GetUsersOptions
     }
     /**
       * $sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
-      * @var ?string
+      * @var object
       */
-    protected ?string $sort = null;
+    protected object $sort = null;
 
     /**
      * Gets sort
      *
-     * @return ?string
+     * @return object
      */
-    public function getSort(): ?string
+    public function getSort(): object
     {
         return $this->sort;
     }
 
     /**
      * Sets sort
-     * @param ?string $sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
+     * @param object $sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
      *
      * @return self
      */
-    public function setSort(?string $sort): self
+    public function setSort(object $sort): self
     {
         $this->sort = $sort;
         return $this;
     }
     /**
-      * $default_office_id 
+      * $default_office_id Default office ID
       * @var ?int
       */
     protected ?int $default_office_id = null;
@@ -116,7 +116,7 @@ class GetUsersOptions
 
     /**
      * Sets default_office_id
-     * @param ?int $default_office_id 
+     * @param ?int $default_office_id Default office ID
      *
      * @return self
      */
@@ -127,27 +127,27 @@ class GetUsersOptions
     }
     /**
       * $access_level Valid values are 'Company', 'Region', 'Office', 'Contributor'
-      * @var ?string
+      * @var object
       */
-    protected ?string $access_level = null;
+    protected object $access_level = null;
 
     /**
      * Gets access_level
      *
-     * @return ?string
+     * @return object
      */
-    public function getAccessLevel(): ?string
+    public function getAccessLevel(): object
     {
         return $this->access_level;
     }
 
     /**
      * Sets access_level
-     * @param ?string $access_level Valid values are 'Company', 'Region', 'Office', 'Contributor'
+     * @param object $access_level Valid values are 'Company', 'Region', 'Office', 'Contributor'
      *
      * @return self
      */
-    public function setAccessLevel(?string $access_level): self
+    public function setAccessLevel(object $access_level): self
     {
         $this->access_level = $access_level;
         return $this;
@@ -208,27 +208,27 @@ class GetUsersOptions
     }
     /**
       * $status Valid values are 'Active', 'Pending'
-      * @var ?string
+      * @var object
       */
-    protected ?string $status = null;
+    protected object $status = null;
 
     /**
      * Gets status
      *
-     * @return ?string
+     * @return object
      */
-    public function getStatus(): ?string
+    public function getStatus(): object
     {
         return $this->status;
     }
 
     /**
      * Sets status
-     * @param ?string $status Valid values are 'Active', 'Pending'
+     * @param object $status Valid values are 'Active', 'Pending'
      *
      * @return self
      */
-    public function setStatus(?string $status): self
+    public function setStatus(object $status): self
     {
         $this->status = $status;
         return $this;
@@ -331,7 +331,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class UsersApi
@@ -404,7 +404,7 @@ class UsersApi
      *
      * @param ?int $user_id The id of the user.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\DesignatedOffice $body  (optional)
+     * @param \DocuSign\Rooms\Model\DesignatedOffice $body Details of the office that the user will be added to (optional)
      *
      * @throws ApiException on non-2xx response
      * @return mixed
@@ -422,7 +422,7 @@ class UsersApi
      *
      * @param ?int $user_id The id of the user.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\DesignatedOffice $body  (optional)
+     * @param \DocuSign\Rooms\Model\DesignatedOffice $body Details of the office that the user will be added to (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
@@ -441,8 +441,8 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/add_to_office";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params
@@ -508,7 +508,7 @@ class UsersApi
      *
      * @param ?int $user_id The id of the user.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\DesignatedRegion $body  (optional)
+     * @param \DocuSign\Rooms\Model\DesignatedRegion $body Region that given user will be added to (optional)
      *
      * @throws ApiException on non-2xx response
      * @return mixed
@@ -526,7 +526,7 @@ class UsersApi
      *
      * @param ?int $user_id The id of the user.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\DesignatedRegion $body  (optional)
+     * @param \DocuSign\Rooms\Model\DesignatedRegion $body Region that given user will be added to (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
@@ -545,8 +545,8 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/add_to_region";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params
@@ -647,7 +647,7 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -744,7 +744,7 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
         if ($options != null)
@@ -834,306 +834,12 @@ class UsersApi
     }
 
     /**
-     * Operation inviteClassicAdmin
-     *
-     * CLASSIC COMPANY ONLY. Send an invitation to join the company as an admin.
-     *
-     * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\ClassicAdminToInvite $body  (optional)
-     *
-     * @throws ApiException on non-2xx response
-     * @return \DocuSign\Rooms\Model\User
-     */
-    public function inviteClassicAdmin($account_id, $body = null)
-    {
-        list($response) = $this->inviteClassicAdminWithHttpInfo($account_id, $body);
-        return $response;
-    }
-
-    /**
-     * Operation inviteClassicAdminWithHttpInfo
-     *
-     * CLASSIC COMPANY ONLY. Send an invitation to join the company as an admin.
-     *
-     * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\ClassicAdminToInvite $body  (optional)
-     *
-     * @throws ApiException on non-2xx response
-     * @return array of \DocuSign\Rooms\Model\User, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function inviteClassicAdminWithHttpInfo($account_id, $body = null): array
-    {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling inviteClassicAdmin');
-        }
-        // parse inputs
-        $resourcePath = "/v2/accounts/{accountId}/users/invite_classic_admin";
-        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
-        $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
-
-
-        // path params
-        if ($account_id !== null) {
-            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
-        }
-
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\DocuSign\Rooms\Model\User',
-                '/v2/accounts/{accountId}/users/invite_classic_admin'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\DocuSign\Rooms\Model\User', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\User', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation inviteClassicAgent
-     *
-     * CLASSIC COMPANY ONLY. Send an invitation to join the company as an agent.
-     *
-     * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\ClassicAgentToInvite $body  (optional)
-     *
-     * @throws ApiException on non-2xx response
-     * @return \DocuSign\Rooms\Model\User
-     */
-    public function inviteClassicAgent($account_id, $body = null)
-    {
-        list($response) = $this->inviteClassicAgentWithHttpInfo($account_id, $body);
-        return $response;
-    }
-
-    /**
-     * Operation inviteClassicAgentWithHttpInfo
-     *
-     * CLASSIC COMPANY ONLY. Send an invitation to join the company as an agent.
-     *
-     * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\ClassicAgentToInvite $body  (optional)
-     *
-     * @throws ApiException on non-2xx response
-     * @return array of \DocuSign\Rooms\Model\User, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function inviteClassicAgentWithHttpInfo($account_id, $body = null): array
-    {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling inviteClassicAgent');
-        }
-        // parse inputs
-        $resourcePath = "/v2/accounts/{accountId}/users/invite_classic_agent";
-        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
-        $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
-
-
-        // path params
-        if ($account_id !== null) {
-            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
-        }
-
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\DocuSign\Rooms\Model\User',
-                '/v2/accounts/{accountId}/users/invite_classic_agent'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\DocuSign\Rooms\Model\User', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\User', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation inviteClassicManager
-     *
-     * CLASSIC COMPANY ONLY. Send an invitation to join the company as a manager.
-     *
-     * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\ClassicManagerToInvite $body  (optional)
-     *
-     * @throws ApiException on non-2xx response
-     * @return \DocuSign\Rooms\Model\User
-     */
-    public function inviteClassicManager($account_id, $body = null)
-    {
-        list($response) = $this->inviteClassicManagerWithHttpInfo($account_id, $body);
-        return $response;
-    }
-
-    /**
-     * Operation inviteClassicManagerWithHttpInfo
-     *
-     * CLASSIC COMPANY ONLY. Send an invitation to join the company as a manager.
-     *
-     * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\ClassicManagerToInvite $body  (optional)
-     *
-     * @throws ApiException on non-2xx response
-     * @return array of \DocuSign\Rooms\Model\User, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function inviteClassicManagerWithHttpInfo($account_id, $body = null): array
-    {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $account_id when calling inviteClassicManager');
-        }
-        // parse inputs
-        $resourcePath = "/v2/accounts/{accountId}/users/invite_classic_manager";
-        $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
-        $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
-
-
-        // path params
-        if ($account_id !== null) {
-            $resourcePath = self::updateResourcePath($resourcePath, "accountId", $account_id);
-        }
-
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\DocuSign\Rooms\Model\User',
-                '/v2/accounts/{accountId}/users/invite_classic_manager'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\DocuSign\Rooms\Model\User', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\User', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DocuSign\Rooms\Model\ApiError', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
      * Operation inviteUser
      *
      * NON-CLASSIC COMPANY ONLY. Send an invitation to the user or non-user having the given email.
      *
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\UserToInvite $body  (optional)
+     * @param \DocuSign\Rooms\Model\UserToInvite $body Invitee information (optional)
      *
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\User
@@ -1150,7 +856,7 @@ class UsersApi
      * NON-CLASSIC COMPANY ONLY. Send an invitation to the user or non-user having the given email.
      *
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\UserToInvite $body  (optional)
+     * @param \DocuSign\Rooms\Model\UserToInvite $body Invitee information (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\User, HTTP status code, HTTP response headers (array of strings)
@@ -1165,7 +871,7 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users/invite_user";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -1232,7 +938,7 @@ class UsersApi
      *
      * @param ?int $user_id User Id of the user attempting to be locked.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\LockedOutDetails $body  (optional)
+     * @param \DocuSign\Rooms\Model\LockedOutDetails $body Details containing the reason the user is being locked out (optional)
      *
      * @throws ApiException on non-2xx response
      * @return mixed
@@ -1250,7 +956,7 @@ class UsersApi
      *
      * @param ?int $user_id User Id of the user attempting to be locked.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\LockedOutDetails $body  (optional)
+     * @param \DocuSign\Rooms\Model\LockedOutDetails $body Details containing the reason the user is being locked out (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
@@ -1269,7 +975,7 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/lock";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -1334,7 +1040,7 @@ class UsersApi
      *
      * Reinvites the pending user with the given userId.
      *
-     * @param ?int $user_id 
+     * @param ?int $user_id ID of the user to be invited
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
      *
      * @throws ApiException on non-2xx response
@@ -1351,7 +1057,7 @@ class UsersApi
      *
      * Reinvites the pending user with the given userId.
      *
-     * @param ?int $user_id 
+     * @param ?int $user_id ID of the user to be invited
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
      *
      * @throws ApiException on non-2xx response
@@ -1371,7 +1077,7 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/reinvite";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -1468,7 +1174,7 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -1530,7 +1236,7 @@ class UsersApi
      *
      * @param ?int $user_id The id of the user.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\DesignatedOffice $body  (optional)
+     * @param \DocuSign\Rooms\Model\DesignatedOffice $body Details of the office that the user will be removed from (optional)
      *
      * @throws ApiException on non-2xx response
      * @return mixed
@@ -1548,7 +1254,7 @@ class UsersApi
      *
      * @param ?int $user_id The id of the user.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\DesignatedOffice $body  (optional)
+     * @param \DocuSign\Rooms\Model\DesignatedOffice $body Details of the office that the user will be removed from (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
@@ -1567,8 +1273,8 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/remove_from_office";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params
@@ -1634,7 +1340,7 @@ class UsersApi
      *
      * @param ?int $user_id The id of the user.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\DesignatedRegion $body  (optional)
+     * @param \DocuSign\Rooms\Model\DesignatedRegion $body Region that given user will be removed from (optional)
      *
      * @throws ApiException on non-2xx response
      * @return mixed
@@ -1652,7 +1358,7 @@ class UsersApi
      *
      * @param ?int $user_id The id of the user.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\DesignatedRegion $body  (optional)
+     * @param \DocuSign\Rooms\Model\DesignatedRegion $body Region that given user will be removed from (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
@@ -1671,8 +1377,8 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/remove_from_region";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params
@@ -1773,7 +1479,7 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}/unlock";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -1835,7 +1541,7 @@ class UsersApi
      *
      * @param ?int $user_id The id of the user.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\UserForUpdate $body  (optional)
+     * @param \DocuSign\Rooms\Model\UserForUpdate $body Request body to update the user (optional)
      *
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\User
@@ -1853,7 +1559,7 @@ class UsersApi
      *
      * @param ?int $user_id The id of the user.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\UserForUpdate $body  (optional)
+     * @param \DocuSign\Rooms\Model\UserForUpdate $body Request body to update the user (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\User, HTTP status code, HTTP response headers (array of strings)
@@ -1872,8 +1578,8 @@ class UsersApi
         $resourcePath = "/v2/accounts/{accountId}/users/{userId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params

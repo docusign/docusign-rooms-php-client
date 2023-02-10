@@ -7,7 +7,7 @@
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team <apihelp@docusign.com>
- * @license     The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license     The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class AccountSummary implements ModelInterface, ArrayAccess
@@ -61,7 +61,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'company_id' => '?int',
         'name' => '?string',
-        'company_version' => '\DocuSign\Rooms\Model\ProductVersion',
+        'company_version' => '?string',
         'docu_sign_account_guid' => '?string',
         'default_field_set_id' => '?string',
         'require_office_library_assignments' => '?bool'
@@ -185,8 +185,23 @@ class AccountSummary implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const COMPANY_VERSION_V5 = 'v5';
+    const COMPANY_VERSION_V6 = 'v6';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCompanyVersionAllowableValues()
+    {
+        return [
+            self::COMPANY_VERSION_V5,
+            self::COMPANY_VERSION_V6,
+        ];
+    }
     
 
     /**
@@ -220,6 +235,14 @@ class AccountSummary implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getCompanyVersionAllowableValues();
+        if (!is_null($this->container['company_version']) && !in_array($this->container['company_version'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'company_version', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -287,7 +310,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Gets company_version
      *
-     * @return \DocuSign\Rooms\Model\ProductVersion
+     * @return ?string
      */
     public function getCompanyVersion()
     {
@@ -297,12 +320,21 @@ class AccountSummary implements ModelInterface, ArrayAccess
     /**
      * Sets company_version
      *
-     * @param \DocuSign\Rooms\Model\ProductVersion $company_version company_version
+     * @param ?string $company_version company_version
      *
      * @return $this
      */
     public function setCompanyVersion($company_version)
     {
+        $allowedValues = $this->getCompanyVersionAllowableValues();
+        if (!is_null($company_version) && !in_array($company_version, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'company_version', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['company_version'] = $company_version;
 
         return $this;
@@ -386,6 +418,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -398,6 +431,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -411,6 +445,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -427,6 +462,7 @@ class AccountSummary implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

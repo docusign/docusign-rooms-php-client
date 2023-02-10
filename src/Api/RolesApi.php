@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\RolesApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetRoleOptions
@@ -80,7 +80,7 @@ class GetRoleOptions
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetRolesOptions
@@ -114,27 +114,27 @@ class GetRolesOptions
     }
     /**
       * $filter_context Attribute establishing filter context for roles being returned - AllRoles, AssignableRolesBasedOnCompanyPermissions, AssignableRolesBasedOnAllPermissions
-      * @var ?string
+      * @var object
       */
-    protected ?string $filter_context = null;
+    protected object $filter_context = null;
 
     /**
      * Gets filter_context
      *
-     * @return ?string
+     * @return object
      */
-    public function getFilterContext(): ?string
+    public function getFilterContext(): object
     {
         return $this->filter_context;
     }
 
     /**
      * Sets filter_context
-     * @param ?string $filter_context Attribute establishing filter context for roles being returned - AllRoles, AssignableRolesBasedOnCompanyPermissions, AssignableRolesBasedOnAllPermissions
+     * @param object $filter_context Attribute establishing filter context for roles being returned - AllRoles, AssignableRolesBasedOnCompanyPermissions, AssignableRolesBasedOnAllPermissions
      *
      * @return self
      */
-    public function setFilterContext(?string $filter_context): self
+    public function setFilterContext(object $filter_context): self
     {
         $this->filter_context = $filter_context;
         return $this;
@@ -237,7 +237,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign Rooms PHP Client SDK is licensed under the MIT License.
+ * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class RolesApi
@@ -309,7 +309,7 @@ class RolesApi
      * Creates a role.
      *
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\RoleForCreate $body  (optional)
+     * @param \DocuSign\Rooms\Model\RoleForCreate $body Name and permission details of the role to be created (optional)
      *
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Role
@@ -326,7 +326,7 @@ class RolesApi
      * Creates a role.
      *
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\RoleForCreate $body  (optional)
+     * @param \DocuSign\Rooms\Model\RoleForCreate $body Name and permission details of the role to be created (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Role, HTTP status code, HTTP response headers (array of strings)
@@ -341,8 +341,8 @@ class RolesApi
         $resourcePath = "/v2/accounts/{accountId}/roles";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params
@@ -443,7 +443,7 @@ class RolesApi
         $resourcePath = "/v2/accounts/{accountId}/roles/{roleId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
 
@@ -542,7 +542,7 @@ class RolesApi
         $resourcePath = "/v2/accounts/{accountId}/roles/{roleId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
         if ($options != null)
@@ -646,7 +646,7 @@ class RolesApi
         $resourcePath = "/v2/accounts/{accountId}/roles";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
 
         if ($options != null)
@@ -727,7 +727,7 @@ class RolesApi
      *
      * @param ?int $role_id The id of the role.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\RoleForUpdate $body  (optional)
+     * @param \DocuSign\Rooms\Model\RoleForUpdate $body Name and permission details of the role to be updated (optional)
      *
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Role
@@ -745,7 +745,7 @@ class RolesApi
      *
      * @param ?int $role_id The id of the role.
      * @param ?string $account_id (Required) The globally unique identifier (GUID) for the account.
-     * @param \DocuSign\Rooms\Model\RoleForUpdate $body  (optional)
+     * @param \DocuSign\Rooms\Model\RoleForUpdate $body Name and permission details of the role to be updated (optional)
      *
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Role, HTTP status code, HTTP response headers (array of strings)
@@ -764,8 +764,8 @@ class RolesApi
         $resourcePath = "/v2/accounts/{accountId}/roles/{roleId}";
         $httpBody = $_tempBody ?? ''; // $_tempBody is the method argument, if present
         $queryParams = $headerParams = $formParams = [];
-        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json']);
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']);
+        $headerParams['Accept'] ??= $this->apiClient->selectHeaderAccept(['text/plain', 'application/json', 'text/json', 'application/xml', 'text/xml']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json', 'application/xml', 'text/xml', 'application/_*+xml']);
 
 
         // path params
