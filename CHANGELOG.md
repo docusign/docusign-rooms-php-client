@@ -1,6 +1,11 @@
 # DocuSign Rooms PHP Client Changelog
 See [DocuSign Support Center](https://support.docusign.com/en/releasenotes/) for Product Release Notes.
 
+## [v2.1.0] - Rooms API v2-1.1.0 - 2023-02-21
+### Changed
+- Added support for version v2-1.1.0 of the DocuSign Rooms API.
+- Updated the SDK release version.
+
 ## [v2.1.0-rc] - Rooms API v2-1.1.0 - 2023-02-10
 ### Changed
 - Added support for version v2-1.1.0 of the DocuSign Rooms API.
