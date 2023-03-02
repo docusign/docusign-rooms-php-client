@@ -116,7 +116,7 @@ class GetRolesOptions
       * $filter_context Attribute establishing filter context for roles being returned - AllRoles, AssignableRolesBasedOnCompanyPermissions, AssignableRolesBasedOnAllPermissions
       * @var object
       */
-    protected object $filter_context = null;
+    protected ?object $filter_context = null;
 
     /**
      * Gets filter_context

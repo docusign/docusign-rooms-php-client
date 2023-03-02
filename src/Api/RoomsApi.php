@@ -468,7 +468,7 @@ class GetRoomUsersOptions
       * $sort Sorts results. Options are FirstNameAsc, FirstNameDesc, LastNameAsc, LastNameDesc, EmailAsc, EmailDesc. Defaults to LastNameDesc
       * @var object
       */
-    protected object $sort = null;
+    protected ?object $sort = null;
 
     /**
      * Gets sort
@@ -563,7 +563,7 @@ class GetRoomsOptions
       * $room_status Status of the rooms to return. Defaults to \"Active\".
       * @var object
       */
-    protected object $room_status = null;
+    protected ?object $room_status = null;
 
     /**
      * Gets room_status
