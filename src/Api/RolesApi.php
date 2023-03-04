@@ -114,27 +114,27 @@ class GetRolesOptions
     }
     /**
       * $filter_context Attribute establishing filter context for roles being returned - AllRoles, AssignableRolesBasedOnCompanyPermissions, AssignableRolesBasedOnAllPermissions
-      * @var object
+      * @var ?string
       */
-    protected object $filter_context = null;
+    protected ?string $filter_context = null;
 
     /**
      * Gets filter_context
      *
-     * @return object
+     * @return ?string
      */
-    public function getFilterContext(): object
+    public function getFilterContext(): ?string
     {
         return $this->filter_context;
     }
 
     /**
      * Sets filter_context
-     * @param object $filter_context Attribute establishing filter context for roles being returned - AllRoles, AssignableRolesBasedOnCompanyPermissions, AssignableRolesBasedOnAllPermissions
+     * @param ?string $filter_context Attribute establishing filter context for roles being returned - AllRoles, AssignableRolesBasedOnCompanyPermissions, AssignableRolesBasedOnAllPermissions
      *
      * @return self
      */
-    public function setFilterContext(object $filter_context): self
+    public function setFilterContext(?string $filter_context): self
     {
         $this->filter_context = $filter_context;
         return $this;

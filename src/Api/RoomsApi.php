@@ -466,27 +466,27 @@ class GetRoomUsersOptions
     }
     /**
       * $sort Sorts results. Options are FirstNameAsc, FirstNameDesc, LastNameAsc, LastNameDesc, EmailAsc, EmailDesc. Defaults to LastNameDesc
-      * @var object
+      * @var ?string
       */
-    protected object $sort = null;
+    protected ?string $sort = null;
 
     /**
      * Gets sort
      *
-     * @return object
+     * @return ?string
      */
-    public function getSort(): object
+    public function getSort(): ?string
     {
         return $this->sort;
     }
 
     /**
      * Sets sort
-     * @param object $sort Sorts results. Options are FirstNameAsc, FirstNameDesc, LastNameAsc, LastNameDesc, EmailAsc, EmailDesc. Defaults to LastNameDesc
+     * @param ?string $sort Sorts results. Options are FirstNameAsc, FirstNameDesc, LastNameAsc, LastNameDesc, EmailAsc, EmailDesc. Defaults to LastNameDesc
      *
      * @return self
      */
-    public function setSort(object $sort): self
+    public function setSort(?string $sort): self
     {
         $this->sort = $sort;
         return $this;
@@ -561,27 +561,27 @@ class GetRoomsOptions
     }
     /**
       * $room_status Status of the rooms to return. Defaults to \"Active\".
-      * @var object
+      * @var ?string
       */
-    protected object $room_status = null;
+    protected ?string $room_status = null;
 
     /**
      * Gets room_status
      *
-     * @return object
+     * @return ?string
      */
-    public function getRoomStatus(): object
+    public function getRoomStatus(): ?string
     {
         return $this->room_status;
     }
 
     /**
      * Sets room_status
-     * @param object $room_status Status of the rooms to return. Defaults to \"Active\".
+     * @param ?string $room_status Status of the rooms to return. Defaults to \"Active\".
      *
      * @return self
      */
-    public function setRoomStatus(object $room_status): self
+    public function setRoomStatus(?string $room_status): self
     {
         $this->room_status = $room_status;
         return $this;
