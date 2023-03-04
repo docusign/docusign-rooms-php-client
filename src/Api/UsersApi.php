@@ -73,27 +73,27 @@ class GetUsersOptions
     }
     /**
       * $sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
-      * @var object
+      * @var ?string
       */
-    protected object $sort = null;
+    protected ?string $sort = null;
 
     /**
      * Gets sort
      *
-     * @return object
+     * @return ?string
      */
-    public function getSort(): object
+    public function getSort(): ?string
     {
         return $this->sort;
     }
 
     /**
      * Sets sort
-     * @param object $sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
+     * @param ?string $sort Valid values are 'FirstNameAsc', 'FirstNameDesc', 'LastNameAsc', 'LastNameDesc', 'EmailAsc', 'EmailDesc'
      *
      * @return self
      */
-    public function setSort(object $sort): self
+    public function setSort(?string $sort): self
     {
         $this->sort = $sort;
         return $this;
@@ -127,27 +127,27 @@ class GetUsersOptions
     }
     /**
       * $access_level Valid values are 'Company', 'Region', 'Office', 'Contributor'
-      * @var object
+      * @var ?string
       */
-    protected object $access_level = null;
+    protected ?string $access_level = null;
 
     /**
      * Gets access_level
      *
-     * @return object
+     * @return ?string
      */
-    public function getAccessLevel(): object
+    public function getAccessLevel(): ?string
     {
         return $this->access_level;
     }
 
     /**
      * Sets access_level
-     * @param object $access_level Valid values are 'Company', 'Region', 'Office', 'Contributor'
+     * @param ?string $access_level Valid values are 'Company', 'Region', 'Office', 'Contributor'
      *
      * @return self
      */
-    public function setAccessLevel(object $access_level): self
+    public function setAccessLevel(?string $access_level): self
     {
         $this->access_level = $access_level;
         return $this;
