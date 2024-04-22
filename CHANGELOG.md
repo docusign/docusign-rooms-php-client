@@ -1,6 +1,11 @@
 # DocuSign Rooms PHP Client Changelog
 See [DocuSign Support Center](https://support.docusign.com/en/releasenotes/) for Product Release Notes.
 
+## [v2.1.1] - Rooms API v2-1.1.1 - 2024-04-22
+### Changed
+- Adjusted the minimum required firebase/php-jwt package version to 6.0.
+- Updated the SDK release version.
+
 ## [v2.1.1-rc1] - Rooms API v2-1.1.1 - 2024-03-20
 ### Changed
 - Adjusted the minimum required `firebase/php-jwt` package version to 6.0.
