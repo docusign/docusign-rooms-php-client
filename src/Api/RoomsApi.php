@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\RoomsApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetAssignableRolesOptions
@@ -161,7 +161,7 @@ class GetAssignableRolesOptions
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetDocumentsOptions
@@ -337,7 +337,7 @@ class GetDocumentsOptions
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetRoomOptions
@@ -378,7 +378,7 @@ class GetRoomOptions
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetRoomUsersOptions
@@ -500,7 +500,7 @@ class GetRoomUsersOptions
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetRoomsOptions
@@ -738,7 +738,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class RoomsApi
@@ -757,7 +757,7 @@ class RoomsApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -1344,7 +1344,7 @@ class RoomsApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\AssignableRoles
      */
-    public function getAssignableRoles($room_id, $account_id, \DocuSign\Rooms\Api\RoomsApi\GetAssignableRolesOptions $options = null)
+    public function getAssignableRoles($room_id, $account_id, ?\DocuSign\Rooms\Api\RoomsApi\GetAssignableRolesOptions $options = null)
     {
         list($response) = $this->getAssignableRolesWithHttpInfo($room_id, $account_id, $options);
         return $response;
@@ -1362,7 +1362,7 @@ class RoomsApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\AssignableRoles, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAssignableRolesWithHttpInfo($room_id, $account_id, \DocuSign\Rooms\Api\RoomsApi\GetAssignableRolesOptions $options = null): array
+    public function getAssignableRolesWithHttpInfo($room_id, $account_id, ?\DocuSign\Rooms\Api\RoomsApi\GetAssignableRolesOptions $options = null): array
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
@@ -1463,7 +1463,7 @@ class RoomsApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomDocumentList
      */
-    public function getDocuments($room_id, $account_id, \DocuSign\Rooms\Api\RoomsApi\GetDocumentsOptions $options = null)
+    public function getDocuments($room_id, $account_id, ?\DocuSign\Rooms\Api\RoomsApi\GetDocumentsOptions $options = null)
     {
         list($response) = $this->getDocumentsWithHttpInfo($room_id, $account_id, $options);
         return $response;
@@ -1481,7 +1481,7 @@ class RoomsApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomDocumentList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDocumentsWithHttpInfo($room_id, $account_id, \DocuSign\Rooms\Api\RoomsApi\GetDocumentsOptions $options = null): array
+    public function getDocumentsWithHttpInfo($room_id, $account_id, ?\DocuSign\Rooms\Api\RoomsApi\GetDocumentsOptions $options = null): array
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
@@ -1588,7 +1588,7 @@ class RoomsApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Room
      */
-    public function getRoom($room_id, $account_id, \DocuSign\Rooms\Api\RoomsApi\GetRoomOptions $options = null)
+    public function getRoom($room_id, $account_id, ?\DocuSign\Rooms\Api\RoomsApi\GetRoomOptions $options = null)
     {
         list($response) = $this->getRoomWithHttpInfo($room_id, $account_id, $options);
         return $response;
@@ -1606,7 +1606,7 @@ class RoomsApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Room, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoomWithHttpInfo($room_id, $account_id, \DocuSign\Rooms\Api\RoomsApi\GetRoomOptions $options = null): array
+    public function getRoomWithHttpInfo($room_id, $account_id, ?\DocuSign\Rooms\Api\RoomsApi\GetRoomOptions $options = null): array
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
@@ -1900,7 +1900,7 @@ class RoomsApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomUsersResult
      */
-    public function getRoomUsers($room_id, $account_id, \DocuSign\Rooms\Api\RoomsApi\GetRoomUsersOptions $options = null)
+    public function getRoomUsers($room_id, $account_id, ?\DocuSign\Rooms\Api\RoomsApi\GetRoomUsersOptions $options = null)
     {
         list($response) = $this->getRoomUsersWithHttpInfo($room_id, $account_id, $options);
         return $response;
@@ -1918,7 +1918,7 @@ class RoomsApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomUsersResult, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoomUsersWithHttpInfo($room_id, $account_id, \DocuSign\Rooms\Api\RoomsApi\GetRoomUsersOptions $options = null): array
+    public function getRoomUsersWithHttpInfo($room_id, $account_id, ?\DocuSign\Rooms\Api\RoomsApi\GetRoomUsersOptions $options = null): array
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {
@@ -2018,7 +2018,7 @@ class RoomsApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomSummaryList
      */
-    public function getRooms($account_id, \DocuSign\Rooms\Api\RoomsApi\GetRoomsOptions $options = null)
+    public function getRooms($account_id, ?\DocuSign\Rooms\Api\RoomsApi\GetRoomsOptions $options = null)
     {
         list($response) = $this->getRoomsWithHttpInfo($account_id, $options);
         return $response;
@@ -2035,7 +2035,7 @@ class RoomsApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoomsWithHttpInfo($account_id, \DocuSign\Rooms\Api\RoomsApi\GetRoomsOptions $options = null): array
+    public function getRoomsWithHttpInfo($account_id, ?\DocuSign\Rooms\Api\RoomsApi\GetRoomsOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {

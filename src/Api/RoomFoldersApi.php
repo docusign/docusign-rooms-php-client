@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\RoomFoldersApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetRoomFoldersOptions
@@ -115,7 +115,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class RoomFoldersApi
@@ -134,7 +134,7 @@ class RoomFoldersApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -193,7 +193,7 @@ class RoomFoldersApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomFolderList
      */
-    public function getRoomFolders($room_id, $account_id, \DocuSign\Rooms\Api\RoomFoldersApi\GetRoomFoldersOptions $options = null)
+    public function getRoomFolders($room_id, $account_id, ?\DocuSign\Rooms\Api\RoomFoldersApi\GetRoomFoldersOptions $options = null)
     {
         list($response) = $this->getRoomFoldersWithHttpInfo($room_id, $account_id, $options);
         return $response;
@@ -211,7 +211,7 @@ class RoomFoldersApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomFolderList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoomFoldersWithHttpInfo($room_id, $account_id, \DocuSign\Rooms\Api\RoomFoldersApi\GetRoomFoldersOptions $options = null): array
+    public function getRoomFoldersWithHttpInfo($room_id, $account_id, ?\DocuSign\Rooms\Api\RoomFoldersApi\GetRoomFoldersOptions $options = null): array
     {
         // verify the required parameter 'room_id' is set
         if ($room_id === null) {

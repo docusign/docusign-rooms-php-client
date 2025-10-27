@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -47,7 +47,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class TaskStatusesApi
@@ -66,7 +66,7 @@ class TaskStatusesApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }

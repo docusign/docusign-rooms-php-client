@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\OfficesApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetOfficesOptions
@@ -169,7 +169,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class OfficesApi
@@ -188,7 +188,7 @@ class OfficesApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -542,7 +542,7 @@ class OfficesApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\OfficeSummaryList
      */
-    public function getOffices($account_id, \DocuSign\Rooms\Api\OfficesApi\GetOfficesOptions $options = null)
+    public function getOffices($account_id, ?\DocuSign\Rooms\Api\OfficesApi\GetOfficesOptions $options = null)
     {
         list($response) = $this->getOfficesWithHttpInfo($account_id, $options);
         return $response;
@@ -559,7 +559,7 @@ class OfficesApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\OfficeSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOfficesWithHttpInfo($account_id, \DocuSign\Rooms\Api\OfficesApi\GetOfficesOptions $options = null): array
+    public function getOfficesWithHttpInfo($account_id, ?\DocuSign\Rooms\Api\OfficesApi\GetOfficesOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {

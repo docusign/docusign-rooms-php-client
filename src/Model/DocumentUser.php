@@ -7,7 +7,7 @@
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category    Class
  * @package     DocuSign\Rooms
  * @author      Swagger Codegen team <apihelp@docusign.com>
- * @license     The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license     The Docusign PHP Client SDK is licensed under the MIT License.
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class DocumentUser implements ModelInterface, ArrayAccess
@@ -237,7 +237,7 @@ class DocumentUser implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
         $this->container['document_id'] = isset($data['document_id']) ? $data['document_id'] : null;

@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\TaskListTemplatesApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetTaskListTemplatesOptions
@@ -115,7 +115,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class TaskListTemplatesApi
@@ -134,7 +134,7 @@ class TaskListTemplatesApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -192,7 +192,7 @@ class TaskListTemplatesApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\TaskListTemplateList
      */
-    public function getTaskListTemplates($account_id, \DocuSign\Rooms\Api\TaskListTemplatesApi\GetTaskListTemplatesOptions $options = null)
+    public function getTaskListTemplates($account_id, ?\DocuSign\Rooms\Api\TaskListTemplatesApi\GetTaskListTemplatesOptions $options = null)
     {
         list($response) = $this->getTaskListTemplatesWithHttpInfo($account_id, $options);
         return $response;
@@ -209,7 +209,7 @@ class TaskListTemplatesApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\TaskListTemplateList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTaskListTemplatesWithHttpInfo($account_id, \DocuSign\Rooms\Api\TaskListTemplatesApi\GetTaskListTemplatesOptions $options = null): array
+    public function getTaskListTemplatesWithHttpInfo($account_id, ?\DocuSign\Rooms\Api\TaskListTemplatesApi\GetTaskListTemplatesOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {

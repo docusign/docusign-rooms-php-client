@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\FormGroupsApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetFormGroupsOptions
@@ -115,7 +115,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class FormGroupsApi
@@ -134,7 +134,7 @@ class FormGroupsApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -596,7 +596,7 @@ class FormGroupsApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FormGroupSummaryList
      */
-    public function getFormGroups($account_id, \DocuSign\Rooms\Api\FormGroupsApi\GetFormGroupsOptions $options = null)
+    public function getFormGroups($account_id, ?\DocuSign\Rooms\Api\FormGroupsApi\GetFormGroupsOptions $options = null)
     {
         list($response) = $this->getFormGroupsWithHttpInfo($account_id, $options);
         return $response;
@@ -613,7 +613,7 @@ class FormGroupsApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FormGroupSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFormGroupsWithHttpInfo($account_id, \DocuSign\Rooms\Api\FormGroupsApi\GetFormGroupsOptions $options = null): array
+    public function getFormGroupsWithHttpInfo($account_id, ?\DocuSign\Rooms\Api\FormGroupsApi\GetFormGroupsOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
