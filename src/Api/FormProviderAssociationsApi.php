@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\FormProviderAssociationsApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetFormProviderAssociationsOptions
@@ -115,7 +115,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class FormProviderAssociationsApi
@@ -134,7 +134,7 @@ class FormProviderAssociationsApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -193,7 +193,7 @@ class FormProviderAssociationsApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FormProviderAssociationsSummaryList
      */
-    public function getFormProviderAssociations($provider_id, $account_id, \DocuSign\Rooms\Api\FormProviderAssociationsApi\GetFormProviderAssociationsOptions $options = null)
+    public function getFormProviderAssociations($provider_id, $account_id, ?\DocuSign\Rooms\Api\FormProviderAssociationsApi\GetFormProviderAssociationsOptions $options = null)
     {
         list($response) = $this->getFormProviderAssociationsWithHttpInfo($provider_id, $account_id, $options);
         return $response;
@@ -211,7 +211,7 @@ class FormProviderAssociationsApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FormProviderAssociationsSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFormProviderAssociationsWithHttpInfo($provider_id, $account_id, \DocuSign\Rooms\Api\FormProviderAssociationsApi\GetFormProviderAssociationsOptions $options = null): array
+    public function getFormProviderAssociationsWithHttpInfo($provider_id, $account_id, ?\DocuSign\Rooms\Api\FormProviderAssociationsApi\GetFormProviderAssociationsOptions $options = null): array
     {
         // verify the required parameter 'provider_id' is set
         if ($provider_id === null) {

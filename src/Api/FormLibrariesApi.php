@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\FormLibrariesApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetFormLibrariesOptions
@@ -107,7 +107,7 @@ class GetFormLibrariesOptions
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetFormLibraryFormsOptions
@@ -183,7 +183,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class FormLibrariesApi
@@ -202,7 +202,7 @@ class FormLibrariesApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -260,7 +260,7 @@ class FormLibrariesApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FormLibrarySummaryList
      */
-    public function getFormLibraries($account_id, \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibrariesOptions $options = null)
+    public function getFormLibraries($account_id, ?\DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibrariesOptions $options = null)
     {
         list($response) = $this->getFormLibrariesWithHttpInfo($account_id, $options);
         return $response;
@@ -277,7 +277,7 @@ class FormLibrariesApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FormLibrarySummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFormLibrariesWithHttpInfo($account_id, \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibrariesOptions $options = null): array
+    public function getFormLibrariesWithHttpInfo($account_id, ?\DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibrariesOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
@@ -364,7 +364,7 @@ class FormLibrariesApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FormSummaryList
      */
-    public function getFormLibraryForms($form_library_id, $account_id, \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibraryFormsOptions $options = null)
+    public function getFormLibraryForms($form_library_id, $account_id, ?\DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibraryFormsOptions $options = null)
     {
         list($response) = $this->getFormLibraryFormsWithHttpInfo($form_library_id, $account_id, $options);
         return $response;
@@ -382,7 +382,7 @@ class FormLibrariesApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FormSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFormLibraryFormsWithHttpInfo($form_library_id, $account_id, \DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibraryFormsOptions $options = null): array
+    public function getFormLibraryFormsWithHttpInfo($form_library_id, $account_id, ?\DocuSign\Rooms\Api\FormLibrariesApi\GetFormLibraryFormsOptions $options = null): array
     {
         // verify the required parameter 'form_library_id' is set
         if ($form_library_id === null) {

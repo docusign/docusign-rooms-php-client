@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\RoomTemplatesApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetRoomTemplatesOptions
@@ -196,7 +196,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class RoomTemplatesApi
@@ -215,7 +215,7 @@ class RoomTemplatesApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -273,7 +273,7 @@ class RoomTemplatesApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoomTemplatesSummaryList
      */
-    public function getRoomTemplates($account_id, \DocuSign\Rooms\Api\RoomTemplatesApi\GetRoomTemplatesOptions $options = null)
+    public function getRoomTemplates($account_id, ?\DocuSign\Rooms\Api\RoomTemplatesApi\GetRoomTemplatesOptions $options = null)
     {
         list($response) = $this->getRoomTemplatesWithHttpInfo($account_id, $options);
         return $response;
@@ -290,7 +290,7 @@ class RoomTemplatesApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoomTemplatesSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoomTemplatesWithHttpInfo($account_id, \DocuSign\Rooms\Api\RoomTemplatesApi\GetRoomTemplatesOptions $options = null): array
+    public function getRoomTemplatesWithHttpInfo($account_id, ?\DocuSign\Rooms\Api\RoomTemplatesApi\GetRoomTemplatesOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {

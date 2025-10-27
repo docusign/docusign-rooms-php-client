@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\FieldsApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetFieldSetOptions
@@ -88,7 +88,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class FieldsApi
@@ -107,7 +107,7 @@ class FieldsApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -166,7 +166,7 @@ class FieldsApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\FieldSet
      */
-    public function getFieldSet($field_set_id, $account_id, \DocuSign\Rooms\Api\FieldsApi\GetFieldSetOptions $options = null)
+    public function getFieldSet($field_set_id, $account_id, ?\DocuSign\Rooms\Api\FieldsApi\GetFieldSetOptions $options = null)
     {
         list($response) = $this->getFieldSetWithHttpInfo($field_set_id, $account_id, $options);
         return $response;
@@ -184,7 +184,7 @@ class FieldsApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\FieldSet, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFieldSetWithHttpInfo($field_set_id, $account_id, \DocuSign\Rooms\Api\FieldsApi\GetFieldSetOptions $options = null): array
+    public function getFieldSetWithHttpInfo($field_set_id, $account_id, ?\DocuSign\Rooms\Api\FieldsApi\GetFieldSetOptions $options = null): array
     {
         // verify the required parameter 'field_set_id' is set
         if ($field_set_id === null) {

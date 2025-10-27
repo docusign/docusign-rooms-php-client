@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\RegionsApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetRegionsOptions
@@ -142,7 +142,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class RegionsApi
@@ -161,7 +161,7 @@ class RegionsApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -616,7 +616,7 @@ class RegionsApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RegionSummaryList
      */
-    public function getRegions($account_id, \DocuSign\Rooms\Api\RegionsApi\GetRegionsOptions $options = null)
+    public function getRegions($account_id, ?\DocuSign\Rooms\Api\RegionsApi\GetRegionsOptions $options = null)
     {
         list($response) = $this->getRegionsWithHttpInfo($account_id, $options);
         return $response;
@@ -633,7 +633,7 @@ class RegionsApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RegionSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRegionsWithHttpInfo($account_id, \DocuSign\Rooms\Api\RegionsApi\GetRegionsOptions $options = null): array
+    public function getRegionsWithHttpInfo($account_id, ?\DocuSign\Rooms\Api\RegionsApi\GetRegionsOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {

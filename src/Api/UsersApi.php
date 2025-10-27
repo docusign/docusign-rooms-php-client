@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\UsersApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetUsersOptions
@@ -331,7 +331,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class UsersApi
@@ -350,7 +350,7 @@ class UsersApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -717,7 +717,7 @@ class UsersApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\UserSummaryList
      */
-    public function getUsers($account_id, \DocuSign\Rooms\Api\UsersApi\GetUsersOptions $options = null)
+    public function getUsers($account_id, ?\DocuSign\Rooms\Api\UsersApi\GetUsersOptions $options = null)
     {
         list($response) = $this->getUsersWithHttpInfo($account_id, $options);
         return $response;
@@ -734,7 +734,7 @@ class UsersApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\UserSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUsersWithHttpInfo($account_id, \DocuSign\Rooms\Api\UsersApi\GetUsersOptions $options = null): array
+    public function getUsersWithHttpInfo($account_id, ?\DocuSign\Rooms\Api\UsersApi\GetUsersOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {

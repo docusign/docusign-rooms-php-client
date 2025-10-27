@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\RolesApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetRoleOptions
@@ -80,7 +80,7 @@ class GetRoleOptions
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetRolesOptions
@@ -237,7 +237,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class RolesApi
@@ -256,7 +256,7 @@ class RolesApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -510,7 +510,7 @@ class RolesApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Role
      */
-    public function getRole($role_id, $account_id, \DocuSign\Rooms\Api\RolesApi\GetRoleOptions $options = null)
+    public function getRole($role_id, $account_id, ?\DocuSign\Rooms\Api\RolesApi\GetRoleOptions $options = null)
     {
         list($response) = $this->getRoleWithHttpInfo($role_id, $account_id, $options);
         return $response;
@@ -528,7 +528,7 @@ class RolesApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Role, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoleWithHttpInfo($role_id, $account_id, \DocuSign\Rooms\Api\RolesApi\GetRoleOptions $options = null): array
+    public function getRoleWithHttpInfo($role_id, $account_id, ?\DocuSign\Rooms\Api\RolesApi\GetRoleOptions $options = null): array
     {
         // verify the required parameter 'role_id' is set
         if ($role_id === null) {
@@ -619,7 +619,7 @@ class RolesApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\RoleSummaryList
      */
-    public function getRoles($account_id, \DocuSign\Rooms\Api\RolesApi\GetRolesOptions $options = null)
+    public function getRoles($account_id, ?\DocuSign\Rooms\Api\RolesApi\GetRolesOptions $options = null)
     {
         list($response) = $this->getRolesWithHttpInfo($account_id, $options);
         return $response;
@@ -636,7 +636,7 @@ class RolesApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\RoleSummaryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRolesWithHttpInfo($account_id, \DocuSign\Rooms\Api\RolesApi\GetRolesOptions $options = null): array
+    public function getRolesWithHttpInfo($account_id, ?\DocuSign\Rooms\Api\RolesApi\GetRolesOptions $options = null): array
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {

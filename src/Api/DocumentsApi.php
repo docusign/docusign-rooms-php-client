@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
@@ -39,7 +39,7 @@ namespace DocuSign\Rooms\Api\DocumentsApi;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GetDocumentOptions
@@ -88,7 +88,7 @@ use DocuSign\Rooms\ObjectSerializer;
  * @category Class
  * @package  DocuSign\Rooms
  * @author   Swagger Codegen team <apihelp@docusign.com>
- * @license  The DocuSign PHP Client SDK is licensed under the MIT License.
+ * @license  The Docusign PHP Client SDK is licensed under the MIT License.
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 class DocumentsApi
@@ -107,7 +107,7 @@ class DocumentsApi
      *
      * @return void
      */
-    public function __construct(ApiClient $apiClient = null)
+    public function __construct(?ApiClient $apiClient = null)
     {
         $this->apiClient = $apiClient ?? new ApiClient();
     }
@@ -371,7 +371,7 @@ class DocumentsApi
      * @throws ApiException on non-2xx response
      * @return \DocuSign\Rooms\Model\Document
      */
-    public function getDocument($document_id, $account_id, \DocuSign\Rooms\Api\DocumentsApi\GetDocumentOptions $options = null)
+    public function getDocument($document_id, $account_id, ?\DocuSign\Rooms\Api\DocumentsApi\GetDocumentOptions $options = null)
     {
         list($response) = $this->getDocumentWithHttpInfo($document_id, $account_id, $options);
         return $response;
@@ -389,7 +389,7 @@ class DocumentsApi
      * @throws ApiException on non-2xx response
      * @return array of \DocuSign\Rooms\Model\Document, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDocumentWithHttpInfo($document_id, $account_id, \DocuSign\Rooms\Api\DocumentsApi\GetDocumentOptions $options = null): array
+    public function getDocumentWithHttpInfo($document_id, $account_id, ?\DocuSign\Rooms\Api\DocumentsApi\GetDocumentOptions $options = null): array
     {
         // verify the required parameter 'document_id' is set
         if ($document_id === null) {
