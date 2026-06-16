@@ -1,6 +1,11 @@
 # DocuSign Rooms PHP Client Changelog
 See [DocuSign Support Center](https://support.docusign.com/en/releasenotes/) for Product Release Notes.
 
+## [v2.1.3] - Rooms API v2-1.1.1 - 2026-06-16
+### Changed
+- Added support for version v2.1-26.1.1.00 of the DocuSign ESignature API.
+- Updated the SDK release version.
+
 ## [v2.1.2] - Rooms API v2-1.1.1 - 2025-10-16
 ### Changed
 - Added explicit nullable type hints (?Type) to parameters that accept null, improving type safety and consistency.
