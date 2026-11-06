@@ -34,7 +34,7 @@ use DocuSign\Rooms\Client\Auth\OAuth;
 use \DocuSign\Rooms\Configuration;
 use \DocuSign\Rooms\ObjectSerializer;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
-use Ahc\Jwt\JWT;
+use Firebase\JWT\JWT;
 
 /**
  * ApiClient Class Doc Comment
@@ -406,6 +406,7 @@ class ApiClient
             $h = explode(':', $h, 2);
 
             if (isset($h[1])) {
+                $h[0] = strtolower(trim($h[0]));
                 if (!isset($headers[$h[0]])) {
                     $headers[$h[0]] = trim($h[1]);
                 } elseif (is_array($headers[$h[0]])) {
@@ -489,7 +490,7 @@ class ApiClient
 
         $resourcePath = "/oauth/token";
         $queryParams = [];
-        $integrator_and_secret_key = "Basic " . utf8_decode(base64_encode("{$client_id}:{$client_secret}"));
+        $integrator_and_secret_key = "Basic " . base64_encode("{$client_id}:{$client_secret}");
         $headers = [
             "Authorization" => $integrator_and_secret_key,
             "Content-Type" => "application/x-www-form-urlencoded",
@@ -528,7 +529,7 @@ class ApiClient
         }
         $resourcePath = "/oauth/token"; 
         $queryParams = []; 
-        $integrator_and_secret_key = "Basic " . utf8_decode(base64_encode("{$client_id}:{$client_secret}")); 
+        $integrator_and_secret_key = "Basic " . base64_encode("{$client_id}:{$client_secret}"); 
         $headers = [ 
             "Authorization" => $integrator_and_secret_key, 
             "Content-Type" => "application/x-www-form-urlencoded", 
@@ -593,7 +594,7 @@ class ApiClient
             throw new \InvalidArgumentException('Invalid RSA private key provided when calling requestJWTUserToken');
         }
 
-        $jwt = (new JWT($private_key, 'RS256'))->encode($claim);
+        $jwt = JWT::encode($claim, $private_key, 'RS256');
 
         $resourcePath = "/oauth/token";
         $queryParams = [];
@@ -657,7 +658,7 @@ class ApiClient
             throw new \InvalidArgumentException('Invalid RSA private key provided when calling requestJWTApplicationToken');
         }
 
-        $jwt = (new JWT($private_key, 'RS256'))->encode($claim);
+        $jwt = JWT::encode($claim, $private_key, 'RS256');
 
         $resourcePath = "/oauth/token";
         $queryParams = [];
