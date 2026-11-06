@@ -4,12 +4,17 @@
 
 ## Requirements
 
-- PHP 5.4+
+- A PHP release patched for PHP2Shell (CVE-2026-109618 / CVE-2026-109619). The supported versions are:
+  - PHP 8.2.35 or any later 8.2 release
+  - PHP 8.3.36 or any later 8.3 release
+  - PHP 8.4.27 or any later 8.4 release
+  - PHP 8.5.12 or later
 - Free [Developer Sandbox](https://go.docusign.com/sandbox/productshot/?elqCampaignId=16531)
 
 ## Compatibility
 
-- PHP 5.4+
+- PHP `~8.2.35 || ~8.3.36 || ~8.4.27 || >=8.5.12`. PHP 7.4, 8.0 and 8.1 are not supported. See the [PHP security advisory](https://www.php.net/archive/2026.php#2026-10-21-5).
+- If your Linux distribution has backported the fix but reports an older version number, install with `composer install --ignore-platform-req=php`, and only after confirming that your PHP build includes the fix.
 
 ## Note
 
@@ -44,6 +49,8 @@ This client has the following external dependencies:
 
 - [PHP cURL extension](https://www.php.net/manual/en/intro.curl.php)
 - [PHP JSON extension](https://php.net/manual/en/book.json.php)
+- [PHP mbstring extension](https://www.php.net/manual/en/book.mbstring.php)
+- [firebase/php-jwt](https://github.com/firebase/php-jwt) (^7.0), used for JWT Grant authentication. JWT Grant requires an RSA private key of at least 2048 bits.
 
 ## Code Examples
 
